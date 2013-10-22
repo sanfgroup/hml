@@ -9,15 +9,15 @@
 
 // The commands
 $commands = array(
-    'cd /var/www/vinnizp.san-francisco.com.ua && echo $PWD',
-    'cd /var/www/vinnizp.san-francisco.com.ua && whoami',
-    'cd /var/www/vinnizp.san-francisco.com.ua && git pull',
-    'cd /var/www/vinnizp.san-francisco.com.ua && git status',
-    'cd /var/www/vinnizp.san-francisco.com.ua && git submodule sync',
-    'cd /var/www/vinnizp.san-francisco.com.ua && git submodule update',
-    'cd /var/www/vinnizp.san-francisco.com.ua && git submodule status',
-    "cd /var/www/vinnizp.san-francisco.com.ua && php artisan clear-compiled",
-	"cd /var/www/vinnizp.san-francisco.com.ua && php artisan optimize"
+    'cd /var/www/hml.san-francisco.com.ua && echo $PWD',
+    'cd /var/www/hml.san-francisco.com.ua && whoami',
+    'cd /var/www/hml.san-francisco.com.ua && git pull',
+    'cd /var/www/hml.san-francisco.com.ua && git status',
+    'cd /var/www/hml.san-francisco.com.ua && git submodule sync',
+    'cd /var/www/hml.san-francisco.com.ua && git submodule update',
+    'cd /var/www/hml.san-francisco.com.ua && git submodule status',
+    "cd /var/www/hml.san-francisco.com.ua && php artisan clear-compiled",
+	"cd /var/www/hml.san-francisco.com.ua && php artisan optimize"
 );
 
 // Run the commands for output
