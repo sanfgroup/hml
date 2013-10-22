@@ -96,8 +96,8 @@
 //
 // When a container is present, change the behavior of the header and collapse.
 
-.container>.navbar-header,
-.container>.navbar-collapse {
+.container > .navbar-header,
+.container > .navbar-collapse {
   margin-right: -@navbar-padding-horizontal;
   margin-left:  -@navbar-padding-horizontal;
 
@@ -158,7 +158,7 @@
   }
 
   @media (min-width: @grid-float-breakpoint) {
-    .navbar>.container & {
+    .navbar > .container & {
       margin-left: -@navbar-padding-horizontal;
     }
   }
@@ -205,7 +205,7 @@
 .navbar-nav {
   margin: (@navbar-padding-vertical / 2) -@navbar-padding-horizontal;
 
- >li>a {
+  > li > a {
     padding-top:    10px;
     padding-bottom: 10px;
     line-height: @line-height-computed;
@@ -221,11 +221,11 @@
       background-color: transparent;
       border: 0;
       box-shadow: none;
-     >li>a,
+      > li > a,
       .dropdown-header {
         padding: 5px 15px 5px 25px;
       }
-     >li>a {
+      > li > a {
         line-height: @line-height-computed;
         &:hover,
         &:focus {
@@ -240,9 +240,9 @@
     float: left;
     margin: 0;
 
-   >li {
+    > li {
       float: left;
-     >a {
+      > a {
         padding-top: ((@navbar-height - @line-height-computed) / 2);
         padding-bottom: ((@navbar-height - @line-height-computed) / 2);
       }
@@ -306,18 +306,18 @@
 // Dropdown menus
 
 // Menu position and menu carets
-.navbar-nav>li>.dropdown-menu {
+.navbar-nav > li > .dropdown-menu {
   margin-top: 0;
   .border-top-radius(0);
 }
 // Menu position and menu caret support for dropups via extra dropup class
-.navbar-fixed-bottom .navbar-nav>li>.dropdown-menu {
+.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
   .border-bottom-radius(0);
 }
 
 // Right aligned menus need alt position
-.navbar-nav.pull-right>li>.dropdown-menu,
-.navbar-nav>li>.dropdown-menu.pull-right {
+.navbar-nav.pull-right > li > .dropdown-menu,
+.navbar-nav > li > .dropdown-menu.pull-right {
   left: auto;
   right: 0;
 }
@@ -368,7 +368,7 @@
   }
 
   .navbar-nav {
-   >li>a {
+    > li > a {
       color: @navbar-default-link-color;
 
       &:hover,
@@ -377,7 +377,7 @@
         background-color: @navbar-default-link-hover-bg;
       }
     }
-   >.active>a {
+    > .active > a {
       &,
       &:hover,
       &:focus {
@@ -385,7 +385,7 @@
         background-color: @navbar-default-link-active-bg;
       }
     }
-   >.disabled>a {
+    > .disabled > a {
       &,
       &:hover,
       &:focus {
@@ -414,14 +414,14 @@
   // Dropdown menu items and carets
   .navbar-nav {
     // Caret should match text color on hover
-   >.dropdown>a:hover .caret,
-   >.dropdown>a:focus .caret {
+    > .dropdown > a:hover .caret,
+    > .dropdown > a:focus .caret {
       border-top-color: @navbar-default-link-hover-color;
       border-bottom-color: @navbar-default-link-hover-color;
     }
 
     // Remove background color from open dropdown
-   >.open>a {
+    > .open > a {
       &,
       &:hover,
       &:focus {
@@ -433,7 +433,7 @@
         }
       }
     }
-   >.dropdown>a .caret {
+    > .dropdown > a .caret {
       border-top-color: @navbar-default-link-color;
       border-bottom-color: @navbar-default-link-color;
     }
@@ -442,7 +442,7 @@
     @media (max-width: @screen-xs-max) {
       // Dropdowns get custom display when collapsed
       .open .dropdown-menu {
-       >li>a {
+        > li > a {
           color: @navbar-default-link-color;
           &:hover,
           &:focus {
@@ -450,7 +450,7 @@
             background-color: @navbar-default-link-hover-bg;
           }
         }
-       >.active>a {
+        > .active > a {
           &,
           &:hover,
           &:focus {
@@ -458,7 +458,7 @@
             background-color: @navbar-default-link-active-bg;
           }
         }
-       >.disabled>a {
+        > .disabled > a {
           &,
           &:hover,
           &:focus {
@@ -504,7 +504,7 @@
   }
 
   .navbar-nav {
-   >li>a {
+    > li > a {
       color: @navbar-inverse-link-color;
 
       &:hover,
@@ -513,7 +513,7 @@
         background-color: @navbar-inverse-link-hover-bg;
       }
     }
-   >.active>a {
+    > .active > a {
       &,
       &:hover,
       &:focus {
@@ -521,7 +521,7 @@
         background-color: @navbar-inverse-link-active-bg;
       }
     }
-   >.disabled>a {
+    > .disabled > a {
       &,
       &:hover,
       &:focus {
@@ -550,7 +550,7 @@
 
   // Dropdowns
   .navbar-nav {
-   >.open>a {
+    > .open > a {
       &,
       &:hover,
       &:focus {
@@ -558,15 +558,15 @@
         color: @navbar-inverse-link-active-color;
       }
     }
-   >.dropdown>a:hover .caret {
+    > .dropdown > a:hover .caret {
       border-top-color: @navbar-inverse-link-hover-color;
       border-bottom-color: @navbar-inverse-link-hover-color;
     }
-   >.dropdown>a .caret {
+    > .dropdown > a .caret {
       border-top-color: @navbar-inverse-link-color;
       border-bottom-color: @navbar-inverse-link-color;
     }
-   >.open>a {
+    > .open > a {
       &,
       &:hover,
       &:focus {
@@ -580,10 +580,10 @@
     @media (max-width: @screen-xs-max) {
       // Dropdowns get custom display
       .open .dropdown-menu {
-       >.dropdown-header {
+        > .dropdown-header {
           border-color: @navbar-inverse-border;
         }
-       >li>a {
+        > li > a {
           color: @navbar-inverse-link-color;
           &:hover,
           &:focus {
@@ -591,7 +591,7 @@
             background-color: @navbar-inverse-link-hover-bg;
           }
         }
-       >.active>a {
+        > .active > a {
           &,
           &:hover,
           &:focus {
@@ -599,7 +599,7 @@
             background-color: @navbar-inverse-link-active-bg;
           }
         }
-       >.disabled>a {
+        > .disabled > a {
           &,
           &:hover,
           &:focus {
