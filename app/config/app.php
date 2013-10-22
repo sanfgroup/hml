@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://localhost',
+	'url' => 'http://hml.san-francisco.com.ua',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return array(
 	|
 	*/
 
-	'locale' => 'en',
+	'locale' => 'ru',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return array(
 	|
 	*/
 
-	'key' => 'YourSecretKey!!!',
+	'key' => 'kjuit876as8dfs7g8ftg87t&^^%',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -202,6 +202,6 @@ return array(
 
     ),
 
-    'available_language' => array('en', 'pt', 'es'),
+    'available_language' => array('en', 'ru'),
 
 );
