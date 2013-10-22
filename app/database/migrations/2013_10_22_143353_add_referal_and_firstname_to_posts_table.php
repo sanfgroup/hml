@@ -18,6 +18,7 @@ class AddReferalAndFirstnameToPostsTable extends Migration {
 			$table->string('perfect_money');
 			$table->string('okpay');
 			$table->integer('money');
+			$table->integer('zmoney');
 			$table->string('perfect_money');
 		});
 	}
