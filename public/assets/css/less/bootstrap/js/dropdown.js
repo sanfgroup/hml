@@ -83,7 +83,7 @@
 
     var index = $items.index($items.filter(':focus'))
 
-    if (e.keyCode == 38 && index > 0)                 index--                        // up
+    if (e.keyCode == 38 && index>0)                 index--                        // up
     if (e.keyCode == 40 && index < $items.length - 1) index++                        // down
     if (!~index)                                      index=0
 

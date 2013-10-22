@@ -24,7 +24,7 @@ function waitFor(testFx, onReady, timeOutMillis) {
 }
 
 
-if (phantom.args.length === 0 || phantom.args.length > 2) {
+if (phantom.args.length === 0 || phantom.args.length>2) {
   console.log('Usage: phantom.js URL')
   phantom.exit()
 }
@@ -57,7 +57,7 @@ page.open(phantom.args[0], function(status){
         } catch (e) { }
         return 10000
       });
-      phantom.exit((parseInt(failedNum, 10) > 0) ? 1 : 0)
+      phantom.exit((parseInt(failedNum, 10)>0) ? 1 : 0)
     })
   }
 })

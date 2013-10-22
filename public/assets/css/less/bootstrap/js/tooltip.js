@@ -174,9 +174,9 @@
         var parentHeight = this.options.container == 'body' ? window.innerHeight : $parent.outerHeight()
         var parentLeft   = this.options.container == 'body' ? 0 : $parent.offset().left
 
-        placement = placement == 'bottom' && pos.top   + pos.height  + actualHeight - docScroll > parentHeight  ? 'top'    :
+        placement = placement == 'bottom' && pos.top   + pos.height  + actualHeight - docScroll>parentHeight  ? 'top'    :
                     placement == 'top'    && pos.top   - docScroll   - actualHeight < 0                         ? 'bottom' :
-                    placement == 'right'  && pos.right + actualWidth > parentWidth                              ? 'left'   :
+                    placement == 'right'  && pos.right + actualWidth>parentWidth                              ? 'left'   :
                     placement == 'left'   && pos.left  - actualWidth < parentLeft                               ? 'right'  :
                     placement
 

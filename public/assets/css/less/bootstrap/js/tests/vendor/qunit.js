@@ -301,7 +301,7 @@ var QUnit = {
 
 	/**
 	 * Asserts true.
-	 * @example ok( "asdfasdf".length > 5, "There must be at least 5 chars" );
+	 * @example ok( "asdfasdf".length>5, "There must be at least 5 chars" );
 	 */
 	ok: function(a, msg) {
 		a = !!a;
@@ -388,7 +388,7 @@ var QUnit = {
 
 	start: function() {
 		config.semaphore--;
-		if (config.semaphore > 0) {
+		if (config.semaphore>0) {
 			// don't start until equal number of stop-calls
 			return;
 		}
@@ -399,7 +399,7 @@ var QUnit = {
 		// A slight delay, to avoid any current callbacks
 		if ( defined.setTimeout ) {
 			window.setTimeout(function() {
-				if (config.semaphore > 0) {
+				if (config.semaphore>0) {
 					return;
 				}
 				if ( config.timeout ) {
@@ -909,12 +909,12 @@ function checkPollution( name ) {
 	saveGlobal();
 
 	var newGlobals = diff( config.pollution, old );
-	if ( newGlobals.length > 0 ) {
+	if ( newGlobals.length>0 ) {
 		ok( false, "Introduced global variable(s): " + newGlobals.join(", ") );
 	}
 
 	var deletedGlobals = diff( old, config.pollution );
-	if ( deletedGlobals.length > 0 ) {
+	if ( deletedGlobals.length>0 ) {
 		ok( false, "Deleted global variable(s): " + deletedGlobals.join(", ") );
 	}
 }
@@ -1432,8 +1432,8 @@ QUnit.diff = (function() {
 			}
 		}
 
-		for (var i = n.length - 1; i > 0; i--) {
-			if (n[i].text != null && n[i - 1].text == null && n[i].row > 0 && o[n[i].row - 1].text == null &&
+		for (var i = n.length - 1; i>0; i--) {
+			if (n[i].text != null && n[i - 1].text == null && n[i].row>0 && o[n[i].row - 1].text == null &&
 			n[i - 1] == o[n[i].row - 1]) {
 				n[i - 1] = {
 					text: n[i - 1],

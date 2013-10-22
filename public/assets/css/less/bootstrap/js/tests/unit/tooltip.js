@@ -292,8 +292,8 @@ $(function () {
           .appendTo('#qunit-fixture')
           .tooltip({container:'body'})
           .tooltip('show')
-        ok($("body > .tooltip").length, 'inside the body')
-        ok(!$("#qunit-fixture > .tooltip").length, 'not found in parent')
+        ok($("body>.tooltip").length, 'inside the body')
+        ok(!$("#qunit-fixture>.tooltip").length, 'not found in parent')
         tooltip.tooltip('hide')
       })
 

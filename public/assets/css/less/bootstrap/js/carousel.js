@@ -67,12 +67,12 @@
     var that        = this
     var activeIndex = this.getActiveIndex()
 
-    if (pos > (this.$items.length - 1) || pos < 0) return
+    if (pos>(this.$items.length - 1) || pos < 0) return
 
     if (this.sliding)       return this.$element.one('slid', function () { that.to(pos) })
     if (activeIndex == pos) return this.pause().cycle()
 
-    return this.slide(pos > activeIndex ? 'next' : 'prev', $(this.$items[pos]))
+    return this.slide(pos>activeIndex ? 'next' : 'prev', $(this.$items[pos]))
   }
 
   Carousel.prototype.pause = function (e) {

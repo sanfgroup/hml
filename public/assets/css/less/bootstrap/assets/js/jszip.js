@@ -302,7 +302,7 @@ JSZip.prototype = (function () {
          path = path.substring(0, path.length - 1);
       }
       var lastSlash = path.lastIndexOf('/');
-      return (lastSlash > 0) ? path.substring(0, lastSlash) : "";
+      return (lastSlash>0) ? path.substring(0, lastSlash) : "";
    };
 
    /**
@@ -871,7 +871,7 @@ JSZip.prototype = (function () {
 
             if (c < 128) {
                result[resIndex++] = String.fromCharCode(c);
-            } else if ((c > 127) && (c < 2048)) {
+            } else if ((c>127) && (c < 2048)) {
                result[resIndex++] = String.fromCharCode((c >> 6) | 192);
                result[resIndex++] = String.fromCharCode((c & 63) | 128);
             } else {
@@ -913,7 +913,7 @@ JSZip.prototype = (function () {
             if (c < 128) {
                result[resIndex++] = String.fromCharCode(c);
                i++;
-            } else if ((c > 191) && (c < 224)) {
+            } else if ((c>191) && (c < 224)) {
                c2 = isArray ? input[i+1] : input.charCodeAt(i+1);
                result[resIndex++] = String.fromCharCode(((c & 31) << 6) | (c2 & 63));
                i += 2;
@@ -1119,7 +1119,7 @@ JSZip.support = {
       var chunk = 65536;
       var result = [], len = array.length, type = JSZip.utils.getTypeOf(array), k = 0;
 
-      while (k < len && chunk > 1) {
+      while (k < len && chunk>1) {
          try {
             if (type === "array" || type === "nodebuffer") {
                result.push(String.fromCharCode.apply(null, array.slice(k, Math.max(k + chunk, len))));

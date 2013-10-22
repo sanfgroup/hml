@@ -68,7 +68,7 @@
     function next() {
       $active
         .removeClass('active')
-        .find('> .dropdown-menu > .active')
+        .find('> .dropdown-menu>.active')
         .removeClass('active')
 
       element.addClass('active')

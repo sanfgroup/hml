@@ -189,7 +189,7 @@
 	white-space: pre;
 }
 
-#qunit-tests > li:last-child {
+#qunit-tests>li:last-child {
 	border-radius: 0 0 15px 15px;
 	-moz-border-radius: 0 0 15px 15px;
 	-webkit-border-bottom-right-radius: 15px;

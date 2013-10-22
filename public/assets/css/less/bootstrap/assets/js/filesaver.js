@@ -142,7 +142,7 @@ else var Blob = (function (view) {
         type = null;
       }
       return new FakeBlob(
-          this.data.slice(start, args > 1 ? end : this.data.length)
+          this.data.slice(start, args>1 ? end : this.data.length)
         , type
         , this.encoding
       );

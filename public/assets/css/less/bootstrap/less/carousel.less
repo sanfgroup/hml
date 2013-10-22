@@ -13,49 +13,49 @@
   overflow: hidden;
   width: 100%;
 
-  > .item {
+ >.item {
     display: none;
     position: relative;
     .transition(.6s ease-in-out left);
 
     // Account for jankitude on images
-    > img,
-    > a > img {
+   >img,
+   >a>img {
       .img-responsive();
       line-height: 1;
     }
   }
 
-  > .active,
-  > .next,
-  > .prev { display: block; }
+ >.active,
+ >.next,
+ >.prev { display: block; }
 
-  > .active {
+ >.active {
     left: 0;
   }
 
-  > .next,
-  > .prev {
+ >.next,
+ >.prev {
     position: absolute;
     top: 0;
     width: 100%;
   }
 
-  > .next {
+ >.next {
     left: 100%;
   }
-  > .prev {
+ >.prev {
     left: -100%;
   }
-  > .next.left,
-  > .prev.right {
+ >.next.left,
+ >.prev.right {
     left: 0;
   }
 
-  > .active.left {
+ >.active.left {
     left: -100%;
   }
-  > .active.right {
+ >.active.right {
     left: 100%;
   }
 
@@ -80,12 +80,12 @@
 
   // Set gradients for backgrounds
   &.left {
-    #gradient > .horizontal(@start-color: rgba(0,0,0,.5); @end-color: rgba(0,0,0,.0001));
+    #gradient>.horizontal(@start-color: rgba(0,0,0,.5); @end-color: rgba(0,0,0,.0001));
   }
   &.right {
     left: auto;
     right: 0;
-    #gradient > .horizontal(@start-color: rgba(0,0,0,.0001); @end-color: rgba(0,0,0,.5));
+    #gradient>.horizontal(@start-color: rgba(0,0,0,.0001); @end-color: rgba(0,0,0,.5));
   }
 
   // Hover/focus state
