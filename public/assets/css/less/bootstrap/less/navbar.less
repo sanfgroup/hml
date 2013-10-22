@@ -259,8 +259,8 @@
 // though so that navbar contents properly stack and align in mobile.
 
 @media (min-width: @grid-float-breakpoint) {
-//  .navbar-left  { .pull-left(); }
-//  .navbar-right { .pull-right(); }
+  .navbar-left  { .pull-left(); }
+  .navbar-right { .pull-right(); }
 }
 
 
@@ -316,8 +316,8 @@
 }
 
 // Right aligned menus need alt position
-.navbar-nav.pull-right > li > .dropdown-menu,
-.navbar-nav > li > .dropdown-menu.pull-right {
+.navbar-nav.pull-right>li>.dropdown-menu,
+.navbar-nav>li>.dropdown-menu.pull-right {
   left: auto;
   right: 0;
 }
