@@ -1,5 +1,5 @@
 @extends('site.layouts.default')
-<!--ghh leoxopow-->
+<!--ghh leoxopow -->
 {{-- Content --}}
 @section('content')
 @foreach ($posts as $post)
