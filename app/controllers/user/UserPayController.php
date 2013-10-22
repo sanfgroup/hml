@@ -6,7 +6,7 @@
  * Time: 18:08
  */
 
-class UserPayController {
+class UserPayController extends BaseController {
     /**
      * User Model
      * @var User
