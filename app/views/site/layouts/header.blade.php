@@ -22,7 +22,8 @@
         </div>
         <a href="" class="reg">Регистрация в проекте <!-- Личный кабинет --></a>
         <!-- Контакты только на главной -->
-        <!-- <div class="contacts">
+        @if(Request::is('home'))
+        <div class="contacts">
             <h3>СВЯЗЬ С НАМИ</h3>
             <ul>
                 <li>
@@ -38,7 +39,8 @@
                     <p>happyline@gmail.com</p>
                 </li>
             </ul>
-        </div> -->
+        </div>
+        @endif
         <!-- Конец контактов -->
         <nav>
             <div class="container">
