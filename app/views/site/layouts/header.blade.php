@@ -57,7 +57,7 @@
                     <li class="l4"><a href="">ПРАВИЛА</a></li>
                 </menu>
                 <menu class="right">
-                    <li class="l5"><a href={{URL::route('news')}}"">НОВОСТИ</a></li>
+                    <li class="l5"><a href="{{URL::route('news')}}">НОВОСТИ</a></li>
                     <li class="l6"><a href="">ОТЗЫВЫ</a></li>
                     <li class="l7"><a href="">КОНТАКТЫ</a></li>
                 </menu>

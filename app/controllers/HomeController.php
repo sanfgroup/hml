@@ -17,7 +17,8 @@ class HomeController extends BaseController {
 
 	public function getIndex()
 	{
-		return View::make('site.home');
+        $data['news'] = News::take(2)->get();
+		return View::make('site.home', $data);
 	}
 	public function getNews()
 	{
