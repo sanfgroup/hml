@@ -5,9 +5,11 @@
     </div>
     <div class="sidebar">
         <h2>НОВОСТИ</h2>
+        @foreach($news as $k=>$v)
         <div class="onepost">
             <div class="post_date">
-                20 сентября 2013, 19:58
+<!--                20 сентября 2013, 19:58-->
+                {{$v->created_at}}
             </div>
             <h3>ПОЗДРАВЛЯЕМ С ОТКРЫТИЕМ ПРОЕКТА HAPPY LINE OF MONEY!!!</h3>
             <div class="post_description">
@@ -16,6 +18,7 @@
                 <a href="#" class="read_more">Читать полностью ...</a>
             </div>
         </div>
+        @endforeach
 
     </div>
     <div class="clear"></div>

@@ -8,8 +8,8 @@ class News extends Eloquent {
 
     function getShortAttribute() {
         $string = $this->content;
-        $words=explode(" ",$string);
-        return implode(" ",array_splice($words,0,60));
+        $words=explode("</p>",$string);
+        return $words[0]."</p>";
     }
 
 }
