@@ -11,9 +11,9 @@
 <!--                20 сентября 2013, 19:58-->
                 {{$v->created_at}}
             </div>
-            <h3>{{$v->title}</h3>
+            <h3>{{$v->title}}</h3>
             <div class="post_description">
-                {{$v->short}
+                {{$v->short}}
                 <a href="#" class="read_more">Читать полностью ...</a>
             </div>
         </div>
