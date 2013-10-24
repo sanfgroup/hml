@@ -1,8 +1,8 @@
-<div class="clear"></div>
-</div>
+
 <!-- footer begin -->
 <div class="empty"></div>
-<div class="ramka_bottom"></div></div>
+<div class="ramka_bottom"></div>
+</div>
 <footer>
     <a href="/" class="flogo"><img src="images/logo_bottom.png" alt=""></a>
     <p class="all">Copyright 2013.Все права защищены.</p>
