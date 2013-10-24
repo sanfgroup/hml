@@ -19,6 +19,7 @@
             </div>
         </div>
         @endforeach
+<!--        -->
 
     </div>
     <div class="clear"></div>
