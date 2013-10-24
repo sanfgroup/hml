@@ -1,9 +1,8 @@
 @include("site.layouts.header")
 <div class="container">
-    <div class="container">
-    @yield("content")
+    <div class="content">
+        @yield("content")
     </div>
-
     <div class="sidebar">
         <h2>НОВОСТИ</h2>
         <div class="onepost">
