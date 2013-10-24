@@ -1,6 +1,6 @@
 @include("site.layouts.header")
 <div class="container">
-    <div class="container_all">
+    <div class="container">
     @yield("content")
     </div>
 
