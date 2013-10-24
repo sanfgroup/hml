@@ -1,4 +1,4 @@
-@extends("site.layout.default")
+@extends("site.layouts.default")
 
 @section("content")
 <h2>НОВОСТИ</h2>

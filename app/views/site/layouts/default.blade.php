@@ -3,4 +3,4 @@
         @yield("content")
     </div>
 
-@extends("site.layout.footer");
+@extends("site.layouts.footer");
