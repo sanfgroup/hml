@@ -22,7 +22,7 @@
         </div>
         <a href="" class="reg">Регистрация в проекте <!-- Личный кабинет --></a>
         <!-- Контакты только на главной -->
-        @if(Request::is('home'))
+        @if(URI::is('home'))
         <div class="contacts">
             <h3>СВЯЗЬ С НАМИ</h3>
             <ul>
