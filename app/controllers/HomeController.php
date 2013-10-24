@@ -23,5 +23,9 @@ class HomeController extends BaseController {
 	{
 		return View::make('site.news');
 	}
+	public function getFaq()
+	{
+		return View::make('site.faq');
+	}
 
 }

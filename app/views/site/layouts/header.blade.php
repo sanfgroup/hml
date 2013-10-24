@@ -47,7 +47,7 @@
                 <menu class="left">
                     <li class="l1"><a href="">ГЛАВНАЯ</a></li>
                     <li class="l2"><a href="">МАРКЕТИНГ</a></li>
-                    <li class="l3"><a href="">FAQ</a></li>
+                    <li class="l3"><a href="{{URL::route('faq')}}">FAQ</a></li>
                     <li class="l4"><a href="">ПРАВИЛА</a></li>
                 </menu>
                 <menu class="right">

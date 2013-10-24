@@ -13,3 +13,4 @@
 
 Route::get('/', array('as'=>'home', 'uses'=>'HomeController@getIndex'));
 Route::get('/news', array('as'=>'news', 'uses'=>'HomeController@getNews'));
+Route::get('/faq', array('as'=>'faq', 'uses'=>'HomeController@getFaq'));
