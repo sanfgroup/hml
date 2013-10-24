@@ -97,6 +97,15 @@ menu li{
 	line-height: 57px
 
 }
+menu li ul{
+	position: absolute;
+}
+menu li ul li{
+	text-align: center;
+	height: 20px;
+	display: block;
+	line-height: 20px;
+}
 menu.right{
 	margin-right: 50px;
 }
@@ -1055,17 +1064,23 @@ ul.pagination li a:hover{
 	text-align: left;
 }
 .arrow_box {
+	cursor: pointer;
 	position: relative;
 	background: url(../images/que_bg.png) bottom repeat-x;
 	vertical-align: middle;
 	height: 45px;
 	padding: 15px 15px 0;
 	border-radius: 15px;
-	margin-bottom: 15px;
+	margin-bottom: 25px;
 	color: #fff;
 	-moz-box-shadow: 2px 4px 10px #888;
 	-webkit-box-shadow: 2px 4px 10px #888;
 	box-shadow: 2px 4px 10px #888;
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.05, #a4eaf5), to(#289cd8));
+	background-image: -webkit-linear-gradient(#a4eaf5 5%, #289cd8);
+	background-image: -moz-linear-gradient(#a4eaf5 5%, #289cd8);
+	background-image: -o-linear-gradient(#a4eaf5 5%, #289cd8);
+	background-image: linear-gradient(#a4eaf5 5%, #289cd8);
 }
 .arrow_box:after {
 	top: 100%;
@@ -1093,13 +1108,14 @@ ul.pagination li a:hover{
 	padding: 15px;
 	text-align: justify;
 	color: #fff;
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.15, #fee802), to(#e0a12d));
-	background-image: -webkit-linear-gradient(#fee802 15%, #e0a12d);
-	background-image: -moz-linear-gradient(#fee802 15%, #e0a12d);
-	background-image: -o-linear-gradient(#fee802 15%, #e0a12d);
-	background-image: linear-gradient(#fee802 15%, #e0a12d);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.10, #fee802), to(#e0a12d));
+	background-image: -webkit-linear-gradient(#fee802 10%, #e0a12d);
+	background-image: -moz-linear-gradient(#fee802 10%, #e0a12d);
+	background-image: -o-linear-gradient(#fee802 10%, #e0a12d);
+	background-image: linear-gradient(#fee802 10%, #e0a12d);
 }
 .question{
+
 	font-size: 16px;
 	font-family: 'MyriadPro-Regular';
 }
