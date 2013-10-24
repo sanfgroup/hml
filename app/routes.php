@@ -13,5 +13,5 @@
 
 Route::get('/', function()
 {
-	return View::make('site.news');
+	return View::make('site.home');
 });
