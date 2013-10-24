@@ -16,7 +16,6 @@
         </div>
     </div>
 
-</div>
     <div class="clear"></div>
     </div>
 @include("site.layouts.footer");
