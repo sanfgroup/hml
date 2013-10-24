@@ -1,4 +1,5 @@
-
+</div>
+<div class="clear"></div>
 <!-- footer begin -->
 <div class="empty"></div>
 <div class="ramka_bottom"></div></div>
