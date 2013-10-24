@@ -1,7 +1,7 @@
 @include("site.layouts.header")
 <div class="container">
     @yield("content")
-</div>
+
 <div class="sidebar">
     <h2>НОВОСТИ</h2>
     <div class="onepost">
@@ -17,4 +17,6 @@
     </div>
 
 </div>
+    <div class="clear"></div>
+    </div>
 @include("site.layouts.footer");
