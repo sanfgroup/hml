@@ -19,5 +19,9 @@ class HomeController extends BaseController {
 	{
 		return View::make('site.home');
 	}
+	public function getNews()
+	{
+		return View::make('site.news');
+	}
 
 }

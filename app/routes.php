@@ -12,3 +12,4 @@
 */
 
 Route::get('/', array('as'=>'home', 'uses'=>'HomeController@getIndex'));
+Route::get('/news', array('as'=>'news', 'uses'=>'HomeController@getNews'));
