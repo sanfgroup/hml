@@ -92,24 +92,39 @@ nav a.btn.abs{
 	top: 11px;
 }
 menu li{
+	position: relative;
 	display: inline-block;
 	height: 57px;
-	line-height: 57px
-
+	line-height: 57px;
+	text-align: center;
 }
-menu li ul{
+menu>li ul{
+	display: none;
+}
+menu>li:hover ul{
+	display: block;
+	width: 100%;
 	position: absolute;
+	margin: 0;
 }
 menu li ul li{
+	border-top: 1px solid  #fff;
+	background: #e26f2b;
 	text-align: center;
 	height: 20px;
 	display: block;
 	line-height: 20px;
 }
+menu li ul li a{
+	color: #fff;
+}
+menu li ul li a:hover{
+	color: #fff;
+}
 menu.right{
 	margin-right: 50px;
 }
-.l1{padding: 0 17px; background: url(../images/l1.png) repeat-x;  } .l2{padding: 0 16px 0 16px; background: url(../images/l2.png) repeat-x;} .l3{padding: 0 28px; background: url(../images/l3.png) repeat-x;} .l4{padding: 0 40px 0 18px; background: url(../images/l4.png) repeat-x;} .l5{padding: 0 25px 0 60px; background: url(../images/l5.png) repeat-x; } .l6{padding: 0 25px 0 25px; background: url(../images/l6.png) repeat-x;} .l7{padding: 0 27px; background: url(../images/l7.png) repeat-x;}
+.l1{padding: 0 17px; background: url(../images/l1.png) repeat-x;  } .l2{width: 110px; background: url(../images/l2.png) repeat-x;} .l3{padding: 0 28px; background: url(../images/l3.png) repeat-x;} .l4{padding: 0 40px 0 18px; background: url(../images/l4.png) repeat-x;} .l5{padding: 0 25px 0 60px; background: url(../images/l5.png) repeat-x; } .l6{padding: 0 25px 0 25px; background: url(../images/l6.png) repeat-x;} .l7{padding: 0 27px; background: url(../images/l7.png) repeat-x;}
 menu li a{
 	line-height: normal;
 	
@@ -1115,7 +1130,63 @@ ul.pagination li a:hover{
 	background-image: linear-gradient(#fee802 10%, #e0a12d);
 }
 .question{
-
 	font-size: 16px;
 	font-family: 'MyriadPro-Regular';
+}
+.mark_desc{
+	background: #64a4bb;
+	float: left;
+	border: 3px solid  #6fb7c3;
+	border-radius: 10px;
+}
+.mark_desc h3{
+	color: #fff;
+	font-family: "Arial";
+	font-size: 27px;
+	font-weight: normal;
+	margin: 5px 15px;
+	line-height: 27px;
+}
+.mark_desc p{
+	color: #fff;
+	font-size: 16px;
+	margin: 0 15px 10px;
+	font-family: "Arial";
+	line-height: 16px;
+}
+.mark_desc tr th{
+	background: url(../images/tb_desc_th_bg.png) repeat-x;
+	height: 46px;
+	min-width: 90px;
+	padding: 0 5px;
+	font-size: 13px;
+	font-weight: normal;
+	font-family: "Arial";
+	color: #1f3d71;
+	border-top: 1px solid  #6fb7c3;
+	border-bottom: 1px solid  #6fb7c3;
+	border-left: 1px solid  #d7dfec;
+}
+.mark_desc tr th:first-child{
+	min-width: 148px;
+}
+.mark_desc tr td{
+	text-align: center;
+	height: 36px;
+	background: #fff;
+	border-left: 1px solid  #d7dfec;
+	border-bottom: 1px solid  #d7dfec;
+	font-size: 11px;
+	font-family: "Arial";
+}
+.mark_desc tr td:first-child{
+	background: #dee5f4;
+	color: #1f3d71;
+	font-size: 13px;
+}
+.sdet{
+	font-family: "Arial";
+	color: #828282;
+	font-size: 10px;
+	margin: 0 10px;
 }
