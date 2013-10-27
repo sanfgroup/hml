@@ -28,7 +28,7 @@
                 <ul>
                     <li>
                         {{ Form::label('fio', 'Фамилия Имя Отчество:') }}
-                        {{ Form::text('fio') }}
+                        {{ Form::text('fio', null, array('class'=>'form-control')) }}
                     </li>
                     <li>
                         {{ Form::label('username', 'Логин:') }}
