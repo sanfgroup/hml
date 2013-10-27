@@ -398,11 +398,15 @@ p.all{
 	font-size: 11px;
 }
 h2{
+    color: #626262;
 	text-align: center;
 	font-family: "Georgia" !important;
 	font-size: 30px !important;
 	margin-bottom: 20px !important;
 	font-weight: normal !important;
+}
+.container_all h2{
+    font-family: "MyriadPro-Regular";
 }
 .content h2{
 	text-align: left;
@@ -1249,4 +1253,61 @@ form ul li {
 
 form ul li label {
     display: block;
+}
+/*
+    contacts
+*/
+p{
+    font-family: "MyriadPro-Regular";
+    color: #727272;
+}
+.contact_form{
+    width: 516px;
+    border: 1px solid #6fb7c3;
+}
+.contact_form form{
+    padding: 15px;
+
+}
+.contact_form form button{
+    float: right;
+    width: 136px;
+    color: #fff;
+    height: 40px;
+    border: 2px solid #bcd7dc;
+    border-radius: 10px;
+    background: url("../images/cont_grad.png") repeat-x;
+    background-size: 100% 100%;
+    font-size: 16px;
+    font-family: "MyriadPro-BoldCond";
+}
+.contact_form span{
+    vertical-align: top;
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    font-family: "MyriadPro-Regular";
+    color: #727272;
+    margin-right: 10px;
+}
+.contact_form input {
+    height: 30px;
+    width: 206px;
+    display: inline-block;
+}
+.contact_form textarea{
+    width: 300px;
+    display: inline-block;
+    height: 100px;
+}
+.contactsName{
+    font-family: "MyriadPro-BoldCond";
+    font-size: 16px;
+    color: #f0f0f0;
+    height: 36px;
+    line-height: 35px;
+    vertical-align: middle;
+    text-align: center;
+    background: url(../images/cont_grad.png) repeat-x bottom;
+    background-size: 100% 100%;
 }
