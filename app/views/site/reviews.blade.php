@@ -1,4 +1,4 @@
-@exteds('site.layouts.default')
+@extends('site.layouts.default')
 
 @section('content')
 <h2>Отзывы</h2>
