@@ -25,9 +25,9 @@ class UserController extends BaseController {
         if( $v->passes() ) {
             $user = new User();
             $ref = Session::get('ref', 0);
-            $user = User::whereUsername($ref)->first();
-            if($ref != 0 && $user) {
-                $user->refferal_id = $user->id;
+            $ref = User::whereUsername($ref)->first();
+            if($ref != 0 && $ref) {
+                $user->refferal_id = $ref->id;
             }
 
             $user->fio = $input['fio'];
