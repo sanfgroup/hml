@@ -55,7 +55,6 @@ class UserController extends BaseController {
     }
 
     public function getPrivat() {
-        dd(Input::all());
         return View::make('site.user.privat');
     }
 

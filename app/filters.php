@@ -13,7 +13,10 @@
 
 App::before(function($request)
 {
-	//
+    if (Input::has('ref')) {
+        Session::set('ref', Input::get('ref'));
+        echo Route::currentRouteName();
+    }
 });
 
 
