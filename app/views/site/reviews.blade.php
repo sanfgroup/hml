@@ -1,6 +1,6 @@
 @exteds('site.layouts.default')
 
-@section
+@section('content')
 <h2>Отзывы</h2>
 <div class="one_rewiev">
     <div class="signature">
