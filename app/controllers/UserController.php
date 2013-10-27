@@ -58,5 +58,10 @@ class UserController extends BaseController {
         return View::make('site.user.privat');
     }
 
+    public function logout() {
+        Auth::logout();
+        return Redirect::route('home');
+    }
+
 
 } 
