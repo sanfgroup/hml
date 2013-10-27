@@ -86,9 +86,9 @@
             </div>
             {{ Form::open(array('route' => 'user.login', 'method' => 'POST')) }}
             <div class="modal-body">
-                @if($errors->count() > 0)
+                @if(isset($errors['login']))
                 <div class="alert alert-danger">
-                    @foreach( $errors->all() as $message )
+                    @foreach( $errors as $message )
                     <p>{{ $message }}</p>
                     @endforeach
                 </div>
