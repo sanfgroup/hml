@@ -14,7 +14,7 @@
 App::before(function($request)
 {
     if (Input::has('ref')) {
-        Session::set('ref', Input::get('ref'));
+        Session::put('ref', Input::get('ref'));
         return Redirect::to('/');
     }
 });
