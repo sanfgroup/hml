@@ -12,4 +12,9 @@ class UserController extends BaseController {
         return View::make('site.user.registration');
     }
 
+    public function postRegistration() {
+        $input = Input::all();
+        dd($input);
+    }
+
 } 

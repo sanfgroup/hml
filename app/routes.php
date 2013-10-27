@@ -18,4 +18,7 @@ Route::get('/marketing/line', array('as'=>'marketing.linear', 'uses'=>'HomeContr
 Route::get('/marketing/inv', array('as'=>'marketing.inv', 'uses'=>'HomeController@getInv'));
 Route::get('/reviews', array('as'=>'reviews', 'uses'=>'HomeController@getReviews'));
 Route::get('/contacts', array('as'=>'contacts', 'uses'=>'HomeController@getContacts'));
+
+
 Route::get('/user/registration', array('as'=>'user.reg', 'uses'=>'UserController@getRegistration'));
+Route::post('/user/registration', array('as'=>'user.reg', 'uses'=>'UserController@postRegistration'));
