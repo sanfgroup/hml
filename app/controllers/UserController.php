@@ -32,7 +32,7 @@ class UserController extends BaseController {
 
             $user->fio = $input['fio'];
             $user->email = $input['email'];
-            $user->username = $input['username'];
+            $user->username = strtolower($input['username']);
             $user->password = Hash::make($input['password']);
             $user->save();
             return Redirect::route('home')->with('flash_reg', 'Вы удачно зарегистрированы, авторизуйтесь пожалуйста!');
@@ -49,7 +49,7 @@ class UserController extends BaseController {
     public function postLogin() {
 
         $user = array(
-            'username' => Input::get('username'),
+            'username' => strtolower(Input::get('username')),
             'password' => Input::get('password')
         );
 
