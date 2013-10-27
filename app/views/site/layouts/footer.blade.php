@@ -118,7 +118,7 @@
         });
     </script>
     @endif
-{{$flash_reg}}
+{{isset($flash_reg)?$flash_reg:''}}
     @if(isset($flash_reg))
     <script>
         $(function(){
