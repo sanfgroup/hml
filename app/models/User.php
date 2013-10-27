@@ -56,4 +56,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->hasOne('Users', 'referral_id');
 	}
 
+    public function findByUsername($username) {
+        return $this->whereUsername($username)->first();
+    }
+
 }

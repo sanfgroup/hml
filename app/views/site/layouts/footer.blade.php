@@ -109,14 +109,14 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-    @if($errors->count() > 0 || Cookie::has('ref'))
+    @if($errors->count() > 0 || Session::has('ref'))
     <script>
         $(function(){
             $('#registration').modal('show')
         });
     </script>
     @endif
-    @if(Session::has('flash_reg') || Session::has('login'))
+    @if(Session::has('flash_reg') || Session::has('flash_login'))
     <script>
         $(function(){
             $('#login').modal('show')

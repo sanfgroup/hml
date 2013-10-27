@@ -24,6 +24,12 @@ class UserController extends BaseController {
         $v = Validator::make($input, $rules);
         if( $v->passes() ) {
             $user = new User();
+            $ref = Session::get('ref', 0);
+            $user = User::findByUsername($ref);
+            if($ref != 0 && $user) {
+                $user->refferal_id = $user->id;
+            }
+
             $user->fio = $input['fio'];
             $user->email = $input['email'];
             $user->username = $input['username'];
@@ -50,7 +56,7 @@ class UserController extends BaseController {
         if (Auth::attempt($user)) {
             return Redirect::route('user.privat');
         } else {
-            return Redirect::route('home')->withLogin('Неверный логин или пароль!');
+            return Redirect::route('home')->with('flash_login', 'Неверный логин или пароль!');
         }
     }
 
