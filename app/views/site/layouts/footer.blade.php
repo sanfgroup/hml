@@ -4,7 +4,7 @@
 <div class="ramka_bottom"></div>
 </div>
 <footer>
-    <a href="/" class="flogo"><img src="images/logo_bottom.png" alt=""></a>
+    <a href="/" class="flogo"><img src="/images/logo_bottom.png" alt=""></a>
     <p class="all">Copyright 2013.Все права защищены.</p>
     <div class="pays">
         <a href=""><img src="/images/pfm.png" alt=""></a>
