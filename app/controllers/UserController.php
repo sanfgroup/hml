@@ -23,12 +23,12 @@ class UserController extends BaseController {
         );
         $v = Validator::make($input, $rules);
         if( $v->passes() ) {
-            User::create(array(
-                'username'  => $input['username'],
-                'email'     => $input['email'],
-                'password'  => Hash::make($input['password']),
-                'fio'       => $input['fio'],
-            ));
+            $user = new User();
+            $user->fio = $input['fio'];
+            $user->email = $input['email'];
+            $user->username = $input['username'];
+            $user->password = Hash::make($input['password']);
+            $user->save();
             return Redirect::route('home')->with('flash_reg', 'Вы удачно зарегистрированы, авторизуйтесь пожалуйста!');
         } else {
             return Redirect::route('home')
