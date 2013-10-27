@@ -24,6 +24,13 @@
             </div>
             {{ Form::open(array('route' => 'user.reg', 'method' => 'POST')) }}
             <div class="modal-body">
+                @if($errors->count() > 0)
+                <div class="alert alert-danger">
+                    @foreach( $errors->all() as $message )
+                    <p>{{ $message }}</p>
+                    @endforeach
+                </div>
+                @endif
                 <ul>
                     <li>
                         {{ Form::label('fio', 'Фамилия Имя Отчество:') }}
