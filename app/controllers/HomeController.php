@@ -34,4 +34,8 @@ class HomeController extends BaseController {
 		return View::make('site.marketing_line');
 	}
 
+	public function getInv() {
+		return View::make('site.marketing_inv');
+	}
+
 }
