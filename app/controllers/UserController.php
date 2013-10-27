@@ -36,4 +36,22 @@ class UserController extends BaseController {
         }
     }
 
+    public function getLogin() {
+        return View::make('site.user.registration');
+    }
+
+    public function postLogin() {
+        $user = array(
+            'username' => Input::get('username'),
+            'password' => Input::get('password')
+        );
+
+        if (Auth::attempt($user)) {
+            return Redirect::route('user.profile');
+        } else {
+            return Redirect::route('home')->withErrors('login', 'Неверный логин или пароль!');
+        }
+    }
+
+
 } 

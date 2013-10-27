@@ -111,14 +111,14 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-    @if($errors->count() > 0)
+    @if(!isset($errors['login']) && $errors->count() > 0)
     <script>
         $(function(){
             $('#registration').modal('show')
         });
     </script>
     @endif
-    @if(Session::has('flash_reg'))
+    @if(Session::has('flash_reg') || isset($errors['login']))
     <script>
         $(function(){
             $('#login').modal('show')
