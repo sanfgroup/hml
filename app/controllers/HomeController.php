@@ -38,4 +38,8 @@ class HomeController extends BaseController {
 		return View::make('site.marketing_inv');
 	}
 
+	public function getReviews() {
+		return View::make('site.reviews');
+	}
+
 }
