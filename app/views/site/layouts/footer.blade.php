@@ -35,11 +35,11 @@
                     </li>
                     <li>
                         {{ Form::label('password', 'Пароль:') }}
-                        {{ Form::text('password', null, array('class'=>'form-control') }}
+                        {{ Form::text('password', null, array('class'=>'form-control')) }}
                     </li>
                     <li>
                         {{ Form::label('password_confirmation', 'Подтверждение пароля:') }}
-                        {{ Form::text('password_confirmation', null, array('class'=>'form-control') }}
+                        {{ Form::text('password_confirmation', null, array('class'=>'form-control')) }}
                     </li>
                     <li>
                         {{ Form::label('email', 'Email:') }}
