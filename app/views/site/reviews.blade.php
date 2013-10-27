@@ -8,8 +8,8 @@
     </div>
     <div class="text_rewiev">
         <p>Молодец Админ! Все по-чесному! </p>
-        <p>03:00 23.10.13	Receive	38437570	U1787008</p>
-        <p>Moneyfall - Project Account	+1.08	 Received Payment 1.08 USD from account U1787008. Memo: API Payment. Withdraw to user OLEGAN from Happy-line-money</p>
+        <p>03:00 23.10.13 &nbsp;&nbsp;&nbsp; Receive &nbsp;&nbsp;&nbsp; 38437570 &nbsp;&nbsp;&nbsp; U1787008</p>
+        <p>Moneyfall - Project Account &nbsp;&nbsp;&nbsp; +1.08 &nbsp;&nbsp;&nbsp; Received Payment 1.08 USD from account U1787008. Memo: API Payment. Withdraw to user OLEGAN from Happy-line-money</p>
     </div>
 </div>
 @stop
