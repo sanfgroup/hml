@@ -184,7 +184,7 @@ a.reg{
 	display: inline-block;
 	width: 280px;
 	height: 60px;
-	line-height: 60px;
+	line-height: 45px;
 	vertical-align: middle;
 	text-align: center;
 	border: 8px solid  #ecdd9a;
@@ -246,7 +246,7 @@ a.reg:hover{
 	
 	top: 30px;
 	left: 140px;
-	padding: 25px 0 0;
+	/*padding: 25px 0 0;*/
 	text-align: center;
 
 }
