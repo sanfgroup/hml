@@ -16,9 +16,9 @@ class HomeController extends BaseController {
 	*/
 
 	public function getIndex() {
-        $data['news'] = News::take(2)->get();
-        Debugbar::info($data);
-        Debugbar::info("ASd");
+        Debugbar::info(Session::all());
+
+        $data['news'] = News::orderBy('created_at', 'desc')->take(2)->get();
         return View::make('site.home', $data);
 	}
 

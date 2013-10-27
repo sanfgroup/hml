@@ -13,7 +13,10 @@
 
 App::before(function($request)
 {
-	//
+    if (Input::has('ref')) {
+        Session::put('ref', Input::get('ref'));
+        return Redirect::to('/');
+    }
 });
 
 

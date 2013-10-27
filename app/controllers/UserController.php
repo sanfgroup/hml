@@ -23,17 +23,51 @@ class UserController extends BaseController {
         );
         $v = Validator::make($input, $rules);
         if( $v->passes() ) {
-            User::create(array(
-                'username'  => $input['username'],
-                'email'     => $input['email'],
-                'password'  => Hash::make($input['password']),
-                'fio'       => $input['fio'],
-            ));
+            $user = new User();
+            if(Session::has('ref')) {
+                $refs = User::whereUsername(Session::get('ref'))->first();
+                if(isset($refs->id))
+                    $user->referral_id = $refs->id;
+            }
+
+            $user->fio = $input['fio'];
+            $user->email = $input['email'];
+            $user->username = strtolower($input['username']);
+            $user->password = Hash::make($input['password']);
+            $user->save();
             return Redirect::route('home')->with('flash_reg', 'Вы удачно зарегистрированы, авторизуйтесь пожалуйста!');
         } else {
             return Redirect::route('home')
                 ->withErrors($v->errors());
         }
     }
+
+    public function getLogin() {
+        return View::make('site.user.registration');
+    }
+
+    public function postLogin() {
+
+        $user = array(
+            'username' => strtolower(Input::get('username')),
+            'password' => Input::get('password')
+        );
+
+        if (Auth::attempt($user)) {
+            return Redirect::route('user.privat');
+        } else {
+            return Redirect::route('home')->with('flash_login', 'Неверный логин или пароль!');
+        }
+    }
+
+    public function getPrivat() {
+        return View::make('site.user.privat');
+    }
+
+    public function logout() {
+        Auth::logout();
+        return Redirect::route('home');
+    }
+
 
 } 

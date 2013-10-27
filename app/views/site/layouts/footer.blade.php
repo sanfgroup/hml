@@ -77,7 +77,7 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -86,11 +86,9 @@
             </div>
             {{ Form::open(array('route' => 'user.login', 'method' => 'POST')) }}
             <div class="modal-body">
-                @if($errors->count() > 0)
+                @if(Session::has('login'))
                 <div class="alert alert-danger">
-                    @foreach( $errors->all() as $message )
-                    <p>{{ $message }}</p>
-                    @endforeach
+                    <p>{{Session::get('login')}}</p>
                 </div>
                 @endif
                 <ul>
@@ -111,15 +109,14 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-    @if($errors->count() > 0)
+    @if($errors->count() > 0 || Session::has('ref'))
     <script>
         $(function(){
             $('#registration').modal('show')
         });
     </script>
     @endif
-{{isset($flash_reg)?$flash_reg:''}}
-    @if(isset($flash_reg))
+    @if(Session::has('flash_reg') || Session::has('flash_login'))
     <script>
         $(function(){
             $('#login').modal('show')
