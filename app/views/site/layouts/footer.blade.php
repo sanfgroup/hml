@@ -70,6 +70,11 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+<script>
+    $(function(){
+        $('#registration').modal('show')
+    });
+</script>
 @endif
 </body>
 </html>
