@@ -27,41 +27,41 @@
                 {{ Form::open(array('route' => 'user.reg', 'method' => 'POST')) }}
                 <ul>
                     <li>
-                        {{ Form::label('username', 'Username:') }}
+                        {{ Form::label('fio', 'Фамилия Имя Отчество:') }}
+                        {{ Form::text('fio') }}
+                    </li>
+                    <li>
+                        {{ Form::label('username', 'Логин:') }}
                         {{ Form::text('username') }}
                     </li>
                     <li>
-                        {{ Form::label('password', 'Password:') }}
+                        {{ Form::label('password', 'Пароль:') }}
                         {{ Form::text('password') }}
+                    </li>
+                    <li>
+                        {{ Form::label('password_confirmation', 'Подтверждение пароля:') }}
+                        {{ Form::text('password_confirmation') }}
                     </li>
                     <li>
                         {{ Form::label('email', 'Email:') }}
                         {{ Form::text('email') }}
                     </li>
-                    <li>
-                        {{ Form::label('fio', 'Fio:') }}
-                        {{ Form::text('fio') }}
-                    </li>
-                    <li>
-                        {{ Form::label('referal_id', 'Referal_id:') }}
-                        {{ Form::text('referal_id') }}
-                    </li>
-                    <li>
-                        {{ Form::label('okpay', 'Okpay:') }}
-                        {{ Form::text('okpay') }}
-                    </li>
-                    <li>
-                        {{ Form::label('perfectmoney', 'Perfectmoney:') }}
-                        {{ Form::text('perfectmoney') }}
-                    </li>
-                    <li>
-                        {{ Form::label('solidtrustpay', 'Solidtrustpay:') }}
-                        {{ Form::text('solidtrustpay') }}
-                    </li>
-                    <li>
-                        {{ Form::label('zipcode', 'Zipcode:') }}
-                        {{ Form::text('zipcode') }}
-                    </li>
+<!--                    <li>-->
+<!--                        {{ Form::label('referal_id', 'Referal_id:') }}-->
+<!--                        {{ Form::text('referal_id') }}-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        {{ Form::label('okpay', 'Okpay:') }}-->
+<!--                        {{ Form::text('okpay') }}-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        {{ Form::label('perfectmoney', 'Perfectmoney:') }}-->
+<!--                        {{ Form::text('perfectmoney') }}-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        {{ Form::label('solidtrustpay', 'Solidtrustpay:') }}-->
+<!--                        {{ Form::text('solidtrustpay') }}-->
+<!--                    </li>-->
                     <li>
                         {{ Form::submit() }}
                     </li>
