@@ -28,7 +28,6 @@ class UserController extends BaseController {
                 $refs = User::whereUsername(Session::get('ref'))->first();
                 if(isset($refs->id))
                     $user->referral_id = $refs->id;
-                dd($user);
             }
 
             $user->fio = $input['fio'];
