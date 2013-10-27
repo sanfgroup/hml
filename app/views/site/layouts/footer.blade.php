@@ -109,7 +109,7 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-    @if($errors->count() > 0)
+    @if($errors->count() > 0 || !empty(Cookie::get('ref')))
     <script>
         $(function(){
             $('#registration').modal('show')
