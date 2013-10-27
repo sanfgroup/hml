@@ -24,7 +24,7 @@
             </div>
             <form action="{{URL::route('user.reg')}}">
             <div class="modal-body">
-                {{ Form::open(array('route' => 'route.name', 'method' => 'POST')) }}
+                {{ Form::open(array('route' => 'user.reg', 'method' => 'POST')) }}
                 <ul>
                     <li>
                         {{ Form::label('username', 'Username:') }}
