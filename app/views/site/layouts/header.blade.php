@@ -47,10 +47,10 @@
                 <menu class="left">
                     <li class="l1"><a href="{{URL::route('home')}}">ГЛАВНАЯ</a></li>
                     <li class="l2">
-                        <a href="">МАРКЕТИНГ</a>
+                        <a href="#">МАРКЕТИНГ</a>
                         <ul>
-                            <li><a href="#">Инвестиционный</a></li>
-                            <li><a href="#">Линейный</a></li>
+                            <li><a href="{{URL::route('marketing.inv')}}">Инвестиционный</a></li>
+                            <li><a href="{{URL::route('marketing.linear')}}">Линейный</a></li>
                         </ul>
                     </li>
                     <li class="l3"><a href="{{URL::route('faq')}}">FAQ</a></li>

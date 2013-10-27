@@ -15,20 +15,23 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function getIndex()
-	{
+	public function getIndex() {
         $data['news'] = News::take(2)->get();
         Debugbar::info($data);
         Debugbar::info("ASd");
         return View::make('site.home', $data);
 	}
-	public function getNews()
-	{
+
+	public function getNews() {
 		return View::make('site.news');
 	}
-	public function getFaq()
-	{
+
+	public function getFaq() {
 		return View::make('site.faq');
+	}
+
+	public function getLine() {
+		return View::make('site.marketing_line');
 	}
 
 }
