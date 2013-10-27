@@ -86,7 +86,7 @@
             </div>
             {{ Form::open(array('route' => 'user.login', 'method' => 'POST')) }}
             <div class="modal-body">
-                @if(isset($errors->login))
+                @if(Session::has('login'))
                 <div class="alert alert-danger">
                     <p>{{Session::get('login')}}</p>
                 </div>
