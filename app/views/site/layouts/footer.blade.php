@@ -32,7 +32,7 @@
                     </li>
                     <li>
                         {{ Form::label('username', 'Логин:') }}
-                        {{ Form::text('username') }}
+                        {{ Form::text('username', null, array('class'=>'form-control')) }}
                     </li>
                     <li>
                         {{ Form::label('password', 'Пароль:') }}
