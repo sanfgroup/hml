@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Новости</title>
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <!--[if lt IE 9]>
     <script src="/js/dist/html5shiv.js"></script>
