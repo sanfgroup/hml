@@ -25,9 +25,9 @@ class UserController extends BaseController {
         if( $v->passes() ) {
             User::create(array(
                 'username'  => $input['username'],
-                'email'     => $input['username'],
-                'password'  => Hash::make($input['username']),
-                'fio'       => $input['username'],
+                'email'     => $input['email'],
+                'password'  => Hash::make($input['password']),
+                'fio'       => $input['fio'],
             ));
             return Redirect::route('home')->with('flash_reg', 'Вы удачно зарегистрированы, авторизуйтесь пожалуйста!');
         } else {
