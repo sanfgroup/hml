@@ -24,10 +24,10 @@ class UserController extends BaseController {
         $v = Validator::make($input, $rules);
         if( $v->passes() ) {
             $user = new User();
-            $ref = Session::get('ref', 0);
-            $refs = User::whereUsername($ref)->first();
-            if($ref != 0 && isset($refs->id)) {
-                $user->referral_id = $refs->id;
+            if(Session::has('ref')) {
+                $refs = User::whereUsername(Session::get('ref'))->first();
+                if(isset($refs->id))
+                    $user->referral_id = $refs->id;
                 dd($user);
             }
 
