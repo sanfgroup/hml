@@ -17,3 +17,4 @@ Route::get('/faq', array('as'=>'faq', 'uses'=>'HomeController@getFaq'));
 Route::get('/marketing/line', array('as'=>'marketing.linear', 'uses'=>'HomeController@getLine'));
 Route::get('/marketing/inv', array('as'=>'marketing.inv', 'uses'=>'HomeController@getInv'));
 Route::get('/reviews', array('as'=>'reviews', 'uses'=>'HomeController@getReviews'));
+Route::get('/contacts', array('as'=>'contacts', 'uses'=>'HomeController@getContacts'));

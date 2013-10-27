@@ -42,4 +42,8 @@ class HomeController extends BaseController {
 		return View::make('site.reviews');
 	}
 
+	public function getContacts() {
+		return View::make('site.reviews');
+	}
+
 }
