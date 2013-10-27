@@ -1,19 +1,18 @@
 @extends("site.layouts.default")
 
 @section('content')
-<h2>Часто задаваемые вопросы</h2>
-<div class="arrow_box">Как мне сделать вклад?</div>
+<h2>Контакты</h2>
+<p><strong>Связаться с нами</strong> вы можете любым удобным для вас способом:</p>
+<p><strong>Skype: </strong>happymoneyline</p>
+<p><strong>Skype 2: </strong>happymoney</p>
+<p><strong>E-mail: </strong>happyline@gmail.com</p>
+<br>
+<p><strong>А также, с помощью формы обратной связи:</strong></p>
+<br>
+<div class="contact_form">
+    <form action="">
 
-<!-- Пагинация -->
-<div class="pag">
-    <ul class="pagination">
-        <li class="disabled"><span>&laquo;</span></li>
-        <li class="active"><span>1</span></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">&raquo;</a></li>
-    </ul>
-    <div class="line"></div>
+    </form>
 </div>
-<!-- Пагинация -->
+
 @stop

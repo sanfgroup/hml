@@ -43,7 +43,7 @@ class HomeController extends BaseController {
 	}
 
 	public function getContacts() {
-		return View::make('site.reviews');
+		return View::make('site.contacts');
 	}
 
 }
