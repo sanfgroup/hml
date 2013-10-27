@@ -43,7 +43,7 @@
                     </li>
                     <li>
                         {{ Form::label('email', 'Email:') }}
-                        {{ Form::text('email', null, array('class'=>'form-control') }}
+                        {{ Form::text('email', null, array('class'=>'form-control')) }}
                     </li>
 <!--                    <li>-->
 <!--                        {{ Form::label('referal_id', 'Referal_id:') }}-->
