@@ -24,3 +24,6 @@ Route::get('/user/registration', array('as'=>'user.reg', 'uses'=>'UserController
 Route::post('/user/registration', array('uses'=>'UserController@postRegistration'));
 Route::get('/user/login', array('as'=>'user.login', 'uses'=>'UserController@getLogin'));
 Route::post('/user/login', array('uses'=>'UserController@postLogin'));
+
+Route::get('/user/privat', array('uses'=>'UserController@postLogin'));
+Route::get('/user/logout', array('as'=>'user.logout','uses'=>'UserController@postLogin'));

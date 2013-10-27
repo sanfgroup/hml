@@ -48,7 +48,7 @@ class UserController extends BaseController {
         );
 
         if (Auth::attempt($user)) {
-            return Redirect::route('user.profile');
+            return Redirect::route('user.privat');
         } else {
             return Redirect::route('home')->withLogin('Неверный логин или пароль!');
         }
