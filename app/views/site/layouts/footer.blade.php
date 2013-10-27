@@ -22,9 +22,8 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title">Регистрация в проекте</h4>
             </div>
-            <form action="{{URL::route('user.reg')}}">
+            {{ Form::open(array('route' => 'user.reg', 'method' => 'POST')) }}
             <div class="modal-body">
-                {{ Form::open(array('route' => 'user.reg', 'method' => 'POST')) }}
                 <ul>
                     <li>
                         {{ Form::label('fio', 'Фамилия Имя Отчество:') }}
@@ -36,15 +35,15 @@
                     </li>
                     <li>
                         {{ Form::label('password', 'Пароль:') }}
-                        {{ Form::text('password') }}
+                        {{ Form::text('password', null, array('class'=>'form-control') }}
                     </li>
                     <li>
                         {{ Form::label('password_confirmation', 'Подтверждение пароля:') }}
-                        {{ Form::text('password_confirmation') }}
+                        {{ Form::text('password_confirmation', null, array('class'=>'form-control') }}
                     </li>
                     <li>
                         {{ Form::label('email', 'Email:') }}
-                        {{ Form::text('email') }}
+                        {{ Form::text('email', null, array('class'=>'form-control') }}
                     </li>
 <!--                    <li>-->
 <!--                        {{ Form::label('referal_id', 'Referal_id:') }}-->
@@ -62,16 +61,12 @@
 <!--                        {{ Form::label('solidtrustpay', 'Solidtrustpay:') }}-->
 <!--                        {{ Form::text('solidtrustpay') }}-->
 <!--                    </li>-->
-                    <li>
-                        {{ Form::submit() }}
-                    </li>
                 </ul>
+            </div>
+                <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Зарегистрироватся</button>
+            </div>
                 {{ Form::close() }}
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Save changes</button>
-            </div>
-            </form>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
