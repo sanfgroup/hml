@@ -102,6 +102,12 @@ return array(
     |
     */
 
-    'attributes' => array(),
+    'attributes' => array(
+        'fio'                   => '"Фамилия Имя Отчество"',
+        'username'              => '"Логин"',
+        'email'                 => '"Email"',
+        'password'              => '"Пароль"',
+        'password_confirmation' => '"Подтверждение пароля"',
+    ),
 
 );

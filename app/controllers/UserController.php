@@ -15,7 +15,7 @@ class UserController extends BaseController {
     public function postRegistration() {
         $input = Input::all();
         $rules = array(
-            'fio'                   => 'Required|Min:3|Max:80|Alpha',
+            'fio'                   => 'Required|Min:3|Max:80',
             'email'                 => 'Required|Between:3,64|Email|Unique:users',
             'username'              => 'required|Unique:users',
             'password'              => 'Required|min:6|Confirmed',
@@ -25,10 +25,11 @@ class UserController extends BaseController {
         if( $v->passes() ) {
             User::create(array(
                 'username'  => $input['username'],
-                'email'     => $input['username'],
-                'password'  => Hash::make($input['username']),
-                'fio'       => $input['username'],
+                'email'     => $input['email'],
+                'password'  => Hash::make($input['password']),
+                'fio'       => $input['fio'],
             ));
+            return Redirect::route('home')->with('flash_reg', 'Вы удачно зарегистрированы, авторизуйтесь пожалуйста!');
         } else {
             return Redirect::route('home')
                 ->withErrors($v->errors());

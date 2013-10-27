@@ -22,3 +22,4 @@ Route::get('/contacts', array('as'=>'contacts', 'uses'=>'HomeController@getConta
 
 Route::get('/user/registration', array('as'=>'user.reg', 'uses'=>'UserController@getRegistration'));
 Route::post('/user/registration', array('as'=>'user.reg', 'uses'=>'UserController@postRegistration'));
+Route::post('/user/login', array('as'=>'user.login', 'uses'=>'UserController@getLogin'));
