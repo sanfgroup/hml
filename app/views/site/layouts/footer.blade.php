@@ -118,8 +118,7 @@
         });
     </script>
     @endif
-{{isset($flash_reg)?$flash_reg:''}}
-    @if(isset($flash_reg))
+    @if(Session::has('flash_reg'))
     <script>
         $(function(){
             $('#login').modal('show')
