@@ -20,7 +20,9 @@
             <p>Нам доверяют свои деньги</p>
             <p>397<!-- вставить количество вкладчиков  --> партнеров</p>
         </div>
-        <a href="" class="reg">Регистрация в проекте <!-- Личный кабинет --></a>
+        @if(Auth::guest())
+        <a href="#registration" class="reg">Регистрация в проекте <!-- Личный кабинет --></a>
+        @endif
         <!-- Контакты только на главной -->
         @if(Request::is('/'))
         <div class="contacts">
@@ -65,8 +67,11 @@
             </div>
 
             <a href="" class="logo"></a>
-            <a href="" class="enter">Вход для клиентов <img src="images/lock.png" alt=""></a>
-            <!-- <a href="" class="enter">Выход <img src="images/lock.png" alt=""></a>  -->
+            @if(Auth::guest())
+            <a href="#login" class="enter">Вход для клиентов <img src="/images/lock.png" alt=""></a>
+            @else
+             <a href="{{URL::route('user.logout')}}" class="enter">Выход <img src="/images/lock.png" alt=""></a>
+            @endif
 
         </nav>
     </header>
