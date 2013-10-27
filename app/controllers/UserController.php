@@ -50,9 +50,7 @@ class UserController extends BaseController {
         if (Auth::attempt($user)) {
             return Redirect::route('user.profile');
         } else {
-            $error = new MessageBug();
-            $error->login = 'Неверный логин или пароль!';
-            return Redirect::route('home')->withErrors($error);
+            return Redirect::route('home')->withLogin('Неверный логин или пароль!');
         }
     }
 

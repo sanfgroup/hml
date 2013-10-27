@@ -88,9 +88,7 @@
             <div class="modal-body">
                 @if(isset($errors->login))
                 <div class="alert alert-danger">
-                    @foreach( $errors as $message )
-                    <p>{{ $message }}</p>
-                    @endforeach
+                    <p>{{Session::get('login')}}</p>
                 </div>
                 @endif
                 <ul>
@@ -111,14 +109,14 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-    @if(!isset($errors->login) && $errors->count() > 0)
+    @if($errors->count() > 0)
     <script>
         $(function(){
             $('#registration').modal('show')
         });
     </script>
     @endif
-    @if(Session::has('flash_reg') || isset($errors->login))
+    @if(Session::has('flash_reg') || Session::has('login'))
     <script>
         $(function(){
             $('#login').modal('show')
