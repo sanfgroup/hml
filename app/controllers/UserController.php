@@ -41,6 +41,7 @@ class UserController extends BaseController {
     }
 
     public function postLogin() {
+
         $user = array(
             'username' => Input::get('username'),
             'password' => Input::get('password')
@@ -49,7 +50,9 @@ class UserController extends BaseController {
         if (Auth::attempt($user)) {
             return Redirect::route('user.profile');
         } else {
-            return Redirect::route('home')->withErrors('login', 'Неверный логин или пароль!');
+            $error = new MessageBug();
+            $error->login = 'Неверный логин или пароль!';
+            return Redirect::route('home')->withErrors($error);
         }
     }
 
