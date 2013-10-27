@@ -21,7 +21,9 @@
             <p>397<!-- вставить количество вкладчиков  --> партнеров</p>
         </div>
         @if(Auth::guest())
-        <a href="#registration" class="reg">Регистрация в проекте <!-- Личный кабинет --></a>
+        <a href="#registration" data-toggle="modal" class="reg">Регистрация в проекте</a>
+        @else
+        <a href="{{URL::route('user.privat')}}" class="reg">Личный кабинет</a>
         @endif
         <!-- Контакты только на главной -->
         @if(Request::is('/'))
@@ -68,7 +70,7 @@
 
             <a href="" class="logo"></a>
             @if(Auth::guest())
-            <a href="#login" class="enter">Вход для клиентов <img src="/images/lock.png" alt=""></a>
+            <a href="#login" data-toggle="modal" class="enter">Вход для клиентов <img src="/images/lock.png" alt=""></a>
             @else
              <a href="{{URL::route('user.logout')}}" class="enter">Выход <img src="/images/lock.png" alt=""></a>
             @endif
