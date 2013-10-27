@@ -26,8 +26,8 @@ class UserController extends BaseController {
             $user = new User();
             $ref = Session::get('ref', 0);
             $refs = User::whereUsername($ref)->first();
-            if($ref != 0 && $refs) {
-                $user->referral_id = $ref->id;
+            if($ref != 0 && isset($refs->id)) {
+                $user->referral_id = $refs->id;
                 dd($user);
             }
 
