@@ -58,7 +58,7 @@
                 </menu>
                 <menu class="right">
                     <li class="l5"><a href="{{URL::route('news')}}">НОВОСТИ</a></li>
-                    <li class="l6"><a href="">ОТЗЫВЫ</a></li>
+                    <li class="l6"><a href="{{URL::route('reviews')}}">ОТЗЫВЫ</a></li>
                     <li class="l7"><a href="">КОНТАКТЫ</a></li>
                 </menu>
                 <div class="clearfix"></div>
