@@ -70,11 +70,13 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<script>
-    $(function(){
-        $('#registration').modal('show')
-    });
-</script>
+    @if($errors->count() > 0)
+    <script>
+        $(function(){
+            $('#registration').modal('show')
+        });
+    </script>
+    @endif
 @endif
 </body>
 </html>
