@@ -13,7 +13,7 @@ class UserController extends BaseController {
     }
 
     public function postRegistration() {
-        $input = Input::all();
+        $input = Input::all();//
         $rules = array(
             'fio' => 'Required|Min:3|Max:80|Alpha',
             'email'     => 'Required|Between:3,64|Email|Unique:users',
