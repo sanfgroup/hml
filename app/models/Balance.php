@@ -6,4 +6,9 @@ class Balance extends Eloquent {
 	public $timestamps = true;
 	protected $softDelete = false;
 
+    public function user()
+    {
+        return $this->belongsTo('Users');
+    }
+
 }

@@ -91,4 +91,16 @@ class User extends Eloquent {
         return 0;
     }
 
+    public function balance()
+    {
+        return $this->hasMany('Balance');
+    }
+
+    public function getBalanceAttribute() {
+        $b = $this->balance()->sum('summa');
+        if(!$b)
+            return 0;
+        return $b;
+    }
+
 }

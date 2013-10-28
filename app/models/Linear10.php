@@ -8,9 +8,9 @@ class Linear10 extends Eloquent {
     protected $tarif = 10;
 
     public function pay() {
-        $pos = $this->fnp();
-        $ac = $this->whereAdmin(1)->where('id', '<=', $pos->id)->count();
-        if($this->find(2*($pos->id+1-$ac))) {
+        $pos = Linear10::fnp();
+        $ac = Linear10::whereAdmin(1)->where('id', '<=', $pos->id)->count();
+        if(Linear10::find(2*($pos->id+1-$ac))) {
             if($pos->admin == 1) {
                 $pos->payed = 1;
                 $pos->save();
@@ -18,8 +18,19 @@ class Linear10 extends Eloquent {
             }
             $u = User::find($pos->user_id);
             if($u) {
-//                $u->balans = 7.5+$u->balans;
                 $summ = $this->tarif*1.5;
+                $u->balance()->create(array(
+                    'summa' => $summ,
+                    'description' => 'Начисление по тарифу '.$this->tarif
+                ));
+                $summ = $this->tarif*0.25;
+
+                $b = new Balance();
+
+                $b->user_id = 0;
+                $b->summa = $summ;
+                $b->description = 'Начисление по тарифу '.$this->tarif;
+                $b->save();
                 $u->save();
                 $pos->payed = 1;
                 $pos->save();

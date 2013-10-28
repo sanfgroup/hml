@@ -21,10 +21,23 @@ class LinearController extends BaseController {
                 break;
             default: $linear = false;
         }
+
+        Auth::user()->balance()->create(array(
+            'summa' => -$tarif,
+            'description' => 'Оплата тарифа '.$tarif
+        ));
         $linear->user_id = Auth::user()->id;
         $linear->save();
 
+        $linear->pay();
 
+        $t = 'Linear'.$tarif;
+        if($t::wherePayed(1)->count() % 4 == 0) {
+            $linear2 = new $t();
+            $linear2->admin = 1;
+//            $linear2->user_id = 1;
+            $linear2->save();
+        }
 
     }
 

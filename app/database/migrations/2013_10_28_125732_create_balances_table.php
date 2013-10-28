@@ -10,7 +10,7 @@ class CreateBalancesTable extends Migration {
 		Schema::create('balances', function(Blueprint $table) {
 			$table->increments('id');
 			$table->integer('user_id');
-			$table->float('summa', 0.0);
+			$table->float('summa')->default(0.0);
 			$table->string('description');
 			$table->timestamps();
 		});
