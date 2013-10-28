@@ -58,7 +58,7 @@
                         </ul>
                     </li>
                     <li class="l3"><a href="{{URL::route('faq')}}">FAQ</a></li>
-                    <li class="l4"><a href="">ПРАВИЛА</a></li>
+                    <li class="l4"><a href="{{URL::route('rulers')}}">ПРАВИЛА</a></li>
                 </menu>
                 <menu class="right">
                     <li class="l5"><a href="{{URL::route('news')}}">НОВОСТИ</a></li>

@@ -46,4 +46,7 @@ class HomeController extends BaseController {
 		return View::make('site.contacts');
 	}
 
+    public function getRulers() {
+        return View::make('site.rulers');
+    }
 }
