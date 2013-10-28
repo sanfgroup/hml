@@ -1,0 +1,11 @@
+$(function(){
+	$('.question').click(
+		function()
+		{
+			$(this).children('.text_answer').addClass('cur');
+			$('.text_answer:not(.cur)').slideUp('300');
+			$(this).children('.text_answer').slideToggle();
+			$(this).children('.cur').attr('class','text_answer');
+	    }
+	);
+});
