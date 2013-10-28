@@ -1054,11 +1054,13 @@ ul.pagination li{
 	font-size: 14px;
 	}
 ul.pagination li span{
+    padding: 0;
+    float: inherit;
 	display: inline-block;
 	width: 32px;
 	height: 20px;
 	background: url(../images/pag_act_bg.png) repeat-x;
-	border-radius: 10px;
+	border-radius: 10px!important;
 	color: #fff;
 	-moz-box-shadow: 1px 1px 1px #555555;
 	-webkit-box-shadow: 1px 1px 1px #555555;
@@ -1066,12 +1068,14 @@ ul.pagination li span{
 
 }
 ul.pagination li a{
+    padding: 0;
+    float: inherit;
 	display: inline-block;
 	width: 32px;
 	height: 20px;
 	background: url(../images/pag_bg.png) repeat-x bottom;
 	color: #626262;
-	border-radius: 10px;
+	border-radius: 10px!important;
 	-moz-box-shadow: 1px 1px 2px #555555;
 	-webkit-box-shadow: 1px 1px 2px #555555;
 	box-shadow: 1px 1px 2px #555555;
