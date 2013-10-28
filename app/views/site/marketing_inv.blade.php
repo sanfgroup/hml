@@ -85,7 +85,8 @@
     * Администрация несет за собой право вносить изменения в линейки тарифов без уведомления пользователей
 </div>
 <br>
-<div class="mark_desc">
+</div>
+<div class="mark_desc" style="width: 1054px; float: none; margin: 0 auto;">
     <h3>Подробная таблица по выплате денежных средств</h3>
     <p>Выплаты производятся каждые 3 дня согласно выбранного тарифного плана</p>
     <table>
@@ -99,10 +100,14 @@
             <th>На 15-й день</th>
             <th>На 18-й день</th>
             <th>На 21-й день</th>
+            <th>На 24-й день</th>
+            <th>Итого</th>
         </tr>
         <tr>
             <td>Red line</td>
             <td>10</td>
+            <td></td>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -121,10 +126,14 @@
             <td></td>
             <td></td>
             <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
             <td>Yellow line</td>
             <td>70</td>
+            <td></td>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -143,10 +152,14 @@
             <td></td>
             <td></td>
             <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
             <td>Blue Line</td>
             <td>180</td>
+            <td></td>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -165,6 +178,8 @@
             <td></td>
             <td></td>
             <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
             <td>Purple line</td>
@@ -176,11 +191,15 @@
             <td></td>
             <td></td>
             <td></td>
+            <td></td>
+            <td></td>
         </tr>
     </table>
 </div>
+<div class="container_all">
 <div class="sdet">
     * Администрация несет за собой право вносить изменения в линейки тарифов без уведомления пользователей
 </div>
 <div class="clear"></div>
+
 @stop
