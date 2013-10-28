@@ -3,8 +3,7 @@
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
-
+class User extends Eloquent {
 	/**
 	 * The database table used by the model.
 	 *
@@ -55,9 +54,41 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     {
         return $this->hasOne('Users', 'referral_id');
 	}
-    public function linear()
+    public function linear5()
     {
-        return $this->hasMany('Linear');
+        return $this->hasMany('Linear5');
+    }
+    public function linear10()
+    {
+        return $this->hasMany('Linear10');
+    }
+    public function linear15()
+    {
+        return $this->hasMany('Linear15');
+    }
+
+    public function l5pos() {
+        $count = Linear5::wherePayed(1)->count();
+        $u = $this->linear5()->orderBy('id')->first();
+        if($u)
+            return $u->id - $count;
+        return 0;
+    }
+
+    public function l10pos() {
+        $count = Linear10::wherePayed(1)->count();
+        $u = $this->linear10()->orderBy('id')->first();
+        if($u)
+            return $u->id - $count;
+        return 0;
+    }
+
+    public function l15pos() {
+        $count = Linear15::wherePayed(1)->count();
+        $u = $this->linear15()->orderBy('id')->first();
+        if($u)
+            return $u->id - $count;
+        return 0;
     }
 
 }

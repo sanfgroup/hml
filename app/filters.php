@@ -17,6 +17,7 @@ App::before(function($request)
         Session::put('ref', Input::get('ref'));
         return Redirect::to('/');
     }
+    Linear5::pay();
 });
 
 

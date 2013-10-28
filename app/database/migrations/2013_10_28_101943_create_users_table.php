@@ -18,8 +18,6 @@ class CreateUsersTable extends Migration {
 			$table->string('perfectmoney');
 			$table->string('solidtrustpay');
 			$table->string('zipcode');
-			$table->integer('balans');
-			$table->integer('balans_frozen');
 			$table->timestamps();
 		});
 	}

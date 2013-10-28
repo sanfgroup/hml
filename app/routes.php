@@ -27,6 +27,9 @@ Route::get('/user/login', array('as'=>'user.login', 'uses'=>'UserController@getL
 Route::post('/user/login', array('uses'=>'UserController@postLogin'));
 
 Route::get('/user/privat', array('as'=>'user.privat','uses'=>'UserController@getPrivat'));
-Route::get('/user/logout', array('as'=>'user.logout','uses'=>'UserController@logout'));
+
+Route::get('/user/linear/buy', array('as'=>'user.linear.buy','uses'=>'LinearController@buy'));
+
+Route::get('/user/logout', array('as'=>'user.logout','uses'=>'UserController@logout'));Route::get('/user/logout', array('as'=>'user.logout','uses'=>'UserController@logout'));
 
 Route::any('admin/addnews', array('as'=>'admin.addNews','uses'=>'Admin\NewsController@addNews'));
