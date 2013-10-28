@@ -914,6 +914,7 @@ table.lscl td{
 	color: #585858;
 }
 .container{
+    max-width: none !important;
 	width: 1046px !important;
 	margin: 0 auto;
     padding: 0;
