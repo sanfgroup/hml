@@ -42,11 +42,11 @@
                     </li>
                     <li>
                         {{ Form::label('password', 'Пароль:') }}
-                        {{ Form::text('password', null, array('class'=>'form-control')) }}
+                        {{ Form::password('password', null, array('class'=>'form-control')) }}
                     </li>
                     <li>
                         {{ Form::label('password_confirmation', 'Подтверждение пароля:') }}
-                        {{ Form::text('password_confirmation', null, array('class'=>'form-control')) }}
+                        {{ Form::password('password_confirmation', null, array('class'=>'form-control')) }}
                     </li>
                     <li>
                         {{ Form::label('email', 'Email:') }}
@@ -98,7 +98,7 @@
                     </li>
                     <li>
                         {{ Form::label('password', 'Пароль:') }}
-                        {{ Form::text('password', null, array('class'=>'form-control')) }}
+                        {{ Form::password('password', null, array('class'=>'form-control')) }}
                     </li>
                 </ul>
             </div>
