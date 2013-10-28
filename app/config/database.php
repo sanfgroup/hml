@@ -54,7 +54,7 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
+			'host'      => 'server.san-francisco.com.ua',
 			'database'  => 'lhml',
 			'username'  => 'vinnizp',
 			'password'  => 'fp0up82h',
