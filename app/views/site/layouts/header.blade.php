@@ -32,11 +32,11 @@
             <ul>
                 <li>
                     <p>Skype:</p>
-                    <p>happylineofmoney</p>
+                    <p>happymoneyline</p>
                 </li>
                 <li>
                     <p>Skype:</p>
-                    <p>+91 9123456789</p>
+                    <p>happymoney</p>
                 </li>
                 <li>
                     <p>Email:</p>
@@ -68,7 +68,7 @@
                 <div class="clearfix"></div>
             </div>
 
-            <a href="" class="logo"></a>
+            <a href="/" class="logo"></a>
             @if(Auth::guest())
             <a href="#login" data-toggle="modal" class="enter">Вход для клиентов <img src="/images/lock.png" alt=""></a>
             @else

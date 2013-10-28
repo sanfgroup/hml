@@ -137,7 +137,7 @@ menu li ul li a:hover{
 menu.right{
 	margin-right: 50px;
 }
-.l1{padding: 0 17px; background: url(../images/l1.png) repeat-x;  } .l2{width: 110px; background: url(../images/l2.png) repeat-x;} .l3{padding: 0 28px; background: url(../images/l3.png) repeat-x;} .l4{padding: 0 40px 0 18px; background: url(../images/l4.png) repeat-x;} .l5{padding: 0 25px 0 60px; background: url(../images/l5.png) repeat-x; } .l6{padding: 0 25px 0 25px; background: url(../images/l6.png) repeat-x;} .l7{padding: 0 27px; background: url(../images/l7.png) repeat-x;}
+.l1{width:100px;padding: 0 17px; background: url(../images/l1.png) repeat-x;  } .l2{width: 110px; background: url(../images/l2.png) repeat-x;} .l3{padding: 0 28px; background: url(../images/l3.png) repeat-x;} .l4{padding: 0 40px 0 18px; background: url(../images/l4.png) repeat-x;} .l5{padding: 0 25px 0 60px; background: url(../images/l5.png) repeat-x; } .l6{padding: 0 25px 0 25px; background: url(../images/l6.png) repeat-x;} .l7{padding: 0 27px; background: url(../images/l7.png) repeat-x;}
 menu li a{
 	line-height: normal;
 	
@@ -914,7 +914,7 @@ table.lscl td{
 	color: #585858;
 }
 .container{
-	width: 1046px !important;
+	width: 1060px !important;
 	margin: 0 auto;
     padding: 0;
 }
@@ -1160,6 +1160,7 @@ ul.pagination li a:hover{
 	float: left;
 	border: 3px solid  #6fb7c3;
 	border-radius: 10px;
+
 }
 .mark_desc h3{
 	color: #fff;
@@ -1266,6 +1267,7 @@ p{
     color: #727272;
 }
 .contact_form{
+    background: #ededed;
     width: 516px;
     border: 1px solid #6fb7c3;
 }
@@ -1314,4 +1316,7 @@ p{
     text-align: center;
     background: url(../images/cont_grad.png) repeat-x bottom;
     background-size: 100% 100%;
+}
+p{
+    margin: 0 !important;
 }
