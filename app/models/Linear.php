@@ -1,6 +1,6 @@
 <?php
 
-class QueueLiear extends Eloquent {
+class Linear extends Eloquent {
 
 	protected $table = 'queue_linear';
 	public $timestamps = true;
@@ -8,7 +8,7 @@ class QueueLiear extends Eloquent {
 
 	public function user()
 	{
-		return $this->hasOne('Users');
+		return $this->belongsTo('Users');
 	}
 
 }

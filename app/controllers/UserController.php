@@ -62,6 +62,7 @@ class UserController extends BaseController {
     }
 
     public function getPrivat() {
+        Debugbar::info(Auth::user()->linear);
         return View::make('site.user.privat');
     }
 
