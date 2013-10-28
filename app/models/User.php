@@ -55,9 +55,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     {
         return $this->hasOne('Users', 'referral_id');
 	}
-    public function queue_linear()
+    public function linear()
     {
-        return $this->belongsTo('QueueLinear');
+        return $this->hasMany('Linear');
     }
 
 }
