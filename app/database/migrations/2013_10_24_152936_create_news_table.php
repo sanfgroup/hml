@@ -7,7 +7,7 @@ class CreateNewsTable extends Migration {
 
 	public function up()
 	{
-		Schema::create('news', function(Blueprint $table) {
+		Schema::create('newsadd.blade.php', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('title');
 			$table->text('content');
@@ -17,6 +17,6 @@ class CreateNewsTable extends Migration {
 
 	public function down()
 	{
-		Schema::drop('news');
+		Schema::drop('newsadd.blade.php');
 	}
 }
