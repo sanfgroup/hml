@@ -13,11 +13,13 @@ class CreateUsersTable extends Migration {
 			$table->string('password');
 			$table->string('email');
 			$table->string('fio');
-			$table->integer('referral_id');
+			$table->integer('referal_id');
 			$table->string('okpay');
 			$table->string('perfectmoney');
 			$table->string('solidtrustpay');
 			$table->string('zipcode');
+			$table->integer('balans');
+			$table->integer('balans_frozen');
 			$table->timestamps();
 		});
 	}
