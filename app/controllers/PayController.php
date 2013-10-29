@@ -23,8 +23,8 @@ class PayController extends BaseController {
         $uid = User::find($user_id);
         if(Hash::check($uid->username.$uid->pay, $id)) {
             Eloquent::unguard();
-            Balance::create(array(
-                'user_id' => $uid->id,
+            dd(1);
+            $uid->balance()->create(array(
                 'summa' => $amount,
                 'description' => 'Начисление с кошелька PerfectMoney: '.$account
             ));
