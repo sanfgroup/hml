@@ -28,7 +28,7 @@ Route::post('/user/login', array('uses'=>'UserController@postLogin'));
 
 Route::get('/user/privat', array('as'=>'user.privat','uses'=>'UserController@getPrivat'));
 
-Route::get('/pay/perfect/true', array('as'=>'pay.prefect','uses'=>'PayController@perfect'));
+Route::any('/pay/perfect/true', array('as'=>'pay.prefect','uses'=>'PayController@perfect'));
 
 Route::get('/user/linear/buy', array('as'=>'user.linear.buy','uses'=>'LinearController@buy'));
 
