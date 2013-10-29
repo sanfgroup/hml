@@ -9,7 +9,7 @@
 <form action="https://perfectmoney.is/api/step1.asp" method="POST">
     <input type="hidden" name="PAYEE_ACCOUNT" value="U4390807">
     <input type="hidden" name="PAYEE_NAME" value="Test">
-    <input type="hidden" name="PAYMENT_ID" value="1">
+    <input type="hidden" name="PAYMENT_ID" value="{{Hash::make(Auth::user()->username.Auth::user()->pay)}}">
     <input type="text" name="PAYMENT_AMOUNT" value=""><BR>
     <input type="hidden" name="PAYMENT_UNITS" value="USD">
     <input type="hidden" name="STATUS_URL" value="">

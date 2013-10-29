@@ -17,7 +17,21 @@ class PayController extends BaseController {
 
     public function perfect() {
         dd(Input::all());
-        $payer_account  = $_POST["PAYER_ACCOUNT"];
+        $account  = $_POST["PAYER_ACCOUNT"];
+        $amount  = $_POST["PAYMENT_AMOUNT"];
+        $id  = $_POST["PAYMENT_ID"];
         $user_id = $_REQUEST["user_id"];
+        $uid = User::find($user_id);
+        if(Hash::check($uid->username.$uid->pay, $id)) {
+            Eloquent::unguard();
+            Balance::create(array(
+                'user_id' => $uid->id,
+                'summa' => $amount,
+                'description' => 'Начисление с кошелька PerfectMoney: '.$account
+            ));
+            $uid->pay = $uid->pay+1;
+            $uid->save();
+        }
+        return Redirect::route('user.privat');
     }
 }
