@@ -52,11 +52,8 @@ class UserController extends BaseController {
         $user = array(
             'username' => Input::get('username'),
             'password' => Input::get('password')
-//            'username' => 'vinnizp',
-//            'password' => '111111'
         );
 
-        dd(Auth::attempt($user));
         if (Auth::attempt($user)) {
             return Redirect::route('user.privat');
         } else {

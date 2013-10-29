@@ -28,12 +28,14 @@ Route::post('/user/login', array('uses'=>'UserController@postLogin'));
 
 Route::get('/user/privat', array('as'=>'user.privat','uses'=>'UserController@getPrivat'));
 
+Route::get('/pay/perfect/true', array('as'=>'pay.prefect','uses'=>'PayController@perfect'));
+
 Route::get('/user/linear/buy', array('as'=>'user.linear.buy','uses'=>'LinearController@buy'));
 
-Route::get('/user/logout', array('as'=>'user.logout','uses'=>'UserController@logout'));
 Route::get('/user/logout', array('as'=>'user.logout','uses'=>'UserController@logout'));
 
 Route::get('admin/news', array('as'=>'admin.news', 'uses'=>'Admin\NewsController@listNews'));
 Route::any('admin/news/add', array('as'=>'admin.addNews','uses'=>'Admin\NewsController@addNews'));
 Route::get('admin/news/{id}',array('as'=>'admin.new.detail', 'uses'=>'Admin\NewsController@detailNews'));
+
 
