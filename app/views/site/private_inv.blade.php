@@ -1,12 +1,11 @@
 @extends("site.layouts.default")
 
 @section('content')
-<div class="cont">
+
     <div class="butBig bal">Ваш баланс: 1506,00$</div>
     <a href="" class="butBig addcash">Пополнить счет</a>
     <a href="" class="butBig get">Вывести деньги</a>
-</div>
-<div class="clearfix"></div>
+
 <div class="blocks_tarif1">
     <div>
         <div class="title">Купить тарифную линию</div>
