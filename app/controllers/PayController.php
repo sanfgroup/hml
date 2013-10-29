@@ -16,7 +16,6 @@ class PayController extends BaseController {
     */
 
     public function perfect() {
-        dd(Input::all());
         $account  = $_POST["PAYER_ACCOUNT"];
         $amount  = $_POST["PAYMENT_AMOUNT"];
         $id  = $_POST["PAYMENT_ID"];
