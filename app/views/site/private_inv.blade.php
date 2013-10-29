@@ -37,6 +37,37 @@
     </div>
 </div>
 <div class="blocks_tarif2">
-
+    <div class="tarcab">
+        <div class="name">Green line</div>
+        <div class="price">110 $</div>
+        <ul class="control">
+            <li><a href="#">Инфо</a></li>
+            <li><a href="#">Купить</a></li>
+        </ul>
+    </div>
+    <div class="tarcab">
+        <div class="name">Blue line</div>
+        <div class="price">180 $</div>
+        <ul class="control">
+            <li><a href="#">Инфо</a></li>
+            <li><a href="#">Купить</a></li>
+        </ul>
+    </div>
+    <div class="tarcab">
+        <div class="name">Pink line</div>
+        <div class="price">250 $</div>
+        <ul class="control">
+            <li><a href="#">Инфо</a></li>
+            <li><a href="#">Купить</a></li>
+        </ul>
+    </div>
+    <div class="tarcab">
+        <div class="name">Purple line</div>
+        <div class="price">400 $</div>
+        <ul class="control">
+            <li><a href="#">Инфо</a></li>
+            <li><a href="#">Купить</a></li>
+        </ul>
+    </div>
 </div>
 @stop

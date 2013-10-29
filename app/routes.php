@@ -36,3 +36,5 @@ Route::get('admin/news', array('as'=>'admin.news', 'uses'=>'Admin\NewsController
 Route::any('admin/news/add', array('as'=>'admin.addNews','uses'=>'Admin\NewsController@addNews'));
 Route::get('admin/news/{id}',array('as'=>'admin.new.detail', 'uses'=>'Admin\NewsController@detailNews'));
 
+Route::get('private/inv',array('as'=>'private.inv', 'uses'=>'HomeController@privateInv'));
+

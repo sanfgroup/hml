@@ -1377,7 +1377,7 @@ a.restore{
     vertical-align: middle;
 
 }
-.blocks_tarif1 .tarcab{
+.tarcab{
     padding-top: 10px;
 
     /*display: inline-block;*/
@@ -1391,6 +1391,7 @@ a.restore{
     text-align: center;
     font-size: 36px;
     line-height: 38px;
+    margin-left: -20px;
 }
 .tarcab .price{
     line-height: 75px;
@@ -1399,21 +1400,35 @@ a.restore{
     text-align: center;
 }
 .tarcab ul{
-    margin-left: -25px;
+    display: block;
+    margin-left: 0px;
     text-align: center;
     line-height: 48px;
+    padding-right: 20px;
 }
-.tarcab ul li{
+.tarcab ul li:first-child{
     display: inline-block;
     line-height: 48px;
-    margin: 0 12px;
+   float: left;
+}
+.tarcab ul li:last-child{
+    display: inline-block;
+    line-height: 48px;
+    float: right;
 }
 .tarcab ul li a{
     color: #ffffff;
     font-size: 21px;
 }
 .blocks_tarif2{
+    padding-left: 90px;
     background: url("../images/invest_bg2.png") no-repeat;
     width: 942px;
     height: 171px;
+}
+.blocks_tarif2 .tarcab{
+    width: 194px;
+}
+ .price{
+    margin-right: -36px;
 }
