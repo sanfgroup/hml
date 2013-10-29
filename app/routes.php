@@ -30,7 +30,8 @@ Route::get('/user/privat', array('as'=>'user.privat','uses'=>'UserController@get
 
 Route::get('/user/linear/buy', array('as'=>'user.linear.buy','uses'=>'LinearController@buy'));
 
-Route::get('/user/logout', array('as'=>'user.logout','uses'=>'UserController@logout'));Route::get('/user/logout', array('as'=>'user.logout','uses'=>'UserController@logout'));
+Route::get('/user/logout', array('as'=>'user.logout','uses'=>'UserController@logout'));
+Route::get('/user/logout', array('as'=>'user.logout','uses'=>'UserController@logout'));
 
 Route::get('admin/news', array('as'=>'admin.news', 'uses'=>'Admin\NewsController@listNews'));
 Route::any('admin/news/add', array('as'=>'admin.addNews','uses'=>'Admin\NewsController@addNews'));

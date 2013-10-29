@@ -86,9 +86,10 @@
             </div>
             {{ Form::open(array('route' => 'user.login', 'method' => 'POST')) }}
             <div class="modal-body">
-                @if(Session::has('login'))
+
+                @if(Session::has('flash_login'))
                 <div class="alert alert-danger">
-                    <p>{{Session::get('login')}}</p>
+                    <p>{{Session::get('flash_login')}}</p>
                 </div>
                 @endif
                 <ul>
