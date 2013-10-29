@@ -23,7 +23,7 @@ class HomeController extends BaseController {
 	}
 
 	public function getNews() {
-        $data['news'] = News::orderBy('created_at', 'desc')->take(2)->get();
+        $data['news'] = News::orderBy('created_at', 'desc')->paginate(10);
 		return View::make('site.news', $data);
 	}
 
@@ -49,5 +49,11 @@ class HomeController extends BaseController {
 
     public function getRulers() {
         return View::make('site.rulers');
+    }
+    public function privateLinear(){
+        return View::make('site.private_inv');
+    }
+    public function privateInv(){
+        return View::make('site.private_inv');
     }
 }

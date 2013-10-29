@@ -42,11 +42,13 @@
                     </li>
                     <li>
                         {{ Form::label('password', 'Пароль:') }}
-                        {{ Form::password('password', null, array('class'=>'form-control')) }}
+<!--                        {{ Form::password('password', null, array('class'=>'form-control')) }}-->
+                        <input type="password" name="password" id="password" class="form-control" />
                     </li>
                     <li>
                         {{ Form::label('password_confirmation', 'Подтверждение пароля:') }}
-                        {{ Form::password('password_confirmation', null, array('class'=>'form-control')) }}
+<!--                        {{ Form::password('password_confirmation', null, array('class'=>'form-control')) }}-->
+                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" />
                     </li>
                     <li>
                         {{ Form::label('email', 'Email:') }}
@@ -99,11 +101,13 @@
                     </li>
                     <li>
                         {{ Form::label('password', 'Пароль:') }}
-                        {{ Form::password('password', null, array('class'=>'form-control')) }}
+
+                        <input name="password" type="password" value="" id="password" class="form-control">
                     </li>
                 </ul>
             </div>
                 <div class="modal-footer">
+                    <a href="#" class="restore">Восстановление пароля</a>
                 <button type="submit" class="btn btn-primary">Войти</button>
             </div>
                 {{ Form::close() }}

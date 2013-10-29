@@ -506,14 +506,20 @@ table.refer th{
 }
 .butBig, a.butBig{
 	display: inline-block;
+    text-align: center;
 	font-family: "LOBSTER";
-	font-size: 30px;
-	width: 327px;
-	height: 92px;
-	line-height: 92px;
+	font-size: 24px;
+	width: 257px;
+	height: 75px;
+	line-height: 75px;
 	vertical-align: middle;
 	color: #fff;
-	border-radius: 20px;
+	border-radius: 10px;
+    background-size: 100% 100%;
+}
+.cont{
+    float: left;
+    margin-top: 25px;
 }
 a.butBig:hover{
 	text-decoration: none;
@@ -524,7 +530,7 @@ a.butBig:hover{
 }
 .addcash{
 	background: url(../images/addcash.png) repeat-x;
-	margin: 0 25px;
+	margin: 0 10px;
 }
 .get{
 	background: url(../images/getmoney.png) repeat-x;
@@ -1325,4 +1331,89 @@ p{
     text-align: center;
     background: url(../images/cont_grad.png) repeat-x bottom;
     background-size: 100% 100%;
+}
+.modal-content{
+    background: url("../images/modal_bg.png") top repeat-x;
+    background-size: 100% 100%;
+    color: #fff;
+    border: 2px solid #a3eaf5;
+}
+.modal-content input{
+    width: 250px;
+    border: 2px solid #279bd8;
+}
+a.restore{
+    float: left;
+    font-size: 19px;
+    color: #fff;
+}
+.modal-footer{
+    border-top: 1px solid #74ceb9 !important;
+}
+.modal-header{
+    border-bottom: 1px solid #75c1e1;
+}
+.blocks_tarif1{
+    margin: 20px 0;
+    background: url("../images/invest_bg1.png") no-repeat;
+    width: 942px;
+    height: 171px;
+    line-height: 171px;
+
+}
+.blocks_tarif1>div{
+    float: left;
+}
+.blocks_tarif1 .title{
+    display: inline-block;
+    line-height: 35px;
+    font-family: "LOBSTER";
+    color: #ffffff;
+    font-size: 32px;
+    width: 265px;
+    text-align: center;
+    margin-left: 30px;
+    margin-right: 15px;
+    vertical-align: middle;
+
+}
+.blocks_tarif1 .tarcab{
+    padding-top: 10px;
+
+    /*display: inline-block;*/
+    color: #ffffff;
+    font-family: "LOBSTER";
+    float: left;
+    width: 185px;
+    margin-right: 10px;
+}
+.tarcab .name{
+    text-align: center;
+    font-size: 36px;
+    line-height: 38px;
+}
+.tarcab .price{
+    line-height: 75px;
+    vertical-align: middle;
+    font-size: 60px;
+    text-align: center;
+}
+.tarcab ul{
+    margin-left: -25px;
+    text-align: center;
+    line-height: 48px;
+}
+.tarcab ul li{
+    display: inline-block;
+    line-height: 48px;
+    margin: 0 12px;
+}
+.tarcab ul li a{
+    color: #ffffff;
+    font-size: 21px;
+}
+.blocks_tarif2{
+    background: url("../images/invest_bg2.png") no-repeat;
+    width: 942px;
+    height: 171px;
 }

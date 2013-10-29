@@ -15,16 +15,12 @@
     <a href="#" class="more_bp">Читать подробнее &raquo;</a>
 </div>
 @endforeach
+@if($news->links()!='')
 <!-- Пагинация -->
 <div class="pag">
-    <ul class="pagination">
-        <li class="disabled"><span>&laquo;</span></li>
-        <li class="active"><span>1</span></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">&raquo;</a></li>
-    </ul>
+    {{$news->links()}}
     <div class="line"></div>
 </div>
 <!-- Пагинация -->
+@endif
 @stop
