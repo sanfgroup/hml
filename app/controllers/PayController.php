@@ -55,11 +55,12 @@ class PayController extends BaseController {
 //            dd($r['sum']);
             $uid->balance()->create(array(
                 'summa' => $r['sum'],
-                'description' => 'Начисление с кошелька PerfectMoney: '.$r['payeer']
+                'description' => 'Начисление с кошелька OkPay: '.$r['payeer']
             ));
             $uid->pay = Str::random(32);
             $uid->save();
         }
+        return Redirect::route('user.privat');
 
 
         /*$account  = $_POST["PAYER_ACCOUNT"];
