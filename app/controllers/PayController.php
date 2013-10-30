@@ -39,7 +39,7 @@ class PayController extends BaseController {
         $arr = Input::all();
         $arr['ok_verify'] = 'true';
 
-        $answ = $ok->inet_request('https://okpay.com/ipn-verify.html', $arr);
+        $answ = $ok->inet_request('https://www.okpay.com/ipn-verify.html', $arr);
         $r = array(
             'payeer' => $arr['ok_payer_email'],
             'sum' => $arr['ok_txn_net'],
