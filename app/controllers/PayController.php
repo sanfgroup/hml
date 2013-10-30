@@ -33,13 +33,13 @@ class PayController extends BaseController {
     }
 
     public function okpay() {
-        dd(Input::all());
+//        dd(Input::all());
 
         $ok = new OkPay();
         $arr = Input::all();
         $r = array(
             'payeer' => $arr['ok_payer_email'],
-            'sum' => $arr['ok_txn_net'],
+            'sum' => $arr['ok_txn_fee'],
             'curr' => $arr['ok_txn_currency'],
             'batch' => $arr['ok_txn_id'],
             'status' => $arr['ok_txn_status'],
