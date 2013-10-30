@@ -49,8 +49,8 @@ class PayController extends BaseController {
             'art' => $arr['ok_item_1_article'],
             'date' => time()
         );
-        $uid = User::find($r['uid']);
-        dd($r);
+        $uid = User::find(intval($r['uid']));
+        dd($uid);
         if($r['art'] == $uid->pay) {
             $uid->balance()->create(array(
                 'summa' => $r['sum'],
