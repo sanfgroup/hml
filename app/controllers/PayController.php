@@ -33,7 +33,7 @@ class PayController extends BaseController {
     }
 
     public function okpay() {
-//        dd(Input::all());
+        dd(Input::all());
 
         $ok = new OkPay();
         $arr = Input::all();
@@ -51,7 +51,7 @@ class PayController extends BaseController {
         );
         $uid = User::find($r['uid']);
 
-        if($r['art'] == $uid->pay) {
+        if($uid != null && $r['art'] == $uid->pay) {
             $uid->balance()->create(array(
                 'summa' => $r['sum'],
                 'description' => 'Начисление с кошелька PerfectMoney: '.$r['payeer']
