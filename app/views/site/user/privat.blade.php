@@ -7,4 +7,5 @@
 
 <br/>
 {{$form}}
+{{$form2}}
 @stop

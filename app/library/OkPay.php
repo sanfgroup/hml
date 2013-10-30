@@ -63,7 +63,7 @@ class OkPay
 <input type="hidden" name="ok_return_fail" value="{$ad}/pay/okpayFail"/>
 <input type="text" name="ok_item_1_price" value=""/>
 <input type="hidden" name="ok_item_1_custom_1_title" value="user_id">
-<input type="text" name="ok_item_1_custom_1_value" maxlength="127" value="1">
+<input type="hidden" name="ok_item_1_custom_1_value" maxlength="127" value="1">
 <input type="image" name="submit" alt="OKPAY Payment" src="https://www.okpay.com/img/buttons/ru/top-up/t13g163x42en.png"/></form>
 html;
         return $form;
