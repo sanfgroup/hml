@@ -171,7 +171,7 @@ a.logo{
 	margin-left: -92px;
 	width: 184px;
 	height: 176px;
-	background: url(../images/logo.png);
+	background: url(../images/logo.png) no-repeat center;
 	top:-75px;
 }
 .btn{
