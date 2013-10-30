@@ -42,7 +42,6 @@ class PayController extends BaseController {
         $answ = $ok->inet_request('https://okpay.com/ipn-verify.html', $arr);
         $r = array(
             'payeer' => $arr['ok_payer_email'],
-            'tag' => $arr['ok_invoice'],
             'sum' => $arr['ok_txn_net'],
             'curr' => $arr['ok_txn_currency'],
             'batch' => $arr['ok_txn_id'],
