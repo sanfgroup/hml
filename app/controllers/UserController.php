@@ -62,8 +62,9 @@ class UserController extends BaseController {
     }
 
     public function getPrivat() {
-//        dd(Linear5::fnp());
-        return View::make('site.user.privat');
+        $pm = new PerfectMoney();
+        $data['form'] = $pm->form(Auth::user()->id);
+        return View::make('site.user.privat', $data);
     }
 
     public function logout() {

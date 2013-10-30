@@ -100,7 +100,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         $b = $this->balance()->sum('summa');
         if(!$b)
             return 0;
-        return $b;
+        return round($b,2);
     }
 
 }
