@@ -56,4 +56,7 @@ class HomeController extends BaseController {
     public function privateInv(){
         return View::make('site.private_inv');
     }
+    public function userDeposites(){
+        return View::make('site.user.deposites');
+    }
 }
