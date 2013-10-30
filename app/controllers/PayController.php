@@ -51,6 +51,9 @@ class PayController extends BaseController {
             'uid' => $arr['ok_item_1_custom_1_value'],
             'date' => time()
         );
+        echo ($answ == 'VERIFIED') and ($r['curr'] == "USD") and ($r['status'] == 'completed');
+        echo "\n";
+        print_r($answ);
         if(($answ == 'VERIFIED') and ($r['curr'] == "USD") and ($r['status'] == 'completed')) {
             $uid = User::find($r['uid']);
             $uid->balance()->create(array(
