@@ -33,7 +33,7 @@ class PayController extends BaseController {
     }
 
     public function okpay() {
-        dd(Input::all());
+//        dd(Input::all());
 
         $ok = new OkPay();
         $arr = Input::all();
@@ -50,6 +50,7 @@ class PayController extends BaseController {
             'date' => time()
         );
         $uid = User::find($r['uid']);
+        dd($uid);
         if($r['art'] == $uid->pay) {
             $uid->balance()->create(array(
                 'summa' => $r['sum'],
