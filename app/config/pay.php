@@ -7,7 +7,7 @@ return array(
         'account' => 'U4390807'
     ),
     'okpay' => array(
-        'passkey' => '',
+        'passcode' => 'Qw93Jje7YZm4r6H2LtKo58Gnb',
         'account' => 'OK280296052'
     )
 );
