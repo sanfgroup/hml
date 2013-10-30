@@ -51,7 +51,7 @@ class HomeController extends BaseController {
         return View::make('site.rulers');
     }
     public function privateLinear(){
-        return View::make('site.private_inv');
+        return View::make('site.private_linear');
     }
     public function privateInv(){
         return View::make('site.private_inv');
