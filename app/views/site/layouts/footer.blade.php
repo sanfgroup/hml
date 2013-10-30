@@ -54,7 +54,9 @@
                         {{ Form::label('email', 'Email:') }}
                         {{ Form::text('email', null, array('class'=>'form-control')) }}
                     </li>
-<!--                    <li>-->
+                    <li>{{HTML::image(Captcha::img(), 'Captcha image')}} {{Form::text('captcha')}}</li>
+
+                    <!--                    <li>-->
 <!--                        {{ Form::label('referal_id', 'Referal_id:') }}-->
 <!--                        {{ Form::text('referal_id') }}-->
 <!--                    </li>-->
@@ -104,6 +106,7 @@
 
                         <input name="password" type="password" value="" id="password" class="form-control">
                     </li>
+                    <li>{{HTML::image(Captcha::img(), 'Captcha image')}} {{Form::text('captcha')}}</li>
                 </ul>
             </div>
                 <div class="modal-footer">

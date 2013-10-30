@@ -116,6 +116,7 @@ return array(
 
         'Barryvdh\Debugbar\ServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+        'Mews\Captcha\CaptchaServiceProvider',
 	),
 
 	/*
@@ -183,6 +184,7 @@ return array(
 
 
         'Debugbar'        => 'Barryvdh\Debugbar\Facade',
+        'Captcha' => 'Mews\Captcha\Facades\Captcha',
 
 	),
 

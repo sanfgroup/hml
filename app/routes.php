@@ -44,3 +44,4 @@ Route::get('private/inv', array('as'=>'private.inv', 'uses'=>'HomeController@pri
 Route::get('private/linear', array('as'=>'private.linear', 'uses'=>'HomeController@privateLinear'));
 
 
+

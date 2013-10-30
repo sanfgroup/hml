@@ -19,7 +19,8 @@ class UserController extends BaseController {
             'email'                 => 'Required|Between:3,64|Email|Unique:users',
             'username'              => 'required|Unique:users',
             'password'              => 'Required|min:6|Confirmed',
-            'password_confirmation' => 'Required|min:6'
+            'password_confirmation' => 'Required|min:6',
+            'captcha'               => array('required', 'captcha')
         );
         $v = Validator::make($input, $rules);
         if( $v->passes() ) {
@@ -48,14 +49,18 @@ class UserController extends BaseController {
     }
 
     public function postLogin() {
-
+        $rule =  array('captcha' => array('required', 'captcha'));
+        $validator = Validator::make(Input::all(), $rule);
         $user = array(
             'username' => Input::get('username'),
-            'password' => Input::get('password')
+            'password' => Input::get('password'),
         );
-
-        if (Auth::attempt($user)) {
+//        dd($validator->passes());
+        if ($validator->passes() && Auth::attempt($user)) {
             return Redirect::route('user.privat');
+        }
+        elseif($validator->fails()){
+            return Redirect::route('home')->with('flash_login', 'Неверная captcha!');
         } else {
             return Redirect::route('home')->with('flash_login', 'Неверный логин или пароль!');
         }
