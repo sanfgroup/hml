@@ -37,10 +37,6 @@ class PayController extends BaseController {
 
         $ok = new OkPay();
         $arr = Input::all();
-        $arr['ok_verify'] = 'true';
-        print_r($arr);
-
-        $answ = $ok->inet_request('https://www.okpay.com/ipn-verify.html', $arr);
         $r = array(
             'payeer' => $arr['ok_payer_email'],
             'sum' => $arr['ok_txn_net'],
@@ -50,13 +46,11 @@ class PayController extends BaseController {
             'kind' => $arr['ok_txn_kind'],
             'method' => $arr['ok_txn_payment_method'],
             'uid' => $arr['ok_item_1_custom_1_value'],
+            'art' => $arr['ok_item_1_article'],
             'date' => time()
         );
-        echo ($answ == 'VERIFIED') and ($r['curr'] == "USD") and ($r['status'] == 'completed');
-        echo "\n";
-        print_r($answ);
-        if(($answ == 'VERIFIED') and ($r['curr'] == "USD") and ($r['status'] == 'completed')) {
-            $uid = User::find($r['uid']);
+        $uid = User::find($r['uid']);
+        if($r['art'] == $uid->pay) {
             $uid->balance()->create(array(
                 'summa' => $r['sum'],
                 'description' => 'Начисление с кошелька PerfectMoney: '.$r['payeer']
@@ -106,7 +100,6 @@ class PayController extends BaseController {
         $id  = $_POST["PAYMENT_ID"];
         $user_id = $_REQUEST["user_id"];
         $uid = User::find($user_id);
-        $h = $uid->username.$uid->pay;
         if($id == $uid->pay) {
 //            Eloquent::unguard();
 //            dd(1);

@@ -55,7 +55,7 @@ class OkPay
         $form = <<<html
 <form method="post" action="https://www.okpay.com/process.html">
 <input type="hidden" name="ok_receiver" value="{$this->account}"/>
-<input type="hidden" name="ok_item_1_name" value="Пополнение внутреннего баланса"/>
+<input type="hidden" name="ok_item_1_name" value="Recharge_the_internal_balance"/>
 <input type="hidden" name="ok_currency" value="USD"/>
 <input type="hidden" name="ok_item_1_article" value="{$payment_id}"/>
 <input type="hidden" name="ok_item_1_type" value="service"/>
