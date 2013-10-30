@@ -41,6 +41,7 @@ class UserController extends BaseController {
         } else {
             return Redirect::route('home')
                 ->withErrors($v->errors());
+
         }
     }
 
