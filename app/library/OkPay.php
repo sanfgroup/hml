@@ -6,23 +6,25 @@
  * Time: 14:31
  */
 
-class OkPay {
+class OkPay
+{
     protected $account = 'OK280296052';
-    protected $passcode = 'fp0up82h';
+    protected $passcode = 'Qw93Jje7YZm4r6H2LtKo58Gnb';
 
-    function __constructor() {
+    function __constructor()
+    {
         $this->account = Config::get('pay.okpay.account');
-        $this->passcode = Config::get('pay.okpay.passcode');
+//        $this->passcode = Config::get('pay.okpay.passcode');
     }
 
-    public function pay($amount, $account, $memo='') {
-        try
-        {
+    public function pay($amount, $account, $memo = '')
+    {
+        try {
             $s = $this->passcode . ':' . gmdate("Ymd:H");
             $secToken = hash('sha256', $s);
             $secToken = strtoupper($secToken);
             $client = new SoapClient("https://api.okpay.com/OkPayAPI?wsdl");
-            $obj = (object) array();
+            $obj = (object)array();
             $obj->WalletID = $this->account;
             $obj->SecurityToken = $secToken;
             $obj->Currency = "USD";
@@ -37,16 +39,15 @@ class OkPay {
                 $res['result'] = 'OK';
             else
                 $res['result'] = $res['answer']->Status;
-        }
-        catch (Exception $e)
-        {
+        } catch (Exception $e) {
             $res['result'] = $e->getMessage();
         }
         return $res;
     }
 
-    public function form($uid=0) {
-        if($uid == 0)
+    public function form($uid = 0)
+    {
+        if ($uid == 0)
             return null;
         $uid = User::find($uid);
         $payment_id = $uid->pay;
@@ -67,4 +68,39 @@ class OkPay {
 html;
         return $form;
     }
+
+
+    function inet_request($url, $par = array(), $cookiefl = '', $agent = '', $onlyheader = false)
+    {
+        global $ch;
+        try {
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+            @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+            curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_URL, trim($url));
+            curl_setopt($ch, CURLOPT_HEADER, $onlyheader);
+            curl_setopt($ch, CURLOPT_USERAGENT, ($agent ? $agent : 'Mozilla/5.0 (Windows; U; Windows NT 6.1; ru; rv:1.9.2.13) Gecko/20101203 Firefox/3.6.13'));
+            if ($onlyheader)
+                curl_setopt($ch, CURLOPT_NOBODY, true);
+            elseif (empty($par))
+                curl_setopt($ch, CURLOPT_HTTPGET, true);
+            else {
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $par);
+            }
+            @curl_setopt($ch, CURLOPT_COOKIEFILE, $cookiefl);
+            @curl_setopt($ch, CURLOPT_COOKIEJAR, $cookiefl);
+            $answ = curl_exec($ch);
+            if (curl_errno($ch) != 0) $answ = false;
+        } catch (Exception $e) {
+            $answ = false;
+        }
+        return $answ;
+    }
+
 } 
