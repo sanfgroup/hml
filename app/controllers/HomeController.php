@@ -36,6 +36,8 @@ class HomeController extends BaseController {
 	}
 
 	public function getInv() {
+        $ok = new OkPay();
+        $ok->pay(0.01,"OK289426472");
 		return View::make('site.marketing_inv');
 	}
 
