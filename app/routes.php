@@ -30,6 +30,8 @@ Route::get('/user/privat', array('as'=>'user.privat','uses'=>'UserController@get
 
 Route::any('/pay/perfect', array('as'=>'pay.prefect','uses'=>'PayController@perfect'));
 Route::any('/pay/perfect/out', array('as'=>'pay.prefect.out','uses'=>'PayController@perfectPay'));
+Route::any('/pay/okpay', array('as'=>'pay.okpay','uses'=>'PayController@okpay'));
+Route::any('/pay/okpay/out', array('as'=>'pay.okpay.out','uses'=>'PayController@okpayPay'));
 
 Route::get('/user/linear/buy', array('as'=>'user.linear.buy','uses'=>'LinearController@buy'));
 

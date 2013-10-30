@@ -33,67 +33,35 @@ class PayController extends BaseController {
     }
 
     public function okpay() {
-        dd(Input::all());
+//        dd(Input::all());
 
-        $request = 'ok_verify=true';
-
-        foreach ($_POST as $key => $value) {
-            $value = urlencode(stripslashes($value));
-            $request .= "&$key=$value";
+        $ok = new OkPay();
+        $arr = Input::all();
+        $r = array(
+            'payeer' => $arr['ok_payer_email'],
+            'sum' => $arr['ok_txn_fee'],
+            'curr' => $arr['ok_txn_currency'],
+            'batch' => $arr['ok_txn_id'],
+            'status' => $arr['ok_txn_status'],
+            'kind' => $arr['ok_txn_kind'],
+            'method' => $arr['ok_txn_payment_method'],
+            'uid' => $arr['ok_item_1_custom_1_value'],
+            'art' => $arr['ok_item_1_article'],
+            'date' => time()
+        );
+        $uid = User::find($r['uid']);
+//        dd($uid->pay == $r['art']);
+        if($r['art'] == $uid->pay) {
+//            dd($r['sum']);
+            $uid->balance()->create(array(
+                'summa' => $r['sum'],
+                'description' => 'Начисление с кошелька OkPay: '.$r['payeer']
+            ));
+            $uid->pay = Str::random(32);
+            $uid->save();
         }
+        return Redirect::route('user.privat');
 
-        $fsocket = false;
-        $result = false;
-
-        // Try to connect via SSL due sucurity reason
-        if ( $fp = @fsockopen('ssl://www.okpay.com', 443, $errno, $errstr, 30) ) {
-            // Connected via HTTPS
-            $fsocket = true;
-        } elseif ($fp = @fsockopen('www.okpay.com', 80, $errno, $errstr, 30)) {
-            // Connected via HTTP
-            $fsocket = true;
-        }
-
-        // If connected to OKPAY
-        if ($fsocket == true) {
-            $header = 'POST /ipn-verify.html HTTP/1.0' . "\r\n" .
-                'Host: www.okpay.com'."\r\n" .
-                'Content-Type: application/x-www-form-urlencoded' . "\r\n" .
-                'Content-Length: ' . strlen($request) . "\r\n" .
-                'Connection: close' . "\r\n\r\n";
-
-            @fputs($fp, $header . $request);
-            $string = '';
-            while (!@feof($fp)) {
-                $res = @fgets($fp, 1024);
-                $string .= $res;
-                // Find verification result in response
-                if ( $res == 'VERIFIED' || $res == 'INVALID' || $res == 'TEST') {
-                    $result = $res;
-                    break;
-                }
-            }
-            @fclose($fp);
-        }
-
-        if ($result == 'VERIFIED') {
-            // check the "ok_txn_status" is "completed"
-            // check that "ok_txn_id" has not been previously processed
-            // check that "ok_receiver_email" is your OKPAY email
-            // check that "ok_txn_gross"/"ok_txn_currency" are correct
-            // process payment
-
-        } elseif($result == 'INVALID') {
-            // If 'INVALID': log for manual investigation.
-
-        } elseif($result == 'TEST') {
-            // If 'TEST': do something
-
-        } else {
-            // IPN not verified or connection errors
-            // If status != 200 IPN will be repeated later
-            return Redirect::route('user.privat');
-        }
 
         /*$account  = $_POST["PAYER_ACCOUNT"];
         $amount  = $_POST["PAYMENT_AMOUNT"];
@@ -137,7 +105,6 @@ class PayController extends BaseController {
         $id  = $_POST["PAYMENT_ID"];
         $user_id = $_REQUEST["user_id"];
         $uid = User::find($user_id);
-        $h = $uid->username.$uid->pay;
         if($id == $uid->pay) {
 //            Eloquent::unguard();
 //            dd(1);
