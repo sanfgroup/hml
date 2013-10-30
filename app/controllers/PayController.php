@@ -33,7 +33,7 @@ class PayController extends BaseController {
     }
 
     public function okpay() {
-//        dd(Input::all());
+        dd(Input::all());
 
         $ok = new OkPay();
         $arr = Input::all();
