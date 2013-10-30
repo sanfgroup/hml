@@ -51,7 +51,8 @@ class PayController extends BaseController {
         );
         $uid = User::find($r['uid']);
 //        dd($uid->pay == $r['art']);
-        if($uid != null && $r['art'] == $uid->pay) {
+        if($r['art'] == $uid->pay) {
+            dd($r['sum']);
             $uid->balance()->create(array(
                 'summa' => $r['sum'],
                 'description' => 'Начисление с кошелька PerfectMoney: '.$r['payeer']
