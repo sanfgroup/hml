@@ -12,6 +12,7 @@ class CreateInvsTable extends Migration {
 			$table->string('name');
 			$table->integer('cost');
 			$table->text('payments');
+			$table->integer('limit')->default(7);
 		});
 	}
 

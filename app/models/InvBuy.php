@@ -16,4 +16,8 @@ class InvBuy extends Eloquent {
 		return $this->belongsTo('Users');
 	}
 
+    public function getLastAttribute() {
+        return strtotime(date('d.m.Y 19:00:00', strtotime($this->updated_at)));
+    }
+
 }

@@ -11,4 +11,8 @@ class Inv extends Eloquent {
 		return $this->hasMany('InvBuy');
 	}
 
+    public function getPaymentAttribute() {
+        return unserialize(base64_decode($this->payments));
+    }
+
 }
