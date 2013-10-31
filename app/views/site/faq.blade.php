@@ -40,7 +40,7 @@
 <div class="question">
     <div class="arrow_box">6. Какие тарифные планы есть в проекте?</div>
     <div class="text_answer" style="display: none;">
-        Смотрите разделы <a href="{{URL::route('marketing.inv', array($post->id))}}" >«Инвестиционный Маркетинг»</a>, <a href="{{URL::route('marketing.linear', array($post->id))}}">«Линейный Маркетинг»</a>
+        Смотрите разделы <a href="{{URL::route('marketing.inv')}}" >«Инвестиционный Маркетинг»</a>, <a href="{{URL::route('marketing.linear')}}">«Линейный Маркетинг»</a>
     </div>
 
 </div>
@@ -54,7 +54,7 @@
 <div class="question">
     <div class="arrow_box">8. Что такое бонусная программа?</div>
     <div class="text_answer" style="display: none;">
-        Бонусная программа позволяет заработать дополнительно при покупке необходимого количества тарифных линий. Более подробное описание бонусной программы смотрите в разделе <a href="{{URL::route('marketing.inv', array($post->id))}}" >«Маркетинг»</a>
+        Бонусная программа позволяет заработать дополнительно при покупке необходимого количества тарифных линий. Более подробное описание бонусной программы смотрите в разделе <a href="{{URL::route('marketing.inv')}}" >«Маркетинг»</a>
     </div>
 
 </div>
@@ -75,7 +75,7 @@
 <div class="question">
     <div class="arrow_box">11. Если я не смогу никого пригласить, получу ли я деньги?</div>
     <div class="text_answer" style="display: none;">
-        Да, получите! Существуют определенные сроки закрытия тарифных линий, прописанные в разделе <a href="{{URL::route('marketing.linear', array($post->id))}}">«Маркетинг»</a>.
+        Да, получите! Существуют определенные сроки закрытия тарифных линий, прописанные в разделе <a href="{{URL::route('marketing.linear'}}">«Маркетинг»</a>.
     </div>
 
 </div>
