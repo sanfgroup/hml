@@ -1125,8 +1125,8 @@ ul.pagination li a:hover{
 	position: relative;
 	background: url(../images/que_bg.png) bottom repeat-x;
 	vertical-align: middle;
-	height: 45px;
-	padding: 15px 15px 0;
+	/*height: 45px;*/
+	padding: 15px 15px;
 	border-radius: 15px;
 	margin-bottom: 25px;
 	color: #fff;
