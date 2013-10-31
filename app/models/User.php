@@ -67,6 +67,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->hasMany('Linear15');
     }
 
+    public function balance()
+    {
+        return $this->hasMany('Balance');
+    }
+
+    public function buys()
+    {
+        return $this->hasMany('InvBuy');
+    }
+
     public function l5pos() {
         $count = Linear5::wherePayed(1)->count();
         $u = $this->linear5()->orderBy('id')->first();
@@ -89,11 +99,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         if($u)
             return $u->id - $count;
         return 0;
-    }
-
-    public function balance()
-    {
-        return $this->hasMany('Balance');
     }
 
     public function getBalanceAttribute() {
