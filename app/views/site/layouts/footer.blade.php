@@ -54,24 +54,26 @@
                         {{ Form::label('email', 'Email:') }}
                         {{ Form::text('email', null, array('class'=>'form-control')) }}
                     </li>
-                    <li>{{HTML::image(Captcha::img(), 'Captcha image')}} {{Form::text('captcha')}}</li>
 
-                    <!--                    <li>-->
+<!--                                        <li>-->
 <!--                        {{ Form::label('referal_id', 'Referal_id:') }}-->
 <!--                        {{ Form::text('referal_id') }}-->
 <!--                    </li>-->
-<!--                    <li>-->
-<!--                        {{ Form::label('okpay', 'Okpay:') }}-->
-<!--                        {{ Form::text('okpay') }}-->
-<!--                    </li>-->
-<!--                    <li>-->
-<!--                        {{ Form::label('perfectmoney', 'Perfectmoney:') }}-->
-<!--                        {{ Form::text('perfectmoney') }}-->
-<!--                    </li>-->
-<!--                    <li>-->
-<!--                        {{ Form::label('solidtrustpay', 'Solidtrustpay:') }}-->
-<!--                        {{ Form::text('solidtrustpay') }}-->
-<!--                    </li>-->
+                    <li>
+                        {{ Form::label('perfectmoney', 'Perfectmoney:') }}
+                        {{ Form::text('perfectmoney', 'U', array('class'=>'form-control')) }}
+                    </li>
+                    <li>
+                        {{ Form::label('okpay', 'Okpay:') }}
+                        {{ Form::text('okpay', 'OK', array('class'=>'form-control')) }}
+                    </li>
+
+                    <li>
+                        {{ Form::label('solidtrustpay', 'Solidtrustpay:') }}
+                        {{ Form::text('solidtrustpay', null, array('class'=>'form-control')) }}
+                    </li>
+                    <li>{{HTML::image(Captcha::img(), 'Captcha image')}}</li>
+                    <li>{{Form::text('captcha', null, array('class'=>'form-control', 'style'=>'width:150px'))}}</li>
                 </ul>
             </div>
                 <div class="modal-footer">
@@ -106,7 +108,8 @@
 
                         <input name="password" type="password" value="" id="password" class="form-control">
                     </li>
-                    <li>{{HTML::image(Captcha::img(), 'Captcha image')}} {{Form::text('captcha')}}</li>
+                    <li>{{HTML::image(Captcha::img(), 'Captcha image')}}</li>
+                    <li>{{Form::text('captcha', null, array('class'=>'form-control', 'style'=>'width:150px'))}}</li>
                 </ul>
             </div>
                 <div class="modal-footer">
