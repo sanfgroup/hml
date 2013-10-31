@@ -27,7 +27,7 @@ class InvController extends BaseController {
                     'inv_id' => $id,
                     'col'=> 0
                 ));
-                Session::put('buy', time());a
+                Session::put('buy', time());
             }
         }
     }
