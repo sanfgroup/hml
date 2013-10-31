@@ -35,7 +35,7 @@ class PayController extends BaseController {
     public function okpay() {
 //        dd(Input::all());
 
-        $ok = new OkPay();
+//        $ok = new OkPay();
         $arr = Input::all();
         $r = array(
             'payeer' => $arr['ok_payer_email'],
