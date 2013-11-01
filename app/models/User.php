@@ -77,7 +77,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->hasMany('InvBuy');
     }
 
-    public function l5pos() {
+    public function getL5posAttribute() {
         $arr = array();
         $count = Linear5::wherePayed(1)->count();
         $u = $this->linear5()->wherePayed(0)->orderBy('id')->get();
@@ -89,7 +89,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $arr;
     }
 
-    public function l10pos() {
+    public function getL10posAttribute() {
         $arr = array();
         $count = Linear10::wherePayed(1)->count();
         $u = $this->linear10()->wherePayed(0)->orderBy('id')->get();
@@ -101,7 +101,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $arr;
     }
 
-    public function l15pos() {
+    public function getL15posAttribute() {
         $arr = array();
         $count = Linear15::wherePayed(1)->count();
         $u = $this->linear15()->wherePayed(0)->orderBy('id')->get();

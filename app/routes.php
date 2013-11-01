@@ -56,7 +56,7 @@ Route::get('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
 
     $invs = Inv::all();
     foreach($invs as $inv) {
-        foreach($inv->buys()->where('col', '<', 7)->get() as $v) {
+        foreach($inv->buys()->where('col', '<', 8)->get() as $v) {
             if(($v->last+(3*24*60*60)) <= time()) {
                 $v->user()->first()->balance()->create(array(
                     'summa' => $inv->payment[$v->col],

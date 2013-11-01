@@ -20,7 +20,7 @@
             <td>{{$v->inv->name}}</td>
             <td>{{$v->inv->sumPayed($v->col)}}$</td>
             <td>{{$v->next}}</td>
-            <td>{{$v->col}}</td>
+            <td>{{$v->col}}/8</td>
             <td>
                 @if($v->col < 7)
                 Открыт
