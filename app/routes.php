@@ -46,6 +46,6 @@ Route::get('admin/news/{id}',array('as'=>'admin.new.detail', 'uses'=>'Admin\News
 Route::get('private/inv', array('as'=>'private.inv', 'uses'=>'HomeController@privateInv'));
 Route::get('private/linear', array('as'=>'private.linear', 'uses'=>'HomeController@privateLinear'));
 Route::get('user/deposites', array('as'=>'user.deposites', 'uses'=>'HomeController@userDeposites'));
-Route::any('user/review/add', array('as'=>'user.review.add', 'uses'=>'HomeController@user'));
+Route::any('user/review/add', array('as'=>'user.review.add', 'uses'=>'HomeController@userAddReview'));
 
 

@@ -62,4 +62,14 @@ class HomeController extends BaseController {
     public function userDeposites(){
         return View::make('site.user.deposites');
     }
+    public function userAddReview(){
+        if (Input::server("REQUEST_METHOD") == "POST") {
+            $review = new Reviews();
+            $review->user_id = Auth::user()->id;
+            $review->content = INPUT::get('add_review');
+            $review->save();
+            return Redirect::route('reviews');
+        }
+        return View::make('site.reviews_add');
+    }
 }

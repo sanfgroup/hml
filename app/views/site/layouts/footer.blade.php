@@ -33,48 +33,56 @@
                 @endif
                 <ul>
                     <li>
-                        {{ Form::label('fio', 'Фамилия Имя Отчество:') }}
+                        <span style="float: left; color: #ff0000;">* </span>{{ Form::label('fio', 'Фамилия Имя') }}
                         {{ Form::text('fio', null, array('class'=>'form-control')) }}
                     </li>
                     <li>
-                        {{ Form::label('username', 'Логин:') }}
+                        <span style="float: left; color: #ff0000;">* </span>{{ Form::label('username', 'Логин') }}
                         {{ Form::text('username', null, array('class'=>'form-control')) }}
                     </li>
                     <li>
-                        {{ Form::label('password', 'Пароль:') }}
+                        <span style="float: left; color: #ff0000;">* </span>{{ Form::label('password', 'Пароль') }}
 <!--                        {{ Form::password('password', null, array('class'=>'form-control')) }}-->
                         <input type="password" name="password" id="password" class="form-control" />
                     </li>
                     <li>
-                        {{ Form::label('password_confirmation', 'Подтверждение пароля:') }}
+                        <span style="float: left; color: #ff0000;">* </span>{{ Form::label('password_confirmation', 'Подтверждение пароля') }}
 <!--                        {{ Form::password('password_confirmation', null, array('class'=>'form-control')) }}-->
                         <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" />
                     </li>
                     <li>
-                        {{ Form::label('email', 'Email:') }}
+                        <span style="float: left; color: #ff0000;">* </span>{{ Form::label('email', 'Электронная почта') }}
                         {{ Form::text('email', null, array('class'=>'form-control')) }}
                     </li>
 
-<!--                                        <li>-->
-<!--                        {{ Form::label('referal_id', 'Referal_id:') }}-->
-<!--                        {{ Form::text('referal_id') }}-->
+<!--                    <li>-->
+<!--                       {{ Form::label('referal_id', 'Referal_id:') }}-->
+<!--                       {{ Form::text('referal_id') }}-->
 <!--                    </li>-->
                     <li>
-                        {{ Form::label('perfectmoney', 'Perfectmoney:') }}
+                        <span style="float: left; color: #ff0000;">* </span>{{ Form::label('perfectmoney', 'Perfectmoney') }}
                         {{ Form::text('perfectmoney', 'U', array('class'=>'form-control')) }}
                     </li>
                     <li>
-                        {{ Form::label('okpay', 'Okpay:') }}
+                        <span style="float: left; color: #ff0000;">* </span>{{Form::label('skype', 'Skype')}}
+                        {{ Form::text('skype', null, array('class'=>'form-control')) }}
+                    </li>
+                    <li>
+                        {{ Form::label('okpay', 'Okpay') }}
                         {{ Form::text('okpay', 'OK', array('class'=>'form-control')) }}
                     </li>
 
                     <li>
-                        {{ Form::label('solidtrustpay', 'Solidtrustpay:') }}
+                        {{ Form::label('solidtrustpay', 'Solidtrustpay') }}
                         {{ Form::text('solidtrustpay', null, array('class'=>'form-control')) }}
                     </li>
-                    <li>{{HTML::image(Captcha::img(), 'Captcha image')}}</li>
-                    <li>{{Form::text('captcha', null, array('class'=>'form-control', 'style'=>'width:150px'))}}</li>
+                    <li>
+                        <span style="float: left; color: #ff0000;">* </span>{{ Form::label('captcha', 'Введите капчу') }}
+                    </li>
+                    <li style="float: left; margin-right: 10px;">{{HTML::image(Captcha::img(), 'Captcha image')}}</li>
+                    <li style="float: left; ">{{Form::text('captcha', null, array('class'=>'form-control', 'style'=>'width:120px'))}}</li>
                 </ul>
+                <div class="clearfix"></div>
             </div>
                 <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Зарегистрироватся</button>
@@ -85,7 +93,7 @@
 </div><!-- /.modal -->
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content login">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title">Авторизация</h4>
@@ -108,9 +116,10 @@
 
                         <input name="password" type="password" value="" id="password" class="form-control">
                     </li>
-                    <li>{{HTML::image(Captcha::img(), 'Captcha image')}}</li>
-                    <li>{{Form::text('captcha', null, array('class'=>'form-control', 'style'=>'width:150px'))}}</li>
+                    <li style="float: left; margin-right: 10px;">{{HTML::image(Captcha::img(), 'Captcha image')}}</li>
+                    <li style="float: left;">{{Form::text('captcha', null, array('class'=>'form-control', 'style'=>'width:120px'))}}</li>
                 </ul>
+                <div class="clearfix"></div>
             </div>
                 <div class="modal-footer">
                     <a href="#" class="restore">Восстановление пароля</a>

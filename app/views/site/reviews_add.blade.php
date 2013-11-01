@@ -9,5 +9,6 @@
         <input type="submit" class="btn btn-primary" value="Оставить отзыв" />
     </div>
 </div>
+<div class="clear"></div>
 {{Form::close()}}
 @stop

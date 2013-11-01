@@ -11,7 +11,7 @@
     <li class="l3"><a href="{{URL::route('faq')}}">FAQ</a></li>
     <li class="l4"><a href="{{URL::route('rulers')}}">ПРАВИЛА</a></li>
 </menu>
-<menu class="right">
+<menu class="right" style="margin-right: 50px;">
     <li class="l5"><a href="{{URL::route('news')}}">НОВОСТИ</a></li>
     <li class="l6"><a href="{{URL::route('reviews')}}">ОТЗЫВЫ</a></li>
     <li class="l7"><a href="{{URL::route('contacts')}}">КОНТАКТЫ</a></li>
@@ -34,6 +34,6 @@
 <menu class="right">
     <li class="l5"><a href="{{URL::route('news')}}">ИСТОРИЯ ОПЕРАЦИЙ</a></li>
     <li class="l6"><a href="{{URL::route('reviews')}}">ВАШИ РЕФЕРАЛЫ</a></li>
-    <li class="l7"><a href="{{URL::route('contacts')}}">ОСТАВИТЬ ОТЗЫВ</a></li>
+    <li class="l7"><a href="{{URL::route('user.review.add')}}">ОСТАВИТЬ ОТЗЫВ</a></li>
 </menu>
 @endif
