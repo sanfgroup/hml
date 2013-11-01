@@ -124,13 +124,11 @@ menu>li:hover ul{
 }
 menu li ul li{
 	border-top: 1px solid  #fff;
+	background: #e26f2b;
 	text-align: center;
 	height: 20px;
 	display: block;
 	line-height: 20px;
-}
-menu li.l2 ul li{
-    background: #e26f2b;
 }
 menu li ul li:first-child{
     border-top-left-radius: 10px;
@@ -148,7 +146,9 @@ menu li ul li a:hover{
 }
 
 .l1{padding: 0 17px; background: url(../images/l1.png) repeat-x;  } .l2{width: 110px; background: url(../images/l2.png) repeat-x;} .l3{padding: 0 28px; background: url(../images/l3.png) repeat-x;} .l4{padding: 0 45px 0 18px; background: url(../images/l4.png) repeat-x;} .l5{padding: 0 25px 0 60px; background: url(../images/l5.png) repeat-x; } .l6{padding: 0 25px 0 25px; background: url(../images/l6.png) repeat-x;} .l7{padding: 0 27px; background: url(../images/l7.png) repeat-x;}
-.l3
+.l3 li{
+    background: #fbde54;
+} 
 menu li a{
 	line-height: normal;
 	

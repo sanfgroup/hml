@@ -23,13 +23,13 @@
         <a href="#">ПРОФИЛЬ</a>
     </li>
     <li class="l3">
-        <a href="{{URL::route('faq')}}">ЛИЧНЫЙ КАБИНЕТ</a>
+        <a href="#">ЛИЧНЫЙ КАБИНЕТ</a>
         <ul>
             <li><a href="{{URL::route('private.inv')}}">Инвестиционный</a></li>
             <li><a href="{{URL::route('private.linear')}}">Линейный</a></li>
         </ul>
     </li>
-    <li class="l4"><a href="{{URL::route('rulers')}}">ДЕПОЗИТЫ</a></li>
+    <li class="l4"><a href="{{URL::route('user.deposites')}}">ДЕПОЗИТЫ</a></li>
 </menu>
 <menu class="right">
     <li class="l5"><a href="{{URL::route('news')}}">ИСТОРИЯ ОПЕРАЦИЙ</a></li>
