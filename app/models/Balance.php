@@ -8,7 +8,11 @@ class Balance extends Eloquent {
 
     public function user()
     {
-        return $this->belongsTo('Users');
+        return $this->belongsTo('User');
+    }
+
+    public function getCreatedAttribute() {
+        return date('d.m.Y h:i:s', strtotime($this->created_at));
     }
 
 }

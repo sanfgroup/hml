@@ -19,10 +19,11 @@ class LinearController extends BaseController {
             case 15:
                 $linear = new Linear15();
                 break;
-            default: $linear = false;
+            default:
+                return Redirect::back();
         }
         if(Auth::user()->balance < $tarif)
-            return Redirect::route('user.privat');
+            return Redirect::back();
         Auth::user()->balance()->create(array(
             'summa' => -$tarif,
             'description' => 'Оплата тарифа '.$tarif
@@ -40,7 +41,7 @@ class LinearController extends BaseController {
             $linear2->user_id = 1;
             $linear2->save();
         }
-        return Redirect::route('user.privat');
+        return Redirect::back();
     }
 
 } 

@@ -52,7 +52,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     public function referral()
     {
-        return $this->hasOne('Users', 'referral_id');
+        return $this->hasOne('User', 'referral_id');
 	}
     public function linear5()
     {
@@ -80,7 +80,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     public function l5pos() {
         $arr = array();
         $count = Linear5::wherePayed(1)->count();
-        $u = $this->linear5()->orderBy('id')->first();
+        $u = $this->linear5()->wherePayed(0)->orderBy('id')->get();
+        if($u != null)
         foreach($u as $v) {
             if($v)
                 $arr[] = $v->id - $count;
@@ -91,7 +92,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     public function l10pos() {
         $arr = array();
         $count = Linear10::wherePayed(1)->count();
-        $u = $this->linear10()->orderBy('id');
+        $u = $this->linear10()->wherePayed(0)->orderBy('id')->get();
+        if($u != null)
         foreach($u as $v) {
             if($v)
                 $arr[] = $v->id - $count;
@@ -102,7 +104,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     public function l15pos() {
         $arr = array();
         $count = Linear15::wherePayed(1)->count();
-        $u = $this->linear15()->orderBy('id')->first();
+        $u = $this->linear15()->wherePayed(0)->orderBy('id')->get();
+        if($u != null)
         foreach($u as $v) {
             if($v)
                 $arr[] = $v->id - $count;

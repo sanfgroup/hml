@@ -34,7 +34,7 @@ Route::any('/pay/perfect/out', array('as'=>'pay.prefect.out','uses'=>'PayControl
 Route::any('/pay/okpay', array('as'=>'pay.okpay','uses'=>'PayController@okpay'));
 Route::any('/pay/okpay/out', array('as'=>'pay.okpay.out','uses'=>'PayController@okpayPay'));
 
-Route::get('/user/linear/buy', array('as'=>'user.linear.buy','uses'=>'LinearController@buy'));
+Route::get('/user/linear/buy/{id}', array('as'=>'user.linear.buy','uses'=>'LinearController@buy'));
 
 Route::get('/user/logout', array('as'=>'user.logout','uses'=>'UserController@logout'));Route::get('/user/logout', array('as'=>'user.logout','uses'=>'UserController@logout'));
 
@@ -45,6 +45,7 @@ Route::get('admin/news/{id}',array('as'=>'admin.new.detail', 'uses'=>'Admin\News
 
 Route::get('private/inv', array('as'=>'private.inv', 'uses'=>'HomeController@privateInv'));
 Route::get('private/linear', array('as'=>'private.linear', 'uses'=>'HomeController@privateLinear'));
+Route::get('user/history', array('as'=>'user.history', 'uses'=>'HomeController@getHistory'));
 Route::get('user/deposites', array('as'=>'user.deposites', 'uses'=>'HomeController@userDeposites'));
 Route::any('user/review/add', array('as'=>'user.review.add', 'uses'=>'HomeController@user'));
 Route::any('user/deposites/buy/{id}', array('as'=>'user.deposites.buy', 'uses'=>'InvController@buy'));
@@ -52,10 +53,20 @@ Route::any('user/review/add', array('as'=>'user.review.add', 'uses'=>'HomeContro
 
 
 Route::get('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
-    \Liebig\Cron\Cron::add('pay', '* * * * *', function() {
-        Inv::process();
-        return null;
-    });
-    $report = \Liebig\Cron\Cron::run();
+
+    $invs = Inv::all();
+    foreach($invs as $inv) {
+        foreach($inv->buys()->where('col', '<', 7)->get() as $v) {
+            if(($v->last+(3*24*60*60)) <= time()) {
+                $v->user()->first()->balance()->create(array(
+                    'summa' => $inv->payment[$v->col],
+                    'description' => 'Выплата по тарифу '.$inv->name
+                ));
+                $v->col++;
+                $v->save();
+                $v->touch();
+            }
+        }
+    }
 });
 

@@ -32,7 +32,7 @@
     <li class="l4"><a href="{{URL::route('user.deposites')}}">ДЕПОЗИТЫ</a></li>
 </menu>
 <menu class="right">
-    <li class="l5"><a href="{{URL::route('news')}}">ИСТОРИЯ ОПЕРАЦИЙ</a></li>
+    <li class="l5"><a href="{{URL::route('user.history')}}">ИСТОРИЯ ОПЕРАЦИЙ</a></li>
     <li class="l6"><a href="{{URL::route('reviews')}}">ВАШИ РЕФЕРАЛЫ</a></li>
     <li class="l7"><a href="{{URL::route('user.review.add')}}">ОСТАВИТЬ ОТЗЫВ</a></li>
 </menu>

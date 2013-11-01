@@ -53,6 +53,11 @@ class HomeController extends BaseController {
     public function getRulers() {
         return View::make('site.rulers');
     }
+
+    public function getHistory() {
+        $data['h'] = Auth::user()->balance()->orderBy('id', 'desc')->paginate(10);
+        return View::make('site.user.history', $data);
+    }
     public function privateLinear(){
         return View::make('site.private_linear');
     }
@@ -60,7 +65,8 @@ class HomeController extends BaseController {
         return View::make('site.private_inv');
     }
     public function userDeposites(){
-        return View::make('site.user.deposites');
+        $data['buys'] = Auth::user()->buys()->orderBy('id', 'desc')->paginate(10);
+        return View::make('site.user.deposites', $data);
     }
     public function userAddReview(){
         if (Input::server("REQUEST_METHOD") == "POST") {

@@ -8,7 +8,7 @@ class Reviews extends Eloquent {
 
 	public function user()
 	{
-		return $this->belongsTo('Users');
+		return $this->belongsTo('User');
 	}
 
 }

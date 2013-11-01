@@ -14,15 +14,24 @@
             <th>Количество выплат</th>
             <th>Статус депозита</th>
         </tr>
+        @foreach($buys as $v)
         <tr>
-            <td>10.10.2013 10:10:10</td>
-            <td>Green line</td>
-            <td>10$</td>
-            <td>13.10.2013</td>
-            <td>7</td>
-            <td>Открыт</td>
+            <td>{{$v->created}}</td>
+            <td>{{$v->inv->name}}</td>
+            <td>{{$v->inv->sumPayed($v->col)}}$</td>
+            <td>{{$v->next}}</td>
+            <td>{{$v->col}}</td>
+            <td>
+                @if($v->col < 7)
+                Открыт
+                @else
+                Закрыт
+                @endif
+            </td>
         </tr>
+        @endforeach
     </table>
+    {{$buys->links()}}
 </div>
 <div class="clear"></div>
 <br/><br/><br/><br/><br/>
@@ -39,24 +48,24 @@
         </tr>
         <tr>
             <td>Light 5$</td>
-            <td>2</td>
-            <td>10$</td>
-            <td>1</td>
-            <td>10$</td>
+            <td>{{Auth::user()->linear5()->count()}}</td>
+            <td>{{Auth::user()->linear5()->count()*5}}$</td>
+            <td>{{Auth::user()->linear5()->wherePayed(1)->count()}}</td>
+            <td>{{Auth::user()->linear5()->wherePayed(1)->count()*7.5}}$</td>
         </tr>
         <tr>
             <td>Happy 10$</td>
-            <td>2</td>
-            <td>20$</td>
-            <td>1</td>
-            <td>20$</td>
+            <td>{{Auth::user()->linear10()->count()}}</td>
+            <td>{{Auth::user()->linear10()->count()*5}}$</td>
+            <td>{{Auth::user()->linear10()->wherePayed(1)->count()}}</td>
+            <td>{{Auth::user()->linear10()->wherePayed(1)->count()*7.5}}$</td>
         </tr>
         <tr>
             <td>Super 15$</td>
-            <td>2</td>
-            <td>30$</td>
-            <td>1</td>
-            <td>30$</td>
+            <td>{{Auth::user()->linear15()->count()}}</td>
+            <td>{{Auth::user()->linear15()->count()*5}}$</td>
+            <td>{{Auth::user()->linear15()->wherePayed(1)->count()}}</td>
+            <td>{{Auth::user()->linear15()->wherePayed(1)->count()*7.5}}$</td>
         </tr>
     </table>
 </div>
