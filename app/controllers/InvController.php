@@ -23,6 +23,20 @@ class InvController extends BaseController {
                     'summa' => -$inv->cost,
                     'description' => 'Оплата тарифа '.$inv->name
                 ));
+                $ref = $user->referral();
+                if($ref) {
+                    $ref->balance()->create(array(
+                        'summa' => $inv->cost*0.07,
+                        'description' => 'Начисление от реферала '.$user->username
+                    ));
+                }
+                $ref = $ref->referral();
+                if($ref) {
+                    $ref->balance()->create(array(
+                        'summa' => $inv->cost*0.03,
+                        'description' => 'Начисление от реферала '.$user->username
+                    ));
+                }
                 $user->buys()->create(array(
                     'inv_id' => $id,
                     'col'=> 0
@@ -40,7 +54,7 @@ class InvController extends BaseController {
 
                     $v->user()->balance()->create(array(
                         'summa' => $inv->payment[$v->col],
-                        'description' => 'nYfaxnbcakntyabnt apna '.$inv->name
+                        'description' => 'Выплата по тарифу '.$inv->name
                     ));
                     $v->col++;
                     $v->save();

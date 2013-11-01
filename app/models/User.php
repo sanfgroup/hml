@@ -78,27 +78,36 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     }
 
     public function l5pos() {
+        $arr = array();
         $count = Linear5::wherePayed(1)->count();
         $u = $this->linear5()->orderBy('id')->first();
-        if($u)
-            return $u->id - $count;
-        return 0;
+        foreach($u as $v) {
+            if($v)
+                $arr[] = $v->id - $count;
+        }
+        return $arr;
     }
 
     public function l10pos() {
+        $arr = array();
         $count = Linear10::wherePayed(1)->count();
-        $u = $this->linear10()->orderBy('id')->first();
-        if($u)
-            return $u->id - $count;
-        return 0;
+        $u = $this->linear10()->orderBy('id');
+        foreach($u as $v) {
+            if($v)
+                $arr[] = $v->id - $count;
+        }
+        return $arr;
     }
 
     public function l15pos() {
+        $arr = array();
         $count = Linear15::wherePayed(1)->count();
         $u = $this->linear15()->orderBy('id')->first();
-        if($u)
-            return $u->id - $count;
-        return 0;
+        foreach($u as $v) {
+            if($v)
+                $arr[] = $v->id - $count;
+        }
+        return $arr;
     }
 
     public function getBalanceAttribute() {
