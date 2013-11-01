@@ -21,7 +21,7 @@
         <li>
             {{ Form::label('old_pass', 'Текущий пароль') }}
 <!--            {{ Form::text('old_pass', null, array('class'=>'form-control')) }}-->
-            <input type="password" name="old_pass" id="old_pass" class="form-control" />
+            <input type="password" name="old_pass" id="old_pass" class="form-control"  />
         </li>
         <li>
             {{ Form::label('new_pass', 'Новый пароль') }}

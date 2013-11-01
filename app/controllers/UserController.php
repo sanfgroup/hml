@@ -20,7 +20,8 @@ class UserController extends BaseController {
             'username'              => 'required|Unique:users',
             'password'              => 'Required|min:6|Confirmed',
             'password_confirmation' => 'Required|min:6',
-            'captcha'               => array('required', 'captcha')
+            'captcha'               => array('required', 'captcha'),
+            'conf'                  => 'Required',
         );
         $v = Validator::make($input, $rules);
         if( $v->passes() ) {
@@ -39,7 +40,7 @@ class UserController extends BaseController {
             $user->save();
             return Redirect::route('home')->with('flash_reg', 'Вы удачно зарегистрированы, авторизуйтесь пожалуйста!');
         } else {
-            return Redirect::route('home')
+            return Redirect::route('home')->withInput()
                 ->withErrors($v->errors());
 
         }
@@ -92,7 +93,7 @@ class UserController extends BaseController {
             $data['user'] = $user;
         if (Input::server("REQUEST_METHOD") == "POST") {
             if (Input::get('old_password')!='' && Hash::check(Input::get('old_password'), Auth::user()->getAuthPassword()) && Input::get('new_password')!=''){
-                $pass =Input::get('new_password');
+                $pass = Input::get('new_password');
                $user->password = Hash::make($pass);
                 $data['message'] = 'Пароль изменен';
 

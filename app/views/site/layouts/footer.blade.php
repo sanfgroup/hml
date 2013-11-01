@@ -34,16 +34,17 @@
                 <ul>
                     <li>
                         <span style="float: left; color: #ff0000;">* </span>{{ Form::label('fio', 'Фамилия Имя') }}
-                        {{ Form::text('fio', null, array('class'=>'form-control')) }}
+
+                        <input type="text" id="fio" name="fio" class="form-control" value="{{Input::old('fio')}}" />
                     </li>
                     <li>
                         <span style="float: left; color: #ff0000;">* </span>{{ Form::label('username', 'Логин') }}
-                        {{ Form::text('username', null, array('class'=>'form-control')) }}
+                        {{ Form::text('username', Input::old('username'), array('class'=>'form-control')) }}
                     </li>
                     <li>
                         <span style="float: left; color: #ff0000;">* </span>{{ Form::label('password', 'Пароль') }}
 <!--                        {{ Form::password('password', null, array('class'=>'form-control')) }}-->
-                        <input type="password" name="password" id="password" class="form-control" />
+                        <input type="password" name="password" id="password" class="form-control" value="{{Input::old('password')}}" />
                     </li>
                     <li>
                         <span style="float: left; color: #ff0000;">* </span>{{ Form::label('password_confirmation', 'Подтверждение пароля') }}
@@ -52,11 +53,11 @@
                     </li>
                     <li>
                         <span style="float: left; color: #ff0000;">* </span>{{ Form::label('email', 'Электронная почта') }}
-                        {{ Form::text('email', null, array('class'=>'form-control')) }}
+                        {{ Form::text('email', Input::old('email'), array('class'=>'form-control')) }}
                     </li>
                     <li>
                         <span style="float: left; color: #ff0000;">* </span>{{Form::label('skype', 'Skype')}}
-                        {{ Form::text('skype', null, array('class'=>'form-control')) }}
+                        {{ Form::text('skype', Input::old('email'), array('class'=>'form-control')) }}
                     </li>
 
 <!--                    <li>-->
@@ -65,15 +66,25 @@
 <!--                    </li>-->
                     <li>
                         <span style="float: left; color: #ff0000;">* </span>{{ Form::label('perfectmoney', 'Perfectmoney') }}
+                        @if(Input::old('perfectmoney'))
+                        {{ Form::text('perfectmoney', Input::old('perfectmoney'), array('class'=>'form-control')) }}
+                        @else
                         {{ Form::text('perfectmoney', 'U', array('class'=>'form-control')) }}
+                        @endif
                     </li>
 
                     <li>
                         {{ Form::label('okpay', 'Okpay') }}
+                        @if(Input::old('okpay'))
+                        {{ Form::text('okpay', Input::old('okpay'), array('class'=>'form-control')) }}
+                        @else
                         {{ Form::text('okpay', 'OK', array('class'=>'form-control')) }}
+                        @endif
                     </li>
                     <li>
-                        {{Form::label('conf', 'Вы принимаете соглашение')}}
+                        Вы принимаете <a href="{{URL::route('rulers')}}" target="_blank" style="color: #fff; text-decoration: underline;">соглашение</a>
+                    </li>
+                    <li>
                         {{Form::checkbox('conf', 'yes')}}
                     </li>
                     <li>
@@ -108,13 +119,16 @@
                 @endif
                 <ul>
                     <li>
-                        {{ Form::label('username', 'Логин:') }}
+                        {{ Form::label('username', 'Логин') }}
                         {{ Form::text('username', null, array('class'=>'form-control')) }}
                     </li>
                     <li>
-                        {{ Form::label('password', 'Пароль:') }}
+                        {{ Form::label('password', 'Пароль') }}
 
                         <input name="password" type="password" value="" id="password" class="form-control">
+                    </li>
+                    <li>
+                        {{ Form::label('captcha', 'Введите капчу') }}
                     </li>
                     <li style="float: left; margin-right: 10px;">{{HTML::image(Captcha::img(), 'Captcha image')}}</li>
                     <li style="float: left;">{{Form::text('captcha', null, array('class'=>'form-control', 'style'=>'width:120px'))}}</li>
@@ -144,5 +158,8 @@
     </script>
     @endif
 @endif
+<div class="modal fade" id="addMoney" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+</div>
 </body>
 </html>
