@@ -117,6 +117,7 @@ return array(
         'Barryvdh\Debugbar\ServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Mews\Captcha\CaptchaServiceProvider',
+        'Liebig\Cron\CronServiceProvider'
 	),
 
 	/*

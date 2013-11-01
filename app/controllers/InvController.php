@@ -10,7 +10,7 @@ class InvController extends BaseController {
 
     public function buy($id=0) {
         $s = Session::get('buy');
-        if($id==0 || $s+5 <= time())
+        if($id==0 || $id > 7 || $s+5 <= time())
             return Redirect::back();
 
         $inv = Inv::find($id);
@@ -42,24 +42,6 @@ class InvController extends BaseController {
                     'col'=> 0
                 ));
                 Session::put('buy', time());
-            }
-        }
-    }
-
-    public function process() {
-        $invs = Inv::all();
-        foreach($invs as $inv) {
-            foreach($inv->buys()->where('col', '<', 7) as $v) {
-                if(($v->last+(3*24*60*60)) <= time()) {
-
-                    $v->user()->balance()->create(array(
-                        'summa' => $inv->payment[$v->col],
-                        'description' => 'Выплата по тарифу '.$inv->name
-                    ));
-                    $v->col++;
-                    $v->save();
-                    $v->touch();
-                }
             }
         }
     }
