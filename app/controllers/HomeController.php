@@ -26,7 +26,10 @@ class HomeController extends BaseController {
         $data['news'] = News::orderBy('created_at', 'desc')->paginate(10);
 		return View::make('site.news', $data);
 	}
-
+    public function getNewsDetail($id){
+        $data['post'] = News::find($id);
+        return View::make('site.news_detail', $data);
+    }
 	public function getFaq() {
 		return View::make('site.faq');
 	}

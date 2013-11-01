@@ -4,7 +4,7 @@
 <h2>НОВОСТИ</h2>
 @foreach($news as $k=>$v)
 <div class="bigpost">
-    <a href="#" class="name_post">{{$v->title}}</a>
+    <a href="{{URL::route('news.detail', array($v->id))}}" class="name_post">{{$v->title}}</a>
     <div class="date_bp">
 <!--        22 октября 2013 г, 11:25-->
         {{$v->created_at}}

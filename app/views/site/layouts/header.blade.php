@@ -23,7 +23,7 @@
         @if(Auth::guest())
         <a href="#registration" data-toggle="modal" class="reg">Регистрация в проекте</a>
         @else
-        <a href="{{URL::route('user.privat')}}" class="reg">Личный кабинет</a>
+        <a href="{{URL::route('user.logout')}}" class="reg">Выход</a>
         @endif
         <!-- Контакты только на главной -->
         @if(Request::is('/'))
@@ -47,16 +47,19 @@
         @endif
         <!-- Конец контактов -->
         <nav>
+            @if(Auth::guest())
             <div class="container">
+            @endif
                 @include('site.layouts.menu')
                 <div class="clearfix"></div>
+                @if(Auth::guest())
             </div>
-
+                @endif
             <a href="/" class="logo"></a>
             @if(Auth::guest())
             <a href="#login" data-toggle="modal" class="enter">Вход для клиентов <img src="/images/lock.png" alt=""></a>
             @else
-             <a href="{{URL::route('user.logout')}}" class="enter">Выход <img src="/images/lock.png" alt=""></a>
+<!--             <a href="{{URL::route('user.logout')}}" class="enter">Выход <img src="/images/lock.png" alt=""></a>-->
             @endif
 
         </nav>

@@ -13,6 +13,7 @@
 
 Route::get('/', array('as'=>'home', 'uses'=>'HomeController@getIndex'));
 Route::get('/news', array('as'=>'news', 'uses'=>'HomeController@getNews'));
+Route::get('/news/{id}',array('as'=>'news.detail', 'uses'=>'HomeController@getNewsDetail'));
 Route::get('/faq', array('as'=>'faq', 'uses'=>'HomeController@getFaq'));
 Route::get('/marketing/line', array('as'=>'marketing.linear', 'uses'=>'HomeController@getLine'));
 Route::get('/marketing/inv', array('as'=>'marketing.inv', 'uses'=>'HomeController@getInv'));
