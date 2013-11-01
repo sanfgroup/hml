@@ -1343,7 +1343,7 @@ p{
     color: #fff;
     border: 2px solid #a3eaf5;
 }
-.modal-content input{
+.modal-content input, .prof input{
     width: 250px;
     border: 2px solid #279bd8;
     border-radius: 10px;
@@ -1607,4 +1607,14 @@ a.buy_lin.third:hover{
 }
 .modal-content.login{
     width: 380px;
+}
+.prof{
+    width: 250px;
+}
+.prof li{
+    margin: 0;
+}
+.prof button{
+    display: block;
+    margin: 0 auto;
 }

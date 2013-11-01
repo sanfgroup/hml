@@ -79,6 +79,36 @@ class UserController extends BaseController {
         Auth::logout();
         return Redirect::route('home');
     }
+    public function userProfile(){
+            $usid = Auth::user()->id;
+            $user = User::find($usid);
+            $logref = Auth::user()->referral()->first();
 
+            if($logref != null)
+                $data['logref'] = $logref->username;
+            else
+                $data['logref']='';
+
+            $data['user'] = $user;
+        if (Input::server("REQUEST_METHOD") == "POST") {
+            if (Input::get('old_password')!='' && Hash::check(Input::get('old_password'), Auth::user()->getAuthPassword()) && Input::get('new_password')!=''){
+                $pass =Input::get('new_password');
+               $user->password = Hash::make($pass);
+                $data['message'] = 'Пароль изменен';
+
+            }
+            elseif(Input::get('old_password')==''){
+
+            }
+            else{
+                $data['message'] = 'Неправильный пароль';
+            }
+            $user->skype = Input::get('skype');
+            $user->perfectmoney = Input::get('perfectmoney');
+            $user->okpay = Input::get('okpay');
+            $user->save();
+        }
+            return View::make('site.user.profile', $data);
+    }
 
 } 

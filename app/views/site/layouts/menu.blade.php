@@ -20,7 +20,7 @@
 <menu class="left">
     <li class="l1"><a href="{{URL::route('home')}}">ГЛАВНАЯ</a></li>
     <li class="l2">
-        <a href="#">ПРОФИЛЬ</a>
+        <a href="{{URL::route('user.profile')}}">ПРОФИЛЬ</a>
     </li>
     <li class="l3">
         <a href="#">ЛИЧНЫЙ КАБИНЕТ</a>

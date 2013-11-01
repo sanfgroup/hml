@@ -54,6 +54,10 @@
                         <span style="float: left; color: #ff0000;">* </span>{{ Form::label('email', 'Электронная почта') }}
                         {{ Form::text('email', null, array('class'=>'form-control')) }}
                     </li>
+                    <li>
+                        <span style="float: left; color: #ff0000;">* </span>{{Form::label('skype', 'Skype')}}
+                        {{ Form::text('skype', null, array('class'=>'form-control')) }}
+                    </li>
 
 <!--                    <li>-->
 <!--                       {{ Form::label('referal_id', 'Referal_id:') }}-->
@@ -63,18 +67,14 @@
                         <span style="float: left; color: #ff0000;">* </span>{{ Form::label('perfectmoney', 'Perfectmoney') }}
                         {{ Form::text('perfectmoney', 'U', array('class'=>'form-control')) }}
                     </li>
-                    <li>
-                        <span style="float: left; color: #ff0000;">* </span>{{Form::label('skype', 'Skype')}}
-                        {{ Form::text('skype', null, array('class'=>'form-control')) }}
-                    </li>
+
                     <li>
                         {{ Form::label('okpay', 'Okpay') }}
                         {{ Form::text('okpay', 'OK', array('class'=>'form-control')) }}
                     </li>
-
                     <li>
-                        {{ Form::label('solidtrustpay', 'Solidtrustpay') }}
-                        {{ Form::text('solidtrustpay', null, array('class'=>'form-control')) }}
+                        {{Form::label('conf', 'Вы принимаете соглашение')}}
+                        {{Form::checkbox('conf', 'yes')}}
                     </li>
                     <li>
                         <span style="float: left; color: #ff0000;">* </span>{{ Form::label('captcha', 'Введите капчу') }}

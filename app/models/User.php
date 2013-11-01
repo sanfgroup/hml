@@ -52,7 +52,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     public function referral()
     {
-        return $this->hasOne('User', 'referral_id');
+        return $this->hasOne('User', 'referal_id');
 	}
     public function linear5()
     {
