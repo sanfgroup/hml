@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <link href="/css/bootstrap-formhelpers.min.css" rel="stylesheet" media="screen">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap-formhelpers.min.js"></script>
     <title>Админка</title>
 </head>
 <body>
@@ -12,8 +16,9 @@
         <div class="container">
             <a class="navbar-brand" href="#">Админка</a>
             <menu class="nav navbar-nav">
-                <li><a href="{{URL::route('admin.addNews')}}">Добавить новость</a></li>
                 <li><a href="{{URL::route('admin.news')}}">Новости</a></li>
+                <li><a href="{{URL::route('admin.user.index')}}">Пользователи</a></li>
+                <li><a href="/admin/statistic">Статистика</a></li>
             </menu>
         </div>
     </nav>

@@ -1,7 +1,7 @@
 @extends('admin.layouts.default')
 
 @section('content')
-<table>
+<table class="table table-bordered">
     <tr>
         <td>id</td>
         <td>login</td>
@@ -16,18 +16,19 @@
         <td>{{$user->id}}</td>
         <td>{{$user->username}}</td>
         <td>{{$user->email}}</td>
-        <td>{{$user->referral()->first()->username}}</td>
-        <td>{{$user->id}}</td>
-        <td>{{$user->id}}</td>
+        <td>{{$user->refname}}</td>
+        <td>{{$user->balance}}</td>
+        <td>
+
+            <a href="{{URL::route('admin.user.edit', array($user->id))}}" class="btn btn-warning">Редактировать</a>
+
+            {{ Form::model($user, array('method'=>'delete','route' => array('admin.user.destroy', $user->id))) }}
+            <button type="submit" class="btn btn-danger">Удалить</button>
+            {{ Form::close() }}
+
+        </td>
     </tr>
     @endforeach
 </table>
-<section>
-    <h2><a href="{{URL::route('admin.new.detail', array($post->id))}}">{{$post->title}}</a></h2>
-    <a href="{{URL::route('admin.news.delete', array($post->id))}}">Удалить</a> | <a href="{{URL::route('admin.addNews', array($post->id))}}">Редактировать</a>
-    <div>
-        {{$post->short}}
-    </div>
-</section>
-{{$posts->links()}}
+{{$users->links()}}
 @stop

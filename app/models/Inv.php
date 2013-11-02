@@ -23,6 +23,23 @@ class Inv extends Eloquent {
         return $sum;
     }
 
+    public function totalPayed($f='', $t='') {
+        $q=$this->buys()->remember(10);
+        if($f!='') {
+            $q = $this->buys()->remember(10)->where('created_at', '>=', $f);
+        }
+            if($t!='') {
+                $q = $this->buys()->remember(10)->where('created_at', '>=', $f)->where('created_at', '<=', $t);
+            }
+
+
+        $sum=0;
+        foreach($q->get() as $v) {
+            $sum += $this->sumPayed($v->col);
+        }
+        return $sum;
+    }
+
 
 
     public static function process() {

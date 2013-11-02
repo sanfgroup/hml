@@ -38,10 +38,6 @@ Route::get('/user/linear/buy/{id}', array('as'=>'user.linear.buy','uses'=>'Linea
 
 Route::get('/user/logout', array('as'=>'user.logout','uses'=>'UserController@logout'));Route::get('/user/logout', array('as'=>'user.logout','uses'=>'UserController@logout'));
 
-Route::get('admin/news', array('as'=>'admin.news', 'uses'=>'Admin\NewsController@listNews'));
-Route::any('admin/news/add', array('as'=>'admin.addNews','uses'=>'Admin\NewsController@addNews'));
-Route::get('admin/news/{id}',array('as'=>'admin.new.detail', 'uses'=>'Admin\NewsController@detailNews'));
-
 
 Route::get('private/inv', array('as'=>'private.inv', 'uses'=>'HomeController@privateInv'));
 Route::get('private/linear', array('as'=>'private.linear', 'uses'=>'HomeController@privateLinear'));
@@ -51,7 +47,15 @@ Route::any('user/review/add', array('as'=>'user.review.add', 'uses'=>'HomeContro
 Route::any('user/deposites/buy/{id}', array('as'=>'user.deposites.buy', 'uses'=>'InvController@buy'));
 Route::any('user/review/add', array('as'=>'user.review.add', 'uses'=>'HomeController@userAddReview'));
 
-Route::any('admin/user', array('as'=>'user.review.add', 'uses'=>'AdminUserController@userAddReview'));
+
+Route::get('admin/news', array('as'=>'admin.news', 'uses'=>'Admin\NewsController@listNews'));
+Route::any('admin/news/add/{id?}', array('as'=>'admin.addNews','uses'=>'Admin\NewsController@addNews'));
+Route::get('admin/news/delete/{id}',array('as'=>'admin.news.delete', 'uses'=>'Admin\NewsController@deletePost'));
+Route::get('admin/news/{id}',array('as'=>'admin.news.detail', 'uses'=>'Admin\NewsController@detailNews'));
+
+Route::resource('admin/user', 'Admin\AdminUserController');
+Route::any('admin/statistic', 'Admin\AdminStatisticController@index');
+
 
 
 Route::get('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {

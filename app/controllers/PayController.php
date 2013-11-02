@@ -55,7 +55,8 @@ class PayController extends BaseController {
 //            dd($r['sum']);
             $uid->balance()->create(array(
                 'summa' => $r['sum'],
-                'description' => 'Начисление с кошелька OkPay: '.$r['payeer']
+                'description' => 'Начисление с кошелька OkPay: '.$r['payeer'],
+                'type' => 1
             ));
             $uid->pay = Str::random(32);
             $uid->save();
@@ -110,7 +111,8 @@ class PayController extends BaseController {
 //            dd(1);
             $uid->balance()->create(array(
                 'summa' => $amount,
-                'description' => 'Начисление с кошелька PerfectMoney: '.$account
+                'description' => 'Начисление с кошелька PerfectMoney: '.$account,
+                'type' => 1
             ));
             $uid->pay = Str::random(32);
             $uid->save();
