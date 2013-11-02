@@ -1,6 +1,7 @@
 <?php
 namespace Admin;
 
+
 use View, Input;
 
 class NewsController extends \BaseController {

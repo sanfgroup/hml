@@ -6,7 +6,7 @@ use View, User, Input, Redirect;
 class AdminUserController extends \BaseController {
 
 	/**
-	 * Display a listing of the resource.
+	 * Display a listing of the re source.
 	 *
 	 * @return Response
 	 */

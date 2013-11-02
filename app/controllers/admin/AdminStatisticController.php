@@ -4,7 +4,7 @@ namespace Admin;
 class AdminStatisticController extends \BaseController {
 
 	/**
-	 * Display a listing of the resource.
+	 * Display a listing of the res ource.
 	 *
 	 * @return Response
 	 */
