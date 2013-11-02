@@ -2,10 +2,7 @@
 
 @section('content')
 
-    <div class="butBig bal">Ваш баланс: {{Auth::user()->balance}}$</div>
-    <a href="" class="butBig addcash">Пополнить счет</a>
-    <a href="" class="butBig get">Вывести деньги</a>
-
+@include('site.private_header')
 <div class="blocks_tarif1">
     <div>
         <div class="title">Купить тарифную линию</div>

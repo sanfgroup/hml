@@ -53,7 +53,7 @@ class OkPay
         $payment_id = $uid->pay;
         $ad = URL::to('/');
         $form = <<<html
-<form method="post" action="https://www.okpay.com/process.html">
+<form method="post" action="https://www.okpay.com/process.html" id="okForm">
 <input type="hidden" name="ok_receiver" value="{$this->account}"/>
 <input type="hidden" name="ok_item_1_name" value="Recharge_the_internal_balance"/>
 <input type="hidden" name="ok_currency" value="USD"/>
@@ -61,10 +61,11 @@ class OkPay
 <input type="hidden" name="ok_item_1_type" value="service"/>
 <input type="hidden" name="ok_return_success" value="{$ad}/pay/okpay"/>
 <input type="hidden" name="ok_return_fail" value="{$ad}/pay/okpayFail"/>
-<input type="text" name="ok_item_1_price" value=""/>
+<input type="text" name="ok_item_1_price" value="" class="form-control"/>
 <input type="hidden" name="ok_item_1_custom_1_title" value="user_id">
 <input type="hidden" name="ok_item_1_custom_1_value" maxlength="127" value="{$uid->id}">
-<input type="image" name="submit" alt="OKPAY Payment" src="https://www.okpay.com/img/buttons/ru/top-up/t13g163x42en.png"/></form>
+<!--<input type="image" name="submit" alt="OKPAY Payment" src="https://www.okpay.com/img/buttons/ru/top-up/t13g163x42en.png"/>-->
+</form>
 html;
         return $form;
     }

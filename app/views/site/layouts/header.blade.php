@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Новости</title>
+    <title>My Happy Lines</title>
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/style.css">
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -11,6 +11,7 @@
     <![endif]-->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js" ></script>
     <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/buyforms.js"></script>
 </head>
 <body>
 <div class="wrapper">

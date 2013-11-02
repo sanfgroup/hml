@@ -36,11 +36,11 @@ class PerfectMoney {
         $payment_id = $uid->pay;
         $ad = URL::to('/');
         $form = <<<html
-<form action="https://perfectmoney.is/api/step1.asp" method="POST">
+<form action="https://perfectmoney.is/api/step1.asp" method="POST" id="perfectForm" class="active">
     <input type="hidden" name="PAYEE_ACCOUNT" value="{$this->account}">
     <input type="hidden" name="PAYEE_NAME" value="Пополнение внутреннего баланса">
     <input type="hidden" name="PAYMENT_ID" value="{$payment_id}">
-    <input type="text" name="PAYMENT_AMOUNT" value="">
+    <input type="text" name="PAYMENT_AMOUNT" value="" class="form-control">
     <input type="hidden" name="PAYMENT_UNITS" value="USD">
     <input type="hidden" name="STATUS_URL" value="">
     <input type="hidden" name="PAYMENT_URL" value="{$ad}/pay/perfect">
@@ -50,7 +50,7 @@ class PerfectMoney {
     <input type="hidden" name="SUGGESTED_MEMO" value="">
     <input type="hidden" name="user_id" value="{$uid->id}">
     <input type="hidden" name="BAGGAGE_FIELDS" value="user_id">
-    <input type="submit" name="PAYMENT_METHOD" value="Пополнить">
+    <!--<input type="submit" name="PAYMENT_METHOD" value="Пополнить">-->
 </form>
 html;
         return $form;

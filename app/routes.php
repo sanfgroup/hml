@@ -71,3 +71,4 @@ Route::get('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
 });
 
 Route::any('user/profile', array('as'=>'user.profile', 'uses'=>'UserController@userProfile'));
+Route::get('user/referal', array('as'=>'user.referal', 'uses'=>'UserController@userReferal'));

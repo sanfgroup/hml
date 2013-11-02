@@ -10,13 +10,14 @@
         <a href=""><img src="/images/pfm.png" alt=""></a>
         <a href=""><img src="/images/okpay.png" alt=""></a>
         <a href=""><img src="/images/solidtr.png" alt=""></a>
+
     </div>
     <a href="" class="mmgp"><img src="/images/mmgp.png" alt=""></a>
     <div class="socn"><a href="" class="btn">Мы в Facebook <img src="/images/fbi.png" alt=""></a><a href="" class="btn">Мы Вконтакте <img src="/images/vki.png" alt=""></a></div>
 </footer>
 @if(Auth::guest())
 <div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="width: 520px;">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -82,11 +83,11 @@
                         @endif
                     </li>
                     <li>
-                        Вы принимаете <a href="{{URL::route('rulers')}}" target="_blank" style="color: #fff; text-decoration: underline;">соглашение</a>
+                        {{Form::checkbox('conf', 'yes')}}&nbsp;Вы принимаете <a href="{{URL::route('rulers')}}" target="_blank" style="color: #fff; text-decoration: underline;">соглашение</a>
                     </li>
-                    <li>
-                        {{Form::checkbox('conf', 'yes')}}
-                    </li>
+
+
+
                     <li>
                         <span style="float: left; color: #ff0000;">* </span>{{ Form::label('captcha', 'Введите капчу') }}
                     </li>
@@ -103,8 +104,8 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content login">
+    <div class="modal-dialog login">
+        <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title">Авторизация</h4>
@@ -158,8 +159,8 @@
     </script>
     @endif
 @endif
-<div class="modal fade" id="addMoney" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
-</div>
+
+
 </body>
 </html>

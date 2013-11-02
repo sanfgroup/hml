@@ -1182,6 +1182,9 @@ ul.pagination li a:hover{
 	border: 3px solid  #6fb7c3;
 	border-radius: 10px;
 }
+.mark_desc table{
+    width: 100%;
+}
 .mark_desc h3{
 	color: #fff;
 	font-family: "Arial";
@@ -1605,7 +1608,7 @@ a.buy_lin.third:hover{
     font-size: 16px;
     border-radius: 10px;
 }
-.modal-content.login{
+.login{
     width: 380px;
 }
 .prof{
@@ -1618,3 +1621,40 @@ a.buy_lin.third:hover{
     display: block;
     margin: 0 auto;
 }
+input[type=checkbox]{
+    width: 15px;
+}
+.payf form{
+    display: none;
+}
+.payf form.active{
+    display: block;
+}
+.payf input{
+    width: 100px;
+}
+.modal-body div{
+    margin: 5px 0;
+}
+.modal-body button{
+    border-radius: 10px;
+    width: 180px;
+    border: 2px solid #6acfde;
+    font-family: 'Tahoma';
+
+}
+button#pay{
+    font-family: 'Tahoma';
+    font-size: 14px;
+    width: 180px;
+    border: 2px solid #df9f2e;
+    border-radius: 10px;
+    background: url("../images/bg_pay.png");
+    background-size: 100% 100%;
+}
+.modal-content {
+    font-family: 'Tahoma';
+    font-size: 14px;
+}
+
+

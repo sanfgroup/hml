@@ -14,7 +14,7 @@
             <h3>{{$v->title}}</h3>
             <div class="post_description">
                 {{$v->short}}
-                <a href="#" class="read_more">Читать полностью ...</a>
+                <a href="{{URL::route('news.detail', array($v->id))}}" class="read_more">Читать полностью ...</a>
             </div>
         </div>
         @endforeach

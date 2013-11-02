@@ -6,6 +6,5 @@
 {{Auth::user()->balance}}
 
 <br/>
-{{$form}}
-{{$form2}}
+
 @stop

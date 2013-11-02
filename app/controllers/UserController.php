@@ -69,11 +69,8 @@ class UserController extends BaseController {
     }
 
     public function getPrivat() {
-        $pm = new PerfectMoney();
-        $data['form'] = $pm->form(Auth::user()->id);
-        $ok = new OkPay();
-        $data['form2'] = $ok->form(Auth::user()->id);
-        return View::make('site.user.privat', $data);
+
+        return View::make('site.user.privat');
     }
 
     public function logout() {
@@ -111,5 +108,7 @@ class UserController extends BaseController {
         }
             return View::make('site.user.profile', $data);
     }
-
+    public function userReferal(){
+       return View::make('site.user.referal');
+    }
 } 

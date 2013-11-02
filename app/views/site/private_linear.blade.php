@@ -1,11 +1,7 @@
 @extends("site.layouts.default")
 
 @section('content')
-<div style="text-align: center; margin: 65px 0 25px;">
-    <div class="butBig bal">Ваш баланс: {{Auth::user()->balance}}$</div>
-    <a href="" class="butBig addcash">Пополнить счет</a>
-    <a href="" class="butBig get">Вывести деньги</a>
-</div>
+@include('site.private_header')
 </div>
 <div class="bgblock">
     <a class="buy_lin first" href="{{URL::route('user.linear.buy', array(5))}}">
@@ -33,7 +29,7 @@
         </div>
         <div class="turn">
             <ul>
-                <li><span>Light 10$</span></li>
+                <li><span>Happy 10$</span></li>
                 <li>Куплено тарифов - {{Auth::user()->linear10()->count()}} шт.</li>
                 <li>Закрыто тарифов - {{Auth::user()->linear10()->wherePayed(1)->count()}} шт.</li>
             </ul>
@@ -48,7 +44,7 @@
         </div>
         <div class="turn">
             <ul>
-                <li><span>Light 15$</span></li>
+                <li><span>Super 15$</span></li>
                 <li>Куплено тарифов - {{Auth::user()->linear15()->count()}} шт.</li>
                 <li>Закрыто тарифов - {{Auth::user()->linear15()->wherePayed(1)->count()}} шт.</li>
             </ul>
