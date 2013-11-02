@@ -87,7 +87,6 @@
                     </li>
 
 
-
                     <li>
                         <span style="float: left; color: #ff0000;">* </span>{{ Form::label('captcha', 'Введите капчу') }}
                     </li>
