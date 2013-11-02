@@ -26,7 +26,11 @@
             <th style="width:300px;">Операция</th>
         </tr>
         @foreach($balance as $v)
-        <tr>
+        <tr
+            @if($v->summa < 0)
+        style="background: rgba(255,0,0,0.3);"
+        @endif
+            >
             <td>{{$v->created}}</td>
             <td>
                 @if($v->user_id != 0)
