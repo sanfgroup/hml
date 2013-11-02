@@ -19,8 +19,8 @@
         <div class="turn">
             <ul>
                 <li><span>Light 5$</span></li>
-                <li>Куплено тарифов - {{Auth::user()->linear5()->count()}} шт.</li>
-                <li>Закрыто тарифов - {{Auth::user()->linear5()->wherePayed(1)->count()}} шт.</li>
+                <li>Куплено тарифов - {{Auth::user()->linear5()->remember(1)->count()}} шт.</li>
+                <li>Закрыто тарифов - {{Auth::user()->linear5()->remember(1)->wherePayed(1)->count()}} шт.</li>
             </ul>
             @if(!empty(Auth::user()->l5pos))
             <p>Ближайшие номера в очереди:</p>
@@ -33,9 +33,9 @@
         </div>
         <div class="turn">
             <ul>
-                <li><span>Light 10$</span></li>
-                <li>Куплено тарифов - {{Auth::user()->linear10()->count()}} шт.</li>
-                <li>Закрыто тарифов - {{Auth::user()->linear10()->wherePayed(1)->count()}} шт.</li>
+                <li><span>Happy 10$</span></li>
+                <li>Куплено тарифов - {{Auth::user()->linear10()->remember(1)->count()}} шт.</li>
+                <li>Закрыто тарифов - {{Auth::user()->linear10()->remember(1)->wherePayed(1)->count()}} шт.</li>
             </ul>
             @if(!empty(Auth::user()->l10pos))
             <p>Ближайшие номера в очереди:</p>
@@ -48,9 +48,9 @@
         </div>
         <div class="turn">
             <ul>
-                <li><span>Light 15$</span></li>
-                <li>Куплено тарифов - {{Auth::user()->linear15()->count()}} шт.</li>
-                <li>Закрыто тарифов - {{Auth::user()->linear15()->wherePayed(1)->count()}} шт.</li>
+                <li><span>Super 15$</span></li>
+                <li>Куплено тарифов - {{Auth::user()->linear15()->remember(1)->count()}} шт.</li>
+                <li>Закрыто тарифов - {{Auth::user()->linear15()->remember(1)->wherePayed(1)->count()}} шт.</li>
             </ul>
 
             @if(!empty(Auth::user()->l15pos))

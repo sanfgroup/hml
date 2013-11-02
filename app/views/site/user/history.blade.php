@@ -9,7 +9,7 @@
         <tr>
             <th>Дата</th>
             <th>Сумма</th>
-            <th>Операция</th>
+            <th style="width:300px;">Операция</th>
         </tr>
         @foreach($h as $v)
         <tr>

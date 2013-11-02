@@ -51,6 +51,8 @@ Route::any('user/review/add', array('as'=>'user.review.add', 'uses'=>'HomeContro
 Route::any('user/deposites/buy/{id}', array('as'=>'user.deposites.buy', 'uses'=>'InvController@buy'));
 Route::any('user/review/add', array('as'=>'user.review.add', 'uses'=>'HomeController@userAddReview'));
 
+Route::any('admin/user', array('as'=>'user.review.add', 'uses'=>'AdminUserController@userAddReview'));
+
 
 Route::get('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
 

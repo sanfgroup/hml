@@ -79,8 +79,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     public function getL5posAttribute() {
         $arr = array();
-        $count = Linear5::wherePayed(1)->count();
-        $u = $this->linear5()->wherePayed(0)->orderBy('id')->get();
+        $count = Linear5::wherePayed(1)->remember(1)->count();
+        $u = $this->linear5()->wherePayed(0)->remember(1)->orderBy('id')->get();
         if($u != null)
         foreach($u as $v) {
             if($v)
@@ -91,8 +91,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     public function getL10posAttribute() {
         $arr = array();
-        $count = Linear10::wherePayed(1)->count();
-        $u = $this->linear10()->wherePayed(0)->orderBy('id')->get();
+        $count = Linear10::wherePayed(1)->remember(1)->count();
+        $u = $this->linear10()->wherePayed(0)->orderBy('id')->remember(1)->get();
         if($u != null)
         foreach($u as $v) {
             if($v)
@@ -103,8 +103,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     public function getL15posAttribute() {
         $arr = array();
-        $count = Linear15::wherePayed(1)->count();
-        $u = $this->linear15()->wherePayed(0)->orderBy('id')->get();
+        $count = Linear15::wherePayed(1)->remember(1)->count();
+        $u = $this->linear15()->wherePayed(0)->remember(1)->orderBy('id')->get();
         if($u != null)
         foreach($u as $v) {
             if($v)
@@ -118,6 +118,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         if(!$b)
             return 0;
         return round($b,2);
+    }
+
+    public function getReflinkAttribute() {
+        return URL::to('/').'/?ref='.$this->username;
     }
 
 }
