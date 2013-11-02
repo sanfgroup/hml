@@ -4,8 +4,10 @@
 <table class="table table-bordered">
     <tr>
         <td>id</td>
+        <td>Имя Фамилия</td>
         <td>login</td>
         <td>email</td>
+        <td>skype</td>
         <td>referral</td>
         <td>balance</td>
         <td>action</td>
@@ -14,8 +16,10 @@
     @foreach($users as $user)
     <tr>
         <td>{{$user->id}}</td>
+        <td>{{$user->fio}}</td>
         <td>{{$user->username}}</td>
         <td>{{$user->email}}</td>
+        <td>{{$user->skype}}</td>
         <td>{{$user->refname}}</td>
         <td>{{$user->balance}}</td>
         <td>

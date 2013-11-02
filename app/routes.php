@@ -54,6 +54,7 @@ Route::get('admin/news/delete/{id}',array('as'=>'admin.news.delete', 'uses'=>'Ad
 Route::get('admin/news/{id}',array('as'=>'admin.news.detail', 'uses'=>'Admin\NewsController@detailNews'));
 
 Route::resource('admin/user', 'Admin\AdminUserController');
+Route::resource('admin/balance', 'Admin\AdminBalanceController');
 Route::any('admin/statistic', 'Admin\AdminStatisticController@index');
 
 
