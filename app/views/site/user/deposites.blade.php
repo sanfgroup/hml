@@ -56,16 +56,16 @@
         <tr>
             <td>Happy 10$</td>
             <td>{{Auth::user()->linear10()->count()}}</td>
-            <td>{{Auth::user()->linear10()->count()*5}}$</td>
+            <td>{{Auth::user()->linear10()->count()*10}}$</td>
             <td>{{Auth::user()->linear10()->wherePayed(1)->count()}}</td>
-            <td>{{Auth::user()->linear10()->wherePayed(1)->count()*7.5}}$</td>
+            <td>{{Auth::user()->linear10()->wherePayed(1)->count()*15}}$</td>
         </tr>
         <tr>
             <td>Super 15$</td>
             <td>{{Auth::user()->linear15()->count()}}</td>
-            <td>{{Auth::user()->linear15()->count()*5}}$</td>
+            <td>{{Auth::user()->linear15()->count()*15}}$</td>
             <td>{{Auth::user()->linear15()->wherePayed(1)->count()}}</td>
-            <td>{{Auth::user()->linear15()->wherePayed(1)->count()*7.5}}$</td>
+            <td>{{Auth::user()->linear15()->wherePayed(1)->count()*22.5}}$</td>
         </tr>
     </table>
 </div>
