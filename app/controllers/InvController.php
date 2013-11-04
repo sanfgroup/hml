@@ -41,7 +41,7 @@ class InvController extends BaseController {
                 ));
                 $data['email'] = $user->email;
                 $data['fio'] = $user->fio;
-                $ref = $user->referral();
+                $ref = $user->mr();
                 if(isset($ref->username)) {
                     $data['referal'] = $ref->username;
                     $data['summa'] = $inv->cost*0.07;
@@ -56,7 +56,7 @@ class InvController extends BaseController {
                     ));
                     $data['email'] = $user->email;
                     $data['fio'] = $user->fio;
-                    $ref = $ref->referral();
+                    $ref = $ref->mr();
                     if(isset($ref->username)) {
                         $data['referal'] = $ref->username;
                         $data['summa'] = $inv->cost*0.03;
