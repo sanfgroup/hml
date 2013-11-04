@@ -65,7 +65,7 @@ return array(
 	|
 	*/
 
-	'key' => 'dfgpoisdo9uA*&*&^897Z^df87sdyf879ew6trv34uyhv984',
+	'key' => 'dfgpoisdo9uAkjdsdtuyd',
 
 	/*
 	|--------------------------------------------------------------------------
