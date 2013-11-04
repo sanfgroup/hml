@@ -4,6 +4,7 @@
 }
 html, body{
 	height: 100%;
+
 }
 @font-face {
 	font-family: 'MyriadPro-Regular';
@@ -46,6 +47,9 @@ html, body{
 	height: auto !important;
 	height: 100%;
 
+}
+p{
+    font-size: 16px;
 }
 .ramka_top{
 	position: absolute;
@@ -457,7 +461,6 @@ aside a{
 .code{
 	padding: 10px 0;
 	margin: 10px 0;
-	width: 645px;
 	border-radius: 10px;
 	border: 1px solid  #d4d4d4;
 	background: #fff;
