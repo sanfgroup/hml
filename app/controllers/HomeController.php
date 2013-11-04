@@ -43,7 +43,8 @@ class HomeController extends BaseController {
 	}
 
 	public function getReviews() {
-		return View::make('site.reviews');
+        $data['reviews'] = Reviews::paginate(10);
+		return View::make('site.reviews', $data);
 	}
 
 	public function getContacts() {

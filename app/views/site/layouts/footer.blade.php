@@ -82,6 +82,11 @@
                         {{ Form::text('okpay', 'OK', array('class'=>'form-control')) }}
                         @endif
                     </li>
+
+                    <li>
+                        {{ Form::label('referral', 'Логин пригласителя') }}
+                        {{ Form::text('referral', Session::get('ref', ''), array('class'=>'form-control')) }}
+                    </li>
                     <li>
                         {{Form::checkbox('conf', 'yes')}}&nbsp;Вы принимаете <a href="{{URL::route('rulers')}}" target="_blank" style="color: #fff; text-decoration: underline;">соглашение</a>
                     </li>
@@ -136,32 +141,14 @@
                 <div class="clearfix"></div>
             </div>
                 <div class="modal-footer">
-                    <a href="#pr" data-toggle="modal" class="restore">Восстановление пароля</a>
+                    <a href="#" class="restore">Восстановление пароля</a>
                 <button type="submit" class="btn btn-primary">Войти</button>
             </div>
                 {{ Form::close() }}
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<!-- Modal -->
-<div class="modal fade" id="pr" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Восстановить</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-    @if($errors->count() > 0 || Session::has('ref'))
+    @if($errors->count() > 0)
     <script>
         $(function(){
             $('#registration').modal('show')

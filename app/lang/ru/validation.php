@@ -110,6 +110,7 @@ return array(
         'email'                 => '"Email"',
         'password'              => '"Пароль"',
         'password_confirmation' => '"Подтверждение пароля"',
+        'captcha'               => '"Капча"'
     ),
 
 );

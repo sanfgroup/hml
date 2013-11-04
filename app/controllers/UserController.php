@@ -28,8 +28,8 @@ class UserController extends BaseController {
         $v = Validator::make($input, $rules);
         if( $v->passes() ) {
             $user = new User();
-            if(Session::has('ref')) {
-                $refs = User::whereUsername(Session::get('ref'))->first();
+            if(Session::has('ref') || $input['referral'] != '') {
+                $refs = User::whereUsername(Session::get('ref'), $input['referral'])->first();
                 if(isset($refs->id))
                     $user->referral_id = $refs->id;
                 Session::put('ref', '');
