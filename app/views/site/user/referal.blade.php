@@ -26,7 +26,7 @@
 <div class="col-xs-7">
 <!--    <a href=""><img src="/images/smallban.png" alt=""></a>-->
     <h3>Для вставки на форумы</h3>
-    <div class="code">&lt;a href="{{Auth::user()->reflink}}"&gt;HappyMoneyLine&lt;/a&gt;</div>
+    <div class="code">&lt;a href="{{Auth::user()->reflink}}"&gt;MyHappyLines&lt;/a&gt;</div>
 
     <table class="refer table table-bordered table-striped">
         <tr>
