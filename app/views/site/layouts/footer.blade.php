@@ -95,6 +95,7 @@
                     <li>
                         <span style="float: left; color: #ff0000;">* </span>{{ Form::label('captcha', 'Введите капчу') }}
                     </li>
+
                     <li style="float: left; margin-right: 10px;">{{HTML::image(Captcha::img(2), 'Captcha image')}}</li>
                     <li style="float: left; ">{{Form::text('captcha', null, array('class'=>'form-control', 'style'=>'width:120px'))}}</li>
                 </ul>
