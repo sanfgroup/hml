@@ -105,94 +105,94 @@
         </tr>
         <tr>
             <td>Red line</td>
-            <td>10</td>
-            <td>4</td>
-            <td>3</td>
-            <td>3</td>
-            <td>1,5</td>
-            <td>1,5</td>
-            <td>1,5</td>
-            <td>1,5</td>
-            <td>1,5</td>
-            <td>17,5</td>
+            <td>10$</td>
+            <td>4$</td>
+            <td>3$</td>
+            <td>3$</td>
+            <td>1,5$</td>
+            <td>1,5$</td>
+            <td>1,5$</td>
+            <td>1,5$</td>
+            <td>1,5$</td>
+            <td>17,5$</td>
         </tr>
         <tr>
             <td>Orange line</td>
-            <td>35</td>
-            <td>12</td>
-            <td>9</td>
-            <td>9</td>
-            <td>4,5</td>
-            <td>4,5</td>
-            <td>4,5</td>
-            <td>4,5</td>
-            <td>4,5</td>
-            <td>61,25</td>
+            <td>35$</td>
+            <td>12$</td>
+            <td>9$</td>
+            <td>9$</td>
+            <td>4,5$</td>
+            <td>4,5$</td>
+            <td>4,5$</td>
+            <td>4,5$</td>
+            <td>4,5$</td>
+            <td>61,25$</td>
         </tr>
         <tr>
             <td>Yellow line</td>
-            <td>70</td>
-            <td>28</td>
-            <td>21</td>
-            <td>21</td>
-            <td>10,5</td>
-            <td>10,5</td>
-            <td>10,5</td>
-            <td>10,5</td>
-            <td>10,5</td>
-            <td>122,5</td>
+            <td>70$</td>
+            <td>28$</td>
+            <td>21$</td>
+            <td>21$</td>
+            <td>10,5$</td>
+            <td>10,5$</td>
+            <td>10,5$</td>
+            <td>10,5$</td>
+            <td>10,5$</td>
+            <td>122,5$</td>
         </tr>
         <tr>
             <td>Green line</td>
-            <td>110</td>
-            <td>44</td>
-            <td>33</td>
-            <td>33</td>
-            <td>16,5</td>
-            <td>16,5</td>
-            <td>16,5</td>
-            <td>16,5</td>
-            <td>16,5</td>
-            <td>192,5</td>
+            <td>110$</td>
+            <td>44$</td>
+            <td>33$</td>
+            <td>33$</td>
+            <td>16,5$</td>
+            <td>16,5$</td>
+            <td>16,5$</td>
+            <td>16,5$</td>
+            <td>16,5$</td>
+            <td>192,5$</td>
         </tr>
         <tr>
             <td>Blue Line</td>
-            <td>180</td>
-            <td>72</td>
-            <td>54</td>
-            <td>54</td>
-            <td>27</td>
-            <td>27</td>
-            <td>27</td>
-            <td>27</td>
-            <td>27</td>
-            <td>315</td>
+            <td>180$</td>
+            <td>72$</td>
+            <td>54$</td>
+            <td>54$</td>
+            <td>27$</td>
+            <td>27$</td>
+            <td>27$</td>
+            <td>27$</td>
+            <td>27$</td>
+            <td>315$</td>
         </tr>
         <tr>
             <td>Pink line</td>
-            <td>250</td>
-            <td>100</td>
-            <td>75</td>
-            <td>75</td>
-            <td>27</td>
-            <td>27</td>
-            <td>27</td>
-            <td>27</td>
-            <td>27</td>
-            <td>437,5</td>
+            <td>250$</td>
+            <td>100$</td>
+            <td>75$</td>
+            <td>75$</td>
+            <td>27$</td>
+            <td>27$</td>
+            <td>27$</td>
+            <td>27$</td>
+            <td>27$</td>
+            <td>437,5$</td>
         </tr>
         <tr>
             <td>Purple line</td>
-            <td>400</td>
-            <td>160</td>
-            <td>120</td>
-            <td>120</td>
-            <td>37,5</td>
-            <td>37,5</td>
-            <td>37,5</td>
-            <td>37,5</td>
-            <td>37,5</td>
-            <td>700</td>
+            <td>400$</td>
+            <td>160$</td>
+            <td>120$</td>
+            <td>120$</td>
+            <td>37,5$</td>
+            <td>37,5$</td>
+            <td>37,5$</td>
+            <td>37,5$</td>
+            <td>37,5$</td>
+            <td>700$</td>
         </tr>
     </table>
 </div>
