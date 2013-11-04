@@ -18,8 +18,7 @@
     <div class="ramka_top"></div>
     <header>
         <div class="site_name">
-            <p>Нам доверяют свои деньги</p>
-            <p>397<!-- вставить количество вкладчиков  --> партнеров</p>
+            <p>Репутация для нас - это верность своему слову!</p>
         </div>
         @if(Auth::guest())
         <a href="#registration" data-toggle="modal" class="reg">Регистрация в проекте</a>
