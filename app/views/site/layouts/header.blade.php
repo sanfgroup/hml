@@ -15,7 +15,7 @@
     <script type="text/javascript" src="/js/buyforms.js"></script>
 
 </head>
-<body style="padding-top: 30px;">
+<body>
 <div class="wrapper">
     <div class="ramka_top"></div>
     <header>
@@ -66,7 +66,7 @@
 
         </nav>
     </header>
-    <div style="position: fixed; top:0px;left: 0;width: 100%;z-index: 100000;background: #fff;text-align: center;">
+    <div style="position: fixed; bottom:0px;left: 0;width: 100%;z-index: 100000;background: #fff;text-align: center;">
         <h4>Сайт работает в тестовом режиме, всем пользователям начисляется 1000$ при регистрации. Перед запуском баланс будет обнулён и будет возможность пополнять и выводить деньги.</h4>
     </div>
     <!-- header END -->
