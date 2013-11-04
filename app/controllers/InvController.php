@@ -9,6 +9,7 @@
 class InvController extends BaseController {
 
     public function buy($id=0) {
+        return Redirect::back()->with('status', 'Покупка будет открыта только 05.11.2013');
         $s = Session::get('buy');
 //        dd(($id==0 || ($s != null && $s+5 < time())));
         if($id==0 || ($s != null && $s+5 >= time()))

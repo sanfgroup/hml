@@ -29,7 +29,7 @@ class UserController extends BaseController {
         if( $v->passes() ) {
             $user = new User();
             if(Session::has('ref') || $input['referral'] != '') {
-                $refs = User::whereUsername(Session::get('ref'), $input['referral'])->first();
+                $refs = User::whereUsername(Session::get('ref', $input['referral']))->first();
                 if(isset($refs->id))
                     $user->referral_id = $refs->id;
                 Session::put('ref', '');
@@ -130,5 +130,60 @@ class UserController extends BaseController {
     public function userReferal(){
         $data['user'] = Auth::user()->username;
        return View::make('site.user.referal', $data);
+    }
+
+    public function postRecovery() {
+        $rule =  array('captcha' => array('required', 'captcha'));
+        $validator = Validator::make(Input::all(), $rule);
+//        dd($validator->passes());
+        if ($validator->passes()) {
+            $credentials = array(
+                "email" => Input::get("email")
+            );
+            Password::remind($credentials,
+                function($message, $user)
+                {
+                    $message->with($user);
+                    $message->subject('Восстановление пароля');
+                }
+            );
+            $data["requested"] = true;
+            return Redirect::route("home")
+                ->with('status', 'На почту отправлена инструкция по восстановлению пароля');
+        }
+        elseif($validator->fails()){
+            return Redirect::route('home')->with('flash_login', 'Неверная captcha!');
+        } else {
+            return Redirect::route('home')->with('flash_login', 'Неверный логин или пароль!');
+        }
+    }
+
+    public function passwordReset($token, $email) {
+        $validator = Validator::make(Input::all(), [
+            "token"                 => "exists:token,token"
+        ]);
+        if ($validator->passes())
+        {
+            $credentials = [
+                "email" => $email
+            ];
+            Password::reset($credentials,
+                function($user, $password)
+                {
+                    $pass = Str::random(6);
+                    $user->password = Hash::make($pass);
+                    $user->save();
+                    $data['login'] = $user->username;
+                    $data['pass'] = $pass;
+                    $data['fio'] = $user->fio;
+                    Mail::send('emails.auth.reset', $data, function($message) use ($data)
+                    {
+                        $message->to($data['email'], $data['fio'])->subject('Реферальное вознаграждение!');
+                    });
+                    Auth::login($user);
+                    return Redirect::route("user.profile");
+                }
+            );
+        }
     }
 } 

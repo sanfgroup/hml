@@ -101,7 +101,7 @@
                 <div class="clearfix"></div>
             </div>
                 <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Зарегистрироватся</button>
+                <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
             </div>
                 {{ Form::close() }}
         </div><!-- /.modal-content -->
@@ -140,11 +140,46 @@
                 </ul>
                 <div class="clearfix"></div>
             </div>
-                <div class="modal-footer">
-                    <a href="#" class="restore">Восстановление пароля</a>
+            <div class="modal-footer">
+                <a href="#rp" data-toggle="modal" class="restore">Восстановление пароля</a>
                 <button type="submit" class="btn btn-primary">Войти</button>
             </div>
-                {{ Form::close() }}
+            {{ Form::close() }}
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" id="rp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog login">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Восстановление пароля</h4>
+            </div>
+            {{ Form::open(array('route' => 'user.recovery', 'method' => 'POST')) }}
+            <div class="modal-body">
+
+                @if(Session::has('flash_login'))
+                <div class="alert alert-danger">
+                    <p>{{Session::get('flash_login')}}</p>
+                </div>
+                @endif
+                <ul>
+                    <li>
+                        {{ Form::label('email', 'EMail') }}
+                        {{ Form::text('email', null, array('class'=>'form-control')) }}
+                    </li>
+                    <li>
+                        {{ Form::label('captcha', 'Введите капчу') }}
+                    </li>
+                    <li style="float: left; margin-right: 10px;">{{HTML::image(Captcha::img(), 'Captcha image')}}</li>
+                    <li style="float: left;">{{Form::text('captcha', null, array('class'=>'form-control', 'style'=>'width:120px'))}}</li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Восстановить</button>
+            </div>
+            {{ Form::close() }}
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

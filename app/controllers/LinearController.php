@@ -9,6 +9,7 @@
 class LinearController extends BaseController {
 
     public function buy($tarif = 5) {
+        return Redirect::back()->with('status', 'Покупка будет открыта только 05.11.2013');
         switch($tarif) {
             case 5:
                 $linear = new Linear5();
