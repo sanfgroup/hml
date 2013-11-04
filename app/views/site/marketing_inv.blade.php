@@ -24,7 +24,7 @@
             <td>Red line</td>
             <td>10$</td>
             <td>24 дня</td>
-            <td>75$</td>
+            <td>75</td>
             <td>7,5$</td>
             <td>17,5$</td>
         </tr>
@@ -32,7 +32,7 @@
             <td>Orange line</td>
             <td>35$</td>
             <td>24 дня</td>
-            <td>75$</td>
+            <td>75</td>
             <td>26,25$</td>
             <td>61,25$</td>
         </tr>
@@ -40,7 +40,7 @@
             <td>Yellow line</td>
             <td>70$</td>
             <td>24 дня</td>
-            <td>75$</td>
+            <td>75</td>
             <td>52,5$</td>
             <td>122,5$</td>
         </tr>
@@ -48,7 +48,7 @@
             <td>Green line</td>
             <td>110$</td>
             <td>24 дня</td>
-            <td>75$</td>
+            <td>75</td>
             <td>82,5$</td>
             <td>192,5$</td>
         </tr>
@@ -56,7 +56,7 @@
             <td>Blue Line</td>
             <td>180$</td>
             <td>24 дня</td>
-            <td>75$</td>
+            <td>75</td>
             <td>135$</td>
             <td>315$</td>
         </tr>
@@ -64,7 +64,7 @@
             <td>Pink line</td>
             <td>250$</td>
             <td>24 дня</td>
-            <td>75$</td>
+            <td>75</td>
             <td>187,5$</td>
             <td>437,5$</td>
         </tr>
@@ -72,7 +72,7 @@
             <td>Purple line</td>
             <td>400$</td>
             <td>24 дня</td>
-            <td>75$</td>
+            <td>75</td>
             <td>300$</td>
             <td>700$</td>
         </tr>
@@ -170,8 +170,8 @@
             <td>Pink line</td>
             <td>250$</td>
             <td>100$</td>
-            <td>75$</td>
-            <td>75$</td>
+            <td>75</td>
+            <td>75</td>
             <td>27$</td>
             <td>27$</td>
             <td>27$</td>

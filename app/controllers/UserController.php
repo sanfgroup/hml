@@ -79,7 +79,7 @@ class UserController extends BaseController {
         );
 //        dd($validator->passes());
         if ($validator->passes() && Auth::attempt($user)) {
-            return Redirect::route('home');
+            return Redirect::route('private.inv');
         }
         elseif($validator->fails()){
             return Redirect::route('home')->with('flash_login', 'Неверная captcha!');
