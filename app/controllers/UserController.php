@@ -29,7 +29,8 @@ class UserController extends BaseController {
         if( $v->passes() ) {
             $user = new User();
             if(Session::has('ref') || $input['referral'] != '') {
-                $refs = User::whereUsername(Session::get('ref', $input['referral']))->first();
+                $refname = empty($input['referral'])?Session::get('ref'):$input['referral'];
+                $refs = User::whereUsername($refname)->first();
                 if(isset($refs->id))
                     $user->referal_id = $refs->id;
                 Session::put('ref', '');
@@ -133,6 +134,7 @@ class UserController extends BaseController {
     }
 
     public function postRecovery() {
+
         $rule =  array('captcha' => array('required', 'captcha:3'));
         $validator = Validator::make(Input::all(), $rule);
 //        dd($validator->passes());
