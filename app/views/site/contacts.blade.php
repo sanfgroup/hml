@@ -3,8 +3,8 @@
 @section('content')
 <h2>Контакты</h2>
 <p><strong>Связаться с нами</strong> вы можете любым удобным для вас способом:</p>
-<p><strong>Skype: </strong>happymoneyline</p>
-<p><strong>Skype 2: </strong>happymoney</p>
+<p><strong>Skype: </strong>myhappylines.support</p>
+<p><strong>Skype 2: </strong>myhappylines.fin.support</p>
 <p><strong>E-mail: </strong>happyline@gmail.com</p>
 <br>
 <p><strong>А также, с помощью формы обратной связи:</strong></p>

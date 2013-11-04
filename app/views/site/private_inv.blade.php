@@ -12,7 +12,7 @@
         <div class="price">10 $</div>
         <ul class="control">
             <li><a href="#">Инфо</a></li>
-            <li><a href="{{URL::route('user.deposites.buy', array(1))}}">Купить</a></li>
+            <li><a class="buy" href="{{URL::route('user.deposites.buy', array(1))}}">Купить</a></li>
         </ul>
     </div>
     <div class="tarcab">
@@ -20,7 +20,7 @@
         <div class="price">35 $</div>
         <ul class="control">
             <li><a href="#">Инфо</a></li>
-            <li><a href="{{URL::route('user.deposites.buy', array(2))}}">Купить</a></li>
+            <li><a class="buy" href="{{URL::route('user.deposites.buy', array(2))}}">Купить</a></li>
         </ul>
     </div>
     <div class="tarcab">
@@ -28,7 +28,7 @@
         <div class="price">70 $</div>
         <ul class="control">
             <li><a href="#">Инфо</a></li>
-            <li><a href="{{URL::route('user.deposites.buy', array(3))}}">Купить</a></li>
+            <li><a class="buy" href="{{URL::route('user.deposites.buy', array(3))}}">Купить</a></li>
         </ul>
     </div>
 </div>
@@ -38,7 +38,7 @@
         <div class="price">110 $</div>
         <ul class="control">
             <li><a href="#">Инфо</a></li>
-            <li><a href="{{URL::route('user.deposites.buy', array(4))}}">Купить</a></li>
+            <li><a class="buy" href="{{URL::route('user.deposites.buy', array(4))}}">Купить</a></li>
         </ul>
     </div>
     <div class="tarcab">
@@ -46,7 +46,7 @@
         <div class="price">180 $</div>
         <ul class="control">
             <li><a href="#">Инфо</a></li>
-            <li><a href="{{URL::route('user.deposites.buy', array(5))}}">Купить</a></li>
+            <li><a class="buy" href="{{URL::route('user.deposites.buy', array(5))}}">Купить</a></li>
         </ul>
     </div>
     <div class="tarcab">
@@ -54,7 +54,7 @@
         <div class="price">250 $</div>
         <ul class="control">
             <li><a href="#">Инфо</a></li>
-            <li><a href="{{URL::route('user.deposites.buy', array(6))}}">Купить</a></li>
+            <li><a class="buy" href="{{URL::route('user.deposites.buy', array(6))}}">Купить</a></li>
         </ul>
     </div>
     <div class="tarcab">
@@ -62,7 +62,7 @@
         <div class="price">400 $</div>
         <ul class="control">
             <li><a href="#">Инфо</a></li>
-            <li><a href="{{URL::route('user.deposites.buy', array(7))}}">Купить</a></li>
+            <li><a class="buy" href="{{URL::route('user.deposites.buy', array(7))}}">Купить</a></li>
         </ul>
     </div>
 </div>

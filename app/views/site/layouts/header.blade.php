@@ -32,12 +32,12 @@
             <h3>СВЯЗЬ С НАМИ</h3>
             <ul>
                 <li>
-                    <p>Skype:</p>
-                    <p>happymoneyline</p>
+                    <p>Skype Тех.поддержки:</p>
+                    <p>myhappylines.support</p>
                 </li>
                 <li>
-                    <p>Skype:</p>
-                    <p>happymoney</p>
+                    <p>Skype Фин.поддержки:</p>
+                    <p>myhappylines.fin.support</p>
                 </li>
                 <li>
                     <p>Email:</p>
