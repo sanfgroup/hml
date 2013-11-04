@@ -22,7 +22,7 @@ class UserController extends BaseController {
             'perfectmoney'          => 'Required',
             'skype'                 => 'Required',
             'password_confirmation' => 'Required|min:6',
-            'captcha'               => array('required', 'captcha'),
+            'captcha'               => array('required', 'captcha:2'),
             'conf'                  => 'Required',
         );
         $v = Validator::make($input, $rules);
@@ -70,7 +70,7 @@ class UserController extends BaseController {
     }
 
     public function postLogin() {
-        $rule =  array('captcha' => array('required', 'captcha'));
+        $rule =  array('captcha' => array('required', 'captcha:1'));
         $validator = Validator::make(Input::all(), $rule);
         $user = array(
             'username' => Input::get('username'),
@@ -133,7 +133,7 @@ class UserController extends BaseController {
     }
 
     public function postRecovery() {
-        $rule =  array('captcha' => array('required', 'captcha'));
+        $rule =  array('captcha' => array('required', 'captcha:3'));
         $validator = Validator::make(Input::all(), $rule);
 //        dd($validator->passes());
         if ($validator->passes()) {
