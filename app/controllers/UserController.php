@@ -133,6 +133,7 @@ class UserController extends BaseController {
     }
 
     public function postRecovery() {
+
         $rule =  array('captcha' => array('required', 'captcha:3'));
         $validator = Validator::make(Input::all(), $rule);
 //        dd($validator->passes());
