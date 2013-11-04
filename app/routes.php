@@ -86,7 +86,7 @@ Route::any('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
             $inv->save();
         }
     }
-    Linear5::pay();
+    echo Linear5::pay();
     Linear10::pay();
     Linear15::pay();
     $invs = Inv::all();

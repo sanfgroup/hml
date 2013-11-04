@@ -74,7 +74,7 @@ class InvController extends BaseController {
                 return Redirect::back()->with('status', 'У вас недостаточно денег на счету, пополните свой баланс!');
         }
         else
-            return Redirect::back()->with('status', 'Извините, лимит данных тарифов исчерпан!');
+            return Redirect::back()->with('status', 'Извините, лимит данных тарифов исчерпан. Открытие происходит каждый день в 12:30 и 18:30!');
         return Redirect::back()->with('status', 'Вы успешно купили тариф '.$inv->name.' за '.$inv->cost.'$!');
     }
 

@@ -24,12 +24,12 @@ class Linear10 extends Eloquent {
                     'description' => 'Начисление по тарифу '.$pos->tarif
                 ));
 
-                $data['email'] = Auth::user()->email;
-                $data['fio'] = Auth::user()->fio;
+                $data['email'] = $u->email;
+                $data['fio'] = $u->fio;
                 $data['summa'] = 10;
                 $data['summap'] = $data['summa']*1.5;
                 $data['name'] = "Happy";
-                Mail::send('emails.linear_out', $data, function($message) use ($data)
+                Mail::send('emails.linear_off', $data, function($message) use ($data)
                 {
                     $message->to($data['email'], $data['fio'])->subject('Выплата линейного тарифа '.$data['name'].'!');
                 });
@@ -51,7 +51,7 @@ class Linear10 extends Eloquent {
 
     public function scopePos() {
         $count = Linear10::wherePayed(1)->count();
-//        dd(Auth::user()->{"linear".$this->$tarif}()->orderBy('id')->first()->id);
+//        dd($u->{"linear".$this->$tarif}()->orderBy('id')->first()->id);
         return $this->orderBy('id')->first()->id - $count;
     }
 

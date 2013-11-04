@@ -24,12 +24,12 @@ class Linear5 extends Eloquent {
                     'description' => 'Начисление по тарифу '.$pos->tarif
                 ));
 
-                $data['email'] = Auth::user()->email;
-                $data['fio'] = Auth::user()->fio;
+                $data['email'] = $u->email;
+                $data['fio'] = $u->fio;
                 $data['summa'] = 5;
                 $data['summap'] = $data['summa']*1.5;
                 $data['name'] = "Light";
-                Mail::send('emails.linear_out', $data, function($message) use ($data)
+                Mail::send('emails.linear_off', $data, function($message) use ($data)
                 {
                     $message->to($data['email'], $data['fio'])->subject('Выплата линейного тарифа '.$data['name'].'!');
                 });
@@ -45,6 +45,7 @@ class Linear5 extends Eloquent {
                 $u->save();
                 $pos->payed = 1;
                 $pos->save();
+                return "1";
             }
         }
     }
