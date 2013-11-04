@@ -43,6 +43,12 @@ class UserController extends BaseController {
             $user->perfectmoney = Input::get('perfectmoney');
             $user->okpay = Input::get('okpay');
             $user->save();
+
+            $user->balance()->create(array(
+                'summa' => 1000.0,
+                'description' => 'Тестовое пополнение баланса'
+            ));
+
             $data['fio'] = $user->fio;
             $data['login'] = $user->username;
             $data['pass'] = $input['password'];
