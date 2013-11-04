@@ -41,7 +41,7 @@
                 </li>
                 <li>
                     <p>Email:</p>
-                    <p>happyline@gmail.com</p>
+                    <p>support@myhappylines.com</p>
                 </li>
             </ul>
         </div>

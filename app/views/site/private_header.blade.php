@@ -36,7 +36,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Вывод средств</h4>
+<!--                <h4 class="modal-title">Вывод средств</h4>-->
                 <h4 class="modal-title">Вывод средств будет доступен после открытия пороекта</h4>
 
             </div>
