@@ -12,7 +12,7 @@ class InvController extends BaseController {
         $s = Session::get('buy');
 //        dd(($id==0 || ($s != null && $s+5 < time())));
         if($id==0 || ($s != null && $s+5 >= time()))
-            return Redirect::back();
+            return Redirect::back()->with('status', 'Вы не можете покупать тарифы так часто');
 
         $inv = Inv::find($id);
         if($inv != null && $inv->limit > 0) {
@@ -70,7 +70,11 @@ class InvController extends BaseController {
                     }
                 }
             }
+            else
+                return Redirect::back()->with('status', 'У вас недостаточно денег на счету, пополните свой баланс!');
         }
+        else
+            return Redirect::back()->with('status', 'Извините, лимит данных тарифов исчерпан!');
         return Redirect::back();
     }
 

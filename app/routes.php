@@ -69,6 +69,23 @@ Route::group(array('before' => 'auth'), function()
 
 
 Route::any('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
+    if(date('h:i') == '12:30' || date('h:i') == '18:30') {
+        $invs = Inv::all();
+        foreach($invs as $inv) {
+            switch($inv->id) {
+                case 1:
+                    $inv->limit = 7;
+                    break;
+                case 2:
+                    $inv->limit = 5;
+                    break;
+                case 3:
+                    $inv->limit = 2;
+                    break;
+            }
+            $inv->save();
+        }
+    }
     Linear5::pay();
     Linear10::pay();
     Linear15::pay();
