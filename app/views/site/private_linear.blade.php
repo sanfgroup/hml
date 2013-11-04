@@ -2,7 +2,7 @@
 
 @section('content')
 @include('site.private_header')
-</div>
+
 </div>
 <div class="bgblock">
     <a class="buy_lin first" href="{{URL::route('user.linear.buy', array(5))}}">

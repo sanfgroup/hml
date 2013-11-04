@@ -27,13 +27,13 @@
         </div>
     </section>
 </div>
-<div class="col-xs-5">
-    <a href=""><img src="images/smallban.png" alt=""></a>
-    <div class="code">&lt;a href="https://happymoneline.com/?login=leo"&gt;&lt;img src="http://stable-way.com/images/125125.gif"&gt;&lt;/a&gt;</div>
-    <a href=""><img src="images/mediumban.png" alt=""></a>
-    <div class="code">&lt;a href="https://happymoneline.com/?login=leo"&gt;&lt;img src="http://stable-way.com/images/125125.gif"&gt;&lt;/a&gt;</div>
-    <a href=""><img src="images/largeban.png" alt=""></a>
-    <div class="code">&lt;a href="https://happymoneline.com/?login=leo"&gt;&lt;img src="http://stable-way.com/images/125125.gif"&gt;&lt;/a&gt;</div>
+<div class="col-xs-7">
+<!--    <a href=""><img src="/images/smallban.png" alt=""></a>-->
+    <div class="code">&lt;a href="https://myhappylines.com/?login=leo"&gt;&lt;img src=""&gt;&lt;/a&gt;</div>
+<!--    <a href=""><img src="/images/mediumban.png" alt=""></a>-->
+    <div class="code">&lt;a href="https://myhappylines.com/?login=leo"&gt;&lt;img src=""&gt;&lt;/a&gt;</div>
+<!--    <a href=""><img src="/images/largeban.png" alt=""></a>-->
+    <div class="code">&lt;a href="https://happymoneline.com/?login=leo"&gt;&lt;img src=""&gt;&lt;/a&gt;</div>
     <table class="refer table table-bordered table-striped">
         <tr>
             <th>Пользователь</th>
