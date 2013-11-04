@@ -37,7 +37,17 @@ class UserController extends BaseController {
             $user->email = $input['email'];
             $user->username = $input['username'];
             $user->password = Hash::make($input['password']);
+            $user->skype = Input::get('skype');
+            $user->perfectmoney = Input::get('perfectmoney');
+            $user->okpay = Input::get('okpay');
             $user->save();
+            $data['fio'] = $user->fio;
+            $data['login'] = $user->username;
+            $data['pass'] = $input['password'];
+            Mail::send('emails.auth.registration', $data, function($message) use ($data)
+            {
+                $message->to($data['email'], $data['fio'])->subject('Регистрация в проекте MyHappyLines!');
+            });
             return Redirect::route('home')->with('flash_reg', 'Вы удачно зарегистрированы, авторизуйтесь пожалуйста!');
         } else {
             return Redirect::route('home')->withInput()
