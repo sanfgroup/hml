@@ -19,6 +19,7 @@
         </div>
         @endforeach
 <!--        -->
+        <img class="img-responsive" src="/img/refka.jpg" alt=""/>
 
     </div>
     <div class="clear"></div>

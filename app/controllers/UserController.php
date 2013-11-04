@@ -129,6 +129,7 @@ class UserController extends BaseController {
             return View::make('site.user.profile', $data);
     }
     public function userReferal(){
+        Debugbar::info(User::find(2)->referral()->count());
         $data['user'] = Auth::user()->username;
        return View::make('site.user.referal', $data);
     }

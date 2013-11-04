@@ -13,7 +13,7 @@
             <table>
                 <tr>
                     <td>Рефералов:</td>
-                    <td>0</td>
+                    <td>{{Auth::user()->referral()->count()}}</td>
                 </tr>
                 <tr>
                     <td>Получено денег:</td>
@@ -35,12 +35,14 @@
             <th>Skype</th>
             <th>Сумма</th>
         </tr>
+        @foreach(Auth::user()->referral()->get() as $v)
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{$v->username}}</td>
+            <td>{{$v->email}}</td>
+            <td>{{$v->skype}}</td>
+            <td>0</td>
         </tr>
+        @endforeach
     </table>
 
 </div>
