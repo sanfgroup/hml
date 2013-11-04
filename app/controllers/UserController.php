@@ -31,7 +31,7 @@ class UserController extends BaseController {
             if(Session::has('ref') || $input['referral'] != '') {
                 $refs = User::whereUsername(Session::get('ref', $input['referral']))->first();
                 if(isset($refs->id))
-                    $user->referral_id = $refs->id;
+                    $user->referal_id = $refs->id;
                 Session::put('ref', '');
             }
 
