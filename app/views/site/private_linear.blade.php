@@ -16,13 +16,13 @@
         <div class="turn">
             <ul>
                 <li><span>Light 5$</span></li>
-                <li>Куплено тарифов - {{Auth::user()->linear5()->remember(1)->count()}} шт.</li>
-                <li>Закрыто тарифов - {{Auth::user()->linear5()->remember(1)->wherePayed(1)->count()}} шт.</li>
+                <li>Куплено тарифов - {{$user->linear5()->remember(5)->count()}} шт.</li>
+                <li>Закрыто тарифов - {{$user->linear5()->remember(5)->wherePayed(1)->count()}} шт.</li>
             </ul>
-            @if(!empty(Auth::user()->l5pos))
+            @if(!empty($user->l5pos))
             <p>Ближайшие номера в очереди:</p>
             <div class="nums_t">
-                @foreach(Auth::user()->l5pos as $v)
+                @foreach($user->l5pos as $v)
                 <div class="num_turn">{{$v}}</div>
                 @endforeach
             </div>
@@ -31,13 +31,13 @@
         <div class="turn">
             <ul>
                 <li><span>Happy 10$</span></li>
-                <li>Куплено тарифов - {{Auth::user()->linear10()->count()}} шт.</li>
-                <li>Закрыто тарифов - {{Auth::user()->linear10()->wherePayed(1)->count()}} шт.</li>
+                <li>Куплено тарифов - {{$user->linear10()->remember(5)->count()}} шт.</li>
+                <li>Закрыто тарифов - {{$user->linear10()->remember(5)->wherePayed(1)->count()}} шт.</li>
             </ul>
-            @if(!empty(Auth::user()->l10pos))
+            @if(!empty($user->l10pos))
             <p>Ближайшие номера в очереди:</p>
             <div class="nums_t">
-                @foreach(Auth::user()->l10pos as $v)
+                @foreach($user->l10pos as $v)
                 <div class="num_turn">{{$v}}</div>
                 @endforeach
             </div>
@@ -46,14 +46,14 @@
         <div class="turn">
             <ul>
                 <li><span>Super 15$</span></li>
-                <li>Куплено тарифов - {{Auth::user()->linear15()->count()}} шт.</li>
-                <li>Закрыто тарифов - {{Auth::user()->linear15()->wherePayed(1)->count()}} шт.</li>
+                <li>Куплено тарифов - {{$user->linear15()->remember(5)->count()}} шт.</li>
+                <li>Закрыто тарифов - {{$user->linear15()->remember(5)->wherePayed(1)->count()}} шт.</li>
             </ul>
 
-            @if(!empty(Auth::user()->l15pos))
+            @if(!empty($user->l15pos))
             <p>Ближайшие номера в очереди:</p>
             <div class="nums_t">
-                @foreach(Auth::user()->l15pos as $v)
+                @foreach($user->l15pos as $v)
                 <div class="num_turn">{{$v}}</div>
                 @endforeach
             </div>

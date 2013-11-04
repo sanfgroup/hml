@@ -29,11 +29,9 @@ class PerfectMoney {
         return true;
     }
 
-    public function form($uid=0) {
+    public function form($uid=0,$payment_id) {
         if($uid == 0)
             return null;
-        $uid = User::find($uid);
-        $payment_id = $uid->pay;
         $ad = URL::to('/');
         $form = <<<html
 <form action="https://perfectmoney.is/api/step1.asp" method="POST" id="perfectForm" class="active">
@@ -48,7 +46,7 @@ class PerfectMoney {
     <input type="hidden" name="NOPAYMENT_URL" value="{$ad}/pay">
     <input type="hidden" name="NOPAYMENT_URL_METHOD" value="POST">
     <input type="hidden" name="SUGGESTED_MEMO" value="">
-    <input type="hidden" name="user_id" value="{$uid->id}">
+    <input type="hidden" name="user_id" value="{$uid}">
     <input type="hidden" name="BAGGAGE_FIELDS" value="user_id">
     <!--<input type="submit" name="PAYMENT_METHOD" value="Пополнить">-->
 </form>

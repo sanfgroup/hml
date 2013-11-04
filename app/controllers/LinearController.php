@@ -26,23 +26,24 @@ class LinearController extends BaseController {
             default:
                 return Redirect::back()->with('status', 'Не существует такого тарифа!');
         }
-        if(Auth::user()->balance < $tarif)
+        if($this->user->balance < $tarif)
             return Redirect::back()->with('status', 'У вас недостаточно денег на счету, пополните свой баланс!');
-        Auth::user()->balance()->create(array(
+        $this->user->balance()->create(array(
             'summa' => -$tarif,
             'description' => 'Оплата тарифа '.$tarif
         ));
-        $linear->user_id = Auth::user()->id;
+        $linear->user_id = $this->user->id;
         $linear->save();
 
-        $data['email'] = Auth::user()->email;
-        $data['fio'] = Auth::user()->fio;
+        $data['email'] = $this->user->email;
+        $data['fio'] = $this->user->fio;
         $data['summa'] = $tarif;
         $data['name'] = $tname;
         Mail::send('emails.linear', $data, function($message) use ($data)
         {
             $message->to($data['email'], $data['fio'])->subject('Приобретение линейного тарифа '.$data['name'].'!');
         });
+        Cache::flush();
 
 //        $t = 'Linear'.$tarif;
 //        $c = $t::where('payed', '=', 1, 'and')->where('admin', '=', 0, 'and')->count();

@@ -56,23 +56,25 @@ class HomeController extends BaseController {
     }
 
     public function getHistory() {
-        $data['h'] = Auth::user()->balance()->orderBy('id', 'desc')->paginate(10);
+        $data['h'] = $this->user->balance()->orderBy('id', 'desc')->paginate(10);
         return View::make('site.user.history', $data);
     }
     public function privateLinear(){
+//        $data['user'] = $this->user;
         return View::make('site.private_linear');
     }
     public function privateInv(){
+//        $data['user'] = $this->user;
         return View::make('site.private_inv');
     }
     public function userDeposites(){
-        $data['buys'] = Auth::user()->buys()->orderBy('id', 'desc')->paginate(10);
+        $data['buys'] = $this->user->buys()->orderBy('id', 'desc')->paginate(10);
         return View::make('site.user.deposites', $data);
     }
     public function userAddReview(){
         if (Input::server("REQUEST_METHOD") == "POST") {
             $review = new Reviews();
-            $review->user_id = Auth::user()->id;
+            $review->user_id = $this->user->id;
             $review->content = INPUT::get('add_review');
             $review->save();
             return Redirect::route('reviews')->with('status', 'Вы успешно оставили комментарий');

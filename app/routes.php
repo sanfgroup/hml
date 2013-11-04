@@ -104,6 +104,7 @@ Route::any('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
                 $v->col++;
                 $v->save();
                 $v->touch();
+                Cache::flush();
             }
         }
     }

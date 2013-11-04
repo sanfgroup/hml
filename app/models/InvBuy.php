@@ -8,7 +8,7 @@ class InvBuy extends Eloquent {
 
 	public function inv()
 	{
-		return $this->belongsTo('Inv');
+		return $this->belongsTo('Inv')->remember(5);
 	}
 
 	public function user()

@@ -2,6 +2,8 @@
 
 class BaseController extends Controller {
 
+    protected $user;
+
 	/**
 	 * Setup the layout used by the controller.
 	 *
@@ -10,21 +12,28 @@ class BaseController extends Controller {
 	protected function setupLayout()
 	{
 
+        $this->user = null;
+        if(!Auth::guest()) {
+            $this->user = Auth::user();
+        }
+
+        View::share('user', $this->user);
+        if ( ! is_null($this->layout))
+        {
+            $this->layout = View::make($this->layout);
+        }
         View::composer('site.private_header', function($view)
         {
             $data = array();
             if(!Auth::guest()) {
                 $pm = new PerfectMoney();
-                $data['form'] = $pm->form(Auth::user()->id);
+                $uid = $this->user->id;
+                $data['form'] = $pm->form($uid, $this->user->pay);
                 $ok = new OkPay();
-                $data['form2'] = $ok->form(Auth::user()->id);
+                $data['form2'] = $ok->form($uid, $this->user->pay);
             }
             $view->with($data);
         });
-		if ( ! is_null($this->layout))
-		{
-			$this->layout = View::make($this->layout);
-		}
 	}
 
 }

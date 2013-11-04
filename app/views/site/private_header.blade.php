@@ -20,7 +20,7 @@
     });
 </script>
 <div style="text-align: center; margin: 65px 0 25px;">
-    <div class="butBig bal">Ваш баланс: {{Auth::user()->balance}}$</div>
+    <div class="butBig bal">Ваш баланс: {{$user->balance}}$</div>
     <a href="#addMoney" data-toggle="modal" class="butBig addcash">Пополнить счет</a>
     <a href="#payMoney" data-toggle="modal" class="butBig get">Вывести деньги</a>
 </div>
@@ -68,10 +68,10 @@
 <!--                <div>С платежной системы</div>-->
 <!--                <div class="btn-group" data-toggle="buttons">-->
 <!--                    <label class="btn btn-primary active">-->
-<!--                        <input type="radio" checked="checked" name="system" value="Auth::user()->perfectmoney"> Perfectmoney-->
+<!--                        <input type="radio" checked="checked" name="system" value="$user->perfectmoney"> Perfectmoney-->
 <!--                    </label>-->
 <!--                    <label class="btn btn-primary">-->
-<!--                        <input type="radio" name="system" value="Auth::user()->okpay"> OKPAY-->
+<!--                        <input type="radio" name="system" value="$user->okpay"> OKPAY-->
 <!--                    </label>-->
 <!--                </div>-->
 <!---->

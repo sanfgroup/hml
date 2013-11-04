@@ -17,13 +17,14 @@ class InvController extends BaseController {
 
         $inv = Inv::find($id);
         if($inv != null && $inv->limit > 0) {
-            $user = Auth::user();
+            $user = $this->user;
             if($user->balance >= $inv->cost) {
                 $inv->limit--;
                 $user->buys()->create(array(
                     'inv_id' => $id,
                     'col'=> 0
                 ));
+                Cache::flush();
 
                 $data['email'] = $user->email;
                 $data['fio'] = $user->fio;

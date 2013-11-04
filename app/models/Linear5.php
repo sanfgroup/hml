@@ -17,7 +17,7 @@ class Linear5 extends Eloquent {
                 $pos = Linear5::find($pos->id+1);
             }
             $u = User::find($pos->user_id);
-            if($u) {
+            if($u) {Cache::flush();
                 $summ = $pos->tarif*1.5;
                 $u->balance()->create(array(
                     'summa' => $summ,

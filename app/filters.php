@@ -44,7 +44,8 @@ Route::filter('auth', function()
 Route::filter('admin', function()
 {
     if (Auth::guest()) return Redirect::to('/');
-    if(Auth::user()->username != 'vinnizp' && Auth::user()->username != 'olegan') return Redirect::to('/');
+    $user = Auth::user();
+    if($user->username != 'vinnizp' && $user->username != 'olegan') return Redirect::to('/');
 });
 
 

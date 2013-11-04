@@ -17,7 +17,7 @@ class Linear15 extends Eloquent {
                 $pos = Linear15::find($pos->id+1);
             }
             $u = User::find($pos->user_id);
-            if($u) {
+            if($u) {Cache::flush();
                 $summ = $pos->tarif*1.5;
                 $u->balance()->create(array(
                     'summa' => $summ,
@@ -51,7 +51,6 @@ class Linear15 extends Eloquent {
 
     public function pos() {
         $count = Linear15::wherePayed(1)->count();
-//        dd(Auth::user()->{"linear".$this->$tarif}()->orderBy('id')->first()->id);
         return $this->orderBy('id')->first()->id - $count;
     }
 

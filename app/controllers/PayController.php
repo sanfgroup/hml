@@ -18,7 +18,7 @@ class PayController extends BaseController {
     public function pay() {
         $i = Input::all();
         if($i['summ'] != 0) {
-            Auth::user()->payments()->create(array(
+            $this->user->payments()->create(array(
                 'summa' => $i['summa']*0.95,
                 'to' => $i['system']
             ));
@@ -28,7 +28,7 @@ class PayController extends BaseController {
 
     public function okpayPay() {
         $ok = new OkPay();
-        $u = Auth::user();
+        $u = $this->user;
         $account = $u->okpay;
         $amount = Input::get('amount', 0);
         if($amount <= $u->balance && !empty($account)) {
@@ -104,7 +104,7 @@ class PayController extends BaseController {
 
     public function perfectPay() {
         $pm = new PerfectMoney();
-        $u = Auth::user();
+        $u = $this->user;
         $account = $u->perfectmoney;
         $amount = Input::get('amount', 0);
         if($amount <= $u->balance) {

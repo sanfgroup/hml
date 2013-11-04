@@ -98,9 +98,9 @@ class UserController extends BaseController {
         return Redirect::route('home');
     }
     public function userProfile(){
-            $usid = Auth::user()->id;
+            $usid = $this->user->id;
             $user = User::find($usid);
-            $logref = Auth::user()->referral()->first();
+            $logref = $this->user->referral()->first();
 
             if($logref != null)
                 $data['logref'] = $logref->username;
@@ -109,7 +109,7 @@ class UserController extends BaseController {
 
             $data['user'] = $user;
         if (Input::server("REQUEST_METHOD") == "POST") {
-            if (Input::get('old_password')!='' && Hash::check(Input::get('old_password'), Auth::user()->getAuthPassword()) && Input::get('new_password')!=''){
+            if (Input::get('old_password')!='' && Hash::check(Input::get('old_password'), $this->user->getAuthPassword()) && Input::get('new_password')!=''){
                 $pass = Input::get('new_password');
                $user->password = Hash::make($pass);
                 $data['message'] = 'Пароль изменен';
@@ -129,8 +129,7 @@ class UserController extends BaseController {
             return View::make('site.user.profile', $data);
     }
     public function userReferal(){
-       $data['user'] = Auth::user()->username;
-       return View::make('site.user.referal', $data);
+       return View::make('site.user.referal');
     }
 
     public function postRecovery() {

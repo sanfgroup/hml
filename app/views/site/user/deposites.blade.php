@@ -48,24 +48,24 @@
         </tr>
         <tr>
             <td>Light 5$</td>
-            <td>{{Auth::user()->linear5()->count()}}</td>
-            <td>{{Auth::user()->linear5()->count()*5}}$</td>
-            <td>{{Auth::user()->linear5()->wherePayed(1)->count()}}</td>
-            <td>{{Auth::user()->linear5()->wherePayed(1)->count()*7.5}}$</td>
+            <td>{{$user->linear5()->remember(5)->count()}}</td>
+            <td>{{$user->linear5()->remember(5)->count()*5}}$</td>
+            <td>{{$user->linear5()->remember(5)->wherePayed(1)->count()}}</td>
+            <td>{{$user->linear5()->remember(5)->wherePayed(1)->count()*7.5}}$</td>
         </tr>
         <tr>
             <td>Happy 10$</td>
-            <td>{{Auth::user()->linear10()->count()}}</td>
-            <td>{{Auth::user()->linear10()->count()*10}}$</td>
-            <td>{{Auth::user()->linear10()->wherePayed(1)->count()}}</td>
-            <td>{{Auth::user()->linear10()->wherePayed(1)->count()*15}}$</td>
+            <td>{{$user->linear10()->remember(5)->count()}}</td>
+            <td>{{$user->linear10()->remember(5)->count()*10}}$</td>
+            <td>{{$user->linear10()->remember(5)->wherePayed(1)->count()}}</td>
+            <td>{{$user->linear10()->remember(5)->wherePayed(1)->count()*15}}$</td>
         </tr>
         <tr>
             <td>Super 15$</td>
-            <td>{{Auth::user()->linear15()->count()}}</td>
-            <td>{{Auth::user()->linear15()->count()*15}}$</td>
-            <td>{{Auth::user()->linear15()->wherePayed(1)->count()}}</td>
-            <td>{{Auth::user()->linear15()->wherePayed(1)->count()*22.5}}$</td>
+            <td>{{$user->linear15()->remember(5)->count()}}</td>
+            <td>{{$user->linear15()->remember(5)->count()*15}}$</td>
+            <td>{{$user->linear15()->remember(5)->wherePayed(1)->count()}}</td>
+            <td>{{$user->linear15()->remember(5)->wherePayed(1)->count()*22.5}}$</td>
         </tr>
     </table>
 </div>
