@@ -1023,6 +1023,7 @@ nav .container{
 }
 .contacts li p+p{
 	color: #fff;
+    margin-left: -15px!important;
 }
 .mmgp{
 	position: absolute;
