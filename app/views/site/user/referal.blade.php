@@ -5,23 +5,19 @@
 <div class="col-xs-5">
 
     <div class="banpar"></div>
-    <p>Вас пригласил: <a href="">admin</a></p>
-    <p>Ваша реф-ссылка: <a href="">https://happymoneline.com/?login=leo</a></p>
+<!--    <p>Вас пригласил: <a href="">admin</a></p>-->
+    <p>Ваша реф-ссылка: <a href="{{Auth::user()->reflink}}">{{Auth::user()->reflink}}</a></p>
     <section>
         <div class="stata">
             <h4>Приглашенные Вами:</h4>
             <table>
                 <tr>
                     <td>Учасников:</td>
-                    <td>3856</td>
-                </tr>
-                <tr>
-                    <td>Новых:</td>
-                    <td>545</td>
+                    <td>0</td>
                 </tr>
                 <tr>
                     <td>Получено денег:</td>
-                    <td>952$</td>
+                    <td>0</td>
                 </tr>
             </table>
         </div>
@@ -29,11 +25,9 @@
 </div>
 <div class="col-xs-7">
 <!--    <a href=""><img src="/images/smallban.png" alt=""></a>-->
-    <div class="code">&lt;a href="https://myhappylines.com/?login=leo"&gt;&lt;img src=""&gt;&lt;/a&gt;</div>
-<!--    <a href=""><img src="/images/mediumban.png" alt=""></a>-->
-    <div class="code">&lt;a href="https://myhappylines.com/?login=leo"&gt;&lt;img src=""&gt;&lt;/a&gt;</div>
-<!--    <a href=""><img src="/images/largeban.png" alt=""></a>-->
-    <div class="code">&lt;a href="https://happymoneline.com/?login=leo"&gt;&lt;img src=""&gt;&lt;/a&gt;</div>
+    <h3>Для вставки на форумы</h3>
+    <div class="code">&lt;a href="{{Auth::user()->reflink}}"&gt;HappyMoneyLine&lt;/a&gt;</div>
+
     <table class="refer table table-bordered table-striped">
         <tr>
             <th>Пользователь</th>
@@ -42,22 +36,10 @@
             <th>Сумма</th>
         </tr>
         <tr>
-            <td>Google</td>
-            <td>Google@gmail.com</td>
-            <td>Google</td>
-            <td>$ 123</td>
-        </tr>
-        <tr>
-            <td>Google</td>
-            <td>Google@gmail.com</td>
-            <td>Google</td>
-            <td>$ 123</td>
-        </tr>
-        <tr>
-            <td>Google</td>
-            <td>Google@gmail.com</td>
-            <td>Google</td>
-            <td>$ 123</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
     </table>
 

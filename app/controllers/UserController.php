@@ -109,6 +109,7 @@ class UserController extends BaseController {
             return View::make('site.user.profile', $data);
     }
     public function userReferal(){
-       return View::make('site.user.referal');
+        $data['user'] = Auth::user()->username;
+       return View::make('site.user.referal', $data);
     }
 } 
