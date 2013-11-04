@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => "support@myhappylines.com", 'name' => "MyHappyLines.com"),
+	'from' => array('address' => "support@myhappylines.com", 'name' => "MyHappyLines"),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => "webmaster@myhappylines.com",
+	'username' => "support@myhappylines.com",
 
 	/*
 	|--------------------------------------------------------------------------
