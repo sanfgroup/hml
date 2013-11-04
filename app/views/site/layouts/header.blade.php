@@ -11,7 +11,9 @@
     <![endif]-->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js" ></script>
     <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/bootbox.min.js"></script>
     <script type="text/javascript" src="/js/buyforms.js"></script>
+
 </head>
 <body>
 <div class="wrapper">
@@ -32,11 +34,11 @@
             <ul>
                 <li>
                     <p>Skype Тех.поддержки:</p>
-                    <p>myhappylines.support</p>
+                    <p><a href="skype:myhappylines.support?add">myhappylines.support</a></p>
                 </li>
                 <li>
                     <p>Skype Фин.поддержки:</p>
-                    <p>myhappylines.fin.support</p>
+                    <p><a href="skype:myhappylines.fin.support?add">myhappylines.fin.support</a></p>
                 </li>
                 <li>
                     <p>Email:</p>

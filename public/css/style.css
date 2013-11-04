@@ -1659,5 +1659,11 @@ button#pay{
     font-family: 'Tahoma';
     font-size: 14px;
 }
-
+.close{
+    border: none !important;
+    width: 30px !important;
+}
+.contacts a{
+    color: #ffffff;
+}
 

@@ -17,5 +17,5 @@ $(document).ready(function(){
     $('#pay').click(function(){
         $('form.active').submit();
     });
-    $('[data-toggle="confirmation"]').confirmation();
+
 });

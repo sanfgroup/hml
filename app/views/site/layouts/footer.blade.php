@@ -163,7 +163,19 @@
     </script>
     @endif
 @endif
-
+<div id="modalBuy" class="modal hide">
+    <div class="modal-header">
+        <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+        <h3>Покупка</h3>
+    </div>
+    <div class="modal-body">
+        <p>Вы уверены в покупке этого тарифа?</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#" id="btnYes" class="btn danger">Да</a>
+        <a href="#" data-dismiss="modal" aria-hidden="true" class="btn secondary">Нет</a>
+    </div>
+</div>
 
 
 </body>

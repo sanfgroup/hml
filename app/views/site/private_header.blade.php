@@ -1,3 +1,24 @@
+<script>
+    $(document).ready(function(){
+        $('#modalBuy').on('show', function() {
+            var id = $(this).data('id'),
+                removeBtn = $(this).find('.danger');
+        })
+        $('.confirm-buy').on('click', function(e) {
+            e.preventDefault();
+
+            var id = $(this).data('id');
+            $('#modalBuy').data('id', id).modal('show');
+        });
+
+        $('#btnYes').click(function() {
+            // handle deletion here
+            var id = $('#modalBuy').data('id');
+            document.location.href = "{{URL::route('user.deposites.buy', array("+id+"))}}";
+            $('#modalBuy').modal('hide');
+        });
+    });
+</script>
 <div style="text-align: center; margin: 65px 0 25px;">
     <div class="butBig bal">Ваш баланс: {{Auth::user()->balance}}$</div>
     <a href="#addMoney" data-toggle="modal" class="butBig addcash">Пополнить счет</a>
