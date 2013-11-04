@@ -19,6 +19,8 @@ class UserController extends BaseController {
             'email'                 => 'Required|Between:3,64|Email|Unique:users',
             'username'              => 'required|Unique:users',
             'password'              => 'Required|min:6|Confirmed',
+            'perfectmoney'          => 'Required',
+            'skype'          => 'Required',
             'password_confirmation' => 'Required|min:6',
             'captcha'               => array('required', 'captcha'),
             'conf'                  => 'Required',
