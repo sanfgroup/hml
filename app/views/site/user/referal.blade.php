@@ -5,7 +5,7 @@
 <div class="col-xs-5">
 
     <div class="banpar"></div>
-<!--    <p>Вас пригласил: <a href="">admin</a></p>-->
+    <p>Вас пригласил: <a href="">admin</a></p>
     <p>Ваша реф-ссылка: <a href="{{Auth::user()->reflink}}">{{Auth::user()->reflink}}</a></p>
     <section>
         <div class="stata">

@@ -42,7 +42,7 @@
                 </li>
                 <li>
                     <p>Email:</p>
-                    <p>support@myhappylines.com</p>
+                    <p><a href="mailto:support@myhappylines.com">support@myhappylines.com</a></p>
                 </li>
             </ul>
         </div>

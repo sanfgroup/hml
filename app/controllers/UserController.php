@@ -145,6 +145,7 @@ class UserController extends BaseController {
             Password::remind($credentials,
                 function($message, $user)
                 {
+                    $message->with($user);
                     $message->subject('Восстановление пароля');
                 }
             );
@@ -160,11 +161,9 @@ class UserController extends BaseController {
     }
 
     public function passwordReset($token, $email) {
-        $d=array();
-        $d['token'] = $token;
-        $validator = Validator::make($d, [
-            "token" => "exists:token,token"
-        ]);
+        $validator = Validator::make(Input::all(), array(
+            "token"                 => "exists:token,token"
+        ));
         if ($validator->passes())
         {
             $credentials = array(

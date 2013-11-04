@@ -3,9 +3,9 @@
 @section('content')
 <h2>Контакты</h2>
 <p><strong>Связаться с нами</strong> вы можете любым удобным для вас способом:</p>
-<p><strong>Skype Тех.поддержки: </strong><a href="skype:myhappylines.support?add">myhappylines.support</a></p>
-<p><strong>Skype Фин.поддержки: </strong><a href="skype:myhappylines.fin.support?add">myhappylines.fin.support</a></p>
-<p><strong>E-mail: </strong>happyline@gmail.com</p>
+<p><strong>Skype Тех.поддержки: </strong><a href="skype:myhappylines.support?add"><img src="/images/sk.png" alt=""/> myhappylines.support </a></p>
+<p><strong>Skype Фин.поддержки: </strong><a href="skype:myhappylines.fin.support?add"> <img src="/images/sk.png" alt=""/> myhappylines.fin.support</a></a></p>
+<p><strong>E-mail: </strong><a href="mailto:support@myhappylines.com">support@myhappylines.com</a></p>
 <br>
 <p><strong>А также, с помощью формы обратной связи:</strong></p>
 <br>
