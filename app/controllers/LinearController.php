@@ -23,10 +23,10 @@ class LinearController extends BaseController {
                 $tname = "Super";
                 break;
             default:
-                return Redirect::back()->with('status', 'У вас недостаточно денег на счету, пополните свой баланс!');
+                return Redirect::back()->with('status', 'Не существует такого тарифа!');
         }
         if(Auth::user()->balance < $tarif)
-            return Redirect::back();
+            return Redirect::back()->with('status', 'У вас недостаточно денег на счету, пополните свой баланс!');
         Auth::user()->balance()->create(array(
             'summa' => -$tarif,
             'description' => 'Оплата тарифа '.$tarif

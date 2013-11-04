@@ -74,7 +74,7 @@ class HomeController extends BaseController {
             $review->user_id = Auth::user()->id;
             $review->content = INPUT::get('add_review');
             $review->save();
-            return Redirect::route('reviews');
+            return Redirect::route('reviews')->with('status', 'Вы успешно оставили комментарий');
         }
         return View::make('site.reviews_add');
     }
