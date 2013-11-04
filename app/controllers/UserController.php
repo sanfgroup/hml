@@ -31,7 +31,7 @@ class UserController extends BaseController {
             if(Session::has('ref') || $input['referral'] != '') {
                 $refs = User::whereUsername(Session::get('ref', $input['referral']))->first();
                 if(isset($refs->id))
-                    $user->referral_id = $refs->id;
+                    $user->referal_id = $refs->id;
                 Session::put('ref', '');
             }
 
@@ -143,7 +143,6 @@ class UserController extends BaseController {
             Password::remind($credentials,
                 function($message, $user)
                 {
-                    $message->with($user);
                     $message->subject('Восстановление пароля');
                 }
             );
@@ -159,14 +158,16 @@ class UserController extends BaseController {
     }
 
     public function passwordReset($token, $email) {
-        $validator = Validator::make(Input::all(), [
-            "token"                 => "exists:token,token"
+        $d=array();
+        $d['token'] = $token;
+        $validator = Validator::make($d, [
+            "token" => "exists:token,token"
         ]);
         if ($validator->passes())
         {
-            $credentials = [
+            $credentials = array(
                 "email" => $email
-            ];
+            );
             Password::reset($credentials,
                 function($user, $password)
                 {
