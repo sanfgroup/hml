@@ -21,46 +21,57 @@ Route::get('/reviews', array('as'=>'reviews', 'uses'=>'HomeController@getReviews
 Route::get('/contacts', array('as'=>'contacts', 'uses'=>'HomeController@getContacts'));
 Route::get('/rulers', array('as'=>'rulers', 'uses'=>'HomeController@getRulers'));
 
+Route::get('user/registration', array('as'=>'user.reg', 'uses'=>'UserController@getRegistration'));
+Route::post('user/registration', array('uses'=>'UserController@postRegistration'));
+Route::get('user/login', array('as'=>'user.login', 'uses'=>'UserController@getLogin'));
+Route::post('user/login', array('uses'=>'UserController@postLogin'));
 
-Route::get('/user/registration', array('as'=>'user.reg', 'uses'=>'UserController@getRegistration'));
-Route::post('/user/registration', array('uses'=>'UserController@postRegistration'));
-Route::get('/user/login', array('as'=>'user.login', 'uses'=>'UserController@getLogin'));
-Route::post('/user/login', array('uses'=>'UserController@postLogin'));
+Route::group(array('before' => 'auth'), function()
+{
 
-Route::get('/user/privat', array('as'=>'user.privat','uses'=>'UserController@getPrivat'));
+    Route::get('user/privat', array('as'=>'user.privat','uses'=>'UserController@getPrivat'));
 
-Route::any('/pay/perfect', array('as'=>'pay.prefect','uses'=>'PayController@perfect'));
-Route::any('/pay/perfect/out', array('as'=>'pay.prefect.out','uses'=>'PayController@perfectPay'));
-Route::any('/pay/okpay', array('as'=>'pay.okpay','uses'=>'PayController@okpay'));
-Route::any('/pay/okpay/out', array('as'=>'pay.okpay.out','uses'=>'PayController@okpayPay'));
+    Route::any('pay/perfect', array('as'=>'pay.prefect','uses'=>'PayController@perfect'));
+    Route::any('pay/perfect/out', array('as'=>'pay.prefect.out','uses'=>'PayController@perfectPay'));
+    Route::any('pay/okpay', array('as'=>'pay.okpay','uses'=>'PayController@okpay'));
+    Route::any('pay/okpay/out', array('as'=>'pay.okpay.out','uses'=>'PayController@okpayPay'));
 
-Route::get('/user/linear/buy/{id}', array('as'=>'user.linear.buy','uses'=>'LinearController@buy'));
+    Route::get('user/linear/buy/{id}', array('as'=>'user.linear.buy','uses'=>'LinearController@buy'));
 
-Route::get('/user/logout', array('as'=>'user.logout','uses'=>'UserController@logout'));Route::get('/user/logout', array('as'=>'user.logout','uses'=>'UserController@logout'));
-
-
-Route::get('private/inv', array('as'=>'private.inv', 'uses'=>'HomeController@privateInv'));
-Route::get('private/linear', array('as'=>'private.linear', 'uses'=>'HomeController@privateLinear'));
-Route::get('user/history', array('as'=>'user.history', 'uses'=>'HomeController@getHistory'));
-Route::get('user/deposites', array('as'=>'user.deposites', 'uses'=>'HomeController@userDeposites'));
-Route::any('user/review/add', array('as'=>'user.review.add', 'uses'=>'HomeController@user'));
-Route::any('user/deposites/buy/{id}', array('as'=>'user.deposites.buy', 'uses'=>'InvController@buy'));
-Route::any('user/review/add', array('as'=>'user.review.add', 'uses'=>'HomeController@userAddReview'));
+    Route::get('user/logout', array('as'=>'user.logout','uses'=>'UserController@logout'));
 
 
-Route::get('admin/news', array('as'=>'admin.news', 'uses'=>'Admin\NewsController@listNews'));
-Route::any('admin/news/add/{id?}', array('as'=>'admin.addNews','uses'=>'Admin\NewsController@addNews'));
-Route::get('admin/news/delete/{id}',array('as'=>'admin.news.delete', 'uses'=>'Admin\NewsController@deletePost'));
-Route::get('admin/news/{id}',array('as'=>'admin.news.detail', 'uses'=>'Admin\NewsController@detailNews'));
+    Route::get('user/private/inv', array('as'=>'private.inv', 'uses'=>'HomeController@privateInv'));
+    Route::get('user/private/linear', array('as'=>'private.linear', 'uses'=>'HomeController@privateLinear'));
+    Route::get('user/history', array('as'=>'user.history', 'uses'=>'HomeController@getHistory'));
+    Route::get('user/deposites', array('as'=>'user.deposites', 'uses'=>'HomeController@userDeposites'));
+    Route::any('user/review/add', array('as'=>'user.review.add', 'uses'=>'HomeController@user'));
+    Route::any('user/deposites/buy/{id}', array('as'=>'user.deposites.buy', 'uses'=>'InvController@buy'));
+    Route::any('user/review/add', array('as'=>'user.review.add', 'uses'=>'HomeController@userAddReview'));
 
-Route::resource('admin/user', 'Admin\AdminUserController');
-Route::resource('admin/balance', 'Admin\AdminBalanceController');
-Route::any('admin/statistic', 'Admin\AdminStatisticController@index');
+    Route::any('user/profile', array('as'=>'user.profile', 'uses'=>'UserController@userProfile'));
+    Route::get('user/referal', array('as'=>'user.referal', 'uses'=>'UserController@userReferal'));
+
+
+    Route::get('admin/news', array('as'=>'admin.news', 'uses'=>'Admin\NewsController@listNews'));
+    Route::any('admin/news/add/{id?}', array('as'=>'admin.addNews','uses'=>'Admin\NewsController@addNews'));
+    Route::get('admin/news/delete/{id}',array('as'=>'admin.news.delete', 'uses'=>'Admin\NewsController@deletePost'));
+    Route::get('admin/news/{id}',array('as'=>'admin.news.detail', 'uses'=>'Admin\NewsController@detailNews'));
+
+    Route::resource('admin/user', 'Admin\AdminUserController');
+    Route::resource('admin/balance', 'Admin\AdminBalanceController');
+    Route::any('admin/statistic', 'Admin\AdminStatisticController@index');
+    Route::any('admin', 'Admin\AdminStatisticController@index');
+
+
+});
 
 
 
-Route::get('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
-
+Route::any('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
+    Linear5::pay();
+    Linear10::pay();
+    Linear15::pay();
     $invs = Inv::all();
     foreach($invs as $inv) {
         foreach($inv->buys()->where('col', '<', 8)->get() as $v) {
@@ -76,6 +87,3 @@ Route::get('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
         }
     }
 });
-
-Route::any('user/profile', array('as'=>'user.profile', 'uses'=>'UserController@userProfile'));
-Route::get('user/referal', array('as'=>'user.referal', 'uses'=>'UserController@userReferal'));

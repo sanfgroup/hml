@@ -70,7 +70,7 @@ class UserController extends BaseController {
 
     public function getPrivat() {
 
-        return View::make('site.user.privat');
+        return View::make('site.user.profile');
     }
 
     public function logout() {

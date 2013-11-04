@@ -15,6 +15,17 @@ class PayController extends BaseController {
     |
     */
 
+    public function pay() {
+        $i = Input::all();
+        if($i['summ'] != 0) {
+            Auth::user()->payments()->create(array(
+                'summa' => $i['summa']*0.95,
+                'to' => $i['system']
+            ));
+        }
+        return Redirect::back()->with('status', 'Заявка на выплату успешно отправлена');
+    }
+
     public function okpayPay() {
         $ok = new OkPay();
         $u = Auth::user();
@@ -37,6 +48,7 @@ class PayController extends BaseController {
 
 //        $ok = new OkPay();
         $arr = Input::all();
+
         $r = array(
             'payeer' => $arr['ok_payer_email'],
             'sum' => $arr['ok_txn_fee'],
@@ -50,6 +62,15 @@ class PayController extends BaseController {
             'date' => time()
         );
         $uid = User::find($r['uid']);
+
+        $data['email'] = $uid->email;
+        $data['fio'] = $uid->fio;
+        $data['summa'] = $r['sum'];
+        $data['name'] = "OkPay";
+        Mail::send('emails.min', $data, function($message) use ($data)
+        {
+            $message->to($data['email'], $data['fio'])->subject('Пополнение баланса!');
+        });
 //        dd($uid->pay == $r['art']);
         if($r['art'] == $uid->pay) {
 //            dd($r['sum']);
@@ -96,7 +117,7 @@ class PayController extends BaseController {
 
         }
 
-        return Redirect::route('user.privat');
+        return Redirect::route('user.linear')->with('status', 'Деньги успешно зачислены на ваш счёт!');
     }
 
     public function perfect() {
@@ -106,6 +127,16 @@ class PayController extends BaseController {
         $id  = $_POST["PAYMENT_ID"];
         $user_id = $_REQUEST["user_id"];
         $uid = User::find($user_id);
+
+        $data['email'] = $uid->email;
+        $data['fio'] = $uid->fio;
+        $data['summa'] = $amount['sum'];
+        $data['summa'] = $amount['sum'];
+        $data['name'] = "OkPay";
+        Mail::send('emails.min', $data, function($message) use ($data)
+        {
+            $message->to($data['email'], $data['fio'])->subject('Пополнение баланса!');
+        });
         if($id == $uid->pay) {
 //            Eloquent::unguard();
 //            dd(1);
@@ -117,6 +148,6 @@ class PayController extends BaseController {
             $uid->pay = Str::random(32);
             $uid->save();
         }
-        return Redirect::route('user.privat');
+        return Redirect::route('user.linear')->with('status', 'Деньги успешно зачислены на ваш счёт!');
     }
 }

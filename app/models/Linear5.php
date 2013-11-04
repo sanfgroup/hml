@@ -7,28 +7,40 @@ class Linear5 extends Eloquent {
 	protected $softDelete = false;
     protected $tarif = 5;
 
-    public function pay() {
+    public static function pay() {
         $pos = Linear5::fnp();
         $ac = Linear5::whereAdmin(1)->where('id', '<=', $pos->id)->count();
         if(Linear5::find(2*($pos->id+1-$ac))) {
             if($pos->admin == 1) {
                 $pos->payed = 1;
                 $pos->save();
-                $pos = $this->find($pos->id+1);
+                $pos = Linear5::find($pos->id+1);
             }
             $u = User::find($pos->user_id);
             if($u) {
-                $summ = $this->tarif*1.5;
+                $summ = $pos->tarif*1.5;
                 $u->balance()->create(array(
                     'summa' => $summ,
-                    'description' => 'Начисление по тарифу '.$this->tarif
+                    'description' => 'Начисление по тарифу '.$pos->tarif
                 ));
-                $summ = $this->tarif*0.25;
+
+                $data['email'] = Auth::user()->email;
+                $data['fio'] = Auth::user()->fio;
+                $data['summa'] = 5;
+                $data['summap'] = $data['summa']*1.5;
+                $data['name'] = "Light";
+                Mail::send('emails.linear_out', $data, function($message) use ($data)
+                {
+                    $message->to($data['email'], $data['fio'])->subject('Выплата линейного тарифа '.$data['name'].'!');
+                });
+
+                $summ = $pos->tarif*0.25;
+
                 $b = new Balance();
 
                 $b->user_id = 0;
                 $b->summa = $summ;
-                $b->description = 'Начисление по тарифу '.$this->tarif;
+                $b->description = 'Начисление по тарифу '.$pos->tarif;
                 $b->save();
                 $u->save();
                 $pos->payed = 1;

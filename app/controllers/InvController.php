@@ -23,20 +23,46 @@ class InvController extends BaseController {
                     'inv_id' => $id,
                     'col'=> 0
                 ));
+
+                $data['email'] = $user->email;
+                $data['fio'] = $user->fio;
+                $data['summa'] = $inv->cost;
+                $data['name'] = $inv->name;
+                Mail::send('emails.inv', $data, function($message) use ($data)
+                {
+                    $message->to($data['email'], $data['fio'])->subject('Приобретение линейки тарифа '.$data['name'].'!');
+                });
                 Session::put('buy', time());
                 $inv->save();
                 $user->balance()->create(array(
                     'summa' => -$inv->cost,
                     'description' => 'Оплата тарифа '.$inv->name
                 ));
+                $data['email'] = $user->email;
+                $data['fio'] = $user->fio;
                 $ref = $user->referral();
                 if(isset($ref->username)) {
+                    $data['referal'] = $ref->username;
+                    $data['summa'] = $inv->cost*0.07;
+                    Mail::send('emails.referal', $data, function($message) use ($data)
+                    {
+                        $message->to($data['email'], $data['fio'])->subject('Реферальное вознаграждение!');
+                    });
+
                     $ref->balance()->create(array(
                         'summa' => $inv->cost*0.07,
                         'description' => 'Начисление от реферала '.$user->username
                     ));
+                    $data['email'] = $user->email;
+                    $data['fio'] = $user->fio;
                     $ref = $ref->referral();
                     if(isset($ref->username)) {
+                        $data['referal'] = $ref->username;
+                        $data['summa'] = $inv->cost*0.03;
+                        Mail::send('emails.referal', $data, function($message) use ($data)
+                        {
+                            $message->to($data['email'], $data['fio'])->subject('Реферальное вознаграждение!');
+                        });
                         $ref->balance()->create(array(
                             'summa' => $inv->cost*0.03,
                             'description' => 'Начисление от реферала '.$user->username

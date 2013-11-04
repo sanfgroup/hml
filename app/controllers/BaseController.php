@@ -12,6 +12,7 @@ class BaseController extends Controller {
 
         View::composer('site.private_header', function($view)
         {
+            $data = array();
             if(!Auth::guest()) {
                 $pm = new PerfectMoney();
                 $data['form'] = $pm->form(Auth::user()->id);
