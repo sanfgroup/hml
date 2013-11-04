@@ -51,6 +51,7 @@ class UserController extends BaseController {
 
             $data['fio'] = $user->fio;
             $data['login'] = $user->username;
+            $data['email'] = $user->email;
             $data['pass'] = $input['password'];
             Mail::send('emails.auth.registration', $data, function($message) use ($data)
             {
