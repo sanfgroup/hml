@@ -11,7 +11,7 @@ class Linear15 extends Eloquent {
         $pos = Linear15::fnp();
         $ac = Linear15::whereAdmin(1)->where('id', '<=', $pos->id)->count();
         if(Linear15::find(2*($pos->id+1-$ac))) {
-            if($pos->admin == 1) {
+            while($pos->admin == 1) {
                 $pos->payed = 1;
                 $pos->save();
                 $pos = Linear15::find($pos->id+1);

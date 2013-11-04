@@ -73,7 +73,7 @@ Route::group(array('before' => 'admin'), function()
 
 });
 Route::any('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
-    if(date('h:i') == '12:30' || date('h:i') == '18:30') {
+    if(date('h:i') == '12:30' || date('h:i') == '19:30') {
         $invs = Inv::all();
         foreach($invs as $inv) {
             switch($inv->id) {
@@ -90,7 +90,7 @@ Route::any('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
             $inv->save();
         }
     }
-    echo Linear5::pay();
+    Linear5::pay();
     Linear10::pay();
     Linear15::pay();
     $invs = Inv::all();

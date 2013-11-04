@@ -11,7 +11,7 @@ class Linear10 extends Eloquent {
         $pos = Linear10::fnp();
         $ac = Linear10::whereAdmin(1)->where('id', '<=', $pos->id)->count();
         if(Linear10::find(2*($pos->id+1-$ac))) {
-            if($pos->admin == 1) {
+            while($pos->admin == 1) {
                 $pos->payed = 1;
                 $pos->save();
                 $pos = Linear10::find($pos->id+1);

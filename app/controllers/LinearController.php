@@ -51,6 +51,10 @@ class LinearController extends BaseController {
 //            $linear2->admin = 1;
 //            $linear2->user_id = 1;
 //            $linear2->save();
+//            $linear2 = new $t();
+//            $linear2->admin = 1;
+//            $linear2->user_id = 1;
+//            $linear2->save();
 //        }
         return Redirect::back()->with('status', 'Вы успешно купили тариф за '.$tarif.'$!');
     }

@@ -11,7 +11,7 @@ class Linear5 extends Eloquent {
         $pos = Linear5::fnp();
         $ac = Linear5::whereAdmin(1)->where('id', '<=', $pos->id)->count();
         if(Linear5::find(2*($pos->id+1-$ac))) {
-            if($pos->admin == 1) {
+            while($pos->admin == 1) {
                 $pos->payed = 1;
                 $pos->save();
                 $pos = Linear5::find($pos->id+1);
