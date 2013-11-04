@@ -39,7 +39,12 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('/');
+    if (Auth::guest()) return Redirect::guest('/');
+});
+Route::filter('admin', function()
+{
+    if (Auth::guest()) return Redirect::to('/');
+    if(Auth::user()->username != 'vinnizp' && Auth::user()->username != 'olegan') return Redirect::to('/');
 });
 
 

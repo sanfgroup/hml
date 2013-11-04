@@ -53,6 +53,12 @@ Route::group(array('before' => 'auth'), function()
     Route::get('user/referal', array('as'=>'user.referal', 'uses'=>'UserController@userReferal'));
 
 
+
+});
+
+
+Route::group(array('before' => 'admin'), function()
+{
     Route::get('admin/news', array('as'=>'admin.news', 'uses'=>'Admin\NewsController@listNews'));
     Route::any('admin/news/add/{id?}', array('as'=>'admin.addNews','uses'=>'Admin\NewsController@addNews'));
     Route::get('admin/news/delete/{id}',array('as'=>'admin.news.delete', 'uses'=>'Admin\NewsController@deletePost'));
@@ -63,11 +69,7 @@ Route::group(array('before' => 'auth'), function()
     Route::any('admin/statistic', 'Admin\AdminStatisticController@index');
     Route::any('admin', 'Admin\AdminStatisticController@index');
 
-
 });
-
-
-
 Route::any('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
     if(date('h:i') == '12:30' || date('h:i') == '18:30') {
         $invs = Inv::all();
