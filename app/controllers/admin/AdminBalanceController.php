@@ -10,7 +10,7 @@ class AdminBalanceController extends \BaseController {
 	 */
 	public function index()
 	{
-		$data['balance'] = \Balance::paginate(10);
+		$data['balance'] = \Balance::orderBy('id', 'desc')->where('user_id', '!=', 0)->paginate(10);
         return \View::make('admin.balance',$data);
 	}
 
