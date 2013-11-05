@@ -58,8 +58,8 @@ class UserController extends BaseController {
             {
                 $message->to($data['email'], $data['fio'])->subject('Регистрация в проекте MyHappyLines!');
             });
-            Cache::flush();
-            return Redirect::route('home')->with('status', 'Вы удачно зарегистрированы, авторизуйтесь пожалуйста!');
+//            Cache::flush();
+            return Redirect::route('site.private_inv')->with('status', 'Вы удачно зарегистрированы в проекте MyHappyLines, авторизуйтесь пожалуйста!');
         } else {
             return Redirect::route('home')->withInput()
                 ->withErrors($v->errors());
@@ -130,11 +130,12 @@ class UserController extends BaseController {
             return View::make('site.user.profile', $data);
     }
     public function userReferal(){
-        $mr = $this->user()->mr();
+        $mr = $this->user->referral()->remember(10);
         $data['l1'] = $mr->count();
         $data['l2'] = 0;
-        foreach($mr->get() as $k=>$v) {
-            $data['l2'] += $v->mr()->count();
+
+        foreach($mr->get() as $v) {
+            $data['l2'] += $v->referral()->remember(10)->count();
         }
        return View::make('site.user.referal', $data);
     }

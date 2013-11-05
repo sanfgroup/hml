@@ -198,6 +198,12 @@
         });
     </script>
     @endif
+
+@endif
+@if(Session::has('status'))
+<script>
+    bootbox.alert("{{Session::get('status')}}", function(){});
+</script>
 @endif
 <div id="modalBuy" class="modal hide">
     <div class="modal-header">

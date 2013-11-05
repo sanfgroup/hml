@@ -99,7 +99,7 @@ Route::any('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
             if(($v->last+(3*24*60*60)) <= time()) {
                 $v->user()->first()->balance()->create(array(
                     'summa' => $inv->payment[$v->col],
-                    'description' => 'Выплата по тарифу '.$inv->name
+                    'description' => 'Выплата по тарифу '.$inv->name.' '.$inv->cost.'$'
                 ));
                 $v->col++;
                 $v->save();

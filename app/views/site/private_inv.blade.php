@@ -3,6 +3,7 @@
 @section('content')
 
 @include('site.private_header')
+
 <div class="blocks_tarif1">
     <div>
         <div class="title">Купить тарифную линию</div>

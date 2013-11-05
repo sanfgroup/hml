@@ -9,10 +9,11 @@
 class InvController extends BaseController {
 
     public function buy($id=0) {
-        return Redirect::back()->with('status', 'Покупка будет открыта только 05.11.2013');
+        if($this->user->username != 'vinnizp' && $this->user->username != 'olegan')
+            return Redirect::back()->with('status', 'Покупка будет открыта только 05.11.2013');
         $s = Session::get('buy');
 //        dd(($id==0 || ($s != null && $s+5 < time())));
-        if($id==0 || ($s != null && $s+5 >= time()))
+        if($id==0 || ($s != null && $s+10 >= time()))
             return Redirect::back()->with('status', 'Вы не можете покупать тарифы так часто');
 
         $inv = Inv::find($id);
@@ -38,7 +39,7 @@ class InvController extends BaseController {
                 $inv->save();
                 $user->balance()->create(array(
                     'summa' => -$inv->cost,
-                    'description' => 'Оплата тарифа '.$inv->name
+                    'description' => 'Оплата тарифа '.$inv->name.' '.$inv->cost.'$'
                 ));
                 $data['email'] = $user->email;
                 $data['fio'] = $user->fio;
@@ -76,7 +77,7 @@ class InvController extends BaseController {
                 return Redirect::back()->with('status', 'У вас недостаточно денег на счету, пополните свой баланс!');
         }
         else
-            return Redirect::back()->with('status', 'Извините, лимит данных тарифов исчерпан. Открытие происходит каждый день в 12:30 мск и 19:30 мск!');
+            return Redirect::back()->with('status', 'Извините, лимит данной тарифной линии исчерпан. Открытие происходит каждый день в 12:30 мск и 19:30 мск!');
         return Redirect::back()->with('status', 'Вы успешно купили тариф '.$inv->name.' за '.$inv->cost.'$!');
     }
 

@@ -20,6 +20,9 @@
         @endforeach
 <!--        -->
         <img class="img-responsive" src="/img/refka.jpg" alt=""/>
+        <div class="map">
+            <script type="text/javascript" src="http://jf.revolvermaps.com/2/1.js?i=5hxax6hg01s&amp;s=240&amp;m=0&amp;v=true&amp;r=false&amp;b=000000&amp;n=false&amp;c=ff0000" async="async"></script>
+        </div>
 
     </div>
     <div class="clear"></div>

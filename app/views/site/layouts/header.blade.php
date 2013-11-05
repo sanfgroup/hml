@@ -13,7 +13,6 @@
     <script type="text/javascript" src="/js/bootstrap.js"></script>
     <script type="text/javascript" src="/js/bootbox.min.js"></script>
     <script type="text/javascript" src="/js/buyforms.js"></script>
-    @if(Route::currentRouteName()=='private.inv'||Route::currentRouteName()=='private.linear')
     <script type="text/javascript">
         seconds = 0;
         minutes = 0;
@@ -61,7 +60,6 @@
         update_clock();
         setInterval('serverclock()',1000);
     </script>
-@endif
 </head>
 <body>
 <div class="wrapper">

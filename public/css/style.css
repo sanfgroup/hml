@@ -1687,3 +1687,7 @@ div[id^='inv'] .modal-dialog{
     left: 703px;
     color: #585858;
 }
+
+.map {
+    margin-top: 20px;
+}

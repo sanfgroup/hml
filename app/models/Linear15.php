@@ -21,7 +21,7 @@ class Linear15 extends Eloquent {
                 $summ = $pos->tarif*1.5;
                 $u->balance()->create(array(
                     'summa' => $summ,
-                    'description' => 'Начисление по тарифу '.$pos->tarif
+                    'description' => 'Начисление по тарифу Super '.$pos->tarif.'$'
                 ));
 
                 $data['email'] = $u->email;
