@@ -64,8 +64,9 @@ class HomeController extends BaseController {
         return View::make('site.private_linear');
     }
     public function privateInv(){
+        $data['inv'] = Inv::all();
 //        $data['user'] = $this->user;
-        return View::make('site.private_inv');
+        return View::make('site.private_inv', $data);
     }
     public function userDeposites(){
         $data['buys'] = $this->user->buys()->orderBy('id', 'desc')->paginate(10);

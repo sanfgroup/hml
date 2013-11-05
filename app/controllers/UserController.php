@@ -59,7 +59,7 @@ class UserController extends BaseController {
                 $message->to($data['email'], $data['fio'])->subject('Регистрация в проекте MyHappyLines!');
             });
 //            Cache::flush();
-            return Redirect::route('site.private_inv')->with('status', 'Вы удачно зарегистрированы в проекте MyHappyLines, авторизуйтесь пожалуйста!');
+            return Redirect::route('home')->with('status', 'Вы удачно зарегистрированы в проекте MyHappyLines, авторизуйтесь пожалуйста!');
         } else {
             return Redirect::route('home')->withInput()
                 ->withErrors($v->errors());

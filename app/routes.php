@@ -86,6 +86,9 @@ Route::any('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
                 case 3:
                     $inv->limit = 2;
                     break;
+                case 4:
+                    $inv->limit = 0;
+                    break;
             }
             $inv->save();
         }

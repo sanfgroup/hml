@@ -24,11 +24,17 @@ $(document).ready(function(){
     $('a.buy').click(function(e) {
         e.preventDefault();
         var path = $(this).attr('href');
-        bootbox.confirm("Вы уверены что хотите купить данную линейку тарифа?", function(result) {
-            console.log(result);
-            if(result==true)
-                window.location = path;
-        });
+        var limit = $(this).data('limit');
+        console.log(limit);
+        if(limit > 0) {
+            bootbox.confirm("Вы уверены что хотите купить данную линейку тарифа? Осталось "+limit+" тарифов.", function(result) {
+                console.log(result);
+                if(result==true)
+                    window.location = path;
+            });
+        } else {
+            bootbox.alert("Извините, лимит данной тарифной линии исчерпан. Открытие происходит каждый день в 12:30 мск и 19:30 мск!", function(){});
+        }
     });
 
     $('a.buy_lin').click(function(e) {
