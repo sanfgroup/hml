@@ -41,6 +41,15 @@ class InvController extends BaseController {
                     'summa' => -$inv->cost,
                     'description' => 'Оплата тарифа '.$inv->name.' '.$inv->cost.'$'
                 ));
+
+
+                $b = new Balance();
+
+                $b->user_id = 0;
+                $b->summa = $inv->cost*0.1;
+                $b->description = 'Начисление по тарифу '.$inv->name;
+                $b->save();
+
                 $data['email'] = $user->email;
                 $data['fio'] = $user->fio;
                 $ref = $user->mr();

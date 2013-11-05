@@ -110,6 +110,7 @@ class UserController extends BaseController {
 
             $data['user'] = $user;
         if (Input::server("REQUEST_METHOD") == "POST") {
+            dd(Hash::check(Input::get('old_password'), $this->user->getAuthPassword()));
             if (Input::get('old_password')!='' && Hash::check(Input::get('old_password'), $this->user->getAuthPassword()) && Input::get('new_password')!=''){
                 $pass = Input::get('new_password');
                $user->password = Hash::make($pass);
