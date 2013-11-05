@@ -1714,6 +1714,9 @@ a.buy_lin.third:hover{
 }
 input[type=checkbox]{
     width: 15px;
+    -o-appearance:none;
+    border: none;
+    border-radius: 0px;
 }
 .payf form{
     display: none;
@@ -1775,4 +1778,7 @@ div[id^='inv'] .modal-dialog{
 
 .map {
     margin-top: 20px;
+}
+.modal-body p{
+    color: #ffffff;
 }

@@ -17,6 +17,21 @@
         <td></td>
     </tr>
 </table>
+{{Form::open(array('method' => 'Get'))}}
+<select name="user_search" id="user_search">
+    <option value="none">Выберите пользователя</option>
+    @foreach($users as $user)
+        <option value="{{$user->id}}">{{$user->username}}</option>
+    @endforeach
+</select>
+<select name="type_search" id="type_search">
+    <option value="0">Расходы</option>
+    <option value="1">Доходы</option>
+    <option value="3"></option>
+</select>
+<button type="submit">Поиск</button>
+{{Form::close()}}
+
 <h3>Полная статистика начислений</h3>
     <table class="table table-bordered">
         <tr>
