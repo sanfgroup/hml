@@ -17,7 +17,7 @@
             <li><a class="buy" href="{{URL::route('user.deposites.buy', array(1))}}" data-bb="confirm">Купить</a></li>
         </ul>
     </div>
-    <div class="tarcab">
+    <div class="tarcab tarcab2">
         <div class="name">Orange line</div>
         <div class="price">35 $</div>
         <ul class="control">
@@ -26,7 +26,7 @@
             <li><a class="buy" href="{{URL::route('user.deposites.buy', array(2))}}" data-bb="confirm">Купить</a></li>
         </ul>
     </div>
-    <div class="tarcab">
+    <div class="tarcab tarcab3">
         <div class="name">Yellow line</div>
         <div class="price">70 $</div>
         <ul class="control">
@@ -36,7 +36,7 @@
     </div>
 </div>
 <div class="blocks_tarif2">
-    <div class="tarcab">
+    <div class="tarcab tarcab4">
         <div class="name">Green line</div>
         <div class="price">110 $</div>
         <ul class="control">
@@ -44,7 +44,7 @@
             <li><a class="buy" href="{{URL::route('user.deposites.buy', array(4))}}" data-toggle="confirmation">Купить</a></li>
         </ul>
     </div>
-    <div class="tarcab">
+    <div class="tarcab tarcab5">
         <div class="name">Blue line</div>
         <div class="price">180 $</div>
         <ul class="control">
@@ -52,7 +52,7 @@
             <li><a class="buy" href="{{URL::route('user.deposites.buy', array(5))}}" data-toggle="confirmation">Купить</a></li>
         </ul>
     </div>
-    <div class="tarcab">
+    <div class="tarcab tarcab6">
         <div class="name">Pink line</div>
         <div class="price">250 $</div>
         <ul class="control">
@@ -60,7 +60,7 @@
             <li><a class="buy" href="{{URL::route('user.deposites.buy', array(6))}}" data-toggle="confirmation">Купить</a></li>
         </ul>
     </div>
-    <div class="tarcab">
+    <div class="tarcab tarcab7">
         <div class="name">Purple line</div>
         <div class="price">400 $</div>
         <ul class="control">
