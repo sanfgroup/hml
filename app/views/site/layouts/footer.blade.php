@@ -203,6 +203,7 @@
 @if(Session::has('status'))
 <script>
     bootbox.alert("{{Session::get('status')}}", function(){});
+    setTimeout(function(){bootbox.hideAll()}, 2000);
 </script>
 @endif
 <div id="modalBuy" class="modal hide">

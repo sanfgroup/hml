@@ -73,20 +73,23 @@ Route::group(array('before' => 'admin'), function()
 
 });
 Route::any('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
-    if(date('h:i') == '12:30' || date('h:i') == '19:30') {
+    if(date('H:i') == '12:30' || date('H:i') == '19:30') {
         $invs = Inv::all();
         foreach($invs as $inv) {
             switch($inv->id) {
                 case 1:
-                    $inv->limit = 7;
+                    $inv->limit = 200;
                     break;
                 case 2:
-                    $inv->limit = 5;
+                    $inv->limit = 150;
                     break;
                 case 3:
-                    $inv->limit = 2;
+                    $inv->limit = 100;
                     break;
                 case 4:
+                case 5:
+                case 6:
+                case 7:
                     $inv->limit = 0;
                     break;
             }
