@@ -44,7 +44,7 @@ class NewsController extends \BaseController {
     public function deletePost($id){
         \News::find($id)->delete();
         $data['posts'] = \News::paginate(10);
-        return View::make('admin.news.list', $data);
+        return \Redirect::back();
     }
 
 }

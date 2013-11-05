@@ -29,7 +29,7 @@
             <a href="{{URL::route('admin.user.edit', array($user->id))}}" class="btn btn-warning">Редактировать</a>
 
             {{ Form::model($user, array('method'=>'delete','route' => array('admin.user.destroy', $user->id))) }}
-            <button type="submit" class="btn btn-danger">Удалить</button>
+            <button type="button" class="btn btn-danger">Удалить</button>
             {{ Form::close() }}
 
         </td>

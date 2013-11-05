@@ -19,14 +19,14 @@
             {{ Form::text('fio', $user->fio, array('class'=>'form-control', 'disabled')) }}
         </li>
         <li>
-            {{ Form::label('old_pass', 'Текущий пароль') }}
+            {{ Form::label('old_password', 'Текущий пароль') }}
 <!--            {{ Form::text('old_pass', null, array('class'=>'form-control')) }}-->
-            <input type="password" name="old_pass" id="old_pass" class="form-control"  />
+            <input type="password" name="old_password" id="old_password" class="form-control"  />
         </li>
         <li>
-            {{ Form::label('new_pass', 'Новый пароль') }}
+            {{ Form::label('new_password', 'Новый пароль') }}
 <!--            {{ Form::text('new_pass', null, array('class'=>'form-control')) }}-->
-            <input type="password" name="new_pass" id="new_pass"  class="form-control"/>
+            <input type="password" name="new_password" id="new_password"  class="form-control"/>
         </li>
         <li>
             <span style="float: left; color: #ff0000;">* </span>{{ Form::label('email', 'Электронная почта') }}
