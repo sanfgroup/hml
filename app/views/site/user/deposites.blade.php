@@ -17,7 +17,7 @@
         @foreach($buys as $v)
         <tr>
             <td>{{$v->created}}</td>
-            <td>{{$v->inv->name}} {{$v->summ}}$</td>
+            <td>{{$v->inv->name}} {{$v->inv->cost}}$</td>
             <td>{{$v->inv->sumPayed($v->col)}}$</td>
             <td>{{$v->next}}</td>
             <td>{{$v->col}}/8</td>

@@ -10,6 +10,7 @@
         <td>skype</td>
         <td>referral</td>
         <td>balance</td>
+        <td>Зарегистрировался</td>
         <td>action</td>
     </tr>
 
@@ -22,6 +23,7 @@
         <td>{{$user->skype}}</td>
         <td>{{$user->refname}}</td>
         <td>{{$user->balance}}</td>
+        <td>{{$user->created_at}}</td>
         <td>
 
             <a href="{{URL::route('admin.user.edit', array($user->id))}}" class="btn btn-warning">Редактировать</a>

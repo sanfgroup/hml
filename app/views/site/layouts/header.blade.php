@@ -13,7 +13,55 @@
     <script type="text/javascript" src="/js/bootstrap.js"></script>
     <script type="text/javascript" src="/js/bootbox.min.js"></script>
     <script type="text/javascript" src="/js/buyforms.js"></script>
+    @if(Route::currentRouteName()=='private.inv'||Route::currentRouteName()=='private.linear')
+    <script type="text/javascript">
+        seconds = 0;
+        minutes = 0;
+        hours = 0;
+        function update_clock(){
+            $.post('/gettime.php',function(data){
+                data = eval('('+data+')');
+                seconds = data.s;
+                minutes = data.m;
+                hours = data.h;
+                updateDiv(hours,minutes,seconds);
+            });
+        }
 
+        function serverclock(){
+            seconds++;
+            if(seconds==60){
+                seconds = 0;
+                minutes++;
+                if(minutes==60){
+                    minutes = 0;
+                    hours++;
+                    if(hours==24){
+                        hours = 0;
+                    }
+                }
+                if(minutes%10==0){
+                    update_clock();//Это функция, которая описана в самом верху.
+                }
+            }
+            updateDiv(hours,minutes,seconds);
+        }
+
+        function updateDiv(hours,minutes,seconds){
+            $('#timediv').html(zeroPad(hours,2)+":"+zeroPad(minutes,2)+":"+zeroPad(seconds,2));
+        }
+
+        function zeroPad(num,count){
+            var numZeropad = num + '';
+            while(numZeropad.length < count) {
+                numZeropad = "0" + numZeropad;
+            }
+            return numZeropad;
+        }
+        update_clock();
+        setInterval('serverclock()',1000);
+    </script>
+@endif
 </head>
 <body>
 <div class="wrapper">
@@ -22,6 +70,7 @@
         <div class="site_name">
             <p>Репутация для нас - это верность своему слову!</p>
         </div>
+        <div id="timediv"></div>
         @if(Auth::guest())
         <a href="#registration" data-toggle="modal" class="reg">Регистрация в проекте</a>
         @else

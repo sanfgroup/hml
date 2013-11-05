@@ -10,8 +10,7 @@
 <p><b>&nbsp;2. Лимиты на покупку тарифных линий;</b></p>
 <p><b>&nbsp;3. Бонусная программа.</b></p>
 <div class="promo_vid">
-<!--    <iframe width="740" height="418" src="http://www.youtube.com/embed/pvKYnii4clY" frameborder="0" allowfullscreen></iframe>-->
-    <img src="/images/slider.jpg" alt="MyHappyLines" style="position: absolute; top: 47px; left: 33px;" />
+    <iframe width="740" height="418" src="http://www.youtube.com/embed/9jgX0zSCBEA" frameborder="0" allowfullscreen></iframe>
 </div>
 
 <div class="hname">

@@ -378,21 +378,25 @@ footer{
 a.flogo{
 	display: block;
 	position: absolute;
-	top: 20px;
+	top: 11px;
 	left: 120px;
+}
+a.flogo img{
+    width: 72px;
 }
 .pays{
 	position: absolute;
 	top: 40px;
-	left: 455px;
+	left: 432px;
 }
 .pays img{
+    width: 100px;
 	border: 1px solid  #d0d0d0;
 }
 p.all{
 	position: absolute;
-	top: 70px;
-	left: 120px;
+	top: 83px;
+	left: 68px;
 	font-family: "Trebuchet MS" ;
 	font-size: 11px;
 	text-decoration: underline;
@@ -1670,4 +1674,16 @@ div[id^='inv'] .modal-dialog{
 }
 .content p{
     font-size: 16px;
+}
+.contacts p:last-child{
+    margin-left: -20px;
+}
+#timediv{
+    position: absolute;
+    font-family: "Georgia";
+    font-size: 24px;
+    font-weight: bold;
+    top: 44px;
+    left: 703px;
+    color: #585858;
 }

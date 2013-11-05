@@ -81,4 +81,7 @@ class HomeController extends BaseController {
         }
         return View::make('site.reviews_add');
     }
+    public function getTime(){
+        return print(date('{\h:H,\m:i,\s:s}'));
+    }
 }
