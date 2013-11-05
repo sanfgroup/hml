@@ -130,7 +130,13 @@ class UserController extends BaseController {
             return View::make('site.user.profile', $data);
     }
     public function userReferal(){
-       return View::make('site.user.referal');
+        $mr = $this->user()->mr();
+        $data['l1'] = $mr->count();
+        $data['l2'] = 0;
+        foreach($mr->get() as $k=>$v) {
+            $data['l2'] += $v->mr()->count();
+        }
+       return View::make('site.user.referal', $data);
     }
 
     public function postRecovery() {
