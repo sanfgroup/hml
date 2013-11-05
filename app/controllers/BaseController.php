@@ -2,7 +2,7 @@
 
 class BaseController extends Controller {
 
-    protected $user;
+    public $user;
 
 	/**
 	 * Setup the layout used by the controller.
