@@ -130,6 +130,7 @@ class UserController extends BaseController {
             return View::make('site.user.profile', $data);
     }
     public function userReferal(){
+        \Cache::flush();
         $mr = $this->user->referral()->remember(10);
         $data['l1'] = $mr->count();
         $data['l2'] = 0;

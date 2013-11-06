@@ -112,6 +112,7 @@
                         <th>На 21-й день</th>
                         <th>На 24-й день</th>
                         <th>Итого</th>
+                        <th>Чистая прибыль</th>
                     </tr>
                     <tr>
                         <td>Red line</td>
@@ -125,6 +126,7 @@
                         <td>1,5$</td>
                         <td>1,5$</td>
                         <td>17,5$</td>
+                        <td>7,5$</td>
                     </tr>
                 </table>
                 <p>Тарифная линия  Red line 10$  работает 24 календарных  дня с доходностью 75%. Депозит с прибылью делится на 8 частей и возвращается по одной части каждые три дня. </p>
@@ -138,7 +140,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Red line</h4>
+                <h4 class="modal-title" id="myModalLabel">Orange line</h4>
             </div>
             <div class="modal-body">
 
@@ -156,6 +158,7 @@
                         <th>На 21-й день</th>
                         <th>На 24-й день</th>
                         <th>Итого</th>
+                        <th>Чистая прибыль</th>
                     </tr>
                     <tr>
                         <td>Orange line</td>
@@ -169,6 +172,7 @@
                         <td>4,5$</td>
                         <td>4,5$</td>
                         <td>61,25$</td>
+                        <td>26,25$</td>
                     </tr>
                 </table>
                 <p>Тарифная линия  Orange line 35$  работает 24 календарных  дня с доходностью 75%. Депозит с прибылью делится на 8 частей и возвращается по одной части каждые три дня. </p>
@@ -186,7 +190,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Red line</h4>
+                <h4 class="modal-title" id="myModalLabel">Yellow line</h4>
             </div>
             <div class="modal-body">
 
@@ -204,6 +208,7 @@
                         <th>На 21-й день</th>
                         <th>На 24-й день</th>
                         <th>Итого</th>
+                        <th>Чистая прибыль</th>
                     </tr>
                     <tr>
                         <td>Yellow line</td>
@@ -217,6 +222,7 @@
                         <td>10,5$</td>
                         <td>10,5$</td>
                         <td>122,5$</td>
+                        <td>52,5$</td>
                     </tr>
                 </table>
                 <p>Тарифная линия  Yellow line 70$  работает 24 календарных  дня с доходностью 75%. Депозит с прибылью делится на 8 частей и возвращается по одной части каждые три дня. </p>
@@ -234,7 +240,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Red line</h4>
+                <h4 class="modal-title" id="myModalLabel">Green line</h4>
             </div>
             <div class="modal-body">
                 <table class="table table-bordered">
@@ -250,6 +256,7 @@
                         <th>На 21-й день</th>
                         <th>На 24-й день</th>
                         <th>Итого</th>
+                        <th>Чистая прибыль</th>
                     </tr>
                     <tr>
                         <td>Green line</td>
@@ -263,6 +270,7 @@
                         <td>16,5$</td>
                         <td>16,5$</td>
                         <td>192,5$</td>
+                        <td>82,5$</td>
                     </tr>
                 </table>
                 <p>Тарифная линия  Green line 110$  работает 24 календарных  дня с доходностью 75%. Депозит с прибылью делится на 8 частей и возвращается по одной части каждые три дня.</p>
@@ -279,7 +287,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Red line</h4>
+                <h4 class="modal-title" id="myModalLabel">Blue line</h4>
             </div>
             <div class="modal-body">
                 <table class="table table-bordered">
@@ -295,6 +303,7 @@
                         <th>На 21-й день</th>
                         <th>На 24-й день</th>
                         <th>Итого</th>
+                        <th>Чистая прибыль</th>
                     </tr>
                     <tr>
                         <td>Blue Line</td>
@@ -308,6 +317,7 @@
                         <td>27$</td>
                         <td>27$</td>
                         <td>315$</td>
+                        <td>135$</td>
                     </tr>
                 </table>
                 <p>Тарифная линия  Blue Line 180$  работает 24 календарных  дня с доходностью 75%. Депозит с прибылью делится на 8 частей и возвращается по одной части каждые три дня. </p>
@@ -324,7 +334,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Red line</h4>
+                <h4 class="modal-title" id="myModalLabel">Pink line</h4>
             </div>
             <div class="modal-body">
                 <table class="table table-bordered">
@@ -340,6 +350,7 @@
                         <th>На 21-й день</th>
                         <th>На 24-й день</th>
                         <th>Итого</th>
+                        <th>Чистая прибыль</th>
                     </tr>
                     <tr>
                         <td>Pink line</td>
@@ -353,6 +364,7 @@
                         <td>27$</td>
                         <td>27$</td>
                         <td>437,5$</td>
+                        <td>187,5$</td>
                     </tr>
                 </table>
                 <p>Тарифная линия  Pink line 250$  работает 24 календарных  дня с доходностью 75%. Депозит с прибылью делится на 8 частей и возвращается по одной части каждые три дня. </p>
@@ -369,7 +381,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Red line</h4>
+                <h4 class="modal-title" id="myModalLabel">Purple line</h4>
             </div>
             <div class="modal-body">
                 <table class="table table-bordered">
@@ -385,6 +397,7 @@
                         <th>На 21-й день</th>
                         <th>На 24-й день</th>
                         <th>Итого</th>
+                        <th>Чистая прибыль</th>
                     </tr>
                     <tr>
                         <td>Purple line</td>
@@ -398,6 +411,7 @@
                         <td>37,5$</td>
                         <td>37,5$</td>
                         <td>700$</td>
+                        <td>300$</td>
                     </tr>
                 </table>
                 <p>Тарифная линия  Purple line 400$  работает 24 календарных  дня с доходностью 75%. Депозит с прибылью делится на 8 частей и возвращается по одной части каждые три дня. </p>

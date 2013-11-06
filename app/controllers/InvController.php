@@ -65,8 +65,10 @@ class InvController extends BaseController {
 
                     $ref->balance()->create(array(
                         'summa' => $inv->cost*0.07,
+                        'referal_id' => $this->user->id,
                         'description' => 'Начисление от реферала '.$user->username
                     ));
+                    $id = $ref->id;
                     $data['email'] = $user->email;
                     $data['fio'] = $user->fio;
                     $ref = $ref->mr;
@@ -79,6 +81,7 @@ class InvController extends BaseController {
                         });
                         $ref->balance()->create(array(
                             'summa' => $inv->cost*0.03,
+                            'referal_id' => $id,
                             'description' => 'Начисление от реферала '.$user->username
                         ));
                     }

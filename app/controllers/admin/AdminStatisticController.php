@@ -10,7 +10,6 @@ class AdminStatisticController extends \BaseController {
 	 */
 	public function index()
 	{
-        \Cache::flush();
         $sum = 0;
         $date_f = \Input::get('date_from', '2013-10-01').' 00:00:00';
         $date_t = \Input::get('date_to', date('Y-m-d')).' 23:59:59';

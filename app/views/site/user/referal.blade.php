@@ -47,7 +47,11 @@
             <td>{{$v->username}}</td>
             <td>{{$v->email}}</td>
             <td>{{$v->skype}}</td>
-            <td>{{$v->}}</td>
+            <?php
+            $b = $user->balance()->where('referal_id', $v->id)->sum('summa');
+            $b = $b==null?0:round($b, 2);
+            ?>
+            <td>{{$b}} $</td>
         </tr>
         @endforeach
         {{$ref->links()}}
