@@ -2,6 +2,27 @@
 
 
 @section('content')
+<select name="user" id="user">
+    <option value="">Все пользователи</option>
+    @foreach($users as $v)
+    <option value="{{$v->id}}"
+        @if($v->id == $s)
+    selected
+    @endif
+        >{{$v->username}}</option>
+    @endforeach
+</select>
+<a class="btn btn-primary" href="#" id="user_balance">Поиск</a>
+<script>
+    $(function() {
+        $('select').chosen();
+        $('#user_balance').click(function(e){
+            e.preventDefault();
+            window.location = '/admin/balance/'+$('#user :selected').val()
+        });
+    });
+</script>
+
 <h3>Заказы на выплату</h3>
 <table class="table table-bordered">
     <tr>
@@ -30,8 +51,11 @@
         @if($v->summa < 0)
         style="background: rgba(255,0,0,0.3);"
         @endif
-        @if($v->referral_id != 0)
+        @if($v->referal_id != 0)
         style="background: rgba(0,0,150,0.3);"
+        @endif
+        @if($v->type != 0)
+        style="background: rgba(0,150,0,0.3);"
         @endif
             >
             <td>{{$v->created}}</td>
