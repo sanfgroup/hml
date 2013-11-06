@@ -3,7 +3,8 @@
 @section('content')
 @foreach($reviews as $review)
 <h3>{{$review->user->username}}</h3>
-<div style="padding: 10px; ">{{$review->content}}</div>
+<a href="{{URL::route('admin.review.delete', array($review->id))}}" class="btn btn-danger delete">Удалить</a>
+<div style="padding: 10px; background: #efefef;">{{$review->content}}</div>
 
 @endforeach
 @stop

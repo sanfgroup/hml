@@ -66,11 +66,11 @@ Route::group(array('before' => 'admin'), function()
     Route::get('admin/news/delete/{id}',array('as'=>'admin.news.delete', 'uses'=>'Admin\NewsController@deletePost'));
     Route::get('admin/news/{id}',array('as'=>'admin.news.detail', 'uses'=>'Admin\NewsController@detailNews'));
     Route::get('admin/reviews', array('as'=>'admin.reviews', 'uses'=>'Admin\AdminReviewController@reviewsList'));
+    Route::get('admin/reviews/delete/{id}', array('as'=>'admin.review.delete', 'uses'=>'Admin\AdminReviewController@reviewDelete'));
     Route::resource('admin/user', 'Admin\AdminUserController');
     Route::any('admin/balance', 'Admin\AdminBalanceController@index');
     Route::any('admin/statistic', 'Admin\AdminStatisticController@index');
     Route::any('admin', 'Admin\AdminStatisticController@index');
-
 });
 Route::any('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
     if(date('H:i') == '12:30' || date('H:i') == '19:30') {

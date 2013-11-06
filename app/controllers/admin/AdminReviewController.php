@@ -7,4 +7,8 @@ class AdminReviewController extends \BaseController {
         $data['reviews'] = \Reviews::paginate(10);
         return View::make('admin.reviews', $data);
     }
+    public function reviewDelete($id){
+        \Reviews::find($id)->delete();
+        return \Redirect::back();
+    }
 }
