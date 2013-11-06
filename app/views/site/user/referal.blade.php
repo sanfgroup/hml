@@ -24,7 +24,11 @@
                 </tr>
                 <tr>
                     <td>Получено денег:</td>
-                    <td>0</td>
+                    <?php
+                    $b = $user->balance()->remember(10)->where('referal_id', '!=', 0)->sum('summa');
+                    $b = $b==null?0:round($b, 2);
+                    ?>
+                    <td>{{$b}}</td>
                 </tr>
             </table>
         </div>
@@ -48,7 +52,7 @@
             <td>{{$v->email}}</td>
             <td>{{$v->skype}}</td>
             <?php
-            $b = $user->balance()->where('referal_id', $v->id)->sum('summa');
+            $b = $user->balance()->where('referal_id', $v->id)->remember(10)->sum('summa');
             $b = $b==null?0:round($b, 2);
             ?>
             <td>{{$b}} $</td>

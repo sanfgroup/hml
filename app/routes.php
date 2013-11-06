@@ -69,7 +69,7 @@ Route::group(array('before' => 'admin'), function()
     Route::get('admin/reviews/delete/{id}', array('as'=>'admin.review.delete', 'uses'=>'Admin\AdminReviewController@reviewDelete'));
     Route::resource('admin/user', 'Admin\AdminUserController');
     Route::any('admin/balance', 'Admin\AdminBalanceController@index');
-    Route::any('admin/statistic', 'Admin\AdminStatisticController@index');
+    Route::any('admin/statistic/{id?}', 'Admin\AdminStatisticController@index');
     Route::post('admin/statistic/process', 'Admin\AdminStatisticController@process');
     Route::any('admin', 'Admin\AdminStatisticController@index');
     Route::any('admin/tickets/{id?}', 'Admin\TicketsController@index');

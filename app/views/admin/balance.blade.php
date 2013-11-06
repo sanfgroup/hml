@@ -30,8 +30,11 @@
         @if($v->summa < 0)
         style="background: rgba(255,0,0,0.3);"
         @endif
-        @if($v->referral_id != 0)
+        @if($v->referal_id != 0)
         style="background: rgba(0,0,150,0.3);"
+        @endif
+        @if($v->type != 0)
+        style="background: rgba(0,150,0,0.3);"
         @endif
             >
             <td>{{$v->created}}</td>
