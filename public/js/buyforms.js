@@ -25,9 +25,10 @@ $(document).ready(function(){
         e.preventDefault();
         var path = $(this).attr('href');
         var limit = $(this).data('limit');
+        var name = $(this).data('name');
         console.log(limit);
         if(limit > 0) {
-            bootbox.confirm("Вы уверены что хотите купить данную линейку тарифа? Осталось "+limit+" тарифов.", function(result) {
+            bootbox.confirm("Вы уверены что хотите купить линейку тарифа "+name+"? Осталось "+limit+" тарифов.", function(result) {
                 console.log(result);
                 if(result==true)
                     window.location = path;
@@ -40,7 +41,8 @@ $(document).ready(function(){
     $('a.buy_lin').click(function(e) {
         e.preventDefault();
         var path = $(this).attr('href');
-        bootbox.confirm("Вы уверены что хотите купить данный линейный тариф?", function(result) {
+        var name = $(this).data('name');
+        bootbox.confirm("Вы уверены что хотите купить линейный тариф "+name+"?", function(result) {
             console.log(result);
             if(result==true)
                 window.location = path;
