@@ -64,6 +64,10 @@ class HomeController extends BaseController {
         return View::make('site.private_linear');
     }
     public function privateInv(){
+        $give = $this->user->balance()->where('type', '=', '1');
+
+        $data['give'] = $give;
+
         $data['inv'] = Inv::all();
 //        $data['user'] = $this->user;
         return View::make('site.private_inv', $data);

@@ -2,6 +2,7 @@
 
 
 @section('content')
+<br/>
 <div class="mark_desc">
     <h3>История операций</h3>
 

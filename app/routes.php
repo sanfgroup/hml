@@ -65,7 +65,7 @@ Route::group(array('before' => 'admin'), function()
     Route::any('admin/news/add/{id?}', array('as'=>'admin.addNews','uses'=>'Admin\NewsController@addNews'));
     Route::get('admin/news/delete/{id}',array('as'=>'admin.news.delete', 'uses'=>'Admin\NewsController@deletePost'));
     Route::get('admin/news/{id}',array('as'=>'admin.news.detail', 'uses'=>'Admin\NewsController@detailNews'));
-
+    Route::get('admin/reviews', array('as'=>'admin.reviews', 'uses'=>'Admin\AdminReviewController@reviewsList'));
     Route::resource('admin/user', 'Admin\AdminUserController');
     Route::any('admin/balance', 'Admin\AdminBalanceController@index');
     Route::any('admin/statistic', 'Admin\AdminStatisticController@index');
@@ -78,13 +78,13 @@ Route::any('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
         foreach($invs as $inv) {
             switch($inv->id) {
                 case 1:
-                    $inv->limit = 200;
+                    $inv->limit = 20;
                     break;
                 case 2:
-                    $inv->limit = 150;
+                    $inv->limit = 20;
                     break;
                 case 3:
-                    $inv->limit = 100;
+                    $inv->limit = 20;
                     break;
                 case 4:
                 case 5:
