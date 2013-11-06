@@ -17,8 +17,8 @@ class InvController extends BaseController {
             return Redirect::back()->with('status', 'Вы не можете покупать тарифы так часто');
 
         $inv = Inv::find($id);
-        $inv->limit = 1;
-        $inv->save();
+//        $inv->limit = 1;
+//        $inv->save();
         if($inv != null && $inv->limit > 0) {
             $user = $this->user;
             if($user->balance >= $inv->cost) {
