@@ -136,7 +136,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     public function getRefnameAttribute() {
         if($this->referal_id == 0)
             return "Admin";
-        return $this->mr()->first()->username;
+        return $this->referral()->first()->username;
     }
 
     public function payments()
