@@ -5,9 +5,11 @@
 
     <link rel="stylesheet" href="/css/bootstrap.css"/>
     <link href="/css/bootstrap-formhelpers.min.css" rel="stylesheet" media="screen">
+    <link href="/css/chosen.min.css" rel="stylesheet" media="screen">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootstrap-formhelpers.min.js"></script>
+    <script src="/js/chosen.jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootbox.min.js"></script>
     <title>Админка</title>
 </head>

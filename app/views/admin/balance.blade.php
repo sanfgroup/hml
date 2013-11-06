@@ -15,6 +15,7 @@
 <a class="btn btn-primary" href="#" id="user_balance">Поиск</a>
 <script>
     $(function() {
+        $('select').chosen();
         $('#user_balance').click(function(e){
             e.preventDefault();
             window.location = '/admin/balance/'+$('#user :selected').val()
