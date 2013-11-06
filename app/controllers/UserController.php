@@ -113,14 +113,14 @@ class UserController extends BaseController {
             if (Input::get('old_password')!='' && Hash::check(Input::get('old_password'), $this->user->getAuthPassword()) && Input::get('new_password')!=''){
                 $pass = Input::get('new_password');
                $user->password = Hash::make($pass);
-                $data['message'] = 'Пароль изменен';
+                $data['message'] = '<div style="background: rgba( 0, 255, 0, 0.3); padding: 10px;, border: 1px solid #B5DDAF; border-radius: 5px;">Пароль успешно изменен</div>';
 
             }
             elseif(Input::get('old_password')==''){
 
             }
             else{
-                $data['message'] = 'Неправильный пароль';
+                $data['message'] = '<div style="background: rgba( 255, 0, 0, 0.3); padding: 10px;, border: 1px solid #B5DDAF; border-radius: 5px;">Неправильный пароль</div>';
             }
             $user->skype = Input::get('skype');
             $user->perfectmoney = Input::get('perfectmoney');

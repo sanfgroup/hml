@@ -64,6 +64,9 @@ class HomeController extends BaseController {
         return View::make('site.private_linear');
     }
     public function privateInv(){
+        $data['give'] = $this->user->balance()->whereType(1)->sum('summa');
+        $data['balance'] = $this->user->balance;
+        $data['buys'] = $this->user->buys()->where('col', '<', '8')->count();
         $data['inv'] = Inv::all();
 //        $data['user'] = $this->user;
         return View::make('site.private_inv', $data);
@@ -82,7 +85,6 @@ class HomeController extends BaseController {
         }
         return View::make('site.reviews_add');
     }
-
     public function getTime(){
         return print(date('{\h:H,\m:i,\s:s}'));
     }
