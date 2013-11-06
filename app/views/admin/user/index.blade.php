@@ -19,7 +19,7 @@
         <td>{{$user->id}}</td>
         <td>{{$user->fio}}</td>
         <td>{{$user->username}}</td>
-        <td>{{$user->email}}</td>
+        <td><a href="{{URL::route('admin.tickets', array($user->id))}}">{{$user->email}}</a></td>
         <td><a href="skype:{{$user->skype}}?add">{{$user->skype}}</a></td>
         <td>{{$user->refname}}</td>
         <td>{{$user->balance}}</td>
