@@ -47,7 +47,7 @@
             <td>{{$v->username}}</td>
             <td>{{$v->email}}</td>
             <td>{{$v->skype}}</td>
-            <td>0</td>
+            <td>{{$v->}}</td>
         </tr>
         @endforeach
         {{$ref->links()}}
