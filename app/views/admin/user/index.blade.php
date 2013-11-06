@@ -20,7 +20,7 @@
         <td>{{$user->fio}}</td>
         <td>{{$user->username}}</td>
         <td>{{$user->email}}</td>
-        <td>{{$user->skype}}</td>
+        <td><a href="skype:{{$user->skype}}?add">{{$user->skype}}</a></td>
         <td>{{$user->refname}}</td>
         <td>{{$user->balance}}</td>
         <td>{{$user->created_at}}</td>
