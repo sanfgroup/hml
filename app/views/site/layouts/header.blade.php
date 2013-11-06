@@ -9,7 +9,7 @@
     <!--[if lt IE 9]>
     <script src="/js/dist/html5shiv.js"></script>
     <![endif]-->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js" ></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js" ></script>
     <script type="text/javascript" src="/js/bootstrap.js"></script>
     <script type="text/javascript" src="/js/bootbox.min.js"></script>
     <script type="text/javascript" src="/js/buyforms.js"></script>

@@ -2,6 +2,34 @@
 
 @section('content')
 <div class="row">
+    <h1>Протолкнуть очередь</h1>
+    <div class="row">
+        <div class="col-xs-3">
+            Light 5$
+            {{ Form::open(array('url' => 'admin/statistic/process')) }}
+            <input type="hidden" name="type" value='l5'/>
+            <input type="text" name="count" class="form-control" value="1"/>
+            <input class="btn btn btn-primary" type="submit"/>
+            {{Form::close()}}
+        </div>
+        <div class="col-xs-3">
+            Happy 10$
+            {{ Form::open(array('url' => 'admin/statistic/process')) }}
+            <input type="hidden" name="type" value='l10'/>
+            <input type="text" name="count" class="form-control" value="1"/>
+            <input class="btn btn btn-primary" type="submit"/>
+            {{Form::close()}}
+        </div>
+        <div class="col-xs-3">
+            Super 15$
+            {{ Form::open(array('url' => 'admin/statistic/process')) }}
+            <input type="hidden" name="type" value='l15'/>
+            <input type="text" name="count" class="form-control" value="1"/>
+            <input class="btn btn btn-primary" type="submit"/>
+            {{Form::close()}}
+        </div>
+    </div>
+    <br/><br/><br/><br/>
     {{ Form::open(array('url' => 'admin/statistic')) }}
     <div class="col-xs-3">
         <p>С даты:</p>
@@ -74,6 +102,7 @@
 <p>Пользователей: {{$users->count()}}</p>
 <p>Ввели в систему: {{Balance::where('created_at', '>=', $date_f)->where('created_at', '<=', $date_t)->where('type', 1)->sum('summa')}} $</p>
 <p>В финансовой подушке: {{Balance::where('created_at', '>=', $date_f)->where('created_at', '<=', $date_t)->where('user_id', '0')->sum('summa')}} $</p>
+
 <br/>
 <br/>
 <table class="table table-bordered">
@@ -81,33 +110,23 @@
     <tr>
         <th>Название</th>
         <th>Куплено</th>
+        <th>Выплачено</th>
         <th>Пользователи потратил</th>
         <th>Выплачено на внутренней кошелек</th>
         <th>Итого в системе осталось</th>
     </tr>
     </thead>
     <tbody>
+    @foreach($linear as $l)
     <tr>
-        <td>Линейный 5$</td>
-        <td>{{$linear5->count()}}</td>
-        <td>{{$linear5->count()*5}} $</td>
-        <td>{{Linear5::where('created_at', '>=', $date_f)->where('created_at', '<=', $date_t)->remember(10)->where('payed', 1)->where('admin', 0)->count()*7.5}} $</td>
-        <td>{{($linear5->count()*5) - (Linear5::where('created_at', '>=', $date_f)->where('created_at', '<=', $date_t)->remember(10)->where('payed', 1)->where('admin', 0)->count()*7.5)}} $</td>
+        <td>{{$l['name']}}</td>
+        <td>{{$l['buys']}}</td>
+        <td>{{$l['payed']}}</td>
+        <td>{{$l['mm']}}$</td>
+        <td>{{$l['mp']}}$</td>
+        <td>{{$l['total']}}$</td>
     </tr>
-    <tr>
-        <td>Линейный 10$</td>
-        <td>{{$linear10->count()}}</td>
-        <td>{{$linear10->count()*10}} $</td>
-        <td>{{Linear10::where('created_at', '>=', $date_f)->where('created_at', '<=', $date_t)->remember(10)->where('payed', 1)->where('admin', 0)->count()*15}} $</td>
-        <td>{{($linear10->count()*10) - (Linear10::where('created_at', '>=', $date_f)->where('created_at', '<=', $date_t)->remember(10)->where('payed', 1)->where('admin', 0)->count()*15)}} $</td>
-    </tr>
-    <tr>
-        <td>Линейный 15$</td>
-        <td>{{$linear15->count()}}</td>
-        <td>{{$linear15->count()*15}} $</td>
-        <td>{{Linear15::where('created_at', '>=', $date_f)->where('created_at', '<=', $date_t)->remember(10)->where('payed', 1)->where('admin', 0)->count()*22.5}} $</td>
-        <td>{{($linear15->count()*15) - (Linear15::where('created_at', '>=', $date_f)->where('created_at', '<=', $date_t)->remember(10)->where('payed', 1)->where('admin', 0)->count()*22.5)}} $</td>
-    </tr>
+    @endforeach
     </tbody>
 </table>
 <br/>
@@ -123,13 +142,13 @@
     </tr>
     </thead>
     <tbody>
-    @foreach($inv as $v)
+    @foreach($invs as $v)
     <tr>
-        <td>{{$v->name}}</td>
-        <td>{{$v->buys()->where('created_at', '>=', $date_f)->where('created_at', '<=', $date_t)->remember(10)->count()}}</td>
-        <td>{{$v->buys()->where('created_at', '>=', $date_f)->where('created_at', '<=', $date_t)->remember(10)->count()*$v->cost}} $</td>
-        <td>{{$v->totalPayed($date_f, $date_t)}} $</td>
-        <td>{{($v->buys()->where('created_at', '>=', $date_f)->where('created_at', '<=', $date_t)->remember(10)->count()*$v->cost) - ($v->totalPayed($date_f, $date_t))}} $</td>
+        <td>{{$v['name']}}</td>
+        <td>{{$v['buys']}}</td>
+        <td>{{$v['mm']}}$</td>
+        <td>{{$v['mp']}}$</td>
+        <td>{{$v['total']}}$</td>
     </tr>
     @endforeach
     </tbody>

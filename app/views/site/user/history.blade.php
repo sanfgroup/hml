@@ -15,7 +15,7 @@
         @foreach($h as $v)
         <tr>
             <td>{{$v->created}}</td>
-            <td>{{$v->summa}}$</td>
+            <td>{{$v->summas}}$</td>
             <td>{{$v->description}}</td>
         </tr>
         @endforeach

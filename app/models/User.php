@@ -89,8 +89,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         $u = $this->linear5()->wherePayed(0)->remember(1)->orderBy('id')->get();
         if($u != null)
         foreach($u as $v) {
+            $admin = Linear5::whereAdmin(1)->wherePayed(0)->where('id', '<', $v->id)->count();
             if($v)
-                $arr[] = $v->id - $count;
+                $arr[] = $v->id - $count-$admin;
         }
         return $arr;
     }
@@ -101,8 +102,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         $u = $this->linear10()->wherePayed(0)->orderBy('id')->remember(1)->get();
         if($u != null)
         foreach($u as $v) {
+            $admin = Linear10::whereAdmin(1)->wherePayed(0)->where('id', '<', $v->id)->count();
             if($v)
-                $arr[] = $v->id - $count;
+                $arr[] = $v->id - $count-$admin;
         }
         return $arr;
     }
@@ -113,8 +115,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         $u = $this->linear15()->wherePayed(0)->remember(1)->orderBy('id')->get();
         if($u != null)
         foreach($u as $v) {
+            $admin = Linear15::whereAdmin(1)->wherePayed(0)->where('id', '<', $v->id)->count();
             if($v)
-                $arr[] = $v->id - $count;
+                $arr[] = $v->id - $count-$admin;
         }
         return $arr;
     }

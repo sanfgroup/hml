@@ -1,6 +1,6 @@
 <script>
     $(function() {
-        $('button').click(function(e) {
+        $('form button').click(function(e) {
             var b = $(this)
             bootbox.confirm("Вы уверены?", function(result) {
                 if(result == true) b.parent().submit();
@@ -15,5 +15,11 @@
         });
     });
 </script>
+@if(Session::has('status'))
+<script>
+    bootbox.alert("{{Session::get('status')}}", function(){});
+    setTimeout(function(){bootbox.hideAll()}, 2000);
+</script>
+@endif
 </body>
 </html>

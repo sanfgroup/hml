@@ -9,14 +9,16 @@
 class InvController extends BaseController {
 
     public function buy($id=0) {
-        if($this->user->username != 'vinnizp' && $this->user->username != 'olegan' && $this->user->username != 'olegan1')
-            return Redirect::back()->with('status', 'Покупка будет открыта только 05.11.2013');
+//        if($this->user->username != 'vinnizp' && $this->user->username != 'olegan' && $this->user->username != 'olegan1')
+//            return Redirect::back()->with('status', 'Покупка будет открыта только 05.11.2013');
         $s = Session::get('buy');
 //        dd(($id==0 || ($s != null && $s+5 < time())));
         if($id==0 || ($s != null && $s+10 >= time()))
             return Redirect::back()->with('status', 'Вы не можете покупать тарифы так часто');
 
         $inv = Inv::find($id);
+        $inv->limit = 1;
+        $inv->save();
         if($inv != null && $inv->limit > 0) {
             $user = $this->user;
             if($user->balance >= $inv->cost) {
@@ -52,7 +54,7 @@ class InvController extends BaseController {
 
                 $data['email'] = $user->email;
                 $data['fio'] = $user->fio;
-                $ref = $user->mr();
+                $ref = $user->mr;
                 if(isset($ref->username)) {
                     $data['referal'] = $ref->username;
                     $data['summa'] = $inv->cost*0.07;
@@ -67,7 +69,7 @@ class InvController extends BaseController {
                     ));
                     $data['email'] = $user->email;
                     $data['fio'] = $user->fio;
-                    $ref = $ref->mr();
+                    $ref = $ref->mr;
                     if(isset($ref->username)) {
                         $data['referal'] = $ref->username;
                         $data['summa'] = $inv->cost*0.03;

@@ -46,13 +46,5 @@ $(document).ready(function(){
                 window.location = path;
         });
     });
-    $('a.del').click(function(e) {
-        e.preventDefault();
-        var path = $(this).attr('href');
-        bootbox.confirm("Вы уверны, что хотите выполнить данное действие", function(result) {
-            console.log(result);
-            if(result==true)
-                window.location = path;
-        });
-    });
+
 });

@@ -3,26 +3,7 @@
 @section('content')
 
 @include('site.private_header')
-<div class="orders">
-    <table class="refer table table-bordered table-striped lscl">
-        <tr>
-            <th>Введено</th>
-            <th>Доступно</th>
-            <th>На депозитах</th>
-            <th>Выведено</th>
-            <th>В ожидании</th>
-        </tr>
-        <tr>
-            <td>
-                {{$give}}
-            </td>
-            <td>400.00</td>
-            <td>600.00</td>
-            <td>300.00</td>
-            <td>0.00</td>
-        </tr>
-    </table>
-</div>
+
 <div class="blocks_tarif1">
     <div>
         <div class="title">Купить тарифную линию</div>

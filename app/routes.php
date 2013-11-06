@@ -70,6 +70,7 @@ Route::group(array('before' => 'admin'), function()
     Route::resource('admin/user', 'Admin\AdminUserController');
     Route::any('admin/balance', 'Admin\AdminBalanceController@index');
     Route::any('admin/statistic', 'Admin\AdminStatisticController@index');
+    Route::post('admin/statistic/process', 'Admin\AdminStatisticController@process');
     Route::any('admin', 'Admin\AdminStatisticController@index');
 });
 Route::any('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {

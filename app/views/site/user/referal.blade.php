@@ -42,7 +42,7 @@
             <th>Skype</th>
             <th>Сумма</th>
         </tr>
-        @foreach($user->referral()->get() as $v)
+        @foreach($ref as $v)
         <tr>
             <td>{{$v->username}}</td>
             <td>{{$v->email}}</td>
@@ -50,6 +50,7 @@
             <td>0</td>
         </tr>
         @endforeach
+        {{$ref->links()}}
     </table>
 
 </div>
