@@ -75,7 +75,7 @@ class PayController extends BaseController {
         if($r['art'] == $uid->pay) {
 //            dd($r['sum']);
             $uid->balance()->create(array(
-                'summa' => $r['sum'],
+                'summa' => round($r['sum'],2),
                 'description' => 'Начисление с кошелька OkPay: '.$r['payeer'],
                 'type' => 1
             ));
@@ -131,7 +131,6 @@ class PayController extends BaseController {
         $data['email'] = $uid->email;
         $data['fio'] = $uid->fio;
         $data['summa'] = $amount['sum'];
-        $data['summa'] = $amount['sum'];
         $data['name'] = "OkPay";
         Mail::send('emails.min', $data, function($message) use ($data)
         {
@@ -141,7 +140,7 @@ class PayController extends BaseController {
 //            Eloquent::unguard();
 //            dd(1);
             $uid->balance()->create(array(
-                'summa' => $amount,
+                'summa' => round($amount,2),
                 'description' => 'Начисление с кошелька PerfectMoney: '.$account,
                 'type' => 1
             ));
