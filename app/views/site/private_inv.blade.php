@@ -8,18 +8,18 @@
         <tr>
             <th>Введено</th>
             <th>Доступно</th>
-            <th>На депозитах</th>
+            <th>Куплено</th>
             <th>Выведено</th>
             <th>В ожидании</th>
         </tr>
         <tr>
             <td>
-                {{$give}}$
+                {{round($give, 2)}}$
             </td>
             <td>{{$balance}}$</td>
-            <td>{{$buys}}</td>
-            <td>300.00</td>
-            <td>0.00</td>
+            <td>{{$buys}} </td>
+            <td>0.00$</td>
+            <td>0.00$</td>
         </tr>
     </table>
 </div>
@@ -90,7 +90,7 @@
 </div>
 <!-- Modal -->
 <div class="modal fade" id="inv_red" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog cab">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -129,14 +129,14 @@
                         <td>7,5$</td>
                     </tr>
                 </table>
-                <p>Тарифная линия  Red line 10$  работает 24 календарных  дня с доходностью 75%. Депозит с прибылью делится на 8 частей и возвращается по одной части каждые три дня. </p>
                 <p>Чистая прибыль составляет 7,5$</p>
+                <p>Тарифная линия  Red line 10$  работает 24 календарных  дня с доходностью 75%. Депозит с прибылью делится на 8 частей и возвращается по одной части каждые три дня. </p>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <div class="modal fade" id="inv_orange" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog cab">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -175,8 +175,8 @@
                         <td>26,25$</td>
                     </tr>
                 </table>
-                <p>Тарифная линия  Orange line 35$  работает 24 календарных  дня с доходностью 75%. Депозит с прибылью делится на 8 частей и возвращается по одной части каждые три дня. </p>
                 <p>Чистая прибыль составляет 26,25$</p>
+                <p>Тарифная линия  Orange line 35$  работает 24 календарных  дня с доходностью 75%. Депозит с прибылью делится на 8 частей и возвращается по одной части каждые три дня. </p>
 
             </div>
         </div><!-- /.modal-content -->
@@ -186,7 +186,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="inv_yellow" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog cab">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -225,8 +225,8 @@
                         <td>52,5$</td>
                     </tr>
                 </table>
-                <p>Тарифная линия  Yellow line 70$  работает 24 календарных  дня с доходностью 75%. Депозит с прибылью делится на 8 частей и возвращается по одной части каждые три дня. </p>
                 <p>Чистая прибыль составляет 52,5$</p>
+                <p>Тарифная линия  Yellow line 70$  работает 24 календарных  дня с доходностью 75%. Депозит с прибылью делится на 8 частей и возвращается по одной части каждые три дня. </p>
 
             </div>
         </div><!-- /.modal-content -->
@@ -236,7 +236,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="inv_green" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog cab">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -273,8 +273,8 @@
                         <td>82,5$</td>
                     </tr>
                 </table>
-                <p>Тарифная линия  Green line 110$  работает 24 календарных  дня с доходностью 75%. Депозит с прибылью делится на 8 частей и возвращается по одной части каждые три дня.</p>
                 <p>Чистая прибыль составляет 82,5$</p>
+                <p>Тарифная линия  Green line 110$  работает 24 календарных  дня с доходностью 75%. Депозит с прибылью делится на 8 частей и возвращается по одной части каждые три дня.</p>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -283,7 +283,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="inv_blue" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog cab">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -320,8 +320,8 @@
                         <td>135$</td>
                     </tr>
                 </table>
-                <p>Тарифная линия  Blue Line 180$  работает 24 календарных  дня с доходностью 75%. Депозит с прибылью делится на 8 частей и возвращается по одной части каждые три дня. </p>
                 <p>Чистая прибыль составляет 135$</p>
+                <p>Тарифная линия  Blue Line 180$  работает 24 календарных  дня с доходностью 75%. Депозит с прибылью делится на 8 частей и возвращается по одной части каждые три дня. </p>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -330,7 +330,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="inv_pink" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog cab">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -367,8 +367,8 @@
                         <td>187,5$</td>
                     </tr>
                 </table>
-                <p>Тарифная линия  Pink line 250$  работает 24 календарных  дня с доходностью 75%. Депозит с прибылью делится на 8 частей и возвращается по одной части каждые три дня. </p>
                 <p>Чистая прибыль составляет 187,5$</p>
+                <p>Тарифная линия  Pink line 250$  работает 24 календарных  дня с доходностью 75%. Депозит с прибылью делится на 8 частей и возвращается по одной части каждые три дня. </p>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -377,7 +377,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="inv_purple" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog cab">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -414,8 +414,8 @@
                         <td>300$</td>
                     </tr>
                 </table>
-                <p>Тарифная линия  Purple line 400$  работает 24 календарных  дня с доходностью 75%. Депозит с прибылью делится на 8 частей и возвращается по одной части каждые три дня. </p>
                 <p>Чистая прибыль составляет 300$</p>
+                <p>Тарифная линия  Purple line 400$  работает 24 календарных  дня с доходностью 75%. Депозит с прибылью делится на 8 частей и возвращается по одной части каждые три дня. </p>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

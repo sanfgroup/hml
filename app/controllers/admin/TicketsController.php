@@ -20,4 +20,9 @@ class TicketsController extends \BaseController {
         }
         return View::make('admin.tickets.index', $data);
     }
+    public function listTickets(){
+        $data = array();
+        $data['tickets'] = \Ticket::paginate(10);
+        return View::make('admin.tickets.list', $data);
+    }
 }
