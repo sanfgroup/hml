@@ -48,7 +48,7 @@ class PayController extends BaseController {
             'date' => time()
         );
         $uid = User::find($r['uid']);
-
+        $r['sum'] = ceil($r['sum']*100)/100;
         $data['email'] = $uid->email;
         $data['fio'] = $uid->fio;
         $data['summa'] = $r['sum'];
@@ -59,7 +59,8 @@ class PayController extends BaseController {
             $uid->balance()->create(array(
                 'summa' => round($r['sum'],2),
                 'description' => 'Пополнение с кошелька OkPay: '.$r['payeer'],
-                'type' => 1
+                'type' => 1,
+                'batch' => $r['batch']
             ));
             $uid->pay = Str::random(32);
             $uid->save();
@@ -126,7 +127,7 @@ class PayController extends BaseController {
     public function perfect() {
 //        dd(Input::all());
         $account  = $_POST["PAYER_ACCOUNT"];
-        $amount  = $_POST["PAYMENT_AMOUNT"];
+        $amount  = ceil($_POST["PAYMENT_AMOUNT"]*100)/100;
         $id  = $_POST["PAYMENT_ID"];
         $user_id = $_REQUEST["user_id"];
         $batch = $_REQUEST["PAYMENT_BATCH_NUM"];
