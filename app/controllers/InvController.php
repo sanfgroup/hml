@@ -64,7 +64,7 @@ class InvController extends BaseController {
                     });
 
                     $ref->balance()->create(array(
-                        'summa' => $inv->cost*0.07,
+                        'summa' => round($inv->cost*0.07,2),
                         'referal_id' => $this->user->id,
                         'description' => 'Начисление от реферала '.$user->username
                     ));
@@ -80,7 +80,7 @@ class InvController extends BaseController {
                             $message->to($data['email'], $data['fio'])->subject('Реферальное вознаграждение!');
                         });
                         $ref->balance()->create(array(
-                            'summa' => $inv->cost*0.03,
+                            'summa' => round($inv->cost*0.03,2),
                             'referal_id' => $id,
                             'description' => 'Начисление от реферала '.$user->username
                         ));
