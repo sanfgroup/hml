@@ -6,17 +6,22 @@ use View, Input, Mail;
 
 class TicketsController extends \BaseController {
 
-    public function index($id=0){
+    public function full($id=0){
         $data = array();
         if ($id!=0){
             $data['user'] = \User::find($id);
-            $data['user_a'] = $this->user();
+                $data['user_a'] = $this->user;
         }
         if (Input::server("REQUEST_METHOD") == "POST") {
-            $data['theme'] = Input::get('theme');
+            $data['name'] = Input::get('theme');
+            $data['item'] = Input::get('item');
             $data['email'] = Input::get('email');
-            $data['message'] = Input::get('content');
-
+            $data['message1'] = Input::get('content');
+            Mail::send('emails.answer', $data, function($message) use ($data)
+            {
+                $message->to($data['email'], $data['name'])->subject('MyHappyLines');
+                return \Redirect::to('admin/user');
+            });
         }
         return View::make('admin.tickets.index', $data);
     }
@@ -30,7 +35,7 @@ class TicketsController extends \BaseController {
         $data['ticket'] = $ticketd;
         $ticketd->thread = 1;
 
-
+        $ticketd->save();
         if (Input::server("REQUEST_METHOD") == "POST") {
             $data['name'] = Input::get('theme');
             $data['message1'] = Input::get('content');
@@ -41,8 +46,10 @@ class TicketsController extends \BaseController {
                 $message->to($data['email'], $data['name'])->subject('Поддержка '.$data['item']);
             });
             $ticketd->thwrite = 1;
+            $ticketd->save();
+            return \Redirect::route('admin.tickets.list');
         }
-        $ticketd->save();
+
         return View::make('admin.tickets.index', $data);
     }
 

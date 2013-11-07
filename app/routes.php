@@ -74,7 +74,7 @@ Route::group(array('before' => 'admin'), function()
     Route::any('admin/checkout/{id?}', array('as'=>'admin.checkout', 'uses'=>'Admin\AdminBalanceController@checkout'));
     Route::any('admin/statistic', 'Admin\AdminStatisticController@index');
     Route::any('admin', 'Admin\AdminStatisticController@index');
-    Route::any('admin/tickets/write/{id?}',array('as'=>'admin.tickets', 'uses'=>'Admin\TicketsController@index'));
+    Route::any('admin/tickets/write/{id?}', array('as'=>'admin.tickets', 'uses'=>'Admin\TicketsController@full'));
     Route::get('admin/tickets/list', array('as'=>'admin.tickets.list', 'uses'=>'Admin\TicketsController@listTickets'));
     Route::any('admin/tickets/{id}', array('as'=>'admin.ticket', 'uses'=>'Admin\TicketsController@detailTicket'));
 });
