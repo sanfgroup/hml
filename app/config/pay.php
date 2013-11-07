@@ -2,12 +2,12 @@
 
 return array(
     'perfect' => array(
-        'login' => '5750852',
-        'password' => 'fp0up82h',
-        'account' => 'U4390807'
+        'login' => '313853',
+        'password' => 'V2*gr-Qt9#u31Z@ny!5',
+        'account' => 'U1991555'
     ),
     'okpay' => array(
-        'passcode' => 'Qw93Jje7YZm4r6H2LtKo58Gnb',
-        'account' => 'OK280296052'
+        'passcode' => '@dhU25*@W',
+        'account' => 'OK722373543'
     )
 );

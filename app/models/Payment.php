@@ -11,4 +11,8 @@ class Payment extends Eloquent {
 		return $this->belongsTo('User');
 	}
 
+
+    public function getCreatedAttribute() {
+        return date('d.m.Y H:i:s', strtotime($this->created_at));
+    }
 }
