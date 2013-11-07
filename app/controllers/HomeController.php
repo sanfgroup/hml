@@ -66,7 +66,7 @@ class HomeController extends BaseController {
             {
                 $message->to('support@myhappylines.com', $data['name'])->subject('Поддержка '.$data['item']);
             });
-            $data['send'] = '<script>alert("Сообщение отправлено");</script>';
+            return View::make('site.contacts', $data)->with('okgood', 'Вы успешно отправили письмо!');
         }
 		return View::make('site.contacts', $data);
 	}

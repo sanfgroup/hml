@@ -206,6 +206,13 @@
     setTimeout(function(){bootbox.hideAll()}, 2000);
 </script>
 @endif
+@if(Session::has('okgod'))
+<script>
+    $(function(){
+        $('#okgood').modal('show')
+    });
+</script>
+@endif
 <div id="modalBuy" class="modal hide">
     <div class="modal-header">
         <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
@@ -220,6 +227,17 @@
     </div>
 </div>
 
+<div class="modal fade" id="okgood" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 520px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Вы успешно отправили письмо</h4>
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 </body>
 </html>
