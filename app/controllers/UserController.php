@@ -43,7 +43,7 @@ class UserController extends BaseController {
             $user->skype = Input::get('skype');
             $user->perfectmoney = Input::get('perfectmoney');
             $user->okpay = Input::get('okpay');
-            $user->pay = Str::rand(32);
+            $user->pay = Str::random(32);
             $user->save();
 
 

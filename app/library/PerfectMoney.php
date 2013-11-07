@@ -12,6 +12,7 @@ class PerfectMoney {
     protected $password = 'V2*gr-Qt9#u31Z@ny!5';
 
     public function pay($amount, $account) {
+        $amount = round($amount,2);
         $pass = urlencode($this->password);
         $out=file_get_contents("https://perfectmoney.is/acct/confirm.asp?AccountID={$this->login}&PassPhrase={$pass}&Payer_Account={$this->account}&Payee_Account={$account}&Amount={$amount}&PAY_IN=1&PAYMENT_ID=1");
 

@@ -19,6 +19,7 @@ class OkPay
 
     public function pay($amount, $account, $memo = '')
     {
+        $amount = round($amount,2);
         try {
             $s = $this->passcode . ':' . gmdate("Ymd:H");
             $secToken = hash('sha256', $s);
