@@ -59,7 +59,8 @@ class PayController extends BaseController {
             $uid->balance()->create(array(
                 'summa' => round($r['sum'],2),
                 'description' => 'Пополнение с кошелька OkPay: '.$r['payeer'],
-                'type' => 1
+                'type' => 1,
+                'batch' => $r['batch']
             ));
             $uid->pay = Str::random(32);
             $uid->save();
