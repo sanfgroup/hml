@@ -5,11 +5,11 @@
 
 </div>
 <div class="bgblock">
-    <a data-name="Light" class="buy_lin first" href="{{URL::route('user.linear.buy', array(5))}}">
+    <a data-name="Light 5$" class="buy_lin first" href="{{URL::route('user.linear.buy', array(5))}}">
         Light 5$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>купить&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </a>
-    <a data-name="Happy" class="buy_lin second" href="{{URL::route('user.linear.buy', array(10))}}">&nbsp;&nbsp;&nbsp;&nbsp;Happy 10$<br>&nbsp;&nbsp;&nbsp;&nbsp;купить</a>
-    <a data-name="Super" class="buy_lin third" href="{{URL::route('user.linear.buy', array(15))}}">Super 15$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>купить&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+    <a data-name="Happy 10$" class="buy_lin second" href="{{URL::route('user.linear.buy', array(10))}}">&nbsp;&nbsp;&nbsp;&nbsp;Happy 10$<br>&nbsp;&nbsp;&nbsp;&nbsp;купить</a>
+    <a data-name="Super 15$" class="buy_lin third" href="{{URL::route('user.linear.buy', array(15))}}">Super 15$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>купить&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 </div>
 <div class="container_all">
     <div class="turns">
