@@ -54,24 +54,31 @@ class HomeController extends BaseController {
             $input = Input::all();
             $rules = array(
                 'your_name' => 'Required|Min:3|Max:80',
-                'your_email'=> 'Required|Between:3,64|Email|Unique:users',
+                'your_email'=> 'Required|Between:3,64|Email'
             );
-            $ticket = new Ticket();
-            $ticket->name = Input::get('your_name');
-            $data['name'] = Input::get('your_name');
-            $ticket->email = Input::get('your_email');
-            $data['email'] = Input::get('your_email');
-            $ticket->item = Input::get('item');
-            $data['item'] = Input::get('item');
-            $ticket->message = Input::get('message');
-            $data['message1'] = Input::get('message');
-            $ticket->thread = 0;
-            $ticket->save();
-            Mail::send('emails.tickets', $data, function($message) use ($data)
-            {
-                $message->to('support@myhappylines.com', $data['name'])->subject('Поддержка '.$data['item']);
-            });
-            return Redirect::back()->with('okgood', 'Вы успешно отправили письмо!');
+            $v = Validator::make($input, $rules);
+            if ($v->passes()){
+                $ticket = new Ticket();
+                $ticket->name = Input::get('your_name');
+                $data['name'] = Input::get('your_name');
+                $ticket->email = Input::get('your_email');
+                $data['email'] = Input::get('your_email');
+                $ticket->item = Input::get('item');
+                $data['item'] = Input::get('item');
+                $ticket->message = Input::get('message');
+                $data['message1'] = Input::get('message');
+                $ticket->thread = 0;
+                $ticket->save();
+                Mail::send('emails.tickets', $data, function($message) use ($data)
+                {
+                    $message->to('support@myhappylines.com', $data['name'])->subject('Поддержка '.$data['item']);
+                });
+                return Redirect::back()->with('okgood', 'Вы успешно отправили письмо!');
+            }
+            else{
+                return Redirect::back()->withInput()
+                    ->withErrors($v->errors())->with('okgood', 'Вы не успешно отправили письмо!');;
+            }
         }
 		return View::make('site.contacts', $data);
 	}
