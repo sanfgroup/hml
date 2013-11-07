@@ -22,7 +22,7 @@
 <div style="text-align: center; margin: 65px 0 25px;">
     <div class="butBig bal">Ваш баланс: {{$user->balance}}$</div>
     <a href="#addMoney" data-toggle="modal" class="butBig addcash">Пополнить счет</a>
-    <a href="#payMoney" data-toggle="modal" class="butBig get">Вывести деньги</a>
+    <!--<a href="#payMoney" data-toggle="modal" class="butBig get">Вывести деньги</a>-->
 </div>
 <div class="modal fade" id="addMoney" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width: 500px">

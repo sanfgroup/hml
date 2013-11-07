@@ -1,6 +1,7 @@
 <script>
     $(function() {
         $('form button').click(function(e) {
+            e.preventDefault();
             var b = $(this)
             bootbox.confirm("Вы уверены?", function(result) {
                 if(result == true) b.parent().submit();

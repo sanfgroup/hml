@@ -105,10 +105,11 @@ Route::any('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
     Linear5::pay();
     Linear10::pay();
     Linear15::pay();
-    $invs = Inv::all();
+    $invs = Inv::remember(10)->get();
     foreach($invs as $inv) {
-        foreach($inv->buys()->where('col', '<', 8)->get() as $v) {
+        foreach($inv->buys()->remember(10)->where('col', '<', 8)->get() as $v) {
             if(($v->last+(3*24*60*60)) <= time()) {
+                echo "asdasdasdasdasd";
                 $v->user()->first()->balance()->create(array(
                     'summa' => $inv->payment[$v->col],
                     'description' => 'Выплата по тарифу '.$inv->name.' '.$inv->cost.'$'

@@ -18,12 +18,16 @@ class AdminBalanceController extends \BaseController {
         switch($data['sort']) {
             case 'mp':
                 $b->where('summa', '>', 0);
+                $b->where('type', '=', 0);
+                $b->where('referal_id', '==', 0);
                 break;
             case 'mm':
                 $b->where('summa', '<', 0);
+                $b->where('type', '=', 0);
                 break;
             case 'in':
                 $b->where('type', '=', 1);
+                $b->where('referal_id', '==', 0);
                 break;
             case 'out':
                 $b->where('type', '=', 2);
