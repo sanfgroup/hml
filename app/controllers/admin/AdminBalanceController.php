@@ -57,7 +57,8 @@ class AdminBalanceController extends \BaseController {
                     if($pm->pay($amount, $account)) {
                         $u->balance()->create(array(
                             'summa' => -$p->summa,
-                            'description' => 'Вывод денег на кошелек PerfectMoney: '.$account
+                            'description' => 'Вывод денег на кошелек PerfectMoney: '.$account,
+                            'type' => 2
                         ));
                     }
 
@@ -71,13 +72,15 @@ class AdminBalanceController extends \BaseController {
                     if($ok->pay($amount, $account)) {
                         $u->balance()->create(array(
                             'summa' => -$p->summa,
-                            'description' => 'Вывод денег на кошелек OkPay: '.$account
+                            'description' => 'Вывод денег на кошелек OkPay: '.$account,
+                            'type' => 2
                         ));
                     }
 
                 }
             }
         }
+        return Redirect::back();
 
     }
 
