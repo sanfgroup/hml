@@ -22,14 +22,15 @@ class BaseController extends Controller {
         if(!Auth::guest()) {
             $this->user = Auth::user();
             $uid = $this->user->id;
+            $uname = $this->user->username;
             $pay = $this->user->pay;
-            View::composer('site.private_header', function($view) use($uid, $pay)
+            View::composer('site.private_header', function($view) use($uid, $pay, $uname)
             {
 
                 $data = array();
                 if(!Auth::guest()) {
                     $pm = new PerfectMoney();
-                    $data['form'] = $pm->form($uid, $pay);
+                    $data['form'] = $pm->form($uid, $pay, $uname);
                     $ok = new OkPay();
                     $data['form2'] = $ok->form($uid, $pay);
                 }

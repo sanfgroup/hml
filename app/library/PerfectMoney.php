@@ -29,7 +29,7 @@ class PerfectMoney {
         return true;
     }
 
-    public function form($uid=0,$payment_id) {
+    public function form($uid=0,$payment_id,$login) {
         if($uid == 0)
             return null;
         $ad = URL::to('/');
@@ -41,6 +41,7 @@ class PerfectMoney {
     <input type="text" name="PAYMENT_AMOUNT" value="" class="form-control">
     <input type="hidden" name="PAYMENT_UNITS" value="USD">
     <input type="hidden" name="STATUS_URL" value="">
+    <input type="hidden" name="SUGGESTED_MEMO" value="User: {$login}">
     <input type="hidden" name="PAYMENT_URL" value="{$ad}/pay/perfect">
     <input type="hidden" name="PAYMENT_URL_METHOD" value="POST">
     <input type="hidden" name="NOPAYMENT_URL" value="{$ad}/pay">
