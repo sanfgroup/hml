@@ -206,7 +206,7 @@
     setTimeout(function(){bootbox.hideAll()}, 2000);
 </script>
 @endif
-@if(Session::has('okgod'))
+@if(Session::has('okgood'))
 <script>
     $(function(){
         $('#okgood').modal('show')
