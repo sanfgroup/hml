@@ -8,8 +8,8 @@
 
 class OkPay
 {
-    protected $account = 'OK280296052';
-    protected $passcode = 'Qw93Jje7YZm4r6H2LtKo58Gnb';
+    protected $account = 'OK722373543';
+    protected $passcode = '@dhU25*@W';
 
     function __constructor()
     {
