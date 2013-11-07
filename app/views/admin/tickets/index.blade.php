@@ -15,6 +15,7 @@
     </div>
     @if($user == Auth::user())
     <div class="col-xs-6" style="float: right; padding: 10px; border-radius: 10px; border: 1px solid #aaaaaa; background: #eeeeee; height: 600px; overflow-y: auto;">
+
     </div>
     @endif
 </div>

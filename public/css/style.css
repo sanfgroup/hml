@@ -1782,3 +1782,29 @@ div[id^='inv'] .modal-dialog{
 .modal-body p{
     color: #ffffff;
 }
+.modal-dialog.cab{
+    width: 786px !important;
+}
+table.lscl{
+    margin: 0 !important;
+    border: 0px !important;
+}
+table.lscl td, table.lscl th{
+    padding: 0 8px !important;
+    border-top: none !important;
+    border-left: none !important;
+}
+table.lscl th{
+    background: #6fb7c3 !important;
+}
+table.lscl td:last-child, table.lscl th:last-child{
+    border: none !important;
+}
+table.lscl tr:last-child td{
+    border-bottom: none;
+}
+.orders{
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #dddddd;
+}
