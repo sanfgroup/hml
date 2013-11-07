@@ -11,20 +11,15 @@ class PerfectMoney {
     protected $login = '313853';
     protected $password = 'V2*gr-Qt9#u31Z@ny!5';
 
-    function __constructor() {
-        $this->login = Config::get('pay.perfect.login');
-        $this->password = Config::get('pay.perfect.password');
-        $this->account = Config::get('pay.perfect.account');
-    }
-
     public function pay($amount, $account) {
-        $out=file_get_contents("https://perfectmoney.is/acct/confirm.asp?AccountID={$this->login}&PassPhrase={$this->password}&Payer_Account={$this->account}&Payee_Account={$account}&Amount={$amount}&PAY_IN=1&PAYMENT_ID=1");
+        $pass = urlencode($this->password);
+        $out=file_get_contents("https://perfectmoney.is/acct/confirm.asp?AccountID={$this->login}&PassPhrase={$pass}&Payer_Account={$this->account}&Payee_Account={$account}&Amount={$amount}&PAY_IN=1&PAYMENT_ID=1");
 
         if(!preg_match_all("/<input name='(.*)' type='hidden' value='(.*)'>/", $out, $result, PREG_SET_ORDER)){
             return false;
         }
 
-        dd($out);
+        //dd($out);
 
         return true;
     }
