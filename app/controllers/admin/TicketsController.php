@@ -2,7 +2,7 @@
 namespace Admin;
 
 
-use View, Input;
+use View, Input, Mail;
 
 class TicketsController extends \BaseController {
 
@@ -22,8 +22,8 @@ class TicketsController extends \BaseController {
     }
     public function listTickets(){
         $data = array();
-        $data['tickets'] = \Ticket::paginate(10);
-        return View::make('admin.tickets.list', $data);
+        $data['tickets'] = \Ticket::orderBy('created_at', 'desc')->paginate(10);
+        return View::make('admin.tickets.tickets_list', $data);
     }
     public function detailTicket($id){
         $ticketd = \Ticket::find($id);
@@ -40,6 +40,7 @@ class TicketsController extends \BaseController {
             {
                 $message->to($data['email'], $data['name'])->subject('Поддержка '.$data['item']);
             });
+            $ticketd->thwrite = 1;
         }
         $ticketd->save();
         return View::make('admin.tickets.index', $data);
