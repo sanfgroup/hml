@@ -34,9 +34,10 @@ Route::group(array('before' => 'auth'), function()
     Route::get('user/privat', array('as'=>'user.privat','uses'=>'UserController@getPrivat'));
 
     Route::any('pay/perfect', array('as'=>'pay.prefect','uses'=>'PayController@perfect'));
-    Route::any('pay/perfect/out', array('as'=>'pay.prefect.out','uses'=>'PayController@perfectPay'));
+    Route::post('user/payment', array('as'=>'user.payment','uses'=>'PayController@pay'));
+//    Route::any('pay/perfect/out', array('as'=>'pay.prefect.out','uses'=>'PayController@perfectPay'));
     Route::any('pay/okpay', array('as'=>'pay.okpay','uses'=>'PayController@okpay'));
-    Route::any('pay/okpay/out', array('as'=>'pay.okpay.out','uses'=>'PayController@okpayPay'));
+//    Route::any('pay/okpay/out', array('as'=>'pay.okpay.out','uses'=>'PayController@okpayPay'));
 
     Route::get('user/linear/buy/{id}', array('as'=>'user.linear.buy','uses'=>'LinearController@buy'));
 

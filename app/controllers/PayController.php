@@ -17,31 +17,34 @@ class PayController extends BaseController {
 
     public function pay() {
         $i = Input::all();
-        if($i['summ'] != 0) {
+        if(empty($i['system']))
+            return Redirect::back()->with('status', 'Заполните, пожалуйста, ваш профиль, для заказа выплаты или выберите другую платёжную систему.');
+        if($i['summ'] >= 1) {
             $this->user->payments()->create(array(
-                'summa' => $i['summa']*0.95,
+                'summa' => $i['summ']*0.95,
                 'to' => $i['system']
             ));
+            return Redirect::back()->with('status', 'Заявка на выплату успешно отправлена');
         }
-        return Redirect::back()->with('status', 'Заявка на выплату успешно отправлена');
+        return Redirect::back()->with('status', 'Минимальная выплата от 1$');
     }
 
-    public function okpayPay() {
-        $ok = new OkPay();
-        $u = $this->user;
-        $account = $u->okpay;
-        $amount = Input::get('amount', 0);
-        if($amount <= $u->balance && !empty($account)) {
-
-            if($ok->pay($amount, $account)) {
-                $u->balance()->create(array(
-                    'summa' => -$amount,
-                    'description' => 'Вывод денег на кошелек OkPay: '.$account
-                ));
-            }
-
-        }
-    }
+//    public function okpayPay() {
+//        $ok = new OkPay();
+//        $u = $this->user;
+//        $account = $u->okpay;
+//        $amount = Input::get('amount', 0);
+//        if($amount <= $u->balance && !empty($account)) {
+//
+//            if($ok->pay($amount, $account)) {
+//                $u->balance()->create(array(
+//                    'summa' => -$amount,
+//                    'description' => 'Вывод денег на кошелек OkPay: '.$account
+//                ));
+//            }
+//
+//        }
+//    }
 
     public function okpay() {
 //        dd(Input::all());
@@ -102,7 +105,7 @@ class PayController extends BaseController {
         return Redirect::route('user.privat');*/
     }
 
-    public function perfectPay() {
+    /*public function perfectPay() {
         $pm = new PerfectMoney();
         $u = $this->user;
         $account = $u->perfectmoney;
@@ -118,7 +121,7 @@ class PayController extends BaseController {
         }
 
         return Redirect::route('user.linear')->with('status', 'Деньги успешно зачислены на ваш счёт!');
-    }
+    }*/
 
     public function perfect() {
 //        dd(Input::all());

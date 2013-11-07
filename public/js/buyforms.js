@@ -26,7 +26,9 @@ $(document).ready(function(){
         var path = $(this).attr('href');
         var limit = $(this).data('limit');
         var name = $(this).data('name');
-        console.log(limit);
+        var id = $(this).data('id');
+        if(id >= 4)
+            return bootbox.alert("На данный момент тарифная линия недоступна. О дате открытия тарифной линии будет сообщено позже.", function(){});
         if(limit > 0) {
             bootbox.confirm("Вы уверены что хотите купить линейку тарифа "+name+"? Осталось "+limit+" тарифов.", function(result) {
                 console.log(result);

@@ -31,12 +31,14 @@
         <td>Сумма</td>
         <td>Кошелек</td>
     </tr>
+    @foreach($payments as $v)
     <tr>
-        <td></td>
+        <td>{{$v->created_at}}</td>
         <td></td>
         <td></td>
         <td></td>
     </tr>
+    @endforeach
 </table>
 <h3>Полная статистика начислений</h3>
     <table class="table table-bordered">
