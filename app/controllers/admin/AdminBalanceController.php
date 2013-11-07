@@ -8,8 +8,8 @@ class AdminBalanceController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index($id=0)
-	{
+    public function index($id=0)
+    {
         $data['s'] = $id;
         $data['sort'] = \Input::get('sort');
         $data['users'] = \User::remember(10)->get();
@@ -42,7 +42,22 @@ class AdminBalanceController extends \BaseController {
         $data['balance']->appends('sort', $data['sort']);
 
         return \View::make('admin.balance',$data);
-	}
+    }
+    public function checkout($id=0)
+    {
+        $data['s'] = $id;
+        $data['sort'] = \Input::get('sort');
+        $data['users'] = \User::remember(10)->get();
+        $p = \Payment::orderBy('id', 'desc');
+        if($id == 0) {
+            $data['payments'] = $p->where('user_id', '!=', 0)->paginate(10);
+        } else {
+            $data['payments'] = $p->where('user_id', '=', $id)->paginate(10);
+        }
+        $data['payments']->appends('sort', $data['sort']);
+
+        return \View::make('admin.checkout',$data);
+    }
 
     public function process() {
         $i = \Input::all();

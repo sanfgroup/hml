@@ -71,6 +71,7 @@ Route::group(array('before' => 'admin'), function()
     Route::resource('admin/user', 'Admin\AdminUserController');
     Route::post('admin/balance/process', array('as'=>'stat.process','uses'=>'Admin\AdminBalanceController@process'));
     Route::any('admin/balance/{id?}', 'Admin\AdminBalanceController@index');
+    Route::any('admin/checkout/{id?}', array('as'=>'admin.checkout', 'uses'=>'Admin\AdminBalanceController@checkout'));
     Route::any('admin/statistic', 'Admin\AdminStatisticController@index');
     Route::any('admin', 'Admin\AdminStatisticController@index');
     Route::any('admin/tickets/write/{id?}',array('as'=>'admin.tickets', 'uses'=>'Admin\TicketsController@index'));

@@ -25,6 +25,7 @@
                 <li><a href="{{URL::route('admin.tickets')}}">Тикеты</a></li>
                 <li><a href="/admin/statistic">Статистика</a></li>
                 <li><a href="/admin/balance">Статистика начислений</a></li>
+                <li><a href="{{URL::route('admin.checkout')}}">Заказы на выплату</a></li>
             </menu>
         </div>
     </nav>
