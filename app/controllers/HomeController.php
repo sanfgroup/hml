@@ -51,6 +51,11 @@ class HomeController extends BaseController {
         $data = array();
         $data['send']='<span></span>';
         if (Input::server("REQUEST_METHOD") == "POST") {
+            $input = Input::all();
+            $rules = array(
+                'your_name' => 'Required|Min:3|Max:80',
+                'your_email'=> 'Required|Between:3,64|Email|Unique:users',
+            );
             $ticket = new Ticket();
             $ticket->name = Input::get('your_name');
             $data['name'] = Input::get('your_name');
@@ -99,7 +104,7 @@ class HomeController extends BaseController {
         if (Input::server("REQUEST_METHOD") == "POST") {
             $review = new Reviews();
             $review->user_id = $this->user->id;
-            $review->content = INPUT::get('add_review');
+            $review->content = strip_tags(INPUT::get('add_review'));
             $review->save();
             return Redirect::route('reviews')->with('status', 'Вы успешно оставили комментарий');
         }
