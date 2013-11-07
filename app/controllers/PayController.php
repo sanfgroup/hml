@@ -52,23 +52,23 @@ class PayController extends BaseController {
         $data['email'] = $uid->email;
         $data['fio'] = $uid->fio;
         $data['summa'] = $r['sum'];
-        $data['name'] = "OkPay";
-        Mail::send('emails.min', $data, function($message) use ($data)
-        {
-            $message->to($data['email'], $data['fio'])->subject('Пополнение баланса!');
-        });
+        $data['system'] = "OkPay";
 //        dd($uid->pay == $r['art']);
         if($r['art'] == $uid->pay) {
 //            dd($r['sum']);
             $uid->balance()->create(array(
                 'summa' => round($r['sum'],2),
-                'description' => 'Начисление с кошелька OkPay: '.$r['payeer'],
+                'description' => 'Пополнение с кошелька OkPay: '.$r['payeer'],
                 'type' => 1
             ));
             $uid->pay = Str::random(32);
             $uid->save();
+            Mail::send('emails.min', $data, function($message) use ($data)
+            {
+                $message->to($data['email'], $data['fio'])->subject('Пополнение баланса!');
+            });
         }
-        return Redirect::route('user.privat');
+        return Redirect::route('private.inv')->with('status', 'Деньги успешно зачислены на ваш счёт!');
 
 
         /*$account  = $_POST["PAYER_ACCOUNT"];
@@ -129,12 +129,13 @@ class PayController extends BaseController {
         $amount  = $_POST["PAYMENT_AMOUNT"];
         $id  = $_POST["PAYMENT_ID"];
         $user_id = $_REQUEST["user_id"];
+        $batch = $_REQUEST["PAYMENT_BATCH_NUM"];
         $uid = User::find($user_id);
 
         $data['email'] = $uid->email;
         $data['fio'] = $uid->fio;
-        $data['summa'] = $amount['sum'];
-        $data['name'] = "OkPay";
+        $data['summa'] = $amount;
+        $data['system'] = "PerfectMoney ".$batch.' '.$id.' '.$uid->pay;
         Mail::send('emails.min', $data, function($message) use ($data)
         {
             $message->to($data['email'], $data['fio'])->subject('Пополнение баланса!');
@@ -144,12 +145,13 @@ class PayController extends BaseController {
 //            dd(1);
             $uid->balance()->create(array(
                 'summa' => round($amount,2),
-                'description' => 'Начисление с кошелька PerfectMoney: '.$account,
+                'description' => 'Пополнение с кошелька PerfectMoney: '.$account,
+                'batch' => $batch,
                 'type' => 1
             ));
             $uid->pay = Str::random(32);
             $uid->save();
         }
-        return Redirect::route('user.linear')->with('status', 'Деньги успешно зачислены на ваш счёт!');
+        return Redirect::route('private.inv')->with('status', 'Деньги успешно зачислены на ваш счёт!');
     }
 }

@@ -65,7 +65,11 @@
                 @endif
             </td>
             <td>{{$v->summa}}$</td>
-            <td>{{$v->description}}</td>
+            <td>{{$v->description}}
+            @if($v->batch != '')
+                Batch: {{$v->batch}}
+            @endif
+            </td>
         </tr>
         @endforeach
     </table>

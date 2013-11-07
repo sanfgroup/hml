@@ -84,13 +84,13 @@ Route::any('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
         foreach($invs as $inv) {
             switch($inv->id) {
                 case 1:
-                    $inv->limit = 20;
+                    $inv->limit = 0;
                     break;
                 case 2:
-                    $inv->limit = 20;
+                    $inv->limit = 0;
                     break;
                 case 3:
-                    $inv->limit = 20;
+                    $inv->limit = 0;
                     break;
                 case 4:
                 case 5:

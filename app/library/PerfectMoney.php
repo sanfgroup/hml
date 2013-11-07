@@ -7,9 +7,9 @@
  */
 
 class PerfectMoney {
-    protected $account = 'U4390807';
-    protected $login = '5750852';
-    protected $password = 'fp0up82h';
+    protected $account = 'U1991555';
+    protected $login = '313853';
+    protected $password = 'V2*gr-Qt9#u31Z@ny!5';
 
     function __constructor() {
         $this->login = Config::get('pay.perfect.login');

@@ -25,6 +25,7 @@ class BaseController extends Controller {
             $pay = $this->user->pay;
             View::composer('site.private_header', function($view) use($uid, $pay)
             {
+
                 $data = array();
                 if(!Auth::guest()) {
                     $pm = new PerfectMoney();
