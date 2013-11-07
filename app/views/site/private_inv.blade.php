@@ -116,10 +116,10 @@
                     </tr>
                     <tr>
                         <td>Red line</td>
+                        <td>10$</td>
                         <td>4$</td>
                         <td>3$</td>
                         <td>3$</td>
-                        <td>1,5$</td>
                         <td>1,5$</td>
                         <td>1,5$</td>
                         <td>1,5$</td>
