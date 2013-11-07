@@ -49,6 +49,7 @@ class HomeController extends BaseController {
 
 	public function getContacts() {
         $data = array();
+        $data['send']='<span></span>';
         if (Input::server("REQUEST_METHOD") == "POST") {
             $ticket = new Ticket();
             $ticket->name = Input::get('your_name');
@@ -58,14 +59,16 @@ class HomeController extends BaseController {
             $ticket->item = Input::get('item');
             $data['item'] = Input::get('item');
             $ticket->message = Input::get('message');
-            $data['message'] = Input::get('message');
+            $data['message1'] = Input::get('message');
+            $ticket->thread = 0;
             $ticket->save();
             Mail::send('emails.tickets', $data, function($message) use ($data)
             {
                 $message->to('support@myhappylines.com', $data['name'])->subject('Поддержка '.$data['item']);
             });
+            $data['send'] = '<script>alert("Сообщение отправлено");</script>';
         }
-		return View::make('site.contacts');
+		return View::make('site.contacts', $data);
 	}
 
     public function getRulers() {

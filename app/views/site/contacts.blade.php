@@ -1,6 +1,7 @@
 @extends("site.layouts.default")
 
 @section('content')
+{{$send}}
 <h2>Контакты</h2>
 <p><strong>Связаться с нами</strong> вы можете любым удобным для вас способом:</p>
 <p><strong>Skype Тех.поддержки: </strong><a href="skype:myhappylines.support?add"><img src="/images/sk.png" alt=""/> myhappylines.support </a></p>
@@ -13,7 +14,7 @@
     <div class="contactsName">
         Форма обратной связи
     </div>
-    <form action="">
+    {{Form::open()}}
         <ul>
             <li><span>Ваше имя:</span><input type="text" name="your_name" id="your_name" class="form-control"></li>
             <li><span>Ваш e-mail:</span><input type="text" name="your_email" id="your_email" class="form-control"></li>
@@ -22,6 +23,6 @@
         </ul>
         <button type="submit" >Отправить</button>
         <div class="clear"></div>
-    </form>
+    {{Form::close()}}
 </div>
 @stop

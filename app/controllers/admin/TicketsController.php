@@ -25,4 +25,24 @@ class TicketsController extends \BaseController {
         $data['tickets'] = \Ticket::paginate(10);
         return View::make('admin.tickets.list', $data);
     }
+    public function detailTicket($id){
+        $ticketd = \Ticket::find($id);
+        $data['ticket'] = $ticketd;
+        $ticketd->thread = 1;
+
+
+        if (Input::server("REQUEST_METHOD") == "POST") {
+            $data['name'] = Input::get('theme');
+            $data['message1'] = Input::get('content');
+            $data['item'] = Input::get('item');
+            $data['email'] = Input::get('email');
+            Mail::send('emails.answer', $data, function($message) use ($data)
+            {
+                $message->to($data['email'], $data['name'])->subject('Поддержка '.$data['item']);
+            });
+        }
+        $ticketd->save();
+        return View::make('admin.tickets.index', $data);
+    }
+
 }

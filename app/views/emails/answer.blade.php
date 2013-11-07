@@ -4,14 +4,14 @@
     <meta charset="utf-8">
 </head>
 <body>
-<h2>Здравствуйте Поддержка!</h2>
+<h2>Здравствуйте {{$name}}!</h2>
 
 <div>
     <p>По теме: {{$item}}</p>
     <p>{{$email}}</p>
     <p>{{$message1}}</p>
 
-    С уважением, {{$name}}
+    С уважением, поддержка <a href="https://myhappyline.com">MyHappyLine.com</a>
 </div>
 </body>
 </html>

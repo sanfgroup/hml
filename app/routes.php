@@ -18,7 +18,7 @@ Route::get('/faq', array('as'=>'faq', 'uses'=>'HomeController@getFaq'));
 Route::get('/marketing/line', array('as'=>'marketing.linear', 'uses'=>'HomeController@getLine'));
 Route::get('/marketing/inv', array('as'=>'marketing.inv', 'uses'=>'HomeController@getInv'));
 Route::get('/reviews', array('as'=>'reviews', 'uses'=>'HomeController@getReviews'));
-Route::get('/contacts', array('as'=>'contacts', 'uses'=>'HomeController@getContacts'));
+Route::any('/contacts', array('as'=>'contacts', 'uses'=>'HomeController@getContacts'));
 Route::get('/rulers', array('as'=>'rulers', 'uses'=>'HomeController@getRulers'));
 
 Route::get('user/registration', array('as'=>'user.reg', 'uses'=>'UserController@getRegistration'));
@@ -74,6 +74,7 @@ Route::group(array('before' => 'admin'), function()
     Route::any('admin', 'Admin\AdminStatisticController@index');
     Route::any('admin/tickets/write/{id?}',array('as'=>'admin.tickets', 'uses'=>'Admin\TicketsController@index'));
     Route::get('admin/tickets/list', array('as'=>'admin.tickets.list', 'uses'=>'Admin\TicketsController@listTickets'));
+    Route::get('admin/tickets/{id}', array('as'=>'admin.ticket', 'uses'=>'Admin\TicketsController@detailTicket'));
 });
 Route::any('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
     if(date('H:i') == '12:30' || date('H:i') == '19:30') {
