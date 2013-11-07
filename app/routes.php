@@ -76,7 +76,7 @@ Route::group(array('before' => 'admin'), function()
     Route::any('admin', 'Admin\AdminStatisticController@index');
     Route::any('admin/tickets/write/{id?}',array('as'=>'admin.tickets', 'uses'=>'Admin\TicketsController@index'));
     Route::get('admin/tickets/list', array('as'=>'admin.tickets.list', 'uses'=>'Admin\TicketsController@listTickets'));
-    Route::get('admin/tickets/{id}', array('as'=>'admin.ticket', 'uses'=>'Admin\TicketsController@detailTicket'));
+    Route::any('admin/tickets/{id}', array('as'=>'admin.ticket', 'uses'=>'Admin\TicketsController@detailTicket'));
 });
 Route::any('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
     if(date('H:i') == '12:30' || date('H:i') == '19:30') {
