@@ -22,22 +22,22 @@
 <div style="text-align: center; margin: 65px 0 25px;">
     <div class="butBig bal">Ваш баланс: {{$user->balance}}$</div>
     <a href="#addMoney" data-toggle="modal" class="butBig addcash">Пополнить счет</a>
-    <!--<a href="#payMoney" data-toggle="modal" class="butBig get">Вывести деньги</a>-->
+    <a href="#payMoney" data-toggle="modal" class="butBig get">Вывести деньги</a>
 </div>
 <div class="modal fade" id="addMoney" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width: 500px">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-<!--                <h4 class="modal-title">Пополнение баланса</h4>-->
-                <h4>Пополнение счета будет возможно после открытия проекта</h4>
+                <h4 class="modal-title">Пополнение баланса</h4>
+<!--                <h4>Пополнение счета будет возможно после открытия проекта</h4>-->
             </div>
-   <!--         <div class="modal-body">
+            <div class="modal-body">
                 <div>Сумма</div>
 
                 <div class="payf">
-                    $form
-                    $form2
+                    {{$form}}
+                    {{$form2}}
                 </div>
                 <div>С платежной системы</div>
                 <button class="btn btn-primary disabled" id="addPerfect">Perfectmoney</button>
@@ -48,7 +48,7 @@
                 <button id="pay" class="btn btn-warning">
                     Пополнить
                 </button>
-            </div>-->
+            </div>
         </div>
     </div>
 </div>
@@ -57,11 +57,11 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Вывод средств</h4>
-                <h4 class="modal-title">Вывод средств будет доступен после открытия пороекта</h4>
+<!--                <h4 class="modal-title">Вывод средств</h4>-->
+                <h4 class="modal-title">Выводить можно только заработаные деньги</h4>
 
             </div>
-<!--            {{Form::open(array('route'=>'user.payment'))}}-->
+            {{Form::open(array('route'=>'user.payment'))}}
 <!--            <div class="modal-body">-->
 <!--                <div>Сумма</div>-->
 <!--                <input type="text" name="summ" class="form-control"/>-->
@@ -81,7 +81,7 @@
 <!--                    Вывести-->
 <!--                </button>-->
 <!--            </div>-->
-<!--            {{Form::close()}}-->
+            {{Form::close()}}
         </div>
     </div>
 </div>
