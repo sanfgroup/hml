@@ -9,8 +9,8 @@
 class InvController extends BaseController {
 
     public function buy($id=0) {
-//        if($this->user->username != 'vinnizp' && $this->user->username != 'olegan' && $this->user->username != 'olegan1')
-//            return Redirect::back()->with('status', 'Покупка будет открыта только 05.11.2013');
+        if($this->user->username != 'vinnizp' && $this->user->username != 'olegan' && $this->user->username != 'olegan1')
+            return Redirect::back()->with('status', 'Покупка будет доступна после открытия!');
         $s = Session::get('buy');
 //        dd(($id==0 || ($s != null && $s+5 < time())));
         if($id==0 || ($s != null && $s+10 >= time()))
