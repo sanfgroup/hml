@@ -184,7 +184,7 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-    @if($errors->count() > 0)
+    @if($errors->count() > 0 && !(Session::has('okgood')))
     <script>
         $(function(){
             $('#registration').modal('show')
@@ -232,7 +232,16 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                @if($errors->count() > 0)
+                <div class="alert alert-danger">
+                    @foreach( $errors->all() as $message )
+                    <p>{{ $message }}</p>
+                    @endforeach
+                </div>
+                @else
                 <h4 class="modal-title">Вы успешно отправили письмо</h4>
+                @endif
             </div>
 
         </div><!-- /.modal-content -->
