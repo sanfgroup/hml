@@ -37,10 +37,10 @@
         <td>
             <input type="checkbox" name="pay[]" value="{{$v->id}}"/>
         </td>
-        <td>{{$v->created_at}}</td>
+        <td>{{$v->created}}</td>
         <td>{{$v->user->username}}</td>
         <td>{{$v->summa}}</td>
-        <td>{{$v->created}}</td>
+        <td>{{$v->to}}</td>
     </tr>
     @endforeach
 </table>
