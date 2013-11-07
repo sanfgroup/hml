@@ -6,7 +6,7 @@
                 if(result == true) b.parent().submit();
             });
         });
-        $('a.delete').click(function(e) {
+        $('a.delete, a.pay').click(function(e) {
             e.preventDefault();
             var b = $(this)
             bootbox.confirm("Вы уверены?", function(result) {

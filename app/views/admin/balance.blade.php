@@ -24,8 +24,10 @@
 </script>
 
 <h3>Заказы на выплату</h3>
+{{Form::open(array('route'=>'stat.process'))}}
 <table class="table table-bordered">
     <tr>
+        <td>#</td>
         <td>Дата</td>
         <td>Пользователь</td>
         <td>Сумма</td>
@@ -33,13 +35,34 @@
     </tr>
     @foreach($payments as $v)
     <tr>
+        <td>
+            <input type="checkbox" name="pay[]" value="{{$v->id}}"/>
+        </td>
         <td>{{$v->created_at}}</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{$v->user->username}}</td>
+        <td>{{$v->summa}}</td>
+        <td>{{$v->created}}</td>
     </tr>
     @endforeach
 </table>
+<button type="submit" class="btn btn-danger pay">Выплатить</button>
+{{Form::close()}}
+<br/><br/>
+<form action="" method="get">
+    <p>
+        <select name="sort" id="sort">
+            <option value="mm" @if($sort =='mm') selected @endif">Расходы</option>
+            <option value="mp" @if($sort =='mp') selected @endif>Доходы</option>
+            <option value="in" @if($sort =='in') selected @endif>Пополнение баланса</option>
+            <option value="out" @if($sort =='out') selected @endif>Вывод денег</option>
+            <option value="ref" @if($sort =='ref') selected @endif">Реферальные</option>
+    </select>
+    </p>
+    <p>
+        <input class="btn btn-primary" type="submit" value="Фильтр"/>
+    </p>
+</form>
+
 <h3>Полная статистика начислений</h3>
     <table class="table table-bordered">
         <tr>
