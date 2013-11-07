@@ -65,41 +65,47 @@ class AdminBalanceController extends \BaseController {
 
     public function process() {
         $i = \Input::all();
-        foreach($i['pay'] as $v) {
-            $p = \Payment::find($v);
-            if(!empty($p->to) && preg_match('/U.*/', $p->to)) {
-                $pm = new PerfectMoney();
-                $u = $p->user;
-                $account = $p->to;
-                $amount = $p->summa*0.95;
-                if($amount <= $u->balance) {
-                    if($pm->pay($amount, $account)) {
-                        $u->balance()->create(array(
-                            'summa' => -$p->summa,
-                            'description' => 'Вывод денег на кошелек PerfectMoney: '.$account,
-                            'type' => 2
-                        ));
-                    }
+        if($i['type'] == 'Delete') {
+            foreach($i['pay'] as $v) {
+                \Payment::destroy($v);
+            }
+        } else if($i['type'] == 'Pay') {
+            foreach($i['pay'] as $v) {
+                $p = \Payment::find($v);
+                if(!empty($p->to) && preg_match('/U.*/', $p->to)) {
+                    $pm = new PerfectMoney();
+                    $u = $p->user;
+                    $account = $p->to;
+                    $amount = $p->summa*0.95;
+                    if($amount <= $u->balance) {
+                        if($pm->pay($amount, $account)) {
+                            $u->balance()->create(array(
+                                'summa' => -$p->summa,
+                                'description' => 'Вывод денег на кошелек PerfectMoney: '.$account,
+                                'type' => 2
+                            ));
+                        }
 
-                }
-            } else {
-                $ok = new OkPay();
-                $u = $p->user;
-                $account = $p->to;
-                $amount = $p->summa*0.95;
-                if($amount <= $u->balance) {
-                    if($ok->pay($amount, $account)) {
-                        $u->balance()->create(array(
-                            'summa' => -$p->summa,
-                            'description' => 'Вывод денег на кошелек OkPay: '.$account,
-                            'type' => 2
-                        ));
                     }
+                } else {
+                    $ok = new OkPay();
+                    $u = $p->user;
+                    $account = $p->to;
+                    $amount = $p->summa*0.95;
+                    if($amount <= $u->balance) {
+                        if($ok->pay($amount, $account)) {
+                            $u->balance()->create(array(
+                                'summa' => -$p->summa,
+                                'description' => 'Вывод денег на кошелек OkPay: '.$account,
+                                'type' => 2
+                            ));
+                        }
 
+                    }
                 }
             }
         }
-        return Redirect::back();
+        return \Redirect::to('/admin/checkout');
 
     }
 

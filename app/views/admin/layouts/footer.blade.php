@@ -1,10 +1,13 @@
 <script>
     $(function() {
-        $('form button').click(function(e) {
+        $('form button, form input[type=submit]').click(function(e) {
             e.preventDefault();
             var b = $(this)
             bootbox.confirm("Вы уверены?", function(result) {
-                if(result == true) b.parent().submit();
+                if(result == true) {
+                    b.parent().find('#ftype').val(b.attr('value'));
+                    b.parent().submit();
+                }
             });
         });
         $('a.delete, a.pay').click(function(e) {

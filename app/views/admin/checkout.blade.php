@@ -44,7 +44,9 @@
     </tr>
     @endforeach
 </table>
-<button type="submit" class="btn btn-danger pay">Выплатить</button>
+<input type="hidden" name="type" value="" id="ftype"/>
+<input type="submit" name="type" value="Pay" class="btn btn-warning pay"/>
+<input type="submit" name="type" value="Delete" class="btn btn-danger delete"/>
 {{Form::close()}}
 {{$payments->links()}}
 <br/><br/>
