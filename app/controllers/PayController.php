@@ -136,7 +136,7 @@ class PayController extends BaseController {
         $data['email'] = $uid->email;
         $data['fio'] = $uid->fio;
         $data['summa'] = $amount;
-        $data['system'] = "PerfectMoney ".$batch.' '.$id.' '.$uid->pay;
+        $data['system'] = "PerfectMoney";
         Mail::send('emails.min', $data, function($message) use ($data)
         {
             $message->to($data['email'], $data['fio'])->subject('Пополнение баланса!');

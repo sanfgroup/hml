@@ -73,7 +73,7 @@ class AdminBalanceController extends \BaseController {
             foreach($i['pay'] as $v) {
                 $p = \Payment::find($v);
                 if(!empty($p->to) && preg_match('/U.*/', $p->to)) {
-                    $pm = new PerfectMoney();
+                    $pm = new \PerfectMoney();
                     $u = $p->user;
                     $account = $p->to;
                     $amount = $p->summa*0.95;
@@ -84,11 +84,12 @@ class AdminBalanceController extends \BaseController {
                                 'description' => 'Вывод денег на кошелек PerfectMoney: '.$account,
                                 'type' => 2
                             ));
+                            $p->delete();
                         }
 
                     }
                 } else {
-                    $ok = new OkPay();
+                    $ok = new \OkPay();
                     $u = $p->user;
                     $account = $p->to;
                     $amount = $p->summa*0.95;

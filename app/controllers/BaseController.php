@@ -32,7 +32,7 @@ class BaseController extends Controller {
                     $pm = new PerfectMoney();
                     $data['form'] = $pm->form($uid, $pay, $uname);
                     $ok = new OkPay();
-                    $data['form2'] = $ok->form($uid, $pay);
+                    $data['form2'] = $ok->form($uid, $pay, $uname);
                 }
                 $view->with($data);
             });

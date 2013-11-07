@@ -64,7 +64,7 @@
                 {{$v->user()->remember(5)->first()->username}}
                 @endif
             </td>
-            <td>{{$v->summa}}$</td>
+            <td>{{$v->summas}}$</td>
             <td>{{$v->description}}
             @if($v->batch != '')
                 Batch: {{$v->batch}}

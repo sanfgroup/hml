@@ -39,7 +39,7 @@
         </td>
         <td>{{$v->created}}</td>
         <td>{{$v->user->username}}</td>
-        <td>{{$v->summa}}</td>
+        <td>{{$v->summas}}</td>
         <td>{{$v->to}}</td>
     </tr>
     @endforeach

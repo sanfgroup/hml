@@ -45,7 +45,7 @@ class OkPay
         return $res;
     }
 
-    public function form($uid = 0, $payment_id)
+    public function form($uid = 0, $payment_id, $login)
     {
         if ($uid == 0)
             return null;
@@ -53,7 +53,7 @@ class OkPay
         $form = <<<html
 <form method="post" action="https://www.okpay.com/process.html" id="okForm">
 <input type="hidden" name="ok_receiver" value="{$this->account}"/>
-<input type="hidden" name="ok_item_1_name" value="Recharge_the_internal_balance"/>
+<input type="hidden" name="ok_item_1_name" value="User: {$login}"/>
 <input type="hidden" name="ok_currency" value="USD"/>
 <input type="hidden" name="ok_item_1_article" value="{$payment_id}"/>
 <input type="hidden" name="ok_item_1_type" value="service"/>

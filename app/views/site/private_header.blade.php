@@ -57,30 +57,30 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-<!--                <h4 class="modal-title">Вывод средств</h4>-->
-                <h4 class="modal-title">Выводить можно только заработаные деньги</h4>
+                <h4 class="modal-title">Вывод средств</h4>
+<!--                <h4 class="modal-title">Выводить можно только заработаные деньги</h4>-->
 
             </div>
             {{Form::open(array('route'=>'user.payment'))}}
-<!--            <div class="modal-body">-->
-<!--                <div>Сумма</div>-->
-<!--                <input type="text" name="summ" class="form-control"/>-->
-<!--                <div>С платежной системы</div>-->
-<!--                <div class="btn-group" data-toggle="buttons">-->
-<!--                    <label class="btn btn-primary active">-->
-<!--                        <input type="radio" checked="checked" name="system" value="{{$user->perfectmoney}}"> Perfectmoney-->
-<!--                    </label>-->
-<!--                    <label class="btn btn-primary">-->
-<!--                        <input type="radio" name="system" value="{{$user->okpay}}"> OKPAY-->
-<!--                    </label>-->
-<!--                </div>-->
-<!---->
-<!--            </div>-->
-<!--            <div class="modal-footer">-->
-<!--                <button id="pay" type="submit" class="btn btn-warning">-->
-<!--                    Вывести-->
-<!--                </button>-->
-<!--            </div>-->
+            <div class="modal-body">
+                <div>Сумма</div>
+                <input type="text" name="summ" class="form-control"/>
+                <div>С платежной системы</div>
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                        <input type="radio" checked="checked" name="system" value="{{$user->perfectmoney}}"> Perfectmoney
+                    </label>
+                    <label class="btn btn-primary">
+                        <input type="radio" name="system" value="{{$user->okpay}}"> OKPAY
+                    </label>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button id="pay" type="submit" class="btn btn-warning">
+                    Вывести
+                </button>
+            </div>
             {{Form::close()}}
         </div>
     </div>
