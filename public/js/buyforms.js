@@ -9,12 +9,38 @@ $(document).ready(function(){
 
         $('#perfectForm').addClass('active');
         $('#okForm').removeClass('active');
-        $('form.active').submit();
+        $.ajax({
+            type: "POST",
+            url: '/pay',
+            data: {
+                summ: $('#get_summ').val()
+            },
+            success: function(data) {
+                if(data.key != null) {
+                    $('#perfectForm .payment_id').val(data.key);
+                    $('form.active').submit();
+                }
+            },
+            dataType: 'post'
+        });
     });
     $('#addOk').click(function(){
         $('#okForm').addClass('active');
         $('#perfectForm').removeClass('active');
-        $('form.active').submit();
+        $.ajax({
+            type: "POST",
+            url: '/pay',
+            data: {
+                summ: $('#get_summ').val()
+            },
+            success: function(data) {
+                if(data.key != null) {
+                    $('#okForm .payment_id').val(data.key);
+                    $('form.active').submit();
+                }
+            },
+            dataType: 'post'
+        });
     });
     $('#pay').click(function(){
         $('form.active').submit();

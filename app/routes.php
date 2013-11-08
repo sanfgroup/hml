@@ -37,7 +37,7 @@ Route::group(array('before' => 'auth'), function()
     Route::post('user/payment', array('as'=>'user.payment','uses'=>'PayController@pay'));
 //    Route::any('pay/perfect/out', array('as'=>'pay.prefect.out','uses'=>'PayController@perfectPay'));
     Route::any('pay/okpay', array('as'=>'pay.okpay','uses'=>'PayController@okpay'));
-//    Route::any('pay/okpay/out', array('as'=>'pay.okpay.out','uses'=>'PayController@okpayPay'));
+    Route::any('pay', array('uses'=>'PayController@payin'));
 
     Route::get('user/linear/buy/{id}', array('as'=>'user.linear.buy','uses'=>'LinearController@buy'));
 

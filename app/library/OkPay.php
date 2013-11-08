@@ -56,7 +56,7 @@ class OkPay
 <input type="hidden" name="ok_receiver" value="{$this->account}"/>
 <input type="hidden" name="ok_item_1_name" value="User: {$login}"/>
 <input type="hidden" name="ok_currency" value="USD"/>
-<input type="hidden" name="ok_item_1_article" value="{$payment_id}"/>
+<input type="hidden" name="ok_item_1_article" class="payment_id" value="{$payment_id}"/>
 <input type="hidden" name="ok_item_1_type" value="service"/>
 <input type="hidden" name="ok_return_success" value="{$ad}/pay/okpay"/>
 <input type="hidden" name="ok_return_fail" value="{$ad}/pay/okpayFail"/>

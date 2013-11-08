@@ -32,7 +32,7 @@ class PerfectMoney {
         $form = <<<html
 <form action="https://perfectmoney.is/api/step1.asp" method="POST" id="perfectForm" class="active">
     <input type="hidden" name="PAYEE_ACCOUNT" value="{$this->account}">
-    <input type="hidden" name="PAYMENT_ID" value="{$payment_id}">
+    <input type="hidden" name="PAYMENT_ID" class="payment_id" value="{$payment_id}">
     <input type="hidden" name="PAYMENT_AMOUNT" value="" id="get_perfect">
     <input type="hidden" name="PAYMENT_UNITS" value="USD">
     <input type="hidden" name="STATUS_URL" value="">

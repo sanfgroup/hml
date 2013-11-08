@@ -31,6 +31,21 @@ class PayController extends BaseController {
         return Redirect::back()->with('status', 'Минимальная выплата от 1$');
     }
 
+    public function payin() {
+        $i = Input::all();
+            Eloquent::unguard();
+            $key = md5(Str::random(32));
+            $p = Payin::create(array(
+                'key' => $key,
+                'summa' => $i['summ']
+            ));
+            return json_encode(array(
+                'key' => $key,
+                'summ' => $p->summa,
+                'id' => $p->id
+            ));
+    }
+
     public function okpay() {
 //        dd(Input::all());
 
@@ -56,7 +71,8 @@ class PayController extends BaseController {
         $data['summa'] = $r['sum'];
         $data['system'] = "OkPay";
 //        dd($uid->pay == $r['art']);
-        if($r['art'] == $uid->pay) {
+        $pay = Payin::whereKey(trim($r['art']))->first();
+        if(isset($pay->summa) && $pay->summa == $r['sum']) {
 //            dd($r['sum']);
             $uid->balance()->create(array(
                 'summa' => round($r['sum'],2),
@@ -92,7 +108,8 @@ class PayController extends BaseController {
         {
             $message->to($data['email'], $data['fio'])->subject('Пополнение баланса!');
         });
-        if($id == $uid->pay) {
+        $pay = Payin::whereKey(trim($id))->first();
+        if(isset($pay->summa) && $pay->summa == $amount) {
 //            Eloquent::unguard();
 //            dd(1);
             $uid->balance()->create(array(
