@@ -35,11 +35,10 @@
             <div class="modal-body">
                 <div>Сумма</div>
 
-                <div class="payf">
-                    <input id="get_summ" type="text" class="form-control"/>
-                    {{$form}}
-                    {{$form2}}
-                </div>
+                    <form id="payForm" action="/paysss" method="post">
+                        <input type="hidden" name="s" id="paySystem"/>
+                    <input id="get_summ" name="summ" type="text" class="form-control"/>
+                    </form>
                 <div>На платежную систему</div>
                 <button class="btn btn-primary" id="addPerfect">Perfectmoney</button>
                 <button class="btn btn-primary" id="addOk">OKPAY</button>

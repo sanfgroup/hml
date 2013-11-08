@@ -6,41 +6,12 @@ $(document).ready(function(){
        locale: 'ru'
     });
     $('#addPerfect').click(function(){
-
-        $('#perfectForm').addClass('active');
-        $('#okForm').removeClass('active');
-        $.ajax({
-            type: "POST",
-            url: '/pay',
-            data: {
-                summ: $('#get_summ').val()
-            },
-            success: function(data) {
-                if(data.key != null) {
-                    $('#perfectForm .payment_id').val(data.key);
-                    $('form.active').submit();
-                }
-            },
-            dataType: 'post'
-        });
+        $('#paySystem').val('perfect');
+        $('#payForm').submit();
     });
     $('#addOk').click(function(){
-        $('#okForm').addClass('active');
-        $('#perfectForm').removeClass('active');
-        $.ajax({
-            type: "POST",
-            url: '/pay',
-            data: {
-                summ: $('#get_summ').val()
-            },
-            success: function(data) {
-                if(data.key != null) {
-                    $('#okForm .payment_id').val(data.key);
-                    $('form.active').submit();
-                }
-            },
-            dataType: 'post'
-        });
+        $('#paySystem').val('okpay');
+        $('#payForm').submit();
     });
     $('#pay').click(function(){
         $('form.active').submit();

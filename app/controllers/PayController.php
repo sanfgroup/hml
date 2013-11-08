@@ -33,17 +33,33 @@ class PayController extends BaseController {
 
     public function payin() {
         $i = Input::all();
+        if(isset($i['summ']) && isset($i['s'])) {
             Eloquent::unguard();
             $key = md5(Str::random(32));
             $p = Payin::create(array(
                 'key' => $key,
                 'summa' => $i['summ']
             ));
-            return json_encode(array(
-                'key' => $key,
-                'summ' => $p->summa,
-                'id' => $p->id
-            ));
+            if($i['s'] == 'perfect') {
+                $ps = new PerfectMoney();
+                echo $ps->form($this->user->id, $p->key, $this->user->username, $i['summ']);
+
+            }if($i['s'] == 'okpay') {
+                $ok = new OkPay();
+                echo $ok->form($this->user->id, $p->key, $this->user->username, $i['summ']);
+
+            }
+
+            echo <<<html
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+$(function() {
+$('form').submit();
+});
+</script>
+html;
+        } else
+        return Redirect::back();
     }
 
     public function okpay() {
@@ -54,7 +70,7 @@ class PayController extends BaseController {
 
         $r = array(
             'payeer' => $arr['ok_payer_email'],
-            'sum' => $arr['ok_txn_fee'],
+            'sum' => $arr['ok_txn_gross'],
             'curr' => $arr['ok_txn_currency'],
             'batch' => $arr['ok_txn_id'],
             'status' => $arr['ok_txn_status'],
@@ -65,14 +81,15 @@ class PayController extends BaseController {
             'date' => time()
         );
         $uid = User::find($r['uid']);
-        $r['sum'] = ceil($r['sum']*100)/100;
+        $r['sum'] = round($r['sum'],2);
         $data['email'] = $uid->email;
         $data['fio'] = $uid->fio;
         $data['summa'] = $r['sum'];
         $data['system'] = "OkPay";
 //        dd($uid->pay == $r['art']);
-        $pay = Payin::whereKey(trim($r['art']))->first();
-        if(isset($pay->summa) && $pay->summa == $r['sum']) {
+        $pay = Payin::whereKey($r['art'])->first();
+        if(isset($pay->summa) && round($pay->summa,2) >= $r['sum']) {
+            $pay->delete();
 //            dd($r['sum']);
             $uid->balance()->create(array(
                 'summa' => round($r['sum'],2),
@@ -108,8 +125,9 @@ class PayController extends BaseController {
         {
             $message->to($data['email'], $data['fio'])->subject('Пополнение баланса!');
         });
-        $pay = Payin::whereKey(trim($id))->first();
-        if(isset($pay->summa) && $pay->summa == $amount) {
+        $pay = Payin::whereKey($id)->first();
+        if(isset($pay->summa) && round($pay->summa,2) == $amount) {
+            $pay->delete();
 //            Eloquent::unguard();
 //            dd(1);
             $uid->balance()->create(array(

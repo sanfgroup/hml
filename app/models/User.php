@@ -130,6 +130,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return round($b-$p,2);
     }
 
+    public function getBalancesAttribute() {
+        $b = $this->balance()->sum('summa');
+        if(!$b)
+            return 0;
+        return round($b,2);
+    }
+
     public function getBalancefAttribute() {
         $p = $this->payments()->where('payed', 0)->sum('summa');
         if(!$p)

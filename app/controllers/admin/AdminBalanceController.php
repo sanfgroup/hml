@@ -105,7 +105,7 @@ class AdminBalanceController extends \BaseController {
                     $u = $p->user;
                     $account = $p->to;
                     $amount = $p->summa*0.95;
-                    if($amount <= $u->balance) {
+                    if($amount <= $u->balances) {
                         if($ok->pay($amount, $account)) {
                             $p->payed = 1;
                             $p->save();

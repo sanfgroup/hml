@@ -9,7 +9,7 @@
 class OkPay
 {
     protected $account = 'OK722373543';
-    protected $passcode = '@dhU25*@W';
+    protected $passcode = 'd7T6BaWg5o3R9Mpr4ASb2x8K5';
 
     function __constructor()
     {
@@ -46,7 +46,7 @@ class OkPay
         return $res;
     }
 
-    public function form($uid = 0, $payment_id, $login)
+    public function form($uid = 0, $payment_id, $login, $a)
     {
         if ($uid == 0)
             return null;
@@ -56,11 +56,12 @@ class OkPay
 <input type="hidden" name="ok_receiver" value="{$this->account}"/>
 <input type="hidden" name="ok_item_1_name" value="User: {$login}"/>
 <input type="hidden" name="ok_currency" value="USD"/>
+<input type="hidden" name="ok_fees" value="1"/>
 <input type="hidden" name="ok_item_1_article" class="payment_id" value="{$payment_id}"/>
 <input type="hidden" name="ok_item_1_type" value="service"/>
 <input type="hidden" name="ok_return_success" value="{$ad}/pay/okpay"/>
 <input type="hidden" name="ok_return_fail" value="{$ad}/pay/okpayFail"/>
-<input type="hidden" name="ok_item_1_price" value="" id="get_ok" class="form-control"/>
+<input type="hidden" name="ok_item_1_price" value="{$a}" id="get_ok" class="form-control"/>
 <input type="hidden" name="ok_item_1_custom_1_title" value="user_id">
 <input type="hidden" name="ok_item_1_custom_1_value" maxlength="127" value="{$uid}">
 <!--<input type="image" name="submit" alt="OKPAY Payment" src="https://www.okpay.com/img/buttons/ru/top-up/t13g163x42en.png"/>-->

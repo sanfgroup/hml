@@ -28,6 +28,7 @@ Route::post('user/login', array('uses'=>'UserController@postLogin'));
 Route::post('user/recovery', array('as' => 'user.recovery','uses'=>'UserController@postRecovery'));
 Route::post('user/reset/{token}/{email}', array('as' => 'password.reset','uses'=>'UserController@resetPassword'));
 
+Route::any('paysss', array('uses'=>'PayController@payin'));
 Route::group(array('before' => 'auth'), function()
 {
 
@@ -37,7 +38,6 @@ Route::group(array('before' => 'auth'), function()
     Route::post('user/payment', array('as'=>'user.payment','uses'=>'PayController@pay'));
 //    Route::any('pay/perfect/out', array('as'=>'pay.prefect.out','uses'=>'PayController@perfectPay'));
     Route::any('pay/okpay', array('as'=>'pay.okpay','uses'=>'PayController@okpay'));
-    Route::any('pay', array('uses'=>'PayController@payin'));
 
     Route::get('user/linear/buy/{id}', array('as'=>'user.linear.buy','uses'=>'LinearController@buy'));
 

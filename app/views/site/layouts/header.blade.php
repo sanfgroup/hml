@@ -39,7 +39,7 @@
                         hours = 0;
                     }
                 }
-                if(minutes%10==0){
+                if(minutes){
                     update_clock();//Это функция, которая описана в самом верху.
                 }
             }

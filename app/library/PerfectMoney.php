@@ -25,7 +25,7 @@ class PerfectMoney {
         return true;
     }
 
-    public function form($uid=0,$payment_id,$login) {
+    public function form($uid=0,$payment_id,$login,$a) {
         if($uid == 0)
             return null;
         $ad = URL::to('/');
@@ -33,7 +33,7 @@ class PerfectMoney {
 <form action="https://perfectmoney.is/api/step1.asp" method="POST" id="perfectForm" class="active">
     <input type="hidden" name="PAYEE_ACCOUNT" value="{$this->account}">
     <input type="hidden" name="PAYMENT_ID" class="payment_id" value="{$payment_id}">
-    <input type="hidden" name="PAYMENT_AMOUNT" value="" id="get_perfect">
+    <input type="hidden" name="PAYMENT_AMOUNT" value="{$a}" id="get_perfect">
     <input type="hidden" name="PAYMENT_UNITS" value="USD">
     <input type="hidden" name="STATUS_URL" value="">
     <input type="hidden" name="SUGGESTED_MEMO" value="User: {$login}">
