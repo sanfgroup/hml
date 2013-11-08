@@ -13,10 +13,15 @@ class AdminUserController extends \BaseController {
 	public function index()
 	{
         $id = Input::get('id');
+        $names = Input::get('names');
         $data['s'] = $id;
         if($id != 0) {
             $data['users'] = User::whereId($id)->paginate(10);
-        } else {
+        }
+        elseif($names){
+           $data['users'] = User::whereRaw('fio LIKE ?', array("%$names%"))->paginate(10);
+        }
+        else {
             $data['users'] = User::orderBy('id', 'desc')->paginate(10);
         }
 		return View::make('admin.user.index', $data);

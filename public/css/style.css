@@ -387,7 +387,7 @@ a.flogo img{
 .pays{
 	position: absolute;
 	top: 50px;
-	left: 320px;
+	left: 395px;
 }
 .pays img{
     width: 100px;
@@ -403,7 +403,7 @@ p.all{
 }
 .socn{
 	position: absolute;
-	right: 215px;
+	right: 170px;
 	top: 20px;
 }
 .socn a{
@@ -1032,7 +1032,7 @@ nav .container{
 .mmgp{
 	position: absolute;
 	top: 40px;
-	right: 376px;
+	right: 310px;
 }
 .container_all{
 	width: 850px;
@@ -1820,7 +1820,7 @@ table.lscl tr:last-child td{
 .count{
     display: block;
     position: absolute;
-    right: 125px;
+    right: 45px;
     top: 5px;
 }
 #take, #takeok{

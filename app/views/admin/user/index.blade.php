@@ -5,11 +5,13 @@
     <select name="id" id="user">
         <option value="">Все пользователи</option>
         @foreach(User::all() as $v)
-        <option value="{{$v->id}}"
-        @if($v->id == $s)
-        selected
-        @endif
-        >{{$v->username}}</option>
+        <option value="{{$v->id}}">{{$v->username}}</option>
+        @endforeach
+    </select>
+    <select name="names" id="user2">
+        <option value="">Все люди</option>
+        @foreach(User::all() as $v)
+        <option value="{{$v->fio}}">{{$v->fio}}</option>
         @endforeach
     </select>
     <button type="submit" class="btn btn-primary" href="#" id="user_balance">Поиск</button>
