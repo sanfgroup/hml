@@ -51,7 +51,7 @@ $(document).ready(function(){
     });
     $('#take_money').keyup(function(){
         var summ = Number($(this).val());
-        var q = (summ*0.05).toFixed(2);
+        var q = (summ*0.95).toFixed(2);
         $('#procent').text('При выводе средств снимается комиссия 5%. Вывод составит '+q+'$');
 //        (Math.ceil(summ*100)/100)
     });

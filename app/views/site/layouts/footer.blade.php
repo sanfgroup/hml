@@ -95,7 +95,7 @@
 
                     <li>
                         {{ Form::label('referral', 'Логин пригласителя') }}
-                        {{ Form::text('referral', Session::get('ref', ''), array('class'=>'form-control')) }}
+                        <input type="text" name="referral" id="referral" value="{{Session::get('ref', '')}}" class="form-control" @if(Session::has('ref')) disabled="disabled" @endif/>
                     </li>
                     <li>
                         {{Form::checkbox('conf', 'yes')}}&nbsp;Вы принимаете <a href="{{URL::route('rulers')}}" target="_blank" style="color: #fff; text-decoration: underline;">соглашение</a>

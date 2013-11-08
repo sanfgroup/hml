@@ -1730,7 +1730,7 @@ input[type=checkbox]{
 .modal-body div{
     margin: 5px 0;
 }
-.modal-body button{
+.modal-body button, .modal-body label.btn {
     border-radius: 10px;
     width: 180px;
     border: 2px solid #6acfde;

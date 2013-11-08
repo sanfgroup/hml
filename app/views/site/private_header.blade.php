@@ -40,7 +40,7 @@
                     {{$form}}
                     {{$form2}}
                 </div>
-                <div>С платежной системы</div>
+                <div>На платежную систему</div>
                 <button class="btn btn-primary" id="addPerfect">Perfectmoney</button>
                 <button class="btn btn-primary" id="addOk">OKPAY</button>
 
