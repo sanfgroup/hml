@@ -73,58 +73,7 @@ class PayController extends BaseController {
         }
         return Redirect::route('private.inv')->with('status', 'Деньги успешно зачислены на ваш счёт!');
 
-
-        /*$account  = $_POST["PAYER_ACCOUNT"];
-        $amount  = $_POST["PAYMENT_AMOUNT"];
-        $id  = $_POST["PAYMENT_ID"];
-        $user_id = $_REQUEST["user_id"];
-        $uid = User::find($user_id);
-        $h = $uid->username.$uid->pay;
-        if($id == $uid->pay) {
-            $uid->balance()->create(array(
-                'summa' => $amount,
-                'description' => 'Начисление с кошелька PerfectMoney: '.$account
-            ));
-            $uid->pay = Str::random(32);
-            $uid->save();
-        }
-        return Redirect::route('user.privat');*/
     }
-
-    /*public function perfectPay() {
-        $pm = new PerfectMoney();
-        $u = $this->user;
-        $account = $u->perfectmoney;
-        $amount = Input::get('amount', 0);
-        if($amount <= $u->balance) {
-            if($pm->pay($amount, $account)) {
-                $u->balance()->create(array(
-                    'summa' => -$amount,
-                    'description' => 'Вывод денег на кошелек PerfectMoney: '.$account
-                    ));
-            }
-
-        }
-
-        return Redirect::route('user.linear')->with('status', 'Деньги успешно зачислены на ваш счёт!');
-    }*/
-
-//    public function okpayPay() {
-//        $ok = new OkPay();
-//        $u = $this->user;
-//        $account = $u->okpay;
-//        $amount = Input::get('amount', 0);
-//        if($amount <= $u->balance && !empty($account)) {
-//
-//            if($ok->pay($amount, $account)) {
-//                $u->balance()->create(array(
-//                    'summa' => -$amount,
-//                    'description' => 'Вывод денег на кошелек OkPay: '.$account
-//                ));
-//            }
-//
-//        }
-//    }
 
     public function perfect() {
 //        dd(Input::all());

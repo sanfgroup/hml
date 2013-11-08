@@ -67,21 +67,38 @@ class AdminBalanceController extends \BaseController {
         $i = \Input::all();
         if($i['type'] == 'Delete') {
             foreach($i['pay'] as $v) {
-                \Payment::destroy($v);
+                $p = \Payment::find($v);
+                $p->payed = 2;
+                $p->save();
             }
         } else if($i['type'] == 'Pay') {
             foreach($i['pay'] as $v) {
                 $p = \Payment::find($v);
-                if(!empty($p->to) && preg_match('/U.*/', $p->to)) {
+                if($p->payed == 0 && !empty($p->to) && preg_match('/U.*/', $p->to)) {
                     $pm = new \PerfectMoney();
                     $u = $p->user;
                     $account = $p->to;
                     $amount = $p->summa*0.95;
                     if($amount <= $u->balance) {
                         if($pm->pay($amount, $account)) {
-                            $p->delete();
+                            $p->payed = 1;
+                            $p->save();
+                            $u->balance()->create(array(
+                                'description' => 'Вывод денег на кошелек PerfectMoney: '.$p->to,
+                                'summa' => $p->summa,
+                                'type' => 2
+                            ));
+                            \Eloquent::unguard();
+                            \Balance::create(array(
+                                'description' => 'Отчисление: '.$p->to,
+                                'summa' => $p->summa*0.05,
+                                'type' => 2,
+                                'user_id'=>0
+                            ));
                         }
 
+                    } else {
+                        return Redirect::back()->with('status', 'Заявка не обработана, проверьте платёжную cистему');
                     }
                 } else {
                     $ok = new \OkPay();
@@ -90,7 +107,22 @@ class AdminBalanceController extends \BaseController {
                     $amount = $p->summa*0.95;
                     if($amount <= $u->balance) {
                         if($ok->pay($amount, $account)) {
-                            $p->delete();
+                            $p->payed = 1;
+                            $p->save();
+                            $u->balance()->create(array(
+                                'description' => 'Вывод денег на кошелек OkPay: '.$p->to,
+                                'summa' => $p->summa,
+                                'type' => 2
+                            ));
+                            \Eloquent::unguard();
+                            \Balance::create(array(
+                                'description' => 'Отчисление: '.$p->to,
+                                'summa' => $p->summa*0.05,
+                                'type' => 2,
+                                'user_id'=>0
+                            ));
+                        } else {
+                            return Redirect::back()->with('status', 'Заявка не обработана, проверьте платёжную cистему');
                         }
 
                     }

@@ -12,7 +12,13 @@ class AdminUserController extends \BaseController {
 	 */
 	public function index()
 	{
-        $data['users'] = User::orderBy('id', 'desc')->paginate(10);
+        $id = Input::get('id');
+        $data['s'] = $id;
+        if($id != 0) {
+            $data['users'] = User::whereId($id)->paginate(10);
+        } else {
+            $data['users'] = User::orderBy('id', 'desc')->paginate(10);
+        }
 		return View::make('admin.user.index', $data);
 	}
 

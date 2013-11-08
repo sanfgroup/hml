@@ -1,6 +1,19 @@
 @extends('admin.layouts.default')
 
 @section('content')
+<form action="" method="get">
+    <select name="id" id="user">
+        <option value="">Все пользователи</option>
+        @foreach(User::all() as $v)
+        <option value="{{$v->id}}"
+        @if($v->id == $s)
+        selected
+        @endif
+        >{{$v->username}}</option>
+        @endforeach
+    </select>
+    <button type="submit" class="btn btn-primary" href="#" id="user_balance">Поиск</button>
+</form>
 <table class="table table-bordered">
     <tr>
         <td>id</td>

@@ -100,8 +100,12 @@
 </div>
 <h1>За период с {{$date_f}} до {{$date_t}}</h1>
 <p>Пользователей: {{$users->count()}}</p>
-<p>Ввели в систему: {{Balance::where('created_at', '>=', $date_f)->where('created_at', '<=', $date_t)->where('type', 1)->sum('summa')}} $</p>
-<p>В финансовой подушке: {{Balance::where('created_at', '>=', $date_f)->where('created_at', '<=', $date_t)->where('user_id', '0')->sum('summa')}} $</p>
+<p>Ввели в систему: {{round(Balance::where('created_at', '>=', $date_f)->where('created_at', '<=', $date_t)->where('type', 1)->sum('summa'),2)}} $</p>
+<p>Вывели из системы: {{abs(round(Balance::where('created_at', '>=', $date_f)->where('created_at', '<=', $date_t)->where('type', 2)->sum('summa'),2))}} $</p>
+<p>Ожидает вывода: {{abs(round(Payment::where('created_at', '>=', $date_f)->where('created_at', '<=', $date_t)->where('payed', 0)->sum('summa'),2))}} $</p>
+<p>Реферальных комиссионных: {{abs(round(Balance::where('created_at', '>=', $date_f)->where('created_at', '<=', $date_t)->where('referal_id', '!=', 0)->sum('summa'),2))}} $</p>
+<p>Отчисления 5%: {{round(Balance::where('created_at', '>=', $date_f)->where('created_at', '<=', $date_t)->where('type', 15)->sum('summa'),2)}} $</p>
+<p>В финансовой подушке: {{Balance::where('created_at', '>=', $date_f)->where('created_at', '<=', $date_t)->where('user_id', '0')->whereType(0)->sum('summa')}} $</p>
 
 <br/>
 <br/>

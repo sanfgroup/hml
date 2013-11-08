@@ -19,7 +19,7 @@
             <td>{{$balance}}$</td>
             <td>{{$buys}} </td>
             <td>0.00$</td>
-            <td>0.00$</td>
+            <td>{{$user->balancef}}$</td>
         </tr>
     </table>
 </div>
