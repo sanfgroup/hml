@@ -92,13 +92,13 @@ class AdminBalanceController extends \BaseController {
                             \Balance::create(array(
                                 'description' => 'Отчисление: '.$p->to,
                                 'summa' => $p->summa*0.05,
-                                'type' => 2,
+                                'type' => 15,
                                 'user_id'=>0
                             ));
                         }
 
                     } else {
-                        return Redirect::back()->with('status', 'Заявка не обработана, проверьте платёжную cистему');
+                        return \Redirect::back()->with('status', 'Заявка не обработана, проверьте платёжную cистему');
                     }
                 } else {
                     $ok = new \OkPay();
@@ -118,11 +118,11 @@ class AdminBalanceController extends \BaseController {
                             \Balance::create(array(
                                 'description' => 'Отчисление: '.$p->to,
                                 'summa' => $p->summa*0.05,
-                                'type' => 2,
+                                'type' => 15,
                                 'user_id'=>0
                             ));
                         } else {
-                            return Redirect::back()->with('status', 'Заявка не обработана, проверьте платёжную cистему');
+                            return \Redirect::back()->with('status', 'Заявка не обработана, проверьте платёжную cистему');
                         }
 
                     }

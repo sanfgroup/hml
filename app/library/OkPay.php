@@ -43,7 +43,9 @@ class OkPay
         } catch (Exception $e) {
             $res['result'] = $e->getMessage();
         }
-        return $res;
+        if(isset($res['result']) && $res['result'] == 'OK')
+            return true;
+        return false;
     }
 
     public function form($uid = 0, $payment_id, $login, $a)
