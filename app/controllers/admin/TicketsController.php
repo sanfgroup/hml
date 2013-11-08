@@ -52,5 +52,8 @@ class TicketsController extends \BaseController {
 
         return View::make('admin.tickets.index', $data);
     }
-
+    public function deleteTicket($id){
+        \Ticket::find($id)->delete();
+        return \Redirect::back();
+    }
 }
