@@ -17,7 +17,7 @@
 <header>
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container">
-            <a class="navbar-brand" href="#">Админка</a>
+            <a class="navbar-brand" href="/admin">Админка</a>
             <menu class="nav navbar-nav">
                 <li><a href="{{URL::route('admin.news')}}">Новости</a></li>
                 <li><a href="{{URL::route('admin.reviews')}}">Отзывы</a></li>
