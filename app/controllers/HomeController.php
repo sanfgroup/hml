@@ -68,6 +68,7 @@ class HomeController extends BaseController {
                 $ticket->message = Input::get('message');
                 $data['message1'] = Input::get('message');
                 $ticket->thread = 0;
+                $ticket->thwrite = 0;
                 $ticket->save();
                 Mail::send('emails.tickets', $data, function($message) use ($data)
                 {
