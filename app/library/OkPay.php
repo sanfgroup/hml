@@ -60,7 +60,7 @@ class OkPay
 <input type="hidden" name="ok_item_1_type" value="service"/>
 <input type="hidden" name="ok_return_success" value="{$ad}/pay/okpay"/>
 <input type="hidden" name="ok_return_fail" value="{$ad}/pay/okpayFail"/>
-<input type="text" name="ok_item_1_price" value="" class="form-control"/>
+<input type="hidden" name="ok_item_1_price" value="" id="get_ok" class="form-control"/>
 <input type="hidden" name="ok_item_1_custom_1_title" value="user_id">
 <input type="hidden" name="ok_item_1_custom_1_value" maxlength="127" value="{$uid}">
 <!--<input type="image" name="submit" alt="OKPAY Payment" src="https://www.okpay.com/img/buttons/ru/top-up/t13g163x42en.png"/>-->

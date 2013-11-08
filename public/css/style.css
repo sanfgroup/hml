@@ -67,7 +67,7 @@ p{
 	z-index: 1
 }
 .wrapper .empty{
-	height: 155px;
+	height: 185px;
 }
 .left{
 	float: left;
@@ -78,9 +78,9 @@ p{
 }
 footer{
 	position: relative;
-	height: 125px;
+	height: 150px;
 	width: 1160px;
-	margin: -125px auto 0;
+	margin: -150px auto 0;
 	background: url(../images/fbg.png);
 }
 nav{
@@ -378,7 +378,7 @@ footer{
 a.flogo{
 	display: block;
 	position: absolute;
-	top: 11px;
+	top: 21px;
 	left: 120px;
 }
 a.flogo img{
@@ -386,8 +386,8 @@ a.flogo img{
 }
 .pays{
 	position: absolute;
-	top: 40px;
-	left: 432px;
+	top: 50px;
+	left: 320px;
 }
 .pays img{
     width: 100px;
@@ -395,7 +395,7 @@ a.flogo img{
 }
 p.all{
 	position: absolute;
-	top: 83px;
+	top: 93px;
 	left: 68px;
 	font-family: "Trebuchet MS" ;
 	font-size: 11px;
@@ -403,8 +403,8 @@ p.all{
 }
 .socn{
 	position: absolute;
-	right: 107px;
-	top: 10px;
+	right: 215px;
+	top: 20px;
 }
 .socn a{
 	display: block;
@@ -1031,8 +1031,8 @@ nav .container{
 }
 .mmgp{
 	position: absolute;
-	top: 30px;
-	right: 250px;
+	top: 40px;
+	right: 376px;
 }
 .container_all{
 	width: 850px;
@@ -1816,5 +1816,17 @@ table.lscl tr:last-child td{
     top: 94px;
     left: 680px;
     color: #585858;
-
+}
+.count{
+    display: block;
+    position: absolute;
+    right: 125px;
+    top: 5px;
+}
+#take, #takeok{
+    width: 140px;
+    display: inline-block;
+}
+#take input, #takeok input{
+    visibility: hidden;
 }

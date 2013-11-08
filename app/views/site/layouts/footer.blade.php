@@ -10,10 +10,20 @@
         <a href=""><img src="/images/pfm.png" alt=""></a>
         <a href=""><img src="/images/okpay.png" alt=""></a>
         <a href=""><img src="/images/solidtr.png" alt=""></a>
-
     </div>
     <a href="" class="mmgp"><img src="/images/mmgp.png" alt=""></a>
     <div class="socn"><a href="" class="btn">Мы в Facebook <img src="/images/fbi.png" alt=""></a><a href="" class="btn">Мы Вконтакте <img src="/images/vki.png" alt=""></a></div>
+    <!--LiveInternet counter--><script type="text/javascript"><!--
+        document.write("<a class='count' href='http://www.liveinternet.ru/click' "+
+            "target=_blank><img src='//counter.yadro.ru/hit?t29.12;r"+
+            escape(document.referrer)+((typeof(screen)=="undefined")?"":
+            ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+                screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+            ";"+Math.random()+
+            "' alt='' title='LiveInternet: показано количество просмотров и"+
+            " посетителей' "+
+            "border='0'  height='120'><\/a>")
+        //--></script><!--/LiveInternet-->
 </footer>
 @if(Auth::guest())
 <div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

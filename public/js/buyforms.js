@@ -6,16 +6,15 @@ $(document).ready(function(){
        locale: 'ru'
     });
     $('#addPerfect').click(function(){
-        $('#addPerfect').addClass('disabled');
+
         $('#perfectForm').addClass('active');
         $('#okForm').removeClass('active');
-        $('#addOk').removeClass('disabled');
+        $('form.active').submit();
     });
     $('#addOk').click(function(){
-        $('#addOk').addClass('disabled');
         $('#okForm').addClass('active');
         $('#perfectForm').removeClass('active');
-        $('#addPerfect').removeClass('disabled');
+        $('form.active').submit();
     });
     $('#pay').click(function(){
         $('form.active').submit();
@@ -51,7 +50,24 @@ $(document).ready(function(){
         });
     });
     $('#take_money').keyup(function(){
-        var summ = $(this).val();
-        $('#procent').appendTo('При выводе средств снимается 5%. Сум')
+        var summ = Number($(this).val());
+        var q = (summ*0.05).toFixed(2);
+        $('#procent').text('При выводе средств снимается комиссия 5%. Вывод составит '+q+'$');
+//        (Math.ceil(summ*100)/100)
+    });
+    $('#take').click(function(){
+        $('#take input').attr('checked','checked');
+        $('#tt').submit();
+
+    });
+    $('#takeok').click(function(){
+        $('#takeok input').attr('checked','checked');
+        $('#tt').submit();
+
+    });
+    $('#get_summ').keyup(function(){
+        var valu = $(this).val();
+        $('#get_perfect').val(valu);
+        $('#get_ok').val(valu);
     });
 });
