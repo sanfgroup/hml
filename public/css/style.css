@@ -1808,3 +1808,13 @@ table.lscl tr:last-child td{
     overflow: hidden;
     border: 1px solid #dddddd;
 }
+.wellcome{
+    position: absolute;
+    font-family: "Georgia";
+    font-size: 18px;
+    font-weight: bold;
+    top: 94px;
+    left: 680px;
+    color: #585858;
+
+}

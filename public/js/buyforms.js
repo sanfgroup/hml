@@ -50,5 +50,8 @@ $(document).ready(function(){
                 window.location = path;
         });
     });
-
+    $('#take_money').keyup(function(){
+        var summ = $(this).val();
+        $('#procent').appendTo('При выводе средств снимается 5%. Сум')
+    });
 });

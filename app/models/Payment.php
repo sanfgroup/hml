@@ -15,4 +15,8 @@ class Payment extends Eloquent {
     public function getCreatedAttribute() {
         return date('d.m.Y H:i:s', strtotime($this->created_at));
     }
+
+    public function getSummasAttribute() {
+        return round($this->summa, 2);
+    }
 }

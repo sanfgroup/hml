@@ -64,7 +64,7 @@
             {{Form::open(array('route'=>'user.payment'))}}
             <div class="modal-body">
                 <div>Сумма</div>
-                <input type="text" name="summ" class="form-control"/>
+                <input type="text" name="summ" id="take_money" class="form-control"/> <span id="procent"></span>
                 <div>С платежной системы</div>
                 <div class="btn-group" data-toggle="buttons">
                     <label class="btn btn-primary active">

@@ -79,11 +79,6 @@ class AdminBalanceController extends \BaseController {
                     $amount = $p->summa*0.95;
                     if($amount <= $u->balance) {
                         if($pm->pay($amount, $account)) {
-                            $u->balance()->create(array(
-                                'summa' => -$p->summa,
-                                'description' => 'Вывод денег на кошелек PerfectMoney: '.$account,
-                                'type' => 2
-                            ));
                             $p->delete();
                         }
 
@@ -95,11 +90,7 @@ class AdminBalanceController extends \BaseController {
                     $amount = $p->summa*0.95;
                     if($amount <= $u->balance) {
                         if($ok->pay($amount, $account)) {
-                            $u->balance()->create(array(
-                                'summa' => -$p->summa,
-                                'description' => 'Вывод денег на кошелек OkPay: '.$account,
-                                'type' => 2
-                            ));
+                            $p->delete();
                         }
 
                     }

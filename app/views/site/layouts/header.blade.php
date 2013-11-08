@@ -72,6 +72,7 @@
         @if(Auth::guest())
         <a href="#registration" data-toggle="modal" class="reg">Регистрация в проекте</a>
         @else
+        <div class="wellcome">Добро пожаловать {{$user->username}}</div>
         <a href="{{URL::route('user.logout')}}" class="reg">Выход</a>
         @endif
         <!-- Контакты только на главной -->
@@ -114,6 +115,6 @@
         </nav>
     </header>
     <div style="position: fixed; bottom:0px;left: 0;width: 100%;z-index: 100000;background: #fff;text-align: center;">
-        <h4>Сайт работает в тестовом режиме, всем пользователям начисляется 1000$ при регистрации. Перед запуском баланс будет обнулён и будет возможность пополнять и выводить деньги.</h4>
+        <h4>Сайт работает в предстартовом режиме, все пользователи могут пополнить свой баланс в проекте. Старт проекта назначен на 9 ноября в 19.30 МСК</h4>
     </div>
     <!-- header END -->
