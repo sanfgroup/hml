@@ -27,14 +27,15 @@ class TicketsController extends \BaseController {
     }
     public function listTickets(){
         $data = array();
-        $data['tickets'] = \Ticket::orderBy('created_at', 'desc')->paginate(10);
+        $data['tickets'] = \Ticket::where('thwrite', '=', '0')->orderBy('created_at', 'desc')->paginate(10);
         return View::make('admin.tickets.tickets_list', $data);
     }
     public function detailTicket($id){
         $ticketd = \Ticket::find($id);
         $data['ticket'] = $ticketd;
         $ticketd->thread = 1;
-
+        $ticketa = \Ticket::where('thwrite', '=', $id)->first();
+        $data['ticketa'] = $ticketa;
         $ticketd->save();
         if (Input::server("REQUEST_METHOD") == "POST") {
             $data['name'] = Input::get('theme');
@@ -45,7 +46,15 @@ class TicketsController extends \BaseController {
             {
                 $message->to($data['email'], $data['name'])->subject('Поддержка '.$data['item']);
             });
-            $ticketd->thwrite = 1;
+
+
+            $ticketd->save();
+            $ticketd = new \Ticket();
+            $ticketd->name = 'Поддержка MyHappyLines';
+            $ticketd->item = $data['item'];
+            $ticketd->email = $data['email'];
+            $ticketd->message = $data['message1'];
+            $ticketd->thwrite = $id;
             $ticketd->save();
             return \Redirect::route('admin.tickets.list');
         }
