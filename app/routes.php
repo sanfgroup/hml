@@ -130,16 +130,7 @@ Route::any('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
 });
 
 Route::any('test', function() {
-
-    $arr = array();
-    $count = Linear15::wherePayed(1)->count();
-    $u = User::find(5)->linear15()->wherePayed(0)->orderBy('id')->get();
-    if($u != null)
-        foreach($u as $v) {
-            $admin = Linear15::whereAdmin(1)->wherePayed(0)->where('id', '<', $v->id)->count();
-            $admin += Linear15::whereAdmin(2)->wherePayed(0)->where('id', '<', $v->id)->count();
-            if($v)
-                $arr[] = $v->id - $count-$admin;
-        }
-    print_r($arr);
+    Mail::queue('emails.test', array('username'=>'asd'),function($m) {
+        $m->to('vinnizp@gmail.com');
+    });
 });

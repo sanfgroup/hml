@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'host' => 'smtp.ddos-guard.com',
+	'host' => 'smtp.ddos-guard.net',
 
 	/*
 	|--------------------------------------------------------------------------
