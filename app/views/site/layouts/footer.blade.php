@@ -11,7 +11,7 @@
         <a href=""><img src="/images/okpay.png" alt=""></a>
         <a href=""><img src="/images/solidtr.png" alt=""></a>
     </div>
-    <a href="http://mmgp.ru/showthread.php?t=227096&page=10" class="mmgp"><img src="/images/mmgp.png" alt=""></a>
+    <a href="http://mmgp.ru/showthread.php?t=227096&page=10" target="_blank" class="mmgp"><img src="/images/mmgp.png" alt=""></a>
     <div class="socn"><a href="" class="btn">Мы в Facebook <img src="/images/fbi.png" alt=""></a><a href="" class="btn">Мы Вконтакте <img src="/images/vki.png" alt=""></a></div>
     <!--LiveInternet counter--><script type="text/javascript"><!--
         document.write("<a class='count' href='http://www.liveinternet.ru/click' "+
@@ -213,7 +213,7 @@
 @if(Session::has('status'))
 <script>
     bootbox.alert("{{Session::get('status')}}", function(){});
-    setTimeout(function(){bootbox.hideAll()}, 2000);
+    setTimeout(function(){bootbox.hideAll()}, 4000);
 </script>
 @endif
 @if(Session::has('okgood'))
