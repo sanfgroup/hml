@@ -24,6 +24,36 @@ App::after(function($request, $response)
 {
 	//
 });
+App::error(function(InvalidUserException $exception)
+{
+    Log::error($exception);
+
+    Mail::queue('emails.test', array('username'=>print_r($exception,true)),function($m) {
+        $m->to('vinnizp@ya.ru');
+    });
+
+    return Redirect::to('/')->with('status','Внутренняя ошибка сервиса.');
+});
+
+App::error(function(RuntimeException $exception)
+{
+    Log::error($exception);
+
+    Mail::queue('emails.test', array('username'=>print_r($exception,true)),function($m) {
+        $m->to('vinnizp@ya.ru');
+    });
+
+    return Redirect::to('/')->with('status','Внутренняя ошибка сервиса.');
+});
+
+App::missing(function($exception)
+{
+
+    Mail::queue('emails.test', array('username'=>print_r($exception,true)),function($m) {
+        $m->to('vinnizp@ya.ru');
+    });
+    return Redirect::to('/')->with('status','Внутренняя ошибка сервиса.');
+});
 
 /*
 |--------------------------------------------------------------------------

@@ -26,7 +26,7 @@ class PayController extends BaseController {
                 'summa' => $i['summ'],
                 'to' => $i['system']
             ));
-            return Redirect::back()->with('status', 'Заявка на выплату успешно отправлена');
+            return Redirect::back()->with('status', 'Ваша заявка на вывод денежных средств будет обработана с 22.00 МСК до 02.00 МСК (Но по регламенту вывод денежных средств может происходить в течение 24-48 часов)');
         }
         return Redirect::back()->with('status', 'Минимальная выплата от 1$');
     }
@@ -59,7 +59,7 @@ $('form').submit();
 </script>
 html;
         } else
-        return Redirect::back();
+            return Redirect::back();
     }
 
     public function okpay() {
@@ -103,13 +103,21 @@ html;
             {
                 $message->to($data['email'], $data['fio'])->subject('Пополнение баланса!');
             });
+            return Redirect::route('private.inv')->with('status', 'Деньги успешно зачислены на ваш счёт!');
         }
-        return Redirect::route('private.inv')->with('status', 'Деньги успешно зачислены на ваш счёт!');
+        return Redirect::route('private.inv')->with('status', 'Ошибка, обратитесь к администратору сайта!');
 
     }
 
     public function perfect() {
-//        dd(Input::all());
+        $string=
+            $_POST['PAYMENT_ID'].':'.$_POST['PAYEE_ACCOUNT'].':'.
+            $_POST['PAYMENT_AMOUNT'].':'.$_POST['PAYMENT_UNITS'].':'.
+            $_POST['PAYMENT_BATCH_NUM'].':'.
+            $_POST['PAYER_ACCOUNT'].':'.PerfectMoney::getp().':'.
+            $_POST['TIMESTAMPGMT'];
+
+        $hash=strtoupper(md5($string));
         $account  = $_POST["PAYER_ACCOUNT"];
         $amount  = ceil($_POST["PAYMENT_AMOUNT"]*100)/100;
         $id  = $_POST["PAYMENT_ID"];
@@ -121,12 +129,12 @@ html;
         $data['fio'] = $uid->fio;
         $data['summa'] = $amount;
         $data['system'] = "PerfectMoney";
-        Mail::send('emails.min', $data, function($message) use ($data)
-        {
-            $message->to($data['email'], $data['fio'])->subject('Пополнение баланса!');
-        });
         $pay = Payin::whereKey($id)->first();
-        if(isset($pay->summa) && round($pay->summa,2) == $amount) {
+        if(isset($pay->summa) && round($pay->summa,2) == $amount && $hash==$_POST['V2_HASH']) {
+            Mail::send('emails.min', $data, function($message) use ($data)
+            {
+                $message->to($data['email'], $data['fio'])->subject('Пополнение баланса!');
+            });
             $pay->delete();
 //            Eloquent::unguard();
 //            dd(1);
@@ -138,7 +146,8 @@ html;
             ));
             $uid->pay = Str::random(32);
             $uid->save();
+            return Redirect::route('private.inv')->with('status', 'Деньги успешно зачислены на ваш счёт!');
         }
-        return Redirect::route('private.inv')->with('status', 'Деньги успешно зачислены на ваш счёт!');
+        return Redirect::route('private.inv')->with('status', 'Ошибка, обратитесь к администратору сайта!');
     }
 }

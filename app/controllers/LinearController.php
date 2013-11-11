@@ -9,8 +9,8 @@
 class LinearController extends BaseController {
 
     public function buy($tarif = 5) {
-//        if($this->user->username != 'vinnizp' && $this->user->username != 'olegan'  && $this->user->username != 'olegan1')
-//            return Redirect::back()->with('status', 'Покупка будет доступна после открытия!');
+        if($this->user->username != 'vinnizp' && $this->user->username != 'olegan'  && $this->user->username != 'olegan1')
+            return Redirect::back()->with('status', 'Линейный маркетинг закрыт!');
 
         $s = Session::get('buy2');
         if(($s != null && $s+5 >= time()))

@@ -9,8 +9,6 @@
 class InvController extends BaseController {
 
     public function buy($id=0) {
-        if($this->user->username != 'vinnizp' && $this->user->username != 'olegan' && $this->user->username != 'olegan1')
-            return Redirect::back()->with('status', 'Покупка будет доступна после открытия!');
         $s = Session::get('buy');
 //        dd(($id==0 || ($s != null && $s+5 < time())));
         if($id==0 || ($s != null && $s+10 >= time()))
@@ -55,6 +53,7 @@ class InvController extends BaseController {
                 $data['email'] = $user->email;
                 $data['fio'] = $user->fio;
                 $ref = $user->mr;
+                $r2 = $ref->username;
                 if(isset($ref->username)) {
                     $data['referal'] = $user->username;
                     $data['summa'] = $inv->cost*0.07;
@@ -73,7 +72,7 @@ class InvController extends BaseController {
                     $data['fio'] = $user->fio;
                     $ref = $ref->mr;
                     if(isset($ref->username)) {
-                        $data['referal'] = $ref->username;
+                        $data['referal'] = $r2;
                         $data['summa'] = $inv->cost*0.03;
                         Mail::send('emails.referal', $data, function($message) use ($data)
                         {

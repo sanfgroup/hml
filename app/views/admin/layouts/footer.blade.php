@@ -1,7 +1,7 @@
 <script>
     $(function() {
         $('select').chosen();
-        $('form button, form input[type=submit].pay, form input[type=submit].delete').click(function(e) {
+        $('form button, form input[type=submit].pay, form input[type=submit].delete, form input[type=submit].payed').click(function(e) {
             e.preventDefault();
             var b = $(this)
             bootbox.confirm("Вы уверены?", function(result) {
