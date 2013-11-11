@@ -28,6 +28,9 @@
         }
 
         function serverclock(){
+            if(minutes == 30 && (hours == 12 || hours == 19) && seconds == 01) {
+                location.reload();
+            }
             seconds++;
             if(seconds==60){
                 seconds = 0;
@@ -39,7 +42,7 @@
                         hours = 0;
                     }
                 }
-                if(minutes){
+                if(minutes %59==1){
                     update_clock();//Это функция, которая описана в самом верху.
                 }
             }
