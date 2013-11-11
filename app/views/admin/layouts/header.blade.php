@@ -23,6 +23,7 @@
                 <li><a href="{{URL::route('admin.reviews')}}">Отзывы</a></li>
                 <li><a href="{{URL::route('admin.user.index')}}">Пользователи</a></li>
                 <li><a href="{{URL::route('admin.tickets.list')}}">Тикеты</a></li>
+                <li><a href="{{URL::route('admin.tickets.all')}}">Рассылка</a></li>
                 <li><a href="/admin/statistic">Статистика</a></li>
                 <li><a href="/admin/balance">Статистика начислений</a></li>
                 <li><a href="{{URL::route('admin.checkout')}}">Заказы на выплату</a></li>

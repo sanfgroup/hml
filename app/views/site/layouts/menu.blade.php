@@ -9,7 +9,7 @@
         </ul>
     </li>
     <li class="l3"><a href="{{URL::route('faq')}}">FAQ</a></li>
-    <li class="l4"><a href="{{URL::route('rulers')}}">ПРАВИЛА</a></li>
+    <li class="l4"><a href="{{URL::route('rulers')}}">СОГЛАШЕНИЕ</a></li>
 </menu>
 <menu class="right" style="margin-right: 50px;">
     <li class="l5"><a href="{{URL::route('news')}}">НОВОСТИ</a></li>

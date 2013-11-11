@@ -15,7 +15,7 @@ return array(
 	|
 	*/
 
-	'driver' => 'mail',
+	'driver' => 'smtp',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'host' => 'myhappylines.com',
+	'host' => 'smtp.ddos-guard.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return array(
 	|
 	*/
 
-	'port' => 587,
+	'port' => 25,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => "supports@myhappylines.com", 'name' => "MyHappyLines"),
+	'from' => array('address' => "support@myhappylines.com", 'name' => "MyHappyLines"),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => "IZao1xY865Bwyu",
+	'password' => "pCCdOPuqRZDsps",
 
 	/*
 	|--------------------------------------------------------------------------

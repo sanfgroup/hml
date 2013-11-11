@@ -11,6 +11,7 @@ class BaseController extends Controller {
 	 */
 	protected function setupLayout()
 	{
+        Cache::flush();
 
 
         View::share('user', $this->user);

@@ -65,4 +65,26 @@ class TicketsController extends \BaseController {
         \Ticket::find($id)->delete();
         return \Redirect::back();
     }
+
+    public function sendAll() {
+        if (Input::server("REQUEST_METHOD") == "POST") {
+            $user = \User::all();
+            foreach($user as $u) {
+                $data['fio'] = $u->fio;
+                $data['thread'] = Input::get('item');
+                $data['messagetext'] = Input::get('content');
+                $data['email'] = $u->email;
+                Mail::send('emails.alluser', $data, function($message) use ($data)
+                {
+                    $message->to($data['email'], $data['fio'])->subject('MyHappyLines');
+                });
+                return \Redirect::back()->with('status', 'Сообщения успешко отправлены');
+            }
+        }
+        return View::make('admin.tickets.all');
+    }
+
+    public function send() {
+
+    }
 }

@@ -7,10 +7,14 @@ class Linear10 extends Eloquent {
 	protected $softDelete = false;
     protected $tarif = 10;
 
-    public static function pay() {
+   public static function pay() {
         $pos = Linear10::fnp();
         $ac = Linear10::whereAdmin(1)->where('id', '<=', $pos->id)->count();
-        if(Linear10::find(2*($pos->id+1-$ac))) {
+        $post = 2*($pos->id+1-$ac);
+        $del = Linear10::whereAdmin(2)->where('id', '<=', $post)->count();
+        $post = 2*($pos->id+1-$ac)+$del;
+        $ttt = Linear10::find($post);
+        if(isset($ttt->admin) && $ttt->admin < 2 && $pos->admin != 2) {
             while($pos->admin == 1) {
                 $pos->payed = 1;
                 $pos->save();

@@ -79,6 +79,26 @@ class AdminUserController extends \BaseController {
 	public function destroy($id)
 	{
 		User::destroy($id);
+        \Balance::where('user_id', $id)->delete();
+        \InvBuy::where('user_id', $id)->delete();
+        $lin = \Linear5::where('user_id', $id)->get();
+        foreach($lin as $v) {
+            $v->payed=2;
+            $v->admin=2;
+            $v->save();
+        }
+        $lin = \Linear10::where('user_id', $id)->get();
+        foreach($lin as $v) {
+            $v->payed=2;
+            $v->admin=2;
+            $v->save();
+        }
+        $lin = \Linear15::where('user_id', $id)->get();
+        foreach($lin as $v) {
+            $v->payed=1;
+            $v->admin=2;
+            $v->save();
+        }
         return Redirect::back();
 	}
 

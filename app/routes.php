@@ -11,25 +11,27 @@
 |
 */
 
-Route::any('/', array('as'=>'home', 'uses'=>'HomeController@getIndex'));
-Route::get('/news', array('as'=>'news', 'uses'=>'HomeController@getNews'));
-Route::get('/news/{id}',array('as'=>'news.detail', 'uses'=>'HomeController@getNewsDetail'));
-Route::get('/faq', array('as'=>'faq', 'uses'=>'HomeController@getFaq'));
-Route::get('/marketing/line', array('as'=>'marketing.linear', 'uses'=>'HomeController@getLine'));
-Route::get('/marketing/inv', array('as'=>'marketing.inv', 'uses'=>'HomeController@getInv'));
-Route::get('/reviews', array('as'=>'reviews', 'uses'=>'HomeController@getReviews'));
-Route::any('/contacts', array('as'=>'contacts', 'uses'=>'HomeController@getContacts'));
-Route::get('/rulers', array('as'=>'rulers', 'uses'=>'HomeController@getRulers'));
+Route::group(array('before' => 'secure'), function()
+{
+    Route::any('/', array('as'=>'home', 'uses'=>'HomeController@getIndex'));
+    Route::get('/news', array('as'=>'news', 'uses'=>'HomeController@getNews'));
+    Route::get('/news/{id}',array('as'=>'news.detail', 'uses'=>'HomeController@getNewsDetail'));
+    Route::get('/faq', array('as'=>'faq', 'uses'=>'HomeController@getFaq'));
+    Route::get('/marketing/line', array('as'=>'marketing.linear', 'uses'=>'HomeController@getLine'));
+    Route::get('/marketing/inv', array('as'=>'marketing.inv', 'uses'=>'HomeController@getInv'));
+    Route::get('/reviews', array('as'=>'reviews', 'uses'=>'HomeController@getReviews'));
+    Route::any('/contacts', array('as'=>'contacts', 'uses'=>'HomeController@getContacts'));
+    Route::get('/rulers', array('as'=>'rulers', 'uses'=>'HomeController@getRulers'));
 
-Route::get('user/registration', array('as'=>'user.reg', 'uses'=>'UserController@getRegistration'));
-Route::post('user/registration', array('uses'=>'UserController@postRegistration'));
-Route::get('user/login', array('as'=>'user.login', 'uses'=>'UserController@getLogin'));
-Route::post('user/login', array('uses'=>'UserController@postLogin'));
-Route::post('user/recovery', array('as' => 'user.recovery','uses'=>'UserController@postRecovery'));
-Route::post('user/reset/{token}/{email}', array('as' => 'password.reset','uses'=>'UserController@resetPassword'));
-
+    Route::get('user/registration', array('as'=>'user.reg', 'uses'=>'UserController@getRegistration'));
+    Route::post('user/registration', array('uses'=>'UserController@postRegistration'));
+    Route::get('user/login', array('as'=>'user.login', 'uses'=>'UserController@getLogin'));
+    Route::post('user/login', array('uses'=>'UserController@postLogin'));
+    Route::post('user/recovery', array('as' => 'user.recovery','uses'=>'UserController@postRecovery'));
+    Route::post('user/reset/{token}/{email}', array('as' => 'password.reset','uses'=>'UserController@resetPassword'));
+});
 Route::any('paysss', array('uses'=>'PayController@payin'));
-Route::group(array('before' => 'auth'), function()
+Route::group(array('before' => 'auth|secure'), function()
 {
 
     Route::get('user/privat', array('as'=>'user.privat','uses'=>'UserController@getPrivat'));
@@ -60,7 +62,7 @@ Route::group(array('before' => 'auth'), function()
 });
 
 
-Route::group(array('before' => 'admin'), function()
+Route::group(array('before' => 'admin|secure'), function()
 {
     Route::get('admin/news', array('as'=>'admin.news', 'uses'=>'Admin\NewsController@listNews'));
     Route::any('admin/news/add/{id?}', array('as'=>'admin.addNews','uses'=>'Admin\NewsController@addNews'));
@@ -70,10 +72,13 @@ Route::group(array('before' => 'admin'), function()
     Route::get('admin/reviews/delete/{id}', array('as'=>'admin.review.delete', 'uses'=>'Admin\AdminReviewController@reviewDelete'));
     Route::resource('admin/user', 'Admin\AdminUserController');
     Route::post('admin/balance/process', array('as'=>'stat.process','uses'=>'Admin\AdminBalanceController@process'));
+    Route::post('admin/balance/add', 'Admin\AdminBalanceController@add');
     Route::any('admin/balance/{id?}', 'Admin\AdminBalanceController@index');
     Route::any('admin/checkout/{id?}', array('as'=>'admin.checkout', 'uses'=>'Admin\AdminBalanceController@checkout'));
     Route::any('admin/statistic', 'Admin\AdminStatisticController@index');
+    Route::any('admin/statistic/process', 'Admin\AdminStatisticController@process');
     Route::any('admin', 'Admin\AdminStatisticController@index');
+    Route::any('admin/tickets/all', array('as'=>'admin.tickets.all', 'uses'=>'Admin\TicketsController@sendAll'));
     Route::any('admin/tickets/write/{id?}', array('as'=>'admin.tickets', 'uses'=>'Admin\TicketsController@full'));
     Route::get('admin/tickets/list', array('as'=>'admin.tickets.list', 'uses'=>'Admin\TicketsController@listTickets'));
     Route::any('admin/tickets/{id}', array('as'=>'admin.ticket', 'uses'=>'Admin\TicketsController@detailTicket'));
@@ -122,4 +127,19 @@ Route::any('/cron/run/c68pd2s4e363221a3064e8807da20s1sf', function () {
             }
         }
     }
+});
+
+Route::any('test', function() {
+
+    $arr = array();
+    $count = Linear15::wherePayed(1)->count();
+    $u = User::find(5)->linear15()->wherePayed(0)->orderBy('id')->get();
+    if($u != null)
+        foreach($u as $v) {
+            $admin = Linear15::whereAdmin(1)->wherePayed(0)->where('id', '<', $v->id)->count();
+            $admin += Linear15::whereAdmin(2)->wherePayed(0)->where('id', '<', $v->id)->count();
+            if($v)
+                $arr[] = $v->id - $count-$admin;
+        }
+    print_r($arr);
 });

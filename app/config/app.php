@@ -114,8 +114,8 @@ return array(
         'Illuminate\View\ViewServiceProvider',
         'Illuminate\Workbench\WorkbenchServiceProvider',
 
-        'Barryvdh\Debugbar\ServiceProvider',
-        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+        //'Barryvdh\Debugbar\ServiceProvider',
+        //'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Mews\Captcha\CaptchaServiceProvider',
         'Liebig\Cron\CronServiceProvider'
 	),
@@ -184,7 +184,7 @@ return array(
         'View'            => 'Illuminate\Support\Facades\View',
 
 
-        'Debugbar'        => 'Barryvdh\Debugbar\Facade',
+        //'Debugbar'        => 'Barryvdh\Debugbar\Facade',
         'Captcha' => 'Mews\Captcha\Facades\Captcha',
 
 	),

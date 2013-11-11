@@ -35,7 +35,7 @@ class PayController extends BaseController {
         $i = Input::all();
         if(isset($i['summ']) && isset($i['s'])) {
             Eloquent::unguard();
-            $key = md5(Str::random(32));
+            $key = md5(Str::random(32).time());
             $p = Payin::create(array(
                 'key' => $key,
                 'summa' => $i['summ']
