@@ -90,6 +90,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         if($u != null)
         foreach($u as $v) {
             $admin = Linear5::whereAdmin(1)->wherePayed(0)->where('id', '<', $v->id)->count();
+            $admin += Linear5::whereAdmin(2)->wherePayed(0)->where('id', '<', $v->id)->count();
             if($v)
                 $arr[] = $v->id - $count-$admin;
         }
@@ -103,6 +104,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         if($u != null)
         foreach($u as $v) {
             $admin = Linear10::whereAdmin(1)->wherePayed(0)->where('id', '<', $v->id)->count();
+            $admin += Linear10::whereAdmin(2)->wherePayed(0)->where('id', '<', $v->id)->count();
             if($v)
                 $arr[] = $v->id - $count-$admin;
         }
@@ -116,6 +118,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         if($u != null)
         foreach($u as $v) {
             $admin = Linear15::whereAdmin(1)->wherePayed(0)->where('id', '<', $v->id)->count();
+            $admin += Linear15::whereAdmin(2)->wherePayed(0)->where('id', '<', $v->id)->count();
             if($v)
                 $arr[] = $v->id - $count-$admin;
         }

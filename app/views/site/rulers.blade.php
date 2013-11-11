@@ -1,7 +1,7 @@
 @extends('site.layouts.default')
 
 @section('content')
-<h2>Правила</h2>
+<h2>Cоглашение</h2>
 <p>Внимательно прочитайте данное соглашение. Если Вы не согласны с каким-либо из пунктов, Вам не следует становиться
     участником проекта &laquo;MyHappyLines&raquo; и регистрироваться на сайте</p>
 <p><a href="//myhappylines.com">www.myhappylines.com</a></p>

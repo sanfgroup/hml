@@ -85,20 +85,20 @@ class AdminBalanceController extends \BaseController {
                             $p->save();
                             $u->balance()->create(array(
                                 'description' => 'Вывод денег на кошелек PerfectMoney: '.$p->to,
-                                'summa' => $p->summa,
+                                'summa' => -$p->summa,
                                 'type' => 2
                             ));
                             \Eloquent::unguard();
                             \Balance::create(array(
                                 'description' => 'Отчисление: '.$p->to,
                                 'summa' => $p->summa*0.05,
-                                'type' => 2,
+                                'type' => 15,
                                 'user_id'=>0
                             ));
                         }
 
                     } else {
-                        return Redirect::back()->with('status', 'Заявка не обработана, проверьте платёжную cистему');
+                        return \Redirect::back()->with('status', 'Заявка не обработана, проверьте платёжную cистему');
                     }
                 } else {
                     $ok = new \OkPay();
@@ -111,18 +111,18 @@ class AdminBalanceController extends \BaseController {
                             $p->save();
                             $u->balance()->create(array(
                                 'description' => 'Вывод денег на кошелек OkPay: '.$p->to,
-                                'summa' => $p->summa,
+                                'summa' => -$p->summa,
                                 'type' => 2
                             ));
                             \Eloquent::unguard();
                             \Balance::create(array(
                                 'description' => 'Отчисление: '.$p->to,
                                 'summa' => $p->summa*0.05,
-                                'type' => 2,
+                                'type' => 15,
                                 'user_id'=>0
                             ));
                         } else {
-                            return Redirect::back()->with('status', 'Заявка не обработана, проверьте платёжную cистему');
+                            return \Redirect::back()->with('status', 'Заявка не обработана, проверьте платёжную cистему');
                         }
 
                     }
@@ -130,7 +130,19 @@ class AdminBalanceController extends \BaseController {
             }
         }
         return \Redirect::to('/admin/checkout');
+    }
 
+    public function add() {
+        $i = \Input::all();
+        if(!(empty($i['summa']) && empty($i['user_id']))) {
+            $u = \User::find($i['user_id']);
+            $u->balance()->create(array(
+                'description' => $i['description'],
+                'summa' => $i['summa'],
+                'type' => $i['type'],
+            ));
+        }
+        return \Redirect::back();
     }
 
     /*public function perfectPay() {

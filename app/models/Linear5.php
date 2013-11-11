@@ -10,14 +10,20 @@ class Linear5 extends Eloquent {
     public static function pay() {
         $pos = Linear5::fnp();
         $ac = Linear5::whereAdmin(1)->where('id', '<=', $pos->id)->count();
-        if(Linear5::find(2*($pos->id+1-$ac))) {
+        $post = 2*($pos->id+1-$ac);
+        $del = Linear5::whereAdmin(2)->where('id', '<=', $post)->count();
+        $post = 2*($pos->id+1-$ac)+$del;
+        $ttt = Linear5::find($post);
+        if(isset($ttt->admin) && $ttt->admin < 2 && $pos->admin != 2) {
             while($pos->admin == 1) {
                 $pos->payed = 1;
                 $pos->save();
                 $pos = Linear5::find($pos->id+1);
             }
             $u = User::find($pos->user_id);
-            if($u) {Cache::flush();
+            if($u) {
+                Cache::flush();
+
                 $summ = $pos->tarif*1.5;
                 $u->balance()->create(array(
                     'summa' => $summ,

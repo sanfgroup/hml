@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Created by PhpStorm.
  * User: 1
@@ -9,8 +9,8 @@
 class LinearController extends BaseController {
 
     public function buy($tarif = 5) {
-        if($this->user->username != 'vinnizp' && $this->user->username != 'olegan'  && $this->user->username != 'olegan1')
-            return Redirect::back()->with('status', 'Покупка будет доступна после открытия!');
+//        if($this->user->username != 'vinnizp' && $this->user->username != 'olegan'  && $this->user->username != 'olegan1')
+//            return Redirect::back()->with('status', 'Покупка будет доступна после открытия!');
 
         $s = Session::get('buy2');
         if(($s != null && $s+5 >= time()))
@@ -52,7 +52,7 @@ class LinearController extends BaseController {
         Cache::flush();
 
         $t = 'Linear'.$tarif;
-        if($linear->id % 5 == 0) {
+        /*if($linear->id % 5 == 0) {
             $linear2 = new $t();
             $linear2->admin = 0;
             $linear2->user_id = 5;
@@ -62,7 +62,7 @@ class LinearController extends BaseController {
                 'description' => 'Оплата тарифа '.$tname.' '.$tarif.'$'
             ));
 //            dd(1);
-        }
+        }*/
 //        $c = $t::where('payed', '=', 1, 'and')->where('admin', '=', 0, 'and')->count();
 //        if($c>0 && $c % 4 == 0) {
 //            $linear2 = new $t();

@@ -58,8 +58,8 @@
             <td>{{$b}} $</td>
         </tr>
         @endforeach
-        {{$ref->links()}}
     </table>
+    {{$ref->links()}}
 
 </div>
 <div class="clearfix"></div>

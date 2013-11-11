@@ -41,6 +41,7 @@
     style="background: rgba(255,0,0,0.2)"
     @endif
         >
+    @if(isset($v->user->username))
         <td>
             <input type="checkbox" name="pay[]" value="{{$v->id}}"/>
         </td>
@@ -49,6 +50,7 @@
         <td>{{$v->summas}}</td>
         <td>{{$v->to}}</td>
     </tr>
+    @endif
     @endforeach
 </table>
 <input type="hidden" name="type" value="" id="ftype"/>

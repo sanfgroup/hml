@@ -16,7 +16,6 @@ class HomeController extends BaseController {
 	*/
 
 	public function getIndex() {
-        Debugbar::info(Session::all());
 
         $data['news'] = News::orderBy('created_at', 'desc')->take(2)->get();
         return View::make('site.home', $data);
@@ -43,7 +42,7 @@ class HomeController extends BaseController {
 	}
 
 	public function getReviews() {
-        $data['reviews'] = Reviews::paginate(10);
+        $data['reviews'] = Reviews::orderBy('id', 'desc')->paginate(10);
 		return View::make('site.reviews', $data);
 	}
 

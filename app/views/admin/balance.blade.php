@@ -60,8 +60,11 @@
             >
             <td>{{$v->created}}</td>
             <td>
-                @if($v->user_id != 0)
-                {{$v->user()->remember(5)->first()->username}}
+                <?php
+                $userss = $v->user()->remember(5)->first()
+                ?>
+                @if($v->user_id != 0 && isset($userss->username))
+                {{$userss->username}}
                 @endif
             </td>
             <td>{{$v->summas}}$</td>
@@ -74,4 +77,33 @@
         @endforeach
     </table>
     {{$balance->links()}}
+{{Form::open(array('url'=>'/admin/balance/add'))}}
+<p>
+    <label for="description">Пользователь:</label>
+    <select name="user_id" id="user">
+        @foreach($users as $v)
+        <option value="{{$v->id}}">{{$v->username}}</option>
+        @endforeach
+    </select>
+</p>
+<p>
+    <label for="summa">Сумма:</label>
+    <input type="text" name="summa" class="form-control" />
+</p>
+<p>
+
+    <label for="description">Описание:</label>
+    <input type="text" name="description" class="form-control" />
+</p>
+<p>
+    <label for="description">Операция:</label>
+    <select name="type">
+        <option value="0">Обычные операции</option>
+        <option value="1">Пополнение</option>
+        <option value="2">Выплата</option>
+    </select>
+</p>
+<p><input type="submit" value="Добавить" class="btn btn-primary"/></p>
+{{Form::close()}}
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 @stop
