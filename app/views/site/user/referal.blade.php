@@ -7,7 +7,7 @@
     <div class="banpar"></div>
     <p>Вас пригласил: <a href="">{{$user->refname}}</a></p>
     <p>Ваша реф-ссылка: <a href="{{$user->reflink}}">{{$user->reflink}}</a></p>
-    <section>
+    <section style="margin-bottom: 20px;">
         <div class="stata">
             <h4>Приглашенные Вами:</h4>
             <table>
@@ -36,9 +36,7 @@
 </div>
 <div class="col-xs-7">
 <!--    <a href=""><img src="/images/smallban.png" alt=""></a>-->
-    <h3>Для вставки на форумы</h3>
-    <div class="code">&lt;a href="{{$user->reflink}}"&gt;MyHappyLines&lt;/a&gt;</div>
-
+    <div style="min-height: 200px">
     <table class="refer table table-bordered table-striped">
         <tr>
             <th>Пользователь</th>
@@ -59,8 +57,20 @@
         </tr>
         @endforeach
     </table>
+        </div>
     {{$ref->links()}}
+    <h3>Для вставки на форумы</h3>
+    <a href="{{$user->reflink}}"><img src="{{URL::to('images/referral_ban125.gif')}}" alt=""/></a>
+    <div class="code">&lt;a href="{{$user->reflink}}"&gt;&lt;img src="{{URL::to('images/referral_ban125.gif')}}" alt=""/&gt;&lt;/a&gt;</div>
+    <a href="{{$user->reflink}}"><img src="{{URL::to('images/referral_ban486.gif')}}" alt=""/></a>
+    <div class="code">&lt;a href="{{$user->reflink}}"&gt;&lt;img src="{{URL::to('images/referral_ban486.gif')}}" alt=""/&gt;&lt;/a&gt;</div>
+
 
 </div>
 <div class="clearfix"></div>
+<div style="float: right">
+    <a href="{{$user->reflink}}"><img src="{{URL::to('images/referral_ban728.gif')}}" alt=""/></a>
+    <div class="code">&lt;a href="{{$user->reflink}}"&gt;&lt;img src="{{URL::to('images/referral_ban728.gif')}}" alt=""/&gt;&lt;/a&gt;</div>
+</div>
+<div class="clear"></div>
 @stop
