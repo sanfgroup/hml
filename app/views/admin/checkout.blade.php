@@ -41,20 +41,23 @@
     style="background: rgba(255,0,0,0.2)"
     @endif
         >
-    @if(isset($v->user->username))
         <td>
             <input type="checkbox" name="pay[]" value="{{$v->id}}"/>
         </td>
         <td>{{$v->created}}</td>
-        <td>{{$v->user->username}}</td>
+    @if(!isset($v->user->username))
+    <td>Deleted</td>
+    @else
+    <td>{{$v->user->username}}</td>
+    @endif
         <td>{{$v->summas}}</td>
         <td>{{$v->to}}</td>
     </tr>
-    @endif
     @endforeach
 </table>
 <input type="hidden" name="type" value="" id="ftype"/>
-<input type="submit" name="type" value="Pay" class="btn btn-warning pay"/>
+<input type="submit" name="type" value="Pay" class="btn btn-primary pay"/>
+<input type="submit" name="type" value="Payed" class="btn btn-warning payed"/>
 <input type="submit" name="type" value="Delete" class="btn btn-danger delete"/>
 {{Form::close()}}
 {{$payments->links()}}

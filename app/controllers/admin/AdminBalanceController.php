@@ -3,11 +3,11 @@ namespace Admin;
 
 class AdminBalanceController extends \BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
     public function index($id=0)
     {
         $data['s'] = $id;
@@ -65,7 +65,26 @@ class AdminBalanceController extends \BaseController {
 
     public function process() {
         $i = \Input::all();
-        if($i['type'] == 'Delete') {
+        if($i['type'] == 'Payed') {
+            foreach($i['pay'] as $v) {
+                $p = \Payment::find($v);
+                $u = $p->user;
+                $p->payed = 1;
+                $p->save();
+                $u->balance()->create(array(
+                    'description' => 'Вывод денег на кошелек PerfectMoney: '.$p->to,
+                    'summa' => -$p->summa,
+                    'type' => 2
+                ));
+                \Eloquent::unguard();
+                \Balance::create(array(
+                    'description' => 'Отчисление: '.$p->to,
+                    'summa' => $p->summa*0.05,
+                    'type' => 15,
+                    'user_id'=>0
+                ));
+            }
+        } else if($i['type'] == 'Delete') {
             foreach($i['pay'] as $v) {
                 $p = \Payment::find($v);
                 $p->payed = 2;
@@ -79,8 +98,8 @@ class AdminBalanceController extends \BaseController {
                     $u = $p->user;
                     $account = $p->to;
                     $amount = $p->summa*0.95;
-                    if($amount <= $u->balance) {
-                        if($pm->pay($amount, $account)) {
+                    if($amount <= $u->balances) {
+                        if($pm->pay($amount, $account, $u->username)) {
                             $p->payed = 1;
                             $p->save();
                             $u->balance()->create(array(

@@ -9,13 +9,21 @@
 class PerfectMoney {
     protected $account = 'U1991555';
     protected $login = '313853';
-    protected $password = 'V2*gr-Qt9#u31Z@ny!5';
+    protected static $password = 'V2*gr-Qt9#u31Z@ny!5';
+    protected static $altpass = 'porotikova';
+//    protected $account = 'U4390807';
+//    protected $login = '5750852';
+//    protected static $password = 'fp0up82h';
 
-    public function pay($amount, $account) {
+    public static function getp() {
+        return strtoupper(md5(self::$altpass));
+    }
+
+    public function pay($amount, $account, $un = '') {
         $amount = round($amount,2);
-        $pass = urlencode($this->password);
-        $out=file_get_contents("https://perfectmoney.is/acct/confirm.asp?AccountID={$this->login}&PassPhrase={$pass}&Payer_Account={$this->account}&Payee_Account={$account}&Amount={$amount}&PAY_IN=1&PAYMENT_ID=1");
-
+        $pass = urlencode(self::password);
+        $out=file_get_contents("https://perfectmoney.is/acct/confirm.asp?AccountID={$this->login}&PassPhrase={$pass}&Payer_Account={$this->account}&Payee_Account={$account}&Amount={$amount}&PAY_IN=1&PAYMENT_ID=1&Memo=".urlencode("User: ".$un));
+//        print_r($out);
         if(!preg_match_all("/<input name='(.*)' type='hidden' value='(.*)'>/", $out, $result, PREG_SET_ORDER)){
             return false;
         }

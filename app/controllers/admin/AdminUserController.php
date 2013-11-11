@@ -61,7 +61,7 @@ class AdminUserController extends \BaseController {
         $user->fio = Input::get('fio');
         $new_pass = Input::get('new_pass');
         if(!empty($new_pass))
-            $user->new_pass = $new_pass;
+            $user->password = \Hash::make($new_pass);
         $user->email = Input::get('email');
         $user->skype = Input::get('skype');
         $user->perfectmoney = Input::get('perfectmoney');

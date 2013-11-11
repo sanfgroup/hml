@@ -115,6 +115,7 @@
         </nav>
     </header>
     <div style="position: fixed; bottom:0px;left: 0;width: 100%;z-index: 100000;background: #fff;text-align: center;">
-        <h4>Запуск инвестиционного маркетинга будет 11 ноября в 12.30 МСК.</h4>
+        <h4>СЕГОДНЯ, 11 НОЯБРЯ В 18.00 МСК БУДЕТ КОНФЕРЕНЦИЯ ПО ПРОЕКТУ MYHAPPYLINES!
+            ССЫЛКА НА КОНФЕРЕНЦИЮ <a href="http://www.gvolive.com/conference,myhappylines">http://www.gvolive.com/conference,myhappylines</a></h4>
     </div>
     <!-- header END -->
