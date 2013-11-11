@@ -135,7 +135,7 @@ class UserController extends BaseController {
         foreach($mr->get() as $v) {
             $data['l2'] += $v->referral()->remember(10)->count();
         }
-        $data['ref'] = $this->user->referral()->remember(10)->paginate(10);
+        $data['ref'] = $this->user->referral()->remember(10)->paginate(4);
        return View::make('site.user.referal', $data);
     }
 
