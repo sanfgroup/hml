@@ -1831,10 +1831,10 @@ table.lscl tr:last-child td{
     right: 45px;
     top: 5px;
 }
-#take, #takeok{
+#take, #takeok, .btn#solidtrustpay{
     width: 140px;
     display: inline-block;
 }
-#take input, #takeok input{
+#take input, #takeok input, #solidtrustpay input{
     visibility: hidden;
 }

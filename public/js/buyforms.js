@@ -67,4 +67,8 @@ $(document).ready(function(){
         $('#get_perfect').val(valu);
         $('#get_ok').val(valu);
     });
+    $('#solidtrustpay').click(function(){
+        $('#solidtrustpay input').attr('checked','checked');
+        $('#tt').submit();
+    });
 });

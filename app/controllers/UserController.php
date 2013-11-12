@@ -122,6 +122,7 @@ class UserController extends BaseController {
             $user->skype = Input::get('skype');
             $user->perfectmoney = Input::get('perfectmoney');
             $user->okpay = Input::get('okpay');
+            $user->solidtrustpay = Input::get('solidtrustpay');
             $user->save();
         }
         return View::make('site.user.profile', $data);

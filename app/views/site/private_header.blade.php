@@ -71,6 +71,10 @@
                         OKPAY
                         <input type="radio" name="system" value="{{$user->okpay}}">
                     </label>
+                    <label id="solidtrustpay" class="btn btn-primary">
+                        SolidTrustPay
+                        <input type="radio" name="system" value="{{$user->solidtrustpay}}">
+                    </label>
 <!--                </div>-->
 
             </div>

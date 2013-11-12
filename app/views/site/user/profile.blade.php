@@ -50,6 +50,10 @@
             {{ Form::label('okpay', 'Okpay') }}
             {{ Form::text('okpay', $user->okpay, array('class'=>'form-control')) }}
         </li>
+        <li>
+            {{Form::label('solidtrustpay', 'SolidTrustPay')}}
+            {{Form::text('solidtrustpay', $user->solidtrustpay, array('class'=>'form-control'))}}
+        </li>
     </ul>
     <div class="clearfix"></div>
     <button type="submit" class="btn btn-primary">Редактировать</button>
