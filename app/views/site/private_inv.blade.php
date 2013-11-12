@@ -29,7 +29,7 @@
     </div>
     <div class="tarcab">
         <div class="name">Red line</div>
-        <div class="price">10 $</div>
+        <div class="price">10 $ <div>{{$inv[0]->limit}} лимитов</div></div>
         <ul class="control">
             <li><a href="#inv_red" data-toggle="modal">Инфо</a></li>
 
@@ -38,7 +38,7 @@
     </div>
     <div class="tarcab tarcab2">
         <div class="name">Orange line</div>
-        <div class="price">35 $</div>
+        <div class="price">35 $ <div>{{$inv[1]->limit}} лимитов</div></div>
         <ul class="control">
             <li><a href="#inv_orange" data-toggle="modal">Инфо</a></li>
 
@@ -47,7 +47,7 @@
     </div>
     <div class="tarcab tarcab3">
         <div class="name">Yellow line</div>
-        <div class="price">70 $</div>
+        <div class="price">70 $ <div>{{$inv[2]->limit}} лимитов</div></div>
         <ul class="control">
             <li><a href="#inv_yellow"  data-toggle="modal">Инфо</a></li>
             <li><a class="buy" data-id="3" href="{{URL::route('user.deposites.buy', array(3))}}" data-limit="{{$inv[2]->limit}}" data-name="{{$inv[2]->name}} {{$inv[2]->cost}}$" data-toggle="confirmation">Купить</a></li>
@@ -57,7 +57,7 @@
 <div class="blocks_tarif2">
     <div class="tarcab tarcab4">
         <div class="name">Green line</div>
-        <div class="price">110 $</div>
+        <div class="price">110 $ <div>{{$inv[3]->limit}} лимитов</div></div>
         <ul class="control">
             <li><a href="#inv_green"  data-toggle="modal">Инфо</a></li>
             <li><a class="buy" data-id="4" href="{{URL::route('user.deposites.buy', array(4))}}" data-limit="{{$inv[3]->limit}}" data-name="{{$inv[3]->name}} {{$inv[3]->cost}}$" data-toggle="confirmation">Купить</a></li>
@@ -65,7 +65,7 @@
     </div>
     <div class="tarcab tarcab5">
         <div class="name">Blue line</div>
-        <div class="price">180 $</div>
+        <div class="price">180 $ <div>{{$inv[4]->limit}} лимитов</div></div>
         <ul class="control">
             <li><a href="#inv_blue"  data-toggle="modal">Инфо</a></li>
             <li><a class="buy" data-id="5" href="{{URL::route('user.deposites.buy', array(5))}}" data-limit="{{$inv[4]->limit}}" data-name="{{$inv[4]->name}} {{$inv[4]->cost}}$" data-toggle="confirmation">Купить</a></li>
@@ -73,7 +73,7 @@
     </div>
     <div class="tarcab tarcab6">
         <div class="name">Pink line</div>
-        <div class="price">250 $</div>
+        <div class="price">250 $ <div>{{$inv[5]->limit}} лимитов</div></div>
         <ul class="control">
             <li><a href="#inv_pink"  data-toggle="modal">Инфо</a></li>
             <li><a class="buy" data-id="6" href="{{URL::route('user.deposites.buy', array(6))}}" data-limit="{{$inv[5]->limit}}" data-name="{{$inv[5]->name}} {{$inv[5]->cost}}$" data-toggle="confirmation">Купить</a></li>
@@ -81,7 +81,7 @@
     </div>
     <div class="tarcab tarcab7">
         <div class="name">Purple line</div>
-        <div class="price">400 $</div>
+        <div class="price">400 $ <div>{{$inv[6]->limit}} лимитов</div></div>
         <ul class="control">
             <li><a href="#inv_purple"  data-toggle="modal">Инфо</a></li>
             <li><a class="buy" data-id="7" href="{{URL::route('user.deposites.buy', array(7))}}" data-limit="{{$inv[6]->limit}}" data-name="{{$inv[6]->name}} {{$inv[6]->cost}}$" data-toggle="confirmation">Купить</a></li>
