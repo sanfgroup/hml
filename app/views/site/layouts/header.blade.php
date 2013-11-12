@@ -117,8 +117,7 @@
 
         </nav>
     </header>
-    <div style="position: fixed; bottom:0px;left: 0;width: 100%;z-index: 100000;background: #fff;text-align: center;">
-        <h4>СЕГОДНЯ, 11 НОЯБРЯ В 18.00 МСК БУДЕТ КОНФЕРЕНЦИЯ ПО ПРОЕКТУ MYHAPPYLINES!
-            ССЫЛКА НА КОНФЕРЕНЦИЮ <a href="http://www.gvolive.com/conference,myhappylines">http://www.gvolive.com/conference,myhappylines</a></h4>
+    <div style="position: fixed; box-shadow: 0px -1px 4px rgba(0,0,0,0.3); bottom:0px;left: 0;width: 100%;z-index: 100000;background: #fff;text-align: center;">
+        <h4>Открытие лимитов на тарифные линии происходит каждый день в 12.30 МСК и в 19.30 МСК</h4>
     </div>
     <!-- header END -->

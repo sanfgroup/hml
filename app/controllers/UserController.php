@@ -96,20 +96,20 @@ class UserController extends BaseController {
         return Redirect::route('home');
     }
     public function userProfile(){
-            $usid = $this->user->id;
-            $user = User::find($usid);
-            $logref = $this->user->referral()->first();
+        $usid = $this->user->id;
+        $user = User::find($usid);
+        $logref = $this->user->referral()->first();
 
-            if($logref != null)
-                $data['logref'] = $logref->username;
-            else
-                $data['logref']='';
+        if($logref != null)
+            $data['logref'] = $logref->username;
+        else
+            $data['logref']='';
 
-            $data['user'] = $user;
+        $data['user'] = $user;
         if (Input::server("REQUEST_METHOD") == "POST") {
             if (Input::get('old_password')!='' && Hash::check(Input::get('old_password'), $this->user->getAuthPassword()) && Input::get('new_password')!=''){
                 $pass = Input::get('new_password');
-               $user->password = Hash::make($pass);
+                $user->password = Hash::make($pass);
                 $data['message'] = '<div style="background: rgba( 0, 255, 0, 0.3); padding: 10px;, border: 1px solid #B5DDAF; border-radius: 5px;">Пароль успешно изменен</div>';
 
             }
@@ -124,7 +124,7 @@ class UserController extends BaseController {
             $user->okpay = Input::get('okpay');
             $user->save();
         }
-            return View::make('site.user.profile', $data);
+        return View::make('site.user.profile', $data);
     }
     public function userReferal(){
         \Cache::flush();
@@ -136,62 +136,54 @@ class UserController extends BaseController {
             $data['l2'] += $v->referral()->remember(10)->count();
         }
         $data['ref'] = $this->user->referral()->remember(10)->paginate(4);
-       return View::make('site.user.referal', $data);
+        return View::make('site.user.referal', $data);
     }
 
     public function postRecovery() {
-
         $rule =  array('captcha' => array('required', 'captcha:3'));
         $validator = Validator::make(Input::all(), $rule);
 //        dd($validator->passes());
         if ($validator->passes()) {
-            $credentials = array(
-                "email" => Input::get("email")
-            );
-            Password::remind($credentials,
-                function($message, $user)
-                {
-                    $message->with($user);
-                    $message->subject('Восстановление пароля');
-                }
-            );
-            $data["requested"] = true;
-            return Redirect::route("home")
-                ->with('status', 'На почту отправлена инструкция по восстановлению пароля');
+            $user = User::where('email', Input::get('email'))->first();
+            $pass = Str::random(6);
+            $user->password = Hash::make($pass);
+            $user->save();
+            $data['login'] = $user->username;
+            $data['email'] = $user->email;
+            $data['pass'] = $pass;
+            $data['fio'] = $user->fio;
+            Mail::send('emails.auth.reset', $data, function($message) use ($data)
+            {
+                $message->to($data['email'], $data['fio'])->subject('Новый пароль!');
+            });
+            return Redirect::route("home")->with('status', 'На почту отправлены новые данные для входа');
         }
         elseif($validator->fails()){
             return Redirect::route('home')->with('flash_login', 'Неверная captcha!');
-        } else {
-            return Redirect::route('home')->with('flash_login', 'Неверный логин или пароль!');
         }
     }
-
+/*
     public function passwordReset($token, $email) {
         $validator = Validator::make(Input::all(), array(
             "token"                 => "exists:token,token"
         ));
-        if ($validator->passes())
-        {
-            $credentials = array(
-                "email" => $email
-            );
-            Password::reset($credentials,
-                function($user, $password)
-                {
-                    $pass = Str::random(6);
-                    $user->password = Hash::make($pass);
-                    $user->save();
-                    $data['login'] = $user->username;
-                    $data['pass'] = $pass;
-                    $data['fio'] = $user->fio;
-                    Mail::send('emails.auth.reset', $data, function($message) use ($data)
-                    {
-                        $message->to($data['email'], $data['fio'])->subject('Реферальное вознаграждение!');
-                    });
-                    Auth::login($user);
-                    return Redirect::route("user.profile");
-                }
-            );
+        if ($validator->passes()){
+            $tok = Token::where('token', $token)->first();
+
+            $user = User::where('email', $tok->email)->first();
+            $pass = Str::random(6);
+            $user->password = Hash::make($pass);
+            $user->save();
+            $data['login'] = $user->username;
+            $data['email'] = $user->email;
+            $data['pass'] = $pass;
+            $data['fio'] = $user->fio;
+            $tok->delete();
+            Mail::send('emails.auth.reset', $data, function($message) use ($data)
+            {
+                $message->to($data['email'], $data['fio'])->subject('Новый пароль!');
+            });
         }
-    }
-} 
+        return Redirect::route("home")->with('status', 'На почту отправлены новые данные для входа');
+    }*/
+}

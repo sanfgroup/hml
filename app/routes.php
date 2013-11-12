@@ -27,9 +27,9 @@ Route::group(array('before' => 'secure'), function()
     Route::post('user/registration', array('uses'=>'UserController@postRegistration'));
     Route::get('user/login', array('as'=>'user.login', 'uses'=>'UserController@getLogin'));
     Route::post('user/login', array('uses'=>'UserController@postLogin'));
-    Route::post('user/recovery', array('as' => 'user.recovery','uses'=>'UserController@postRecovery'));
-    Route::post('user/reset/{token}/{email}', array('as' => 'password.reset','uses'=>'UserController@resetPassword'));
 });
+Route::post('user/recovery', array('as' => 'user.recovery','uses'=>'UserController@postRecovery'));
+Route::any('user/reset/{token}/{email?}', array('as' => 'password.reset','uses'=>'UserController@passwordReset'));
 Route::any('paysss', array('uses'=>'PayController@payin'));
 Route::group(array('before' => 'auth|secure'), function()
 {

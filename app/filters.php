@@ -28,31 +28,21 @@ App::error(function(InvalidUserException $exception)
 {
     Log::error($exception);
 
-    Mail::queue('emails.test', array('username'=>print_r($exception,true)),function($m) {
-        $m->to('vinnizp@ya.ru');
-    });
-
-    return Redirect::to('/')->with('status','Внутренняя ошибка сервиса.');
+    return Redirect::to('/');
 });
 
 App::error(function(RuntimeException $exception)
 {
     Log::error($exception);
 
-    Mail::queue('emails.test', array('username'=>print_r($exception,true)),function($m) {
-        $m->to('vinnizp@ya.ru');
-    });
-
-    return Redirect::to('/')->with('status','Внутренняя ошибка сервиса.');
+    return Redirect::to('/');
 });
 
 App::missing(function($exception)
 {
 
-    Mail::queue('emails.test', array('username'=>print_r($exception,true)),function($m) {
-        $m->to('vinnizp@ya.ru');
-    });
-    return Redirect::to('/')->with('status','Внутренняя ошибка сервиса.');
+    Log::error($exception);
+    return Redirect::to('/');
 });
 
 /*

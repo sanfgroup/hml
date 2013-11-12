@@ -7,4 +7,5 @@
 <div style="padding: 10px; background: #efefef;">{{$review->content}}</div>
 
 @endforeach
+{{$reviews->links()}}
 @stop

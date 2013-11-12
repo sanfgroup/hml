@@ -7,7 +7,7 @@
 		<h2>Восстановление пароля</h2>
 
 		<div>
-			Для восстановления пароля, перейдите по ссылке: {{ URL::to('password.reset', array($token, urlencode($email))) }}.
+			Для восстановления пароля, перейдите по ссылке: {{ URL::route('password.reset', array($token, urlencode($email))) }}.
 		</div>
 	</body>
 </html>

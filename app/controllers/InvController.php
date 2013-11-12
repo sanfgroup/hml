@@ -53,9 +53,8 @@ class InvController extends BaseController {
                 $data['email'] = $user->email;
                 $data['fio'] = $user->fio;
                 $ref = $user->mr;
-                $r2 = $ref->username;
                 if(isset($ref->username)) {
-                    $data['referal'] = $user->username;
+                    $data['referal'] = $ref;
                     $data['summa'] = $inv->cost*0.07;
                     Mail::send('emails.referal', $data, function($message) use ($data)
                     {
@@ -72,7 +71,7 @@ class InvController extends BaseController {
                     $data['fio'] = $user->fio;
                     $ref = $ref->mr;
                     if(isset($ref->username)) {
-                        $data['referal'] = $r2;
+                        $data['referal'] = $ref;
                         $data['summa'] = $inv->cost*0.03;
                         Mail::send('emails.referal', $data, function($message) use ($data)
                         {
