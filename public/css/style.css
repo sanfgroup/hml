@@ -1838,3 +1838,18 @@ table.lscl tr:last-child td{
 #take input, #takeok input, #solidtrustpay input{
     visibility: hidden;
 }
+a.chat{
+    display: block;
+    text-align: center;
+    background: rgba(255,255,255,0.1);
+
+    border-radius: 10px;
+}
+a.chat:hover{
+    background: rgba(255,255,255, 0.34);
+}
+a.chat h3{
+    margin-top: 0;
+    font-family: "Georgia";
+    color: #626262;
+}

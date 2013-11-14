@@ -48,7 +48,10 @@
     @if(!isset($v->user->username))
     <td>Deleted</td>
     @else
-    <td>{{$v->user->username}}</td>
+    <td>
+        <span>{{$v->user->username}}</span>
+        <p style="font-size: 10px "><a href="{{URL::route('admin.tickets', array($v->user->id))}}">Написать пользователю</a></p>
+    </td>
     @endif
         <td>{{$v->summas}}</td>
         <td>{{$v->to}}</td>
