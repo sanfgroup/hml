@@ -65,7 +65,13 @@ class AdminStatisticController extends \BaseController {
 
     public function process() {
         $input = \Input::all();
-        switch($input['type']) {
+        $i = \Inv::find($input['type']);
+        if($i != null) {
+            $i->limit = $input['count'];
+            $i->save();
+        }
+        return \Redirect::back()->with('status', 'Лимит установлен');
+        /*switch($input['type']) {
             case 'l5':
                 $t = 'Linear5';
                 $s=5;
@@ -92,8 +98,7 @@ class AdminStatisticController extends \BaseController {
                 'description' => ''
             ));
             \Cache::flush();
-        }
-        return \Redirect::back()->with('status', 'Вы успешно проталкнули очередь на '.$count.' человек');
+        }*/
     }
 
 }

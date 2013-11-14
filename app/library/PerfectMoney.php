@@ -22,7 +22,7 @@ class PerfectMoney {
     public function pay($amount, $account, $un = '') {
         $amount = round($amount,2);
         $pass = urlencode(self::password);
-        $out=file_get_contents("https://perfectmoney.is/acct/confirm.asp?AccountID={$this->login}&PassPhrase={$pass}&Payer_Account={$this->account}&Payee_Account={$account}&Amount={$amount}&PAY_IN=1&PAYMENT_ID=1&Memo=".urlencode("User: ".$un));
+        $out=file_get_contents("https://perfectmoney.is/acct/confirm.asp?AccountID={$this->login}&PassPhrase={$pass}&Payer_Account={$this->account}&Payee_Account={$account}&Amount={$amount}&PAY_IN=1&PAYMENT_ID=1&Memo=".urlencode("User: ".$un.' MyHappyLines'));
 //        print_r($out);
         if(!preg_match_all("/<input name='(.*)' type='hidden' value='(.*)'>/", $out, $result, PREG_SET_ORDER)){
             return false;

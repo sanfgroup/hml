@@ -20,7 +20,8 @@ class InvController extends BaseController {
         if($inv != null && $inv->limit > 0) {
             $user = $this->user;
             if($user->balance >= $inv->cost) {
-                $inv->limit--;
+                $inv->limit = Inv::find($id)->limit - 1;
+                $inv->save();
                 $user->buys()->create(array(
                     'inv_id' => $id,
                     'col'=> 0
@@ -36,7 +37,6 @@ class InvController extends BaseController {
                     $message->to($data['email'], $data['fio'])->subject('Приобретение линейки тарифа '.$data['name'].'!');
                 });
                 Session::put('buy', time());
-                $inv->save();
                 $user->balance()->create(array(
                     'summa' => -$inv->cost,
                     'description' => 'Оплата тарифа '.$inv->name.' '.$inv->cost.'$'
