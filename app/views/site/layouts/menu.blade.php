@@ -2,11 +2,7 @@
 <menu class="left">
     <li class="l1"><a href="{{URL::route('home')}}">ГЛАВНАЯ</a></li>
     <li class="l2">
-        <a href="#">МАРКЕТИНГ</a>
-        <ul>
-            <li><a href="{{URL::route('marketing.inv')}}">Инвестиционный</a></li>
-            <li><a href="{{URL::route('marketing.linear')}}">Линейный</a></li>
-        </ul>
+        <a href="{{URL::route('marketing.inv')}}">МАРКЕТИНГ</a>
     </li>
     <li class="l3"><a href="{{URL::route('faq')}}">FAQ</a></li>
     <li class="l4"><a href="{{URL::route('rulers')}}">СОГЛАШЕНИЕ</a></li>
@@ -23,11 +19,7 @@
         <a href="{{URL::route('user.profile')}}">ПРОФИЛЬ</a>
     </li>
     <li class="l3">
-        <a href="#">ЛИЧНЫЙ КАБИНЕТ</a>
-        <ul>
-            <li><a href="{{URL::route('private.inv')}}">Инвестиционный</a></li>
-            <li><a href="{{URL::route('private.linear')}}">Линейный</a></li>
-        </ul>
+        <a href="{{URL::route('private.inv')}}">ЛИЧНЫЙ КАБИНЕТ</a>
     </li>
     <li class="l4"><a href="{{URL::route('user.deposites')}}">ДЕПОЗИТЫ</a></li>
 </menu>
