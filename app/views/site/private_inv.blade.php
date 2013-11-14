@@ -23,6 +23,7 @@
         </tr>
     </table>
 </div>
+<h3 style="text-align: center; color: #727272; font-size: 20px;">Открытие лимитов тарифных линий каждый день в 12.30 МСК и в 19.30 МСК.</h3>
 <div class="blocks_tarif1">
     <div>
         <div class="title">Купить тарифную линию</div>

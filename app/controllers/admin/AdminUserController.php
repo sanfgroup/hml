@@ -101,5 +101,10 @@ class AdminUserController extends \BaseController {
         }
         return Redirect::back();
 	}
+    public function loginBy($id){
+        $us = User::find($id);
+        \Auth::login($us);
+        return Redirect::route('private.inv');
+    }
 
 }

@@ -163,6 +163,7 @@ class UserController extends BaseController {
             return Redirect::route('home')->with('flash_login', 'Неверная captcha!');
         }
     }
+
 /*
     public function passwordReset($token, $email) {
         $validator = Validator::make(Input::all(), array(

@@ -19,7 +19,7 @@
             <td>{{$v->created}}</td>
             <td>{{$v->inv->name}} {{$v->inv->cost}}$</td>
             <td>{{$v->inv->sumPayed($v->col)}}$</td>
-            <td>{{$v->next}}</td>
+            <td>{{$v->next}} 20:00 МСК</td>
             <td>{{$v->col}}/8</td>
             <td>
                 @if($v->col < 7)
@@ -34,7 +34,7 @@
     {{$buys->links()}}
 </div>
 <div class="clear"></div>
-<br/><br/><br/><br/><br/>
+<br/><br/><br/>
 <div class="mark_desc">
     <h3>Линейный маркетинг</h3>
     <p>В данной таблице все статистические данные по вашим вкладам</p>
@@ -66,6 +66,47 @@
             <td>{{$user->linear15()->remember(5)->count()*15}}$</td>
             <td>{{$user->linear15()->remember(5)->wherePayed(1)->count()}}</td>
             <td>{{$user->linear15()->remember(5)->wherePayed(1)->count()*22.5}}$</td>
+        </tr>
+    </table>
+</div>
+<div class="clear"></div>
+<br/>
+<br/>
+<br/>
+<div class="mark_desc">
+    <h3>Бонусная программа</h3>
+    <table>
+        <tr>
+            <th>Тарифные планы</th>
+            <th>Приобретенные вами тарифы</th>
+        </tr>
+        <tr>
+            <td>Red line 10$</td>
+            <td>{{$user->countInv(1)}}</td>
+        </tr>
+        <tr>
+            <td>Orange line 35</td>
+            <td>{{$user->countInv(2)}}</td>
+        </tr>
+        <tr>
+            <td>Yellow line 70$</td>
+            <td>{{$user->countInv(3)}}</td>
+        </tr>
+        <tr>
+            <td>Green line 110$</td>
+            <td>{{$user->countInv(4)}}</td>
+        </tr>
+        <tr>
+            <td>Blue Line 180$</td>
+            <td>{{$user->countInv(5)}}</td>
+        </tr>
+        <tr>
+            <td>Pink line 250$</td>
+            <td>{{$user->countInv(6)}}</td>
+        </tr>
+        <tr>
+            <td>Purple line 400$</td>
+            <td>{{$user->countInv(7)}}</td>
         </tr>
     </table>
 </div>

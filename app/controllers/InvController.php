@@ -9,6 +9,8 @@
 class InvController extends BaseController {
 
     public function buy($id=0) {
+        $r=mt_rand(1,10);
+        usleep($r*10000);
         $s = Session::get('buy');
 //        dd(($id==0 || ($s != null && $s+5 < time())));
         if($id==0 || ($s != null && $s+10 >= time()))

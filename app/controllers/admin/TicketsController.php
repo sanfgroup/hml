@@ -19,7 +19,7 @@ class TicketsController extends \BaseController {
             $data['message1'] = Input::get('content');
             Mail::send('emails.answer', $data, function($message) use ($data)
             {
-                $message->to($data['email'], $data['name'])->subject('MyHappyLines');
+                $message->to($data['email'], $data['name'])->subject($data['item']);
                 return \Redirect::to('admin/user');
             });
         }

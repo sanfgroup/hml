@@ -83,6 +83,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->hasMany('InvBuy');
     }
 
+    public function countInv($id) {
+        return $this->buys()->where('inv_id', $id)->count();
+    }
+
     public function getL5posAttribute() {
         $arr = array();
         $count = Linear5::wherePayed(1)->remember(1)->count();
