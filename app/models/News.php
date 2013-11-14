@@ -7,9 +7,8 @@ class News extends Eloquent {
 	protected $softDelete = false;
 
     function getShortAttribute() {
-        $string = $this->content;
-        $words=explode("</p>",$string);
-        return $words[0]."</p>";
+        $string = strip_tags($this->content);
+        return preg_match("/^((\S+\s+){35})/s", $string, $m) ? "<p>{$m[1]}</p>" . '...' : $string;
     }
 
 }

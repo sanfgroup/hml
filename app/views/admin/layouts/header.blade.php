@@ -11,6 +11,8 @@
     <script src="/js/bootstrap-formhelpers.min.js"></script>
     <script src="/js/chosen.jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootbox.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/editor.css"/>
+    <script src="/js/editor.js"></script>
     <title>Админка</title>
 </head>
 <body>

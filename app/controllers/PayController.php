@@ -18,7 +18,7 @@ class PayController extends BaseController {
     public function pay() {
         $i = Input::all();
         if(empty($i['system']))
-            return Redirect::back()->with('status', 'Заполните, пожалуйста, ваш профиль, для заказа выплаты или выберите другую платёжную систему.');
+            return Redirect::back()->with('status', 'Для заказа выплаты заполните, пожалуйста, ваш профиль или выберите другую платёжную систему.');
         if($this->user->balance < ($i['summ']))
             return Redirect::back()->with('status', 'Недостаточно денег на балансе.');
         if($i['summ'] >= 1) {

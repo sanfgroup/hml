@@ -4,6 +4,7 @@
 <div class="row">
     <h1>Протолкнуть очередь</h1>
     <div class="row">
+        <!--
         <div class="col-xs-3">
             Light 5$
             {{ Form::open(array('url' => 'admin/statistic/process')) }}
@@ -28,6 +29,18 @@
             <input class="btn btn btn-primary" type="submit"/>
             {{Form::close()}}
         </div>
+        -->
+        @foreach(Inv::all() as $v)
+        <div class="col-xs-2">
+            {{$v->name}} {{$v->cost}}
+            {{ Form::open(array('url' => 'admin/statistic/process')) }}
+            <input type="hidden" name="type" value='{{$v->id}}'/>
+            Доcтупно лимитов
+            <input type="text" name="count" class="form-control" value="{{$v->limit}}"/>
+            <input class="btn btn btn-primary" type="submit"/>
+            {{Form::close()}}
+        </div>
+        @endforeach
     </div>
     <br/><br/><br/><br/>
     {{ Form::open(array('url' => 'admin/statistic')) }}

@@ -11,7 +11,7 @@
 <!--                20 сентября 2013, 19:58-->
                 {{$v->created_at}}
             </div>
-            <h3>{{$v->title}}</h3>
+            <h3 style="font-weight: bold;">{{$v->title}}</h3>
             <div class="post_description">
                 {{$v->short}}
                 <a href="{{URL::route('news.detail', array($v->id))}}" class="read_more">Читать полностью ...</a>
