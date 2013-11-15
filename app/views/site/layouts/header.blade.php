@@ -63,6 +63,11 @@
         update_clock();
         setInterval('serverclock()',1000);
     </script>
+    <script>
+        $(document).ready(function(){
+            setTimeout(function() {window.location.reload();}, 15*60*1000);
+        });
+    </script>
 </head>
 <body>
 <div class="wrapper">
