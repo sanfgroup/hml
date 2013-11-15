@@ -52,12 +52,12 @@ class InvController extends BaseController {
                 $b->description = 'Начисление по тарифу '.$inv->name;
                 $b->save();
 
-                $data['email'] = $user->email;
-                $data['fio'] = $user->fio;
-                $ref = $user->mr;
+                $ref = $user->referral;
                 if(isset($ref->username)) {
-                    $data['referal'] = $ref;
+                    $data['referal'] = $user->username;
                     $data['summa'] = $inv->cost*0.07;
+                    $data['email'] = $ref->email;
+                    $data['fio'] = $ref->fio;
                     Mail::send('emails.referal', $data, function($message) use ($data)
                     {
                         $message->to($data['email'], $data['fio'])->subject('Реферальное вознаграждение!');
@@ -69,17 +69,17 @@ class InvController extends BaseController {
                         'description' => 'Начисление от реферала '.$user->username
                     ));
                     $id = $ref->id;
-                    $data['email'] = $user->email;
-                    $data['fio'] = $user->fio;
-                    $ref = $ref->mr;
-                    if(isset($ref->username)) {
-                        $data['referal'] = $ref;
+                    $ref2 = $ref->referral;
+                    if(isset($ref2->username)) {
+                        $data['email'] = $ref2->email;
+                        $data['fio'] = $ref2->fio;
+                        $data['referal'] = $ref->username;
                         $data['summa'] = $inv->cost*0.03;
                         Mail::send('emails.referal', $data, function($message) use ($data)
                         {
                             $message->to($data['email'], $data['fio'])->subject('Реферальное вознаграждение!');
                         });
-                        $ref->balance()->create(array(
+                        $ref2->balance()->create(array(
                             'summa' => round($inv->cost*0.03,2),
                             'referal_id' => $id,
                             'description' => 'Начисление от реферала '.$user->username

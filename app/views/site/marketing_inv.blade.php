@@ -117,14 +117,14 @@
         <tr>
             <td>Orange line</td>
             <td>35$</td>
-            <td>12$</td>
-            <td>9$</td>
-            <td>9$</td>
-            <td>4,5$</td>
-            <td>4,5$</td>
-            <td>4,5$</td>
-            <td>4,5$</td>
-            <td>4,5$</td>
+            <td>14$</td>
+            <td>10,5$</td>
+            <td>10,5$</td>
+            <td>5,25$</td>
+            <td>5,25$</td>
+            <td>5,25$</td>
+            <td>5,25$</td>
+            <td>5,25$</td>
             <td>61,25$</td>
         </tr>
         <tr>
