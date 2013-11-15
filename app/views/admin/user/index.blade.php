@@ -31,12 +31,10 @@
 
     @foreach($users as $user)
     <tr>
-        <td>
-            {{$user->id}}
-        </td>
+        <td>{{$user->id}}</td>
         <td>
             {{$user->fio}}
-            <p><a href="{{URL::route('admin.login_by', array($user->id))}}">Войти как пользователь</a></p>
+<!--            <p><a href="{{URL::route('admin.login_by', array($user->id))}}">Войти как пользователь</a></p>-->
         </td>
         <td><a href="/admin/balance/{{$user->id}}">{{$user->username}}</a></td>
         <td><a href="{{URL::route('admin.tickets', array($user->id))}}">{{$user->email}}</a></td>

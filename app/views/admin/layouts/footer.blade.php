@@ -19,7 +19,7 @@
             toggle:{text:'source',activetext:'wysiwyg',cssclass:'toggle'}, // (optional) toggle to markup view options
             resize:{cssclass:'resize'} // (optional) display options for the editor resize
         });
-        $('select').chosen();
+
         $('form button, form input[type=submit].pay, form input[type=submit].delete, form input[type=submit].payed').click(function(e) {
             e.preventDefault();
             var b = $(this)

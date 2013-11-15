@@ -9,8 +9,13 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootstrap-formhelpers.min.js"></script>
-    <script src="/js/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="/js/chosen.jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootbox.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('select').chosen();
+        });
+    </script>
     <link rel="stylesheet" type="text/css" href="/css/editor.css"/>
     <script src="/js/editor.js"></script>
     <title>Админка</title>
