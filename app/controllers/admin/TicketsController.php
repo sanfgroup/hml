@@ -71,12 +71,12 @@ class TicketsController extends \BaseController {
             $user = \User::all();
             foreach($user as $u) {
                 $data['fio'] = $u->fio;
-                $data['thread'] = Input::get('item');
+                $data['item'] = Input::get('item');
                 $data['messagetext'] = Input::get('content');
                 $data['email'] = $u->email;
                 Mail::later(20,'emails.alluser', $data, function($message) use ($data)
                 {
-                    $message->to($data['email'], $data['fio'])->subject('MyHappyLines');
+                    $message->to($data['email'], $data['fio'])->subject($data['item']);
                     $message->headers('Precedence', 'bulk');
                 });
             }

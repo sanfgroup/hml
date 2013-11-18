@@ -82,31 +82,31 @@
         </tr>
         <tr>
             <td>Red line 10$</td>
-            <td>0</td>
+            <td>0/70</td>
         </tr>
         <tr>
             <td>Orange line 35</td>
-            <td>0</td>
+            <td>0/35</td>
         </tr>
         <tr>
             <td>Yellow line 70$</td>
-            <td>0</td>
+            <td>0/20</td>
         </tr>
         <tr>
             <td>Green line 110$</td>
-            <td>0</td>
+            <td>0/15</td>
         </tr>
         <tr>
             <td>Blue Line 180$</td>
-            <td>0</td>
+            <td>0/12</td>
         </tr>
         <tr>
             <td>Pink line 250$</td>
-            <td>0</td>
+            <td>0/11</td>
         </tr>
         <tr>
             <td>Purple line 400$</td>
-            <td>0<!--{{$user->countInv(7)}}--></td>
+            <td>0/10<!--{{$user->countInv(7)}}--></td>
         </tr>
     </table>
 </div>
