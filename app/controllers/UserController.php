@@ -22,7 +22,7 @@ class UserController extends BaseController {
             'perfectmoney'          => 'Required',
             'skype'                 => 'Required',
             'password_confirmation' => 'Required|min:6',
-            'captcha'               => array('required', 'captcha:2'),
+//            'captcha'               => array('required', 'captcha:2'),
             'conf'                  => 'Required',
         );
         $v = Validator::make($input, $rules);
@@ -69,14 +69,14 @@ class UserController extends BaseController {
     }
 
     public function postLogin() {
-        $rule =  array('captcha' => array('required', 'captcha:1'));
-        $validator = Validator::make(Input::all(), $rule);
+//        $rule =  array('captcha' => array('required', 'captcha:1'));
+//        $validator = Validator::make(Input::all(), $rule);
         $user = array(
             'username' => Input::get('username'),
             'password' => Input::get('password'),
         );
 //        dd($validator->passes());
-        if ($validator->passes() && Auth::attempt($user)) {
+        if (Auth::attempt($user)) {
             return Redirect::route('private.inv');
         }
         elseif($validator->fails()){
